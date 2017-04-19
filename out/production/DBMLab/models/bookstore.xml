@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE model SYSTEM "../metamodels/model.dtd">
+<model name="Bookstore">
+    <class name="Author">
+        <attribute name="first_name" type="String" />
+        <attribute name="last_name" type="String" />
+        <attribute name="email" type="String" />
+    </class>
+    <class name="Book">
+        <attribute name="title" type="String" />
+        <attribute name="pubDate" type="Date" />
+        <attribute name="price" type="double" />
+        <attribute name="quantity" type="int" />
+        <foreignKey name="Author" />
+    </class>
+
+</model>

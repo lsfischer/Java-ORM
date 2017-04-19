@@ -1,0 +1,17 @@
+<!ELEMENT model (class+)>
+<!ATTLIST model
+    name CDATA #REQUIRED>
+
+<!ELEMENT class (attribute+, foreignKey*)>
+    <!ATTLIST class
+    name CDATA #REQUIRED>
+
+<!ELEMENT attribute EMPTY>
+    <!ATTLIST attribute
+    name CDATA #REQUIRED
+    type CDATA #REQUIRED>
+
+<!ELEMENT foreignKey EMPTY>
+    <!ATTLIST foreignKey
+    name CDATA #REQUIRED>
+
