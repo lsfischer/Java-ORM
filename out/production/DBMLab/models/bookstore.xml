@@ -11,7 +11,7 @@
         <attribute name="pubDate" type="Date" />
         <attribute name="price" type="double" />
         <attribute name="quantity" type="int" />
-        <foreignKey name="Author" type="N2N"/>
+        <foreignKey name="Author" type="12N"/>
     </class>
 
 </model>
