@@ -16,21 +16,20 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class ${name} {
+
     <#list attributes as attribute>
     private ${attribute.type} ${attribute.name};
     </#list>
     <#list foreignKeys as fkeys>
-
     <#if fkeys.relationshipType != '121'>
     private ArrayList<${fkeys.foreignClass.name}> ${fkeys.foreignClass.name?lower_case};
-
     <#else>
      private ${fkeys.foreignClass.name} ${fkeys.foreignClass.name?lower_case};
     </#if>
-
     </#list>
     private int id;
     SQLiteConn sqLiteConn = new SQLiteConn("src/${pkg}/${pkg}.db");
+
     // Empty constructor
     public ${name}() {
     }
@@ -48,14 +47,14 @@ public class ${name} {
 
     </#list>
     <#list foreignKeys as fkeys>
-        public ${fkeys.foreignClass.name} get${fkeys.foreignClass.name}() {
-            return ${fkeys.foreignClass.name?lower_case};
-        }
+    public ${fkeys.foreignClass.name} get${fkeys.foreignClass.name}() {
+        return ${fkeys.foreignClass.name?lower_case};
+    }
 
-        public void set${fkeys.foreignClass.name}(${fkeys.foreignClass.name} ${fkeys.foreignClass.name?lower_case}) {
-                this.${fkeys.foreignClass.name?lower_case} = ${fkeys.foreignClass.name?lower_case};
-        }
-        </#list>
+    public void set${fkeys.foreignClass.name}(${fkeys.foreignClass.name} ${fkeys.foreignClass.name?lower_case}) {
+        this.${fkeys.foreignClass.name?lower_case} = ${fkeys.foreignClass.name?lower_case};
+    }
+    </#list>
     public int getId() {
         return this.id;
     }

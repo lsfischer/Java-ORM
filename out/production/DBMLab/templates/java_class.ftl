@@ -20,14 +20,11 @@ public class ${name} {
     private ${attribute.type} ${attribute.name};
     </#list>
     <#list foreignKeys as fkeys>
-
     <#if fkeys.relationshipType != '121'>
     private ArrayList<${fkeys.foreignClass.name}> ${fkeys.foreignClass.name?lower_case};
-
     <#else>
      private ${fkeys.foreignClass.name} ${fkeys.foreignClass.name?lower_case};
     </#if>
-
     </#list>
     private int id;
     SQLiteConn sqLiteConn = new SQLiteConn("src/${pkg}/${pkg}.db");
@@ -45,8 +42,8 @@ public class ${name} {
     public void set${attribute.name?lower_case?cap_first}(${attribute.type} ${attribute.name}) {
         this.${attribute.name} = ${attribute.name};
     }
-    </#list>
 
+    </#list>
     <#list foreignKeys as fkeys>
         public ${fkeys.foreignClass.name} get${fkeys.foreignClass.name}() {
             return ${fkeys.foreignClass.name?lower_case};
@@ -56,7 +53,6 @@ public class ${name} {
                 this.${fkeys.foreignClass.name?lower_case} = ${fkeys.foreignClass.name?lower_case};
         }
         </#list>
-
     public int getId() {
         return this.id;
     }
@@ -75,7 +71,6 @@ public class ${name} {
             setId(idPerson);
         }
     }
-
 
     public void delete(){
         if(this.id >= 1){
@@ -156,3 +151,5 @@ public class ${name} {
             return list;
     }
 }
+
+
