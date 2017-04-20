@@ -31,14 +31,13 @@ CREATE TABLE ${class.name}_${fk.foreignClass.name} (
 </#list>
 </#list>
 
-
-->>>>>>>>>>>>>>>>>BACKUP<<<<<<<<<<<<<<<<<<<<<<<<-
 <#list classes as class>
     <#compress>
     <#list class.foreignKeys as fk>
         <#assign name = fk.foreignClass.name?lower_case + "_id">
-        /* Add field ${name} */
-        ALTER TABLE ${class.name} ADD COLUMN ${name} INTEGER REFERENCES ${fk.foreignClass.name} (id);
+        ALTER TABLE ${class.name}_${fk.foreignClass.name} ADD FOREIGN KEY (${class.name?lower_case}_id) REFERENCES ${class.name}(id);
+        ALTER TABLE ${class.name}_${fk.foreignClass.name} ADD FOREIGN KEY (${fk.foreignClass.name?lower_case}_id) REFERENCES ${fk.foreignClass.name}(id);
     </#list>
     </#compress>
 </#list>
+

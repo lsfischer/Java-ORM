@@ -20,11 +20,24 @@ CREATE TABLE ${class.name} (
 </#list>
 
 <#list classes as class>
+<#list class.foreignKeys as fk>
+<#assign name = fk.foreignClass.name?lower_case + "_id">
+/* Creating relation table */
+CREATE TABLE ${class.name}_${fk.foreignClass.name} (
+   id INTEGER PRIMARY KEY,
+   ${class.name?lower_case}_id INTEGER,
+   ${fk.foreignClass.name?lower_case}_id INTEGER
+);
+</#list>
+</#list>
+
+<#list classes as class>
     <#compress>
     <#list class.foreignKeys as fk>
-        <#assign name = fk.name?lower_case + "_id">
-        /* Add field ${name} */
-        ALTER TABLE ${class.name} ADD COLUMN ${name} INTEGER REFERENCES ${fk.name} (id);
+        <#assign name = fk.foreignClass.name?lower_case + "_id">
+        ALTER TABLE ${class.name}_${fk.foreignClass.name} ADD FOREIGN KEY (${class.name?lower_case}_id) REFERENCES ${class.name}(id);
+        ALTER TABLE ${class.name}_${fk.foreignClass.name} ADD FOREIGN KEY (${fk.foreignClass.name?lower_case}_id) REFERENCES ${fk.foreignClass.name}(id);
     </#list>
     </#compress>
 </#list>
+
