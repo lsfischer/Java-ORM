@@ -29,7 +29,6 @@ public class Main {
 
         // Test ORM
         //testORM();
-        //Eu amo-te muitooooo <3
         // LAB 6
         Model model = Model2Model.getModel("src/models/bookstore.xml");
         buildModel(model);
