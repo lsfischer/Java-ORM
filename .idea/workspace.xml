@@ -13,11 +13,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/metamodels/model.dtd" afterPath="$PROJECT_DIR$/out/production/DBMLab/metamodels/model.dtd" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/models/bookstore.xml" afterPath="$PROJECT_DIR$/out/production/DBMLab/models/bookstore.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/templates/java_class.ftl" afterPath="$PROJECT_DIR$/out/production/DBMLab/templates/java_class.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/metamodels/model.dtd" afterPath="$PROJECT_DIR$/src/metamodels/model.dtd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/bookstore.xml" afterPath="$PROJECT_DIR$/src/models/bookstore.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/java_class.ftl" afterPath="$PROJECT_DIR$/src/templates/java_class.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utils/transformations/Model2Model.java" afterPath="$PROJECT_DIR$/src/utils/transformations/Model2Model.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -80,8 +75,8 @@
       <file leaf-file-name="java_class.ftl" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/templates/java_class.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="43" column="49" lean-forward="true" selection-start-line="43" selection-start-column="49" selection-end-line="43" selection-end-column="49" />
+            <state relative-caret-position="81">
+              <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -817,7 +812,14 @@
       <option name="project" value="LOCAL" />
       <updated>1492684778636</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Update ftl with Relation metamodel">
+      <created>1492685743132</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1492685743132</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView">
@@ -879,7 +881,8 @@
     <MESSAGE value="Added Relation metamodel" />
     <MESSAGE value="update" />
     <MESSAGE value="Completed Relation metamodel" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completed Relation metamodel" />
+    <MESSAGE value="Update ftl with Relation metamodel" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update ftl with Relation metamodel" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1186,8 +1189,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/java_class.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="43" column="49" lean-forward="true" selection-start-line="43" selection-start-column="49" selection-end-line="43" selection-end-column="49" />
+        <state relative-caret-position="81">
+          <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
           <folding />
         </state>
       </provider>
