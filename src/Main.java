@@ -22,13 +22,16 @@ public class Main {
 
     public static void main(String[] args) {
 
+        //HELLO LUCAS
+        
+
         // Build model
         //Model model = getPersonModel();
         //buildModel(model);
         //buildModel(getBookStoreModel());
 
         // Test ORM
-        //testORM();
+        testORM();
         // LAB 6
         Model model = Model2Model.getModel("src/models/bookstore.xml");
         buildModel(model);
