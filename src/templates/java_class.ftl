@@ -51,14 +51,23 @@ public class ${name} {
     public ArrayList<${fkeys.foreignClass.name}> get${fkeys.foreignClass.name}() {
         return ${fkeys.foreignClass.name?lower_case};
     }
+
     <#else>
     public ${fkeys.foreignClass.name} get${fkeys.foreignClass.name}() {
         return ${fkeys.foreignClass.name?lower_case};
     }
+
     </#if>
-    public void set${fkeys.foreignClass.name}(${fkeys.foreignClass.name} ${fkeys.foreignClass.name?lower_case}) {
-        this.${fkeys.foreignClass.name?lower_case} = ${fkeys.foreignClass.name?lower_case};
+    <#if fkeys.relationshipType != '121'>
+    public void add${fkeys.foreignClass.name}(${fkeys.foreignClass.name} ${fkeys.foreignClass.name?lower_case}) {
+        this.${fkeys.foreignClass.name?lower_case}.add(${fkeys.foreignClass.name?lower_case});
     }
+    <#else>
+    public void set${fkeys.foreignClass.name}(${fkeys.foreignClass.name} ${fkeys.foreignClass.name?lower_case}) {
+            this.${fkeys.foreignClass.name?lower_case} = ${fkeys.foreignClass.name?lower_case};
+        }
+    </#if>
+
     </#list>
     public int getId() {
         return this.id;

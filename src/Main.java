@@ -66,8 +66,8 @@ public class Main {
     public static void buildModel(Model model) {
         // Generate SQL tables
         Model2Text model2Text = new Model2Text("src/templates");
-        //String sqlTables = model2Text.render(model, "sqlite3_create.ftl");
-        //System.out.println(sqlTables);
+        String sqlTables = model2Text.render(model, "sqlite3_create.ftl");
+        System.out.println(sqlTables);
         //File f = new File("src/"+model.getName().toLowerCase());
         //f.mkdirs();
 
@@ -76,9 +76,9 @@ public class Main {
         //sqLiteConn.execute(sqlTables);
 
         // Generate Java classes
-        for (Class c : model.getClasses()) {
-            String javaClasses = model2Text.render(c, "java_class.ftl");
-            System.out.println(javaClasses);
+       // for (Class c : model.getClasses()) {
+       //     String javaClasses = model2Text.render(c, "java_class.ftl");
+       //     System.out.println(javaClasses);
             /*
             try {
                 File fout = new File("src/" + model.getName().toLowerCase() + "/" + c.getName() + ".java");
@@ -90,7 +90,7 @@ public class Main {
                 e.printStackTrace();
             }
             */
-        }
+       //  }
     }
 
     public static void testORM() {
