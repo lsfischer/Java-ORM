@@ -25,5 +25,4 @@ public class Relation {
         this.relationshipType = relationshipType;
     }
 
-
 }

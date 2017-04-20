@@ -9,6 +9,7 @@ import person.Person;
 import utils.sqlite.SQLiteConn;
 import utils.transformations.Model2Model;
 import utils.transformations.Model2Text;
+
 import java.util.ArrayList;
 
 public class Main {
@@ -18,12 +19,12 @@ public class Main {
         // Build model
         //Model model = getPersonModel();
         //buildModel(model);
-    //    buildModel(getBookStoreModel());
+        //buildModel(getBookStoreModel());
 
         // Test ORM
-      //  testORM();
+        //  testORM();
         // LAB 6
-       Model model = Model2Model.getModel("src/models/bookstore.xml");
+        Model model = Model2Model.getModel("src/models/bookstore.xml");
         buildModel(model);
     }
 
@@ -93,12 +94,13 @@ public class Main {
     }
 
     public static void testORM() {
+        /*
         Author a = Author.get(1);
         ArrayList<Book> bookList = a.getBooks();
         for (Book b : bookList) {
             System.out.println(b.getId() + "\t" + b.getTitle() + "\t" + b.getPrice() + "\t" + b.getPubDate() + "\t" + b.getQuantity());
         }
-        /*
+
         Person alfredo = new Person();
         alfredo.setName("Alfredo");
         alfredo.setAge(22);

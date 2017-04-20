@@ -24,7 +24,7 @@ public class ${name} {
     <#if fkeys.relationshipType != '121'>
     private ArrayList<${fkeys.foreignClass.name}> ${fkeys.foreignClass.name?lower_case};
     <#else>
-     private ${fkeys.foreignClass.name} ${fkeys.foreignClass.name?lower_case};
+    private ${fkeys.foreignClass.name} ${fkeys.foreignClass.name?lower_case};
     </#if>
     </#list>
     private int id;
@@ -47,10 +47,15 @@ public class ${name} {
 
     </#list>
     <#list foreignKeys as fkeys>
+    <#if fkeys.relationshipType != '121'>
+    public ArrayList<${fkeys.foreignClass.name}> get${fkeys.foreignClass.name}() {
+        return ${fkeys.foreignClass.name?lower_case};
+    }
+    <#else>
     public ${fkeys.foreignClass.name} get${fkeys.foreignClass.name}() {
         return ${fkeys.foreignClass.name?lower_case};
     }
-
+    </#if>
     public void set${fkeys.foreignClass.name}(${fkeys.foreignClass.name} ${fkeys.foreignClass.name?lower_case}) {
         this.${fkeys.foreignClass.name?lower_case} = ${fkeys.foreignClass.name?lower_case};
     }
