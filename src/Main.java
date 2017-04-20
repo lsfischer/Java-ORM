@@ -5,18 +5,10 @@ import metamodels.Attribute;
 import metamodels.Class;
 import metamodels.Model;
 import metamodels.Relation;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 import person.Person;
 import utils.sqlite.SQLiteConn;
 import utils.transformations.Model2Model;
 import utils.transformations.Model2Text;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import java.io.*;
 import java.util.ArrayList;
 
 public class Main {

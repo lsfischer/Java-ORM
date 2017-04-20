@@ -13,5 +13,6 @@
 
 <!ELEMENT foreignKey EMPTY>
     <!ATTLIST foreignKey
-    name CDATA #REQUIRED>
+    name CDATA #REQUIRED
+    type CDATA #REQUIRED>
 

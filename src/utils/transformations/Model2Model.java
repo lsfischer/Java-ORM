@@ -3,6 +3,7 @@ package utils.transformations;
 import metamodels.Attribute;
 import metamodels.Class;
 import metamodels.Model;
+import metamodels.Relation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -48,7 +49,8 @@ public class Model2Model {
                             }
                             if (childNode.getNodeName() == "foreignKey") {
                                 Class c = new Class(childNode.getAttributes().getNamedItem("name").getNodeValue());
-                                clazz.addForeignKey(c);
+                                Relation relation = new Relation(c, childNode.getAttributes().getNamedItem("type").getNodeValue());
+                                clazz.addForeignKey(relation);
                             }
                         }
                     }

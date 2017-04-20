@@ -20,7 +20,7 @@ public class ${name} {
     private ${attribute.type} ${attribute.name};
     </#list>
     <#list foreignKeys as fkeys>
-    private ${fkeys.name} ${fkeys.name?lower_case};
+    private ${fkeys.foreignClass.name} ${fkeys.foreignClass.name?lower_case};
     </#list>
     private int id;
     SQLiteConn sqLiteConn = new SQLiteConn("src/${pkg}/${pkg}.db");
@@ -40,15 +40,7 @@ public class ${name} {
     }
     </#list>
 
-    <#list foreignKeys as fkeys>
-    public ${fkeys.name} get${fkeys.name}() {
-        return ${fkeys.name?lower_case};
-    }
-
-    public void set${fkeys.name}(${fkeys.name} ${fkeys.name?lower_case}) {
-            this.${fkeys.name?lower_case} = ${fkeys.name?lower_case};
-    }
-    </#list>
+    
 
     public int getId() {
         return this.id;
