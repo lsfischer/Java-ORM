@@ -18,13 +18,13 @@ public class Main {
         // Build model
         //Model model = getPersonModel();
         //buildModel(model);
-        //buildModel(getBookStoreModel());
+        buildModel(getBookStoreModel());
 
         // Test ORM
-        testORM();
+      //  testORM();
         // LAB 6
-        Model model = Model2Model.getModel("src/models/bookstore.xml");
-        buildModel(model);
+      //  Model model = Model2Model.getModel("src/models/bookstore.xml");
+       // buildModel(model);
     }
 
     public static Model getPersonModel() {
@@ -65,8 +65,8 @@ public class Main {
     public static void buildModel(Model model) {
         // Generate SQL tables
         Model2Text model2Text = new Model2Text("src/templates");
-        String sqlTables = model2Text.render(model, "sqlite3_create.ftl");
-        System.out.println(sqlTables);
+        //String sqlTables = model2Text.render(model, "sqlite3_create.ftl");
+        //System.out.println(sqlTables);
         //File f = new File("src/"+model.getName().toLowerCase());
         //f.mkdirs();
 
