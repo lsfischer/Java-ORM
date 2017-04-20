@@ -6,7 +6,7 @@ import java.util.List;
 public class Class {
     private String name;
     private List<Attribute> attributes;
-    private List<Class> foreignKeys;
+    private List<Relation> foreignKeys;
     private String pkg;
 
     public Class(String name) {
@@ -32,11 +32,11 @@ public class Class {
         this.attributes = attributes;
     }
 
-    public List<Class> getForeignKeys() {
+    public List<Relation> getForeignKeys() {
         return foreignKeys;
     }
 
-    public void setForeignKeys(List<Class> foreignKeys) {
+    public void setForeignKeys(List<Relation> foreignKeys) {
         this.foreignKeys = foreignKeys;
     }
 
@@ -44,8 +44,8 @@ public class Class {
         this.attributes.add(attribute);
     }
 
-    public void addForeignKey(Class clazz) {
-        this.foreignKeys.add(clazz);
+    public void addForeignKey(Relation relation) {
+        this.foreignKeys.add(relation);
     }
 
     public String getPkg(){

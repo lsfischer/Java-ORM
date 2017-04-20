@@ -4,6 +4,7 @@ import com.sun.org.apache.xpath.internal.SourceTree;
 import metamodels.Attribute;
 import metamodels.Class;
 import metamodels.Model;
+import metamodels.Relation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -21,7 +22,7 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        
+
         // Build model
         //Model model = getPersonModel();
         //buildModel(model);
@@ -59,8 +60,10 @@ public class Main {
         book.addAttribute(new Attribute("pubDate", "String"));
         book.addAttribute(new Attribute("price", "double"));
         book.addAttribute(new Attribute("quantity", "int"));
-        book.addForeignKey(author);
         book.setPkg(model.getName().toLowerCase());
+
+        Relation newRelation = new Relation(author, "N2N");
+        book.addForeignKey(newRelation);
 
         model.addClass(author);
         model.addClass(book);
