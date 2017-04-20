@@ -54,7 +54,7 @@ public class Main {
         book.addAttribute(new Attribute("quantity", "int"));
         book.setPkg(model.getName().toLowerCase());
 
-        Relation newRelation = new Relation(author, "N2N");
+        Relation newRelation = new Relation(author, "12N");
         book.addForeignKey(newRelation);
 
         model.addClass(author);

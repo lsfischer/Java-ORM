@@ -45,7 +45,7 @@ public class ${name} {
             return ${fkeys.foreignClass.name?lower_case};
         }
 
-        public void set${fkeys.foreignKey.name}(${fkeys.foreignClass.name} ${fkeys.foreignClass.name?lower_case}) {
+        public void set${fkeys.foreignClass.name}(${fkeys.foreignClass.name} ${fkeys.foreignClass.name?lower_case}) {
                 this.${fkeys.foreignClass.name?lower_case} = ${fkeys.foreignClass.name?lower_case};
         }
         </#list>
