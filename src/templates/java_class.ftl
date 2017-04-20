@@ -20,7 +20,14 @@ public class ${name} {
     private ${attribute.type} ${attribute.name};
     </#list>
     <#list foreignKeys as fkeys>
-    private ${fkeys.foreignClass.name} ${fkeys.foreignClass.name?lower_case};
+
+    <#if fkeys.relationshipType != '121'>
+    private ArrayList<${fkeys.foreignClass.name}> ${fkeys.foreignClass.name?lower_case};
+
+    <#else>
+     private ${fkeys.foreignClass.name} ${fkeys.foreignClass.name?lower_case};
+    </#if>
+
     </#list>
     private int id;
     SQLiteConn sqLiteConn = new SQLiteConn("src/${pkg}/${pkg}.db");
