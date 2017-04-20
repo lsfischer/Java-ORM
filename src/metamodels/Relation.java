@@ -6,4 +6,5 @@ package metamodels;
 public class Relation {
     private Class foreignClass;
     private String relationshipType;
+    //teste
 }
