@@ -50,6 +50,7 @@ public class Model2Model {
 
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                 Class clazz = new Class(nNode.getAttributes().getNamedItem("name").getNodeValue());
+                clazz.setPkg(modelNode.getAttributes().getNamedItem("name").getNodeValue().toLowerCase());
                 clazz.addVariousAttributes(getAttributes(nNode));
                 clazz.addVariousRelations(getRelations(nNode));
                 classes.add(clazz);
