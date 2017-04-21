@@ -1,5 +1,6 @@
 package metamodels;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,6 +43,22 @@ public class Class {
 
     public void addAttribute(Attribute attribute) {
         this.attributes.add(attribute);
+    }
+
+    /**
+     * Adds a list of attributes to a class
+     * @param attributes
+     */
+    public void addVariousAttributes(ArrayList<Attribute> attributes){
+        this.attributes.addAll(attributes);
+    }
+
+    /**
+     * Adds a list of relations to a class
+     * @param relations
+     */
+    public void addVariousRelations(ArrayList<Relation> relations){
+        this.foreignKeys.addAll(relations);
     }
 
     public void addForeignKey(Relation relation) {

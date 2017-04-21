@@ -76,9 +76,9 @@ public class Main {
         //sqLiteConn.execute(sqlTables);
 
         // Generate Java classes
-       // for (Class c : model.getClasses()) {
-       //     String javaClasses = model2Text.render(c, "java_class.ftl");
-       //     System.out.println(javaClasses);
+       for (Class c : model.getClasses()) {
+          String javaClasses = model2Text.render(c, "java_class.ftl");
+          System.out.println(javaClasses);
             /*
             try {
                 File fout = new File("src/" + model.getName().toLowerCase() + "/" + c.getName() + ".java");
@@ -90,7 +90,7 @@ public class Main {
                 e.printStackTrace();
             }
             */
-       //  }
+       }
     }
 
     public static void testORM() {
@@ -156,52 +156,4 @@ public class Main {
         */
 
     }
-
-    /*
-    public static Model getModel(String filename) {
-        try {
-            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-            dbf.setValidating(true);
-            DocumentBuilder db = dbf.newDocumentBuilder();
-            Document document = db.parse(new File(filename));
-            // Get model node
-            Node modelNode = document.getDocumentElement();
-            String modelName = modelNode.getAttributes()
-                    .getNamedItem("name").getNodeValue();
-
-            NodeList nList = modelNode.getChildNodes();
-            Model model = new Model(modelName);
-            for (int i = 0; i < nList.getLength(); i++) {
-                Node nNode = nList.item(i);
-
-                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-                    Class clazz = new Class(nNode.getAttributes().getNamedItem("name").getNodeValue());
-                    NodeList classChilds = nNode.getChildNodes();
-
-                    for (int j = 0; j < classChilds.getLength(); j++) {
-                        Node childNode = classChilds.item(j);
-
-                        if (childNode.getNodeType() == Node.ELEMENT_NODE) {
-                            if (childNode.getNodeName() == "attribute") {
-                                String name = childNode.getAttributes().getNamedItem("name").getNodeValue();
-                                String type = childNode.getAttributes().getNamedItem("type").getNodeValue();
-                                Attribute attribute = new Attribute(name, type);
-                                clazz.addAttribute(attribute);
-                            }
-                            if (childNode.getNodeName() == "foreignKey") {
-                                Class c = new Class(childNode.getAttributes().getNamedItem("name").getNodeValue());
-                                clazz.addForeignKey(c);
-                            }
-                        }
-                    }
-                    model.addClass(clazz);
-                }
-            }
-            return model;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-    */
 }

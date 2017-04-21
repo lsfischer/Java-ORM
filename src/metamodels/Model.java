@@ -31,4 +31,12 @@ public class Model {
     public void addClass(Class clazz) {
         this.classes.add(clazz);
     }
+
+    /**
+     * Adds a list of classes to a model
+     * @param classes
+     */
+    public void addVariousClasses(ArrayList<Class> classes){
+        this.classes.addAll(classes);
+    }
 }
