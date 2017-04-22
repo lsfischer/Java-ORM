@@ -19,13 +19,13 @@ public class Main {
         // Build model
         //Model model = getPersonModel();
         //buildModel(model);
-        //buildModel(getBookStoreModel());
+        buildModel(getBookStoreModel());
 
         // Test ORM
         //  testORM();
         // LAB 6
-        Model model = Model2Model.getModel("src/models/bookstore.xml");
-        buildModel(model);
+       // Model model = Model2Model.getModel("src/models/bookstore.xml");
+       // buildModel(model);
     }
 
     public static Model getPersonModel() {
@@ -55,8 +55,13 @@ public class Main {
         book.addAttribute(new Attribute("quantity", "int"));
         book.setPkg(model.getName().toLowerCase());
 
-        Relation newRelation = new Relation(author, "12N");
-        book.addForeignKey(newRelation);
+        ///TODO Melhorar esta parte. Por convençao deixei que N2N ele cria a tabela relacional, se deixares o relationshipType a 1 ele cria somente uma foreign key
+        Relation newRelation1 = new Relation(author, "N2N"); //isto passa a deixar de ser necessario, porque
+        book.addForeignKey(newRelation1);                                 //a informaçao dos autores do livro esta na tabela autores, basta
+                                                                          //fazer uma query a tabela autores
+
+       // Relation newRelation2 = new Relation(book, "1");
+       // author.addForeignKey(newRelation2);
 
         model.addClass(author);
         model.addClass(book);
@@ -64,6 +69,9 @@ public class Main {
     }
 
     public static void buildModel(Model model) {
+
+
+
         // Generate SQL tables
         Model2Text model2Text = new Model2Text("src/templates");
         String sqlTables = model2Text.render(model, "sqlite3_create.ftl");
@@ -73,10 +81,10 @@ public class Main {
 
         SQLiteConn sqLiteConn = new SQLiteConn("src/" + model.getName().toLowerCase() + "/" + model.getName().toLowerCase() + ".db");
         //Already executed
-        sqLiteConn.execute(sqlTables);
+        //sqLiteConn.execute(sqlTables);
 
         // Generate Java classes
-      /* for (Class c : model.getClasses()) {
+       /* for (Class c : model.getClasses()) {
           String javaClasses = model2Text.render(c, "java_class.ftl");
           System.out.println(javaClasses);
             /*
@@ -90,7 +98,7 @@ public class Main {
                 e.printStackTrace();
             }
             */
-       //}
+        //}
     }
 
     public static void testORM() {
