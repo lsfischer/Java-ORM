@@ -152,6 +152,7 @@ public class Author {
     }
 
      public ArrayList<Book> getBooks(){
+        //TODO Fazer alguma coisa com isto
         ArrayList<Book> list = new ArrayList<>();
         //String sql = "SELECT * FROM Book Where id = "+this.bookID;
         return list;

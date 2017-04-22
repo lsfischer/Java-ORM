@@ -5,13 +5,9 @@
     <bookmark url="file://$PROJECT_DIR$/src/utils/transformations/Model2Text.java" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="362a2e9b-8028-44a0-b85b-21b753214301" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/Main.class" afterPath="$PROJECT_DIR$/out/production/DBMLab/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/bookstore/Author.class" afterPath="$PROJECT_DIR$/out/production/DBMLab/bookstore/Author.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/bookstore/Book.class" afterPath="$PROJECT_DIR$/out/production/DBMLab/bookstore/Book.class" />
+    <list default="true" id="362a2e9b-8028-44a0-b85b-21b753214301" name="Default" comment="Added to do">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/templates/java_class.ftl" afterPath="$PROJECT_DIR$/out/production/DBMLab/templates/java_class.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/java_class.ftl" afterPath="$PROJECT_DIR$/src/templates/java_class.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bookstore/Author.java" afterPath="$PROJECT_DIR$/src/bookstore/Author.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,21 +41,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="java_class.ftl" pinned="false" current-in-tab="true">
+      <file leaf-file-name="java_class.ftl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/templates/java_class.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="162" column="83" lean-forward="true" selection-start-line="162" selection-start-column="83" selection-end-line="162" selection-end-column="83" />
+            <state relative-caret-position="103">
+              <caret line="159" column="45" lean-forward="true" selection-start-line="159" selection-start-column="45" selection-end-line="159" selection-end-column="45" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Author.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Author.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/bookstore/Author.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-630">
-              <caret line="63" column="42" lean-forward="true" selection-start-line="63" selection-start-column="42" selection-end-line="63" selection-end-column="42" />
+            <state relative-caret-position="-310">
+              <caret line="110" column="0" lean-forward="true" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#400#401#0" expanded="true" />
@@ -382,14 +378,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/DBMLab/Main.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/DBMLab/models/bookstore.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/DBMLab/templates/sqlite3_create.ftl</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Main.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/bookstore/bookstore.db</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/models/bookstore.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/templates/sqlite3_create.ftl</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -397,6 +385,7 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/License.md</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -404,7 +393,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="true" />
           <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/out/production/DBMLab/bookstore/bookstore.db</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Restored" />
@@ -956,7 +944,14 @@
       <option name="project" value="LOCAL" />
       <updated>1492893546621</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Added to do">
+      <created>1492895273577</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1492895273577</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1047,7 +1042,8 @@
     <MESSAGE value="Bug Fixes in java_class.ftl" />
     <MESSAGE value="finishing the getBooks() problem" />
     <MESSAGE value="better indentation in java_class.ftl" />
-    <option name="LAST_COMMIT_MESSAGE" value="better indentation in java_class.ftl" />
+    <MESSAGE value="Added to do" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added to do" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1390,10 +1386,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/java_class.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="159" column="45" lean-forward="true" selection-start-line="159" selection-start-column="45" selection-end-line="159" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/bookstore/Author.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-630">
-          <caret line="63" column="42" lean-forward="true" selection-start-line="63" selection-start-column="42" selection-end-line="63" selection-end-column="42" />
+        <state relative-caret-position="-310">
+          <caret line="110" column="0" lean-forward="true" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#400#401#0" expanded="true" />
@@ -1413,14 +1417,6 @@
             <element signature="e#914#915#0" expanded="true" />
             <element signature="e#942#943#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/java_class.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="162" column="83" lean-forward="true" selection-start-line="162" selection-start-column="83" selection-end-line="162" selection-end-column="83" />
-          <folding />
         </state>
       </provider>
     </entry>
