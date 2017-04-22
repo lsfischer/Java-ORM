@@ -26,11 +26,17 @@ CREATE TABLE ${class.name} (
 CREATE TABLE ${class.name}_${fk.foreignClass.name} (
    id INTEGER PRIMARY KEY,
    ${class.name?lower_case}_id INTEGER,
-   ${fk.foreignClass.name?lower_case}_id INTEGER
+   ${fk.foreignClass.name?lower_case}_id INTEGER,
+   FOREIGN KEY (${class.name?lower_case}_id) REFERENCES ${class.name}(id),
+   FOREIGN KEY (${fk.foreignClass.name?lower_case}_id) REFERENCES ${fk.foreignClass.name}(id)
 );
 </#list>
 </#list>
 
+
+
+
+//TODO Retira esta parte porque o sqlite3 nao deixa fazer foreign keys desta maneira
 <#list classes as class>
     <#compress>
     <#list class.foreignKeys as fk>

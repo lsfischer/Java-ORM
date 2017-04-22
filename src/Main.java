@@ -73,10 +73,10 @@ public class Main {
 
         SQLiteConn sqLiteConn = new SQLiteConn("src/" + model.getName().toLowerCase() + "/" + model.getName().toLowerCase() + ".db");
         //Already executed
-        //sqLiteConn.execute(sqlTables);
+        sqLiteConn.execute(sqlTables);
 
         // Generate Java classes
-       for (Class c : model.getClasses()) {
+      /* for (Class c : model.getClasses()) {
           String javaClasses = model2Text.render(c, "java_class.ftl");
           System.out.println(javaClasses);
             /*
@@ -90,7 +90,7 @@ public class Main {
                 e.printStackTrace();
             }
             */
-       }
+       //}
     }
 
     public static void testORM() {
