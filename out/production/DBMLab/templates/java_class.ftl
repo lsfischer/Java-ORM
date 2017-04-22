@@ -105,23 +105,23 @@ public class ${name} {
         String sql = "SELECT * FROM ${name}";
         SQLiteConn sqLiteConn = new SQLiteConn("src/${pkg}/${pkg}.db");
         ResultSet rs = sqLiteConn.executeQuery(sql);
-            try{
-                while(rs.next()){
-                    ${name} ${name?lower_case} = new ${name}();
+        try{
+            while(rs.next()){
+                ${name} ${name?lower_case} = new ${name}();
 
-                    int id = rs.getInt("id");
-                    ${name?lower_case}.setId(id);
+                int id = rs.getInt("id");
+                ${name?lower_case}.setId(id);
 
-                    <#list attributes as attribute>
-                    ${attribute.type} ${attribute.name} = rs.get${attribute.type?capitalize}("${attribute.name}");
-                    ${name?lower_case}.set${attribute.name?capitalize}(${attribute.name});
+                <#list attributes as attribute>
+                ${attribute.type} ${attribute.name} = rs.get${attribute.type?capitalize}("${attribute.name}");
+                ${name?lower_case}.set${attribute.name?capitalize}(${attribute.name});
 
-                    </#list>
-                    list.add(${name?lower_case});
-                }
-            }catch(Exception e){
-                e.printStackTrace();
+                </#list>
+                list.add(${name?lower_case});
             }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
         return list;
     }
 
@@ -130,20 +130,20 @@ public class ${name} {
         String sql = "SELECT * FROM ${name} WHERE id = " + id;
         SQLiteConn sqLiteConn = new SQLiteConn("src/${pkg}/${pkg}.db");
         ResultSet rs = sqLiteConn.executeQuery(sql);
-            try{
-                while(rs.next()){
-                    int idFromDB = rs.getInt("id");
-                    ${name?lower_case}.setId(idFromDB);
+        try{
+            while(rs.next()){
+                int idFromDB = rs.getInt("id");
+                ${name?lower_case}.setId(idFromDB);
 
-                    <#list attributes as attribute>
-                    ${attribute.type} ${attribute.name} = rs.get${attribute.type?capitalize}("${attribute.name}");
-                    ${name?lower_case}.set${attribute.name?capitalize}(${attribute.name});
+                <#list attributes as attribute>
+                ${attribute.type} ${attribute.name} = rs.get${attribute.type?capitalize}("${attribute.name}");
+                ${name?lower_case}.set${attribute.name?capitalize}(${attribute.name});
 
-                    </#list>
-                }
-            }catch(Exception e){
-                e.printStackTrace();
+                </#list>
             }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
         return ${name?lower_case};
     }
 
@@ -152,33 +152,34 @@ public class ${name} {
         String sql = "SELECT * FROM ${name} WHERE " + condition;
         SQLiteConn sqLiteConn = new SQLiteConn("src/${pkg}/${pkg}.db");
         ResultSet rs = sqLiteConn.executeQuery(sql);
-            try{
-                while(rs.next()){
-                    ${name} ${name?lower_case} = new ${name}();
+        try{
+            while(rs.next()){
+                ${name} ${name?lower_case} = new ${name}();
 
-                    int id = rs.getInt("id");
-                    ${name?lower_case}.setId(id);
+                int id = rs.getInt("id");
+                ${name?lower_case}.setId(id);
 
-                    <#list attributes as attribute>
-                    ${attribute.type} ${attribute.name} = rs.get${attribute.type?capitalize}("${attribute.name}");
-                    ${name?lower_case}.set${attribute.name?capitalize}(${attribute.name});
+                <#list attributes as attribute>
+                ${attribute.type} ${attribute.name} = rs.get${attribute.type?capitalize}("${attribute.name}");
+                ${name?lower_case}.set${attribute.name?capitalize}(${attribute.name});
 
-                    </#list>
-                    list.add(${name?lower_case});
-                }
-            }catch(Exception e){
-                e.printStackTrace();
+                </#list>
+                list.add(${name?lower_case});
             }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
         return list;
     }
 
     <#list relations as rels>
     <#if rels.foreignClass.name == name>
-     public void get${rels.regularClass.name}(){
-       //JA CONSIGO POR AQUI O GET BOOKS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     public ArrayList<${rels.regularClass.name}> get${rels.regularClass.name}s(){
+        ArrayList<${rels.regularClass.name}> list = new ArrayList<>();
+        //String sql = "SELECT * FROM Book Where id = "+this.bookID;
+        return list;
      }
     </#if>
     </#list>
 }
-//TODO ir buscar todos os autores de um livro, acho que ainda não temos isso quando fazemos o Where e o get
 
