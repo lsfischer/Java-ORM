@@ -19,13 +19,13 @@ public class Main {
         // Build model
         //Model model = getPersonModel();
         //buildModel(model);
-        buildModel(getBookStoreModel());
+        //buildModel(getBookStoreModel());
 
         // Test ORM
         //  testORM();
         // LAB 6
-       // Model model = Model2Model.getModel("src/models/bookstore.xml");
-       // buildModel(model);
+       Model model = Model2Model.getModel("src/models/bookstore.xml");
+       buildModel(model);
     }
 
     public static Model getPersonModel() {
@@ -54,8 +54,7 @@ public class Main {
         book.addAttribute(new Attribute("price", "double"));
         book.addAttribute(new Attribute("quantity", "int"));
         book.setPkg(model.getName().toLowerCase());
-
-        ///TODO Melhorar esta parte. Por convençao deixei que N2N ele cria a tabela relacional, se deixares o relationshipType a 1 ele cria somente uma foreign key
+        
         Relation newRelation1 = new Relation(author, "N2N"); //isto passa a deixar de ser necessario, porque
         book.addForeignKey(newRelation1);                                 //a informaçao dos autores do livro esta na tabela autores, basta
                                                                           //fazer uma query a tabela autores
@@ -80,11 +79,11 @@ public class Main {
         //f.mkdirs();
 
         SQLiteConn sqLiteConn = new SQLiteConn("src/" + model.getName().toLowerCase() + "/" + model.getName().toLowerCase() + ".db");
-        //Already executed
+
         //sqLiteConn.execute(sqlTables);
 
         // Generate Java classes
-       /* for (Class c : model.getClasses()) {
+       for (Class c : model.getClasses()) {
           String javaClasses = model2Text.render(c, "java_class.ftl");
           System.out.println(javaClasses);
             /*
@@ -98,7 +97,7 @@ public class Main {
                 e.printStackTrace();
             }
             */
-        //}
+        }
     }
 
     public static void testORM() {

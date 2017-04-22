@@ -71,6 +71,8 @@ public class Author {
         }
     }
 
+    //TODO isto está mal da maneira que temos, como um autor só pode escrever um livro (12N) é só fazer Select * From Book where ID = " + this.bookID;
+    //TODO temos é que arranjar maneira de por o bookID na classe Author
     public ArrayList getBooks() {
         ArrayList<Book> list = new ArrayList<>();
         String sql = "SELECT * FROM Book WHERE author_id = " + this.id;

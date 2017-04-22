@@ -91,8 +91,8 @@ public class Model2Model {
 
             if (childNode.getNodeType() == Node.ELEMENT_NODE) {
                 if (childNode.getNodeName() == "foreignKey") {
-                    Class c = new Class(childNode.getAttributes().getNamedItem("name").getNodeValue());
-                    Relation relation = new Relation(c, childNode.getAttributes().getNamedItem("type").getNodeValue());
+                    Class foreignClass = new Class(childNode.getAttributes().getNamedItem("name").getNodeValue());
+                    Relation relation = new Relation(foreignClass, childNode.getAttributes().getNamedItem("type").getNodeValue());
                     relations.add(relation);
                 }
             }

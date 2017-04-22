@@ -5,14 +5,12 @@
         <attribute name="first_name" type="String" />
         <attribute name="last_name" type="String" />
         <attribute name="email" type="String" />
-        <foreignKey name="Book" type="121"/> <!-- Seria como estar a dizer "Um autor pode ter um livro" -->
     </class>
     <class name="Book">
         <attribute name="title" type="String" />
         <attribute name="pubDate" type="Date" />
         <attribute name="price" type="double" />
         <attribute name="quantity" type="int" />
-        <foreignKey name="Author" type="12N"/> <!-- Seria como estar a dizer "Um livro tem um ou mais autores" -->
+        <foreignKey name="Author" type="12N"/>
     </class>
-
 </model>

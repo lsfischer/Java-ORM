@@ -1,9 +1,9 @@
 <#assign int_types = ['int']>
 <#assign real_types = ['double', 'float']>
 <#assign text_types = ['String', 'Date']>
+<#assign object_type = ['Relation']>
 
 <#list classes as class>
-
 /* Create table ${class.name} */
 CREATE TABLE ${class.name} (
     id INTEGER PRIMARY KEY,
@@ -20,21 +20,22 @@ CREATE TABLE ${class.name} (
 </#list>
 
 <#list classes as class>
-<#list class.foreignKeys as fk>
-<#assign name = fk.foreignClass.name?lower_case + "_id">
-/* Creating relation table */
-CREATE TABLE ${class.name}_${fk.foreignClass.name} (
-   id INTEGER PRIMARY KEY,
-   ${class.name?lower_case}_id INTEGER,
-   ${fk.foreignClass.name?lower_case}_id INTEGER,
-   FOREIGN KEY (${class.name?lower_case}_id) REFERENCES ${class.name}(id),
-   FOREIGN KEY (${fk.foreignClass.name?lower_case}_id) REFERENCES ${fk.foreignClass.name}(id)
-);
+    <#compress>
+    <#list class.foreignKeys as fk>
+        <#assign name = fk.foreignClass.name?lower_case + "_id">
+        <#if fk.relationshipType != "N2N">
+        ALTER TABLE ${fk.foreignClass.name} ADD COLUMN (${class.name?lower_case}_id) INTEGER REFERENCES ${class.name}(id);
+        <#else>
+        CREATE TABLE ${class.name}_${fk.foreignClass.name} (
+           id INTEGER PRIMARY KEY,
+           ${class.name?lower_case}_id INTEGER,
+           ${fk.foreignClass.name?lower_case}_id INTEGER,
+           FOREIGN KEY (${class.name?lower_case}_id) REFERENCES ${class.name}(id),
+           FOREIGN KEY (${fk.foreignClass.name?lower_case}_id) REFERENCES ${fk.foreignClass.name}(id)
+        );
+        </#if>
+    </#list>
+    </#compress>
 </#list>
-</#list>
-
-
-
-
 
 
