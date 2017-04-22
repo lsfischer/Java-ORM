@@ -49,6 +49,7 @@ public class ${name} {
 
     </#list>
     <#list relations as rels>
+    <#if rels.regularClass.name == name>
     <#if rels.relationshipType != '121'>
     public ArrayList<${rels.foreignClass.name}> get${rels.foreignClass.name}() {
         return ${rels.foreignClass.name?lower_case};
@@ -69,7 +70,7 @@ public class ${name} {
             this.${rels.foreignClass.name?lower_case} = ${rels.foreignClass.name?lower_case};
     }
     </#if>
-
+    </#if>
     </#list>
     public int getId() {
         return this.id;
@@ -170,6 +171,14 @@ public class ${name} {
             }
         return list;
     }
+
+    <#list relations as rels>
+    <#if rels.foreignClass.name == name>
+     public void get${rels.regularClass.name}(){
+       //JA CONSIGO POR AQUI O GET BOOKS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     }
+    </#if>
+    </#list>
 }
 //TODO ir buscar todos os autores de um livro, acho que ainda não temos isso quando fazemos o Where e o get
 

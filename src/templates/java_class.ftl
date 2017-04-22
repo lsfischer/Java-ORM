@@ -171,6 +171,14 @@ public class ${name} {
             }
         return list;
     }
+
+    <#list relations as rels>
+    <#if rels.foreignClass.name == name>
+     public void get${rels.regularClass.name}(){
+       //JA CONSIGO POR AQUI O GET BOOKS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     }
+    </#if>
+    </#list>
 }
 //TODO ir buscar todos os autores de um livro, acho que ainda não temos isso quando fazemos o Where e o get
 
