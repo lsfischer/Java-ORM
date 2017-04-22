@@ -7,13 +7,13 @@ import java.util.List;
 public class Class {
     private String name;
     private List<Attribute> attributes;
-    private List<Relation> foreignKeys;
+    private List<Relation> relations;
     private String pkg;
 
     public Class(String name) {
         this.name = name;
         this.attributes = new ArrayList<>();
-        this.foreignKeys = new ArrayList<>();
+        this.relations = new ArrayList<>();
         this.pkg = name.toLowerCase();
     }
 
@@ -33,12 +33,12 @@ public class Class {
         this.attributes = attributes;
     }
 
-    public List<Relation> getForeignKeys() {
-        return foreignKeys;
+    public List<Relation> getRelations() {
+        return relations;
     }
 
-    public void setForeignKeys(List<Relation> foreignKeys) {
-        this.foreignKeys = foreignKeys;
+    public void setRelations(List<Relation> relations) {
+        this.relations = relations;
     }
 
     public void addAttribute(Attribute attribute) {
@@ -60,11 +60,11 @@ public class Class {
      * @param relations
      */
     public void addVariousRelations(ArrayList<Relation> relations) {
-        this.foreignKeys.addAll(relations);
+        this.relations.addAll(relations);
     }
 
-    public void addForeignKey(Relation relation) {
-        this.foreignKeys.add(relation);
+    public void addRelation(Relation relation) {
+        this.relations.add(relation);
     }
 
     public String getPkg() {

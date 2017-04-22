@@ -21,18 +21,20 @@ CREATE TABLE ${class.name} (
 
 <#list classes as class>
     <#compress>
-    <#list class.foreignKeys as fk>
-        <#assign name = fk.foreignClass.name?lower_case + "_id">
-        <#if fk.relationshipType != "N2N">
-        ALTER TABLE ${fk.foreignClass.name} ADD COLUMN (${class.name?lower_case}_id) INTEGER REFERENCES ${class.name}(id);
+    <#list class.relations as rels>
+        <#assign name = rels.foreignClass.name?lower_case + "_id">
+        <#if rels.regularClass.name == class.name>
+        <#if rels.relationshipType != "N2N">
+        ALTER TABLE ${rels.foreignClass.name} ADD COLUMN (${class.name?lower_case}_id) INTEGER REFERENCES ${class.name}(id);
         <#else>
-        CREATE TABLE ${class.name}_${fk.foreignClass.name} (
+        CREATE TABLE ${class.name}_${rels.foreignClass.name} (
            id INTEGER PRIMARY KEY,
            ${class.name?lower_case}_id INTEGER,
-           ${fk.foreignClass.name?lower_case}_id INTEGER,
+           ${rels.foreignClass.name?lower_case}_id INTEGER,
            FOREIGN KEY (${class.name?lower_case}_id) REFERENCES ${class.name}(id),
-           FOREIGN KEY (${fk.foreignClass.name?lower_case}_id) REFERENCES ${fk.foreignClass.name}(id)
+           FOREIGN KEY (name) REFERENCES ${rels.foreignClass.name}(id)
         );
+        </#if>
         </#if>
     </#list>
     </#compress>

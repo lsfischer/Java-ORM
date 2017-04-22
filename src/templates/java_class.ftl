@@ -20,11 +20,13 @@ public class ${name} {
     <#list attributes as attribute>
     private ${attribute.type} ${attribute.name};
     </#list>
-    <#list foreignKeys as fkeys>
-    <#if fkeys.relationshipType != '121'>
-    private ArrayList<${fkeys.foreignClass.name}> ${fkeys.foreignClass.name?lower_case};
+    <#list relations as rels>
+    <#if rels.regularClass.name == name>
+    <#if rels.relationshipType != '121'>
+    private ArrayList<${rels.foreignClass.name}> ${rels.foreignClass.name?lower_case};
     <#else>
-    private ${fkeys.foreignClass.name} ${fkeys.foreignClass.name?lower_case};
+    private ${rels.foreignClass.name} ${rels.foreignClass.name?lower_case};
+    </#if>
     </#if>
     </#list>
     private int id;
@@ -46,25 +48,25 @@ public class ${name} {
     }
 
     </#list>
-    <#list foreignKeys as fkeys>
-    <#if fkeys.relationshipType != '121'>
-    public ArrayList<${fkeys.foreignClass.name}> get${fkeys.foreignClass.name}() {
-        return ${fkeys.foreignClass.name?lower_case};
+    <#list relations as rels>
+    <#if rels.relationshipType != '121'>
+    public ArrayList<${rels.foreignClass.name}> get${rels.foreignClass.name}() {
+        return ${rels.foreignClass.name?lower_case};
     }
 
     <#else>
-    public ${fkeys.foreignClass.name} get${fkeys.foreignClass.name}() {
-        return ${fkeys.foreignClass.name?lower_case};
+    public ${rels.foreignClass.name} get${rels.foreignClass.name}() {
+        return ${rels.foreignClass.name?lower_case};
     }
 
     </#if>
-    <#if fkeys.relationshipType != '121'>
-    public void add${fkeys.foreignClass.name}(${fkeys.foreignClass.name} ${fkeys.foreignClass.name?lower_case}) {
-        this.${fkeys.foreignClass.name?lower_case}.add(${fkeys.foreignClass.name?lower_case});
+    <#if rels.relationshipType != '121'>
+    public void add${rels.foreignClass.name}(${rels.foreignClass.name} ${rels.foreignClass.name?lower_case}) {
+        this.${rels.foreignClass.name?lower_case}.add(${rels.foreignClass.name?lower_case});
     }
     <#else>
-    public void set${fkeys.foreignClass.name}(${fkeys.foreignClass.name} ${fkeys.foreignClass.name?lower_case}) {
-            this.${fkeys.foreignClass.name?lower_case} = ${fkeys.foreignClass.name?lower_case};
+    public void set${rels.foreignClass.name}(${rels.foreignClass.name} ${rels.foreignClass.name?lower_case}) {
+            this.${rels.foreignClass.name?lower_case} = ${rels.foreignClass.name?lower_case};
     }
     </#if>
 

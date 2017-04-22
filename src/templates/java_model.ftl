@@ -3,7 +3,7 @@
 ## ${class.name}.java ##
 <#assign name = class.name />
 <#assign attributes = class.attributes />
-<#assign foreignKeys = class.foreignKeys />
+<#assign relations = class.relations />
 <#include "java_class.ftl" />
 
 </#list>

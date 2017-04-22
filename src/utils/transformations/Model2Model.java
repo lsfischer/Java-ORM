@@ -37,8 +37,11 @@ public class Model2Model {
 
             for(Class c : model.getClasses()){
                 for(Relation relation : getRelations(modelNode)){
-                    if(relation.getRegularClass().getName().equals(c.getName())){
-                        c.addForeignKey(relation);
+
+                    //If the Class is in a relation, add that relation to the class
+                    if(relation.getRegularClass().getName().equals(c.getName())
+                            || relation.getForeignClass().getName().equals(c.getName())){
+                        c.addRelation(relation);
                     }
                 }
             }
@@ -76,7 +79,7 @@ public class Model2Model {
             if (nNode.getNodeType() == Node.ELEMENT_NODE && nNode.getNodeName() == "foreignKey") {
                 Class regularClass = new Class(nNode.getAttributes().getNamedItem("firstClass").getNodeValue());
                 Class foreignClass = new Class(nNode.getAttributes().getNamedItem("secondClass").getNodeValue());
-                Relation relation = new Relation(regularClass,foreignClass,nNode.getAttributes().getNamedItem("secondClass").getNodeValue());
+                Relation relation = new Relation(regularClass,foreignClass,nNode.getAttributes().getNamedItem("type").getNodeValue());
                 relations.add(relation);
             }
         }
