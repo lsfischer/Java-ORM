@@ -17,15 +17,14 @@ public class Main {
     public static void main(String[] args) {
 
         // Build model
-        //Model model = getPersonModel();
-        //buildModel(model);
-        //buildModel(getBookStoreModel());
+        //buildModel(getPersonModel());
+        buildModel(getBookStoreModel());
 
         // Test ORM
         //  testORM();
         // LAB 6
-       Model model = Model2Model.getModel("src/models/bookstore.xml");
-       buildModel(model);
+       //Model model = Model2Model.getModel("src/models/bookstore.xml");
+       //buildModel(model);
     }
 
     public static Model getPersonModel() {
@@ -55,12 +54,10 @@ public class Main {
         book.addAttribute(new Attribute("quantity", "int"));
         book.setPkg(model.getName().toLowerCase());
 
-        //Relation newRelation1 = new Relation(author, "N2N"); //isto passa a deixar de ser necessario, porque
-        //book.addForeignKey(newRelation1);                                 //a informaçao dos autores do livro esta na tabela autores, basta
-                                                                          //fazer uma query a tabela autores
-
-       // Relation newRelation2 = new Relation(book, "1");
-       // author.addForeignKey(newRelation2);
+        //Da nova maneira agora seria assim
+        Relation relation = new Relation(book,author,"12N");
+        book.addRelation(relation);
+        author.addRelation(relation);
 
         model.addClass(author);
         model.addClass(book);
