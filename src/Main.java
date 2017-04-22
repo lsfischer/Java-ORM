@@ -54,9 +54,9 @@ public class Main {
         book.addAttribute(new Attribute("price", "double"));
         book.addAttribute(new Attribute("quantity", "int"));
         book.setPkg(model.getName().toLowerCase());
-        
-        Relation newRelation1 = new Relation(author, "N2N"); //isto passa a deixar de ser necessario, porque
-        book.addForeignKey(newRelation1);                                 //a informaçao dos autores do livro esta na tabela autores, basta
+
+        //Relation newRelation1 = new Relation(author, "N2N"); //isto passa a deixar de ser necessario, porque
+        //book.addForeignKey(newRelation1);                                 //a informaçao dos autores do livro esta na tabela autores, basta
                                                                           //fazer uma query a tabela autores
 
        // Relation newRelation2 = new Relation(book, "1");

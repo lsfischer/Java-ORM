@@ -47,17 +47,19 @@ public class Class {
 
     /**
      * Adds a list of attributes to a class
+     *
      * @param attributes
      */
-    public void addVariousAttributes(ArrayList<Attribute> attributes){
+    public void addVariousAttributes(ArrayList<Attribute> attributes) {
         this.attributes.addAll(attributes);
     }
 
     /**
      * Adds a list of relations to a class
+     *
      * @param relations
      */
-    public void addVariousRelations(ArrayList<Relation> relations){
+    public void addVariousRelations(ArrayList<Relation> relations) {
         this.foreignKeys.addAll(relations);
     }
 
@@ -65,10 +67,11 @@ public class Class {
         this.foreignKeys.add(relation);
     }
 
-    public String getPkg(){
+    public String getPkg() {
         return this.pkg;
     }
-    public void setPkg(String pkg){
+
+    public void setPkg(String pkg) {
         this.pkg = pkg;
     }
 }

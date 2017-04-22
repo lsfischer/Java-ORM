@@ -11,6 +11,6 @@
         <attribute name="pubDate" type="Date" />
         <attribute name="price" type="double" />
         <attribute name="quantity" type="int" />
-        <foreignKey name="Author" type="12N"/>
     </class>
+    <foreignKey type="12N" firstClass ="Book" secondClass="Author" /> <!-- relação 12N, um Book pode ter vários autores -->
 </model>

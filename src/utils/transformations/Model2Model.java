@@ -32,8 +32,16 @@ public class Model2Model {
                     .getNamedItem("name").getNodeValue();
 
             Model model = new Model(modelName);
+
             model.addVariousClasses(getClasses(modelNode));
 
+            for(Class c : model.getClasses()){
+                for(Relation relation : getRelations(modelNode)){
+                    if(relation.getRegularClass().getName().equals(c.getName())){
+                        c.addForeignKey(relation);
+                    }
+                }
+            }
             return model;
 
         } catch (Exception e) {
@@ -48,16 +56,33 @@ public class Model2Model {
         for (int i = 0; i < nList.getLength(); i++) {
             Node nNode = nList.item(i);
 
-            if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+            if (nNode.getNodeType() == Node.ELEMENT_NODE && nNode.getNodeName() == "class") {
                 Class clazz = new Class(nNode.getAttributes().getNamedItem("name").getNodeValue());
                 clazz.setPkg(modelNode.getAttributes().getNamedItem("name").getNodeValue().toLowerCase());
                 clazz.addVariousAttributes(getAttributes(nNode));
-                clazz.addVariousRelations(getRelations(nNode));
+                //clazz.addVariousRelations(getRelations(nNode));
                 classes.add(clazz);
             }
         }
         return classes;
     }
+
+    public static ArrayList<Relation> getRelations(Node modelNode) {
+        ArrayList<Relation> relations = new ArrayList<>();
+        NodeList nList = modelNode.getChildNodes();
+        for (int i = 0; i < nList.getLength(); i++) {
+            Node nNode = nList.item(i);
+
+            if (nNode.getNodeType() == Node.ELEMENT_NODE && nNode.getNodeName() == "foreignKey") {
+                Class regularClass = new Class(nNode.getAttributes().getNamedItem("firstClass").getNodeValue());
+                Class foreignClass = new Class(nNode.getAttributes().getNamedItem("secondClass").getNodeValue());
+                Relation relation = new Relation(regularClass,foreignClass,nNode.getAttributes().getNamedItem("secondClass").getNodeValue());
+                relations.add(relation);
+            }
+        }
+        return relations;
+    }
+
 
     public static ArrayList<Attribute> getAttributes(Node classNode) {
 
@@ -79,7 +104,7 @@ public class Model2Model {
         }
         return attributes;
     }
-
+/*
     public static ArrayList<Relation> getRelations(Node classNode) {
 
         ArrayList<Relation> relations = new ArrayList<>();
@@ -99,4 +124,5 @@ public class Model2Model {
         }
         return relations;
     }
+    */
 }
