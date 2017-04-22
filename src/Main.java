@@ -5,11 +5,14 @@ import metamodels.Attribute;
 import metamodels.Class;
 import metamodels.Model;
 import metamodels.Relation;
+import org.sqlite.SQLiteException;
 import person.Person;
 import utils.sqlite.SQLiteConn;
 import utils.transformations.Model2Model;
 import utils.transformations.Model2Text;
 
+import java.io.*;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class Main {
@@ -54,7 +57,7 @@ public class Main {
         book.addAttribute(new Attribute("quantity", "int"));
         book.setPkg(model.getName().toLowerCase());
 
-        //Da nova maneira agora seria assim
+        //Da nova maneira agora é assim
         Relation relation = new Relation(book,author,"12N");
         book.addRelation(relation);
         author.addRelation(relation);
@@ -76,14 +79,13 @@ public class Main {
         //f.mkdirs();
 
         SQLiteConn sqLiteConn = new SQLiteConn("src/" + model.getName().toLowerCase() + "/" + model.getName().toLowerCase() + ".db");
-
         //sqLiteConn.execute(sqlTables);
 
         // Generate Java classes
        for (Class c : model.getClasses()) {
           String javaClasses = model2Text.render(c, "java_class.ftl");
           System.out.println(javaClasses);
-            /*
+
             try {
                 File fout = new File("src/" + model.getName().toLowerCase() + "/" + c.getName() + ".java");
                 FileOutputStream fos = new FileOutputStream(fout);
@@ -93,7 +95,7 @@ public class Main {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            */
+
         }
     }
 

@@ -1,18 +1,18 @@
 package bookstore;
-import java.util.Date;
 import utils.sqlite.SQLiteConn;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-
 public class Book {
+
     private String title;
     private String pubDate;
     private double price;
     private int quantity;
-    private Author author;
+    private ArrayList<Author> author;
     private int id;
     SQLiteConn sqLiteConn = new SQLiteConn("src/bookstore/bookstore.db");
+
     // Empty constructor
     public Book() {
     }
@@ -24,6 +24,7 @@ public class Book {
     public void setTitle(String title) {
         this.title = title;
     }
+
     public String getPubDate() {
         return pubDate;
     }
@@ -31,6 +32,7 @@ public class Book {
     public void setPubdate(String pubDate) {
         this.pubDate = pubDate;
     }
+
     public double getPrice() {
         return price;
     }
@@ -38,6 +40,7 @@ public class Book {
     public void setPrice(double price) {
         this.price = price;
     }
+
     public int getQuantity() {
         return quantity;
     }
@@ -46,14 +49,13 @@ public class Book {
         this.quantity = quantity;
     }
 
-    public Author getAuthor() {
+    public ArrayList<Author> getAuthor() {
         return author;
     }
 
-    public void setAuthor(Author author) {
-            this.author = author;
+    public void addAuthor(Author author) {
+        this.author.add(author);
     }
-
     public int getId() {
         return this.id;
     }
@@ -89,17 +91,23 @@ public class Book {
         ResultSet rs = sqLiteConn.executeQuery(sql);
         try{
             while(rs.next()){
-                int id = rs.getInt("id");
-                String title = rs.getString("title");
-                String pubDate = rs.getString("pubDate");
-                double price = rs.getDouble("price");
-                int quantity = rs.getInt("quantity");
                 Book book = new Book();
+
+                int id = rs.getInt("id");
                 book.setId(id);
+
+                String title = rs.getString("title");
                 book.setTitle(title);
+
+                String pubDate = rs.getString("pubDate");
                 book.setPubdate(pubDate);
+
+                double price = rs.getDouble("price");
                 book.setPrice(price);
+
+                int quantity = rs.getInt("quantity");
                 book.setQuantity(quantity);
+
                 list.add(book);
             }
         }catch(Exception e){
@@ -110,51 +118,64 @@ public class Book {
 
     public static Book get(int id){
         Book book = new Book();
-            String sql = "SELECT * FROM Book WHERE id = "+ id;
-            SQLiteConn sqLiteConn = new SQLiteConn("src/bookstore/bookstore.db");
-            ResultSet rs = sqLiteConn.executeQuery(sql);
-            try{
-                while(rs.next()){
-                    int idFromDB = rs.getInt("id");
-                    String title = rs.getString("title");
-                    String pubDate = rs.getString("pubDate");
-                    double price = rs.getDouble("price");
-                    int quantity = rs.getInt("quantity");
-                    book.setId(idFromDB);
-                    book.setTitle(title);
-                    book.setPubdate(pubDate);
-                    book.setPrice(price);
-                    book.setQuantity(quantity);
-                }
-            }catch(Exception e){
-                e.printStackTrace();
+        String sql = "SELECT * FROM Book WHERE id = " + id;
+        SQLiteConn sqLiteConn = new SQLiteConn("src/bookstore/bookstore.db");
+        ResultSet rs = sqLiteConn.executeQuery(sql);
+        try{
+            while(rs.next()){
+                int idFromDB = rs.getInt("id");
+                book.setId(idFromDB);
+
+                String title = rs.getString("title");
+                book.setTitle(title);
+
+                String pubDate = rs.getString("pubDate");
+                book.setPubdate(pubDate);
+
+                double price = rs.getDouble("price");
+                book.setPrice(price);
+
+                int quantity = rs.getInt("quantity");
+                book.setQuantity(quantity);
+
             }
-            return book;
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return book;
     }
 
     public static ArrayList where(String condition){
         ArrayList<Book> list = new ArrayList<>();
-            String sql = "SELECT * FROM Book WHERE "+ condition;
-            SQLiteConn sqLiteConn = new SQLiteConn("src/bookstore/bookstore.db");
-            ResultSet rs = sqLiteConn.executeQuery(sql);
-            try{
-                while(rs.next()){
-                    int id = rs.getInt("id");
-                    String title = rs.getString("title");
-                    String pubDate = rs.getString("pubDate");
-                    double price = rs.getDouble("price");
-                    int quantity = rs.getInt("quantity");
-                    Book book = new Book();
-                    book.setId(id);
-                    book.setTitle(title);
-                    book.setPubdate(pubDate);
-                    book.setPrice(price);
-                    book.setQuantity(quantity);
-                    list.add(book);
-                }
-            }catch(Exception e){
-                e.printStackTrace();
+        String sql = "SELECT * FROM Book WHERE " + condition;
+        SQLiteConn sqLiteConn = new SQLiteConn("src/bookstore/bookstore.db");
+        ResultSet rs = sqLiteConn.executeQuery(sql);
+        try{
+            while(rs.next()){
+                Book book = new Book();
+
+                int id = rs.getInt("id");
+                book.setId(id);
+
+                String title = rs.getString("title");
+                book.setTitle(title);
+
+                String pubDate = rs.getString("pubDate");
+                book.setPubdate(pubDate);
+
+                double price = rs.getDouble("price");
+                book.setPrice(price);
+
+                int quantity = rs.getInt("quantity");
+                book.setQuantity(quantity);
+
+                list.add(book);
             }
-            return list;
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return list;
     }
+
 }
+
