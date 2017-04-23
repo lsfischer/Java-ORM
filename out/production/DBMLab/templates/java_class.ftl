@@ -175,6 +175,7 @@ public class ${name} {
     <#list relations as rels>
     <#if rels.foreignClass.name == name>
      public ArrayList<${rels.regularClass.name}> get${rels.regularClass.name}s(){
+        //TODO Fazer alguma coisa com isto
         ArrayList<${rels.regularClass.name}> list = new ArrayList<>();
         //String sql = "SELECT * FROM Book Where id = "+this.bookID;
         return list;

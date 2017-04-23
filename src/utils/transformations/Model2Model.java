@@ -63,7 +63,6 @@ public class Model2Model {
                 Class clazz = new Class(nNode.getAttributes().getNamedItem("name").getNodeValue());
                 clazz.setPkg(modelNode.getAttributes().getNamedItem("name").getNodeValue().toLowerCase());
                 clazz.addVariousAttributes(getAttributes(nNode));
-                //clazz.addVariousRelations(getRelations(nNode));
                 classes.add(clazz);
             }
         }
@@ -107,25 +106,4 @@ public class Model2Model {
         }
         return attributes;
     }
-/*
-    public static ArrayList<Relation> getRelations(Node classNode) {
-
-        ArrayList<Relation> relations = new ArrayList<>();
-        NodeList classChilds = classNode.getChildNodes();
-
-        for (int j = 0; j < classChilds.getLength(); j++) {
-
-            Node childNode = classChilds.item(j);
-
-            if (childNode.getNodeType() == Node.ELEMENT_NODE) {
-                if (childNode.getNodeName() == "foreignKey") {
-                    Class foreignClass = new Class(childNode.getAttributes().getNamedItem("name").getNodeValue());
-                    Relation relation = new Relation(foreignClass, childNode.getAttributes().getNamedItem("type").getNodeValue());
-                    relations.add(relation);
-                }
-            }
-        }
-        return relations;
-    }
-    */
 }
