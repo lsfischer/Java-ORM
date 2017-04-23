@@ -21,13 +21,13 @@ public class Main {
 
         // Build model
         //buildModel(getPersonModel());
-        buildModel(getBookStoreModel());
+        //buildModel(getBookStoreModel());
 
         // Test ORM
         //  testORM();
         // LAB 6
-       //Model model = Model2Model.getModel("src/models/bookstore.xml");
-       //buildModel(model);
+       Model model = Model2Model.getModel("src/models/bookstore.xml");
+       buildModel(model);
     }
 
     public static Model getPersonModel() {

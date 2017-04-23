@@ -1,4 +1,5 @@
 package bookstore;
+import java.util.Date;
 import utils.sqlite.SQLiteConn;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -6,7 +7,7 @@ import java.util.ArrayList;
 public class Book {
 
     private String title;
-    private String pubDate;
+    private Date pubDate;
     private double price;
     private int quantity;
     private ArrayList<Author> author;
@@ -25,11 +26,11 @@ public class Book {
         this.title = title;
     }
 
-    public String getPubDate() {
+    public Date getPubDate() {
         return pubDate;
     }
 
-    public void setPubdate(String pubDate) {
+    public void setPubdate(Date pubDate) {
         this.pubDate = pubDate;
     }
 
@@ -99,7 +100,7 @@ public class Book {
                 String title = rs.getString("title");
                 book.setTitle(title);
 
-                String pubDate = rs.getString("pubDate");
+                Date pubDate = rs.getDate("pubDate");
                 book.setPubdate(pubDate);
 
                 double price = rs.getDouble("price");
@@ -129,7 +130,7 @@ public class Book {
                 String title = rs.getString("title");
                 book.setTitle(title);
 
-                String pubDate = rs.getString("pubDate");
+                Date pubDate = rs.getDate("pubDate");
                 book.setPubdate(pubDate);
 
                 double price = rs.getDouble("price");
@@ -160,7 +161,7 @@ public class Book {
                 String title = rs.getString("title");
                 book.setTitle(title);
 
-                String pubDate = rs.getString("pubDate");
+                Date pubDate = rs.getDate("pubDate");
                 book.setPubdate(pubDate);
 
                 double price = rs.getDouble("price");
