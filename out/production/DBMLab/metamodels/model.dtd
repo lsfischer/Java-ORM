@@ -9,7 +9,8 @@
 <!ELEMENT attribute EMPTY>
     <!ATTLIST attribute
     name CDATA #REQUIRED
-    type CDATA #REQUIRED>
+    type CDATA #REQUIRED
+    required CDATA "false"> <!--  by default this attribute is false -->
 
 <!ELEMENT foreignKey EMPTY>
     <!ATTLIST foreignKey

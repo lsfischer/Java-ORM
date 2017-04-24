@@ -3,6 +3,6 @@
 <model name="Person">
     <class name="Person">
         <attribute name="name" type="String" required="true"/>
-        <attribute name="age" type="int" />
+        <attribute name="age" type="int" required="true"/>
     </class>
 </model>

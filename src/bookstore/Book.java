@@ -1,5 +1,6 @@
 package bookstore;
 import java.util.Date;
+
 import utils.sqlite.SQLiteConn;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -14,8 +15,8 @@ public class Book {
     private int id;
     SQLiteConn sqLiteConn = new SQLiteConn("src/bookstore/bookstore.db");
 
-    // Empty constructor
-    public Book() {
+    //Empty Constructor
+    public Book(){
     }
 
     public String getTitle() {

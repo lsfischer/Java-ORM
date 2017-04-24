@@ -9,7 +9,6 @@ import java.util.List;
 public class Class {
     private String name;
     private List<Attribute> attributes;
-    //private List<Attribute> requiredAttributes;
     private List<Relation> relations;
     private String pkg;
 

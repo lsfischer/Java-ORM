@@ -6,7 +6,7 @@ import metamodels.Class;
 import metamodels.Model;
 import metamodels.Relation;
 import org.sqlite.SQLiteException;
-import person.Person;
+
 import utils.sqlite.SQLiteConn;
 import utils.transformations.Model2Model;
 import utils.transformations.Model2Text;
@@ -26,8 +26,9 @@ public class Main {
         // Test ORM
         //  testORM();
         // LAB 6
-       Model model = Model2Model.getModel("src/models/person.xml");
-       buildModel(model);
+
+        Model model = Model2Model.getModel("src/models/bookstore.xml");
+        buildModel(model);
     }
 
     public static Model getPersonModel() {
@@ -58,7 +59,7 @@ public class Main {
         book.setPkg(model.getName().toLowerCase());
 
         //Da nova maneira agora é assim
-        Relation relation = new Relation(book,author,"12N");
+        Relation relation = new Relation(book, author, "N2N");
         book.addRelation(relation);
         author.addRelation(relation);
 
@@ -68,7 +69,6 @@ public class Main {
     }
 
     public static void buildModel(Model model) {
-
 
 
         // Generate SQL tables
@@ -82,10 +82,9 @@ public class Main {
         //sqLiteConn.execute(sqlTables);
 
         // Generate Java classes
-       for (Class c : model.getClasses()) {
-          String javaClasses = model2Text.render(c, "java_class.ftl");
-          System.out.println(javaClasses);
-
+        for (Class c : model.getClasses()) {
+            String javaClasses = model2Text.render(c, "java_class.ftl");
+            System.out.println(javaClasses);
             try {
                 File fout = new File("src/" + model.getName().toLowerCase() + "/" + c.getName() + ".java");
                 FileOutputStream fos = new FileOutputStream(fout);
@@ -95,6 +94,7 @@ public class Main {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
 
         }
     }

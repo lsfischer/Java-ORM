@@ -29,7 +29,7 @@ public class Attribute {
         this.type = type;
     }
 
-    public boolean isRequired(){
+    public boolean getRequired(){
         return this.required;
     }
 

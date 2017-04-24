@@ -1,6 +1,12 @@
 package ${pkg};
 <#assign uses_date = false>
 <#assign uses_list = false>
+<#assign requiredAttributes =[]/>
+<#list attributes as attribute>
+    <#if attribute.required>
+        <#assign requiredAttributes = requiredAttributes + [attribute] />
+    </#if>
+</#list>
 <#list attributes as attribute>
     <#if attribute.type == "Date" && uses_date == false>
         <#assign uses_date = true>
@@ -11,6 +17,7 @@ package ${pkg};
             <#lt>import java.util.List;
         </#if>
 </#list>
+
 import utils.sqlite.SQLiteConn;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -32,15 +39,16 @@ public class ${name} {
     private int id;
     SQLiteConn sqLiteConn = new SQLiteConn("src/${pkg}/${pkg}.db");
 
-    //TODO meter os atributos required numa lista so para eles ? por uma lista de atributos required na class ?
-    <#list attributes as attribute>
-        <#if attribute.required>
-            // Empty constructor
-            public ${name}() {
-            }
-        </#if>
+    <#if requiredAttributes?size != 0>
+    public ${name}(<#list requiredAttributes as requiredAttribute>${requiredAttribute.type} ${requiredAttribute.name}<#sep>, </#sep></#list>) {
+    <#list requiredAttributes as requiredAttribute>
+        this.${requiredAttribute.name} = ${requiredAttribute.name};
     </#list>
-
+    }
+    </#if>
+    //Empty Constructor
+    public ${name}(){
+    }
 
     <#list attributes as attribute>
     <#-- Getter -->

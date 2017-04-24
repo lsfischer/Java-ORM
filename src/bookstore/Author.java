@@ -1,4 +1,5 @@
 package bookstore;
+
 import utils.sqlite.SQLiteConn;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -11,8 +12,8 @@ public class Author {
     private int id;
     SQLiteConn sqLiteConn = new SQLiteConn("src/bookstore/bookstore.db");
 
-    // Empty constructor
-    public Author() {
+    //Empty Constructor
+    public Author(){
     }
 
     public String getFirst_name() {
