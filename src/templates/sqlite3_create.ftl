@@ -27,7 +27,6 @@ CREATE TABLE ${class.name} (
         <#if rels.relationshipType != "N2N">
         ALTER TABLE ${rels.foreignClass.name} ADD COLUMN (${class.name?lower_case}_id) INTEGER REFERENCES ${class.name}(id);
         <#else>
-        //TODO CORRIGIR Este BUG
         CREATE TABLE ${class.name}_${rels.foreignClass.name} (
            id INTEGER PRIMARY KEY,
            ${class.name?lower_case}_id INTEGER,
