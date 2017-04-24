@@ -1,5 +1,7 @@
 package metamodels;
 
+import org.w3c.dom.Attr;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +9,7 @@ import java.util.List;
 public class Class {
     private String name;
     private List<Attribute> attributes;
+    //private List<Attribute> requiredAttributes;
     private List<Relation> relations;
     private String pkg;
 

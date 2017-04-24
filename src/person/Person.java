@@ -3,12 +3,13 @@ import utils.sqlite.SQLiteConn;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-
 public class Person {
+
     private String name;
     private int age;
     private int id;
     SQLiteConn sqLiteConn = new SQLiteConn("src/person/person.db");
+
     // Empty constructor
     public Person() {
     }
@@ -20,6 +21,7 @@ public class Person {
     public void setName(String name) {
         this.name = name;
     }
+
     public int getAge() {
         return age;
     }
@@ -63,13 +65,17 @@ public class Person {
         ResultSet rs = sqLiteConn.executeQuery(sql);
         try{
             while(rs.next()){
-                int id = rs.getInt("id");
-                String name = rs.getString("name");
-                int age = rs.getInt("age");
                 Person person = new Person();
+
+                int id = rs.getInt("id");
                 person.setId(id);
+
+                String name = rs.getString("name");
                 person.setName(name);
+
+                int age = rs.getInt("age");
                 person.setAge(age);
+
                 list.add(person);
             }
         }catch(Exception e){
@@ -80,43 +86,52 @@ public class Person {
 
     public static Person get(int id){
         Person person = new Person();
-            String sql = "SELECT * FROM Person WHERE id = "+ id;
-            SQLiteConn sqLiteConn = new SQLiteConn("src/person/person.db");
-            ResultSet rs = sqLiteConn.executeQuery(sql);
-            try{
-                while(rs.next()){
-                    int idFromDB = rs.getInt("id");
-                    String name = rs.getString("name");
-                    int age = rs.getInt("age");
-                    person.setId(idFromDB);
-                    person.setName(name);
-                    person.setAge(age);
-                }
-            }catch(Exception e){
-                e.printStackTrace();
+        String sql = "SELECT * FROM Person WHERE id = " + id;
+        SQLiteConn sqLiteConn = new SQLiteConn("src/person/person.db");
+        ResultSet rs = sqLiteConn.executeQuery(sql);
+        try{
+            while(rs.next()){
+                int idFromDB = rs.getInt("id");
+                person.setId(idFromDB);
+
+                String name = rs.getString("name");
+                person.setName(name);
+
+                int age = rs.getInt("age");
+                person.setAge(age);
+
             }
-            return person;
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return person;
     }
 
     public static ArrayList where(String condition){
         ArrayList<Person> list = new ArrayList<>();
-            String sql = "SELECT * FROM Person WHERE "+ condition;
-            SQLiteConn sqLiteConn = new SQLiteConn("src/person/person.db");
-            ResultSet rs = sqLiteConn.executeQuery(sql);
-            try{
-                while(rs.next()){
-                    int id = rs.getInt("id");
-                    String name = rs.getString("name");
-                    int age = rs.getInt("age");
-                    Person person = new Person();
-                    person.setId(id);
-                    person.setName(name);
-                    person.setAge(age);
-                    list.add(person);
-                }
-            }catch(Exception e){
-                e.printStackTrace();
+        String sql = "SELECT * FROM Person WHERE " + condition;
+        SQLiteConn sqLiteConn = new SQLiteConn("src/person/person.db");
+        ResultSet rs = sqLiteConn.executeQuery(sql);
+        try{
+            while(rs.next()){
+                Person person = new Person();
+
+                int id = rs.getInt("id");
+                person.setId(id);
+
+                String name = rs.getString("name");
+                person.setName(name);
+
+                int age = rs.getInt("age");
+                person.setAge(age);
+
+                list.add(person);
             }
-            return list;
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return list;
     }
+
 }
+

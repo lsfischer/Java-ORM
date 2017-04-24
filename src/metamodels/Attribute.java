@@ -1,12 +1,16 @@
 package metamodels;
 
+import org.w3c.dom.Attr;
+
 public class Attribute {
     private String name;
     private String type;
+    private boolean required;
 
     public Attribute(String name, String type) {
         this.name = name;
         this.type = type;
+        this.required = false;
     }
 
     public String getName() {
@@ -23,5 +27,13 @@ public class Attribute {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public boolean isRequired(){
+        return this.required;
+    }
+
+    public  void setRequired(){
+        this.required = true;
     }
 }

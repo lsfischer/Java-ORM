@@ -32,9 +32,15 @@ public class ${name} {
     private int id;
     SQLiteConn sqLiteConn = new SQLiteConn("src/${pkg}/${pkg}.db");
 
-    // Empty constructor
-    public ${name}() {
-    }
+    //TODO meter os atributos required numa lista so para eles ? por uma lista de atributos required na class ?
+    <#list attributes as attribute>
+        <#if attribute.required>
+            // Empty constructor
+            public ${name}() {
+            }
+        </#if>
+    </#list>
+
 
     <#list attributes as attribute>
     <#-- Getter -->

@@ -2,7 +2,7 @@
 <!DOCTYPE model SYSTEM "../metamodels/model.dtd">
 <model name="Person">
     <class name="Person">
-        <attribute name="name" type="String" />
+        <attribute name="name" type="String" required="true"/>
         <attribute name="age" type="int" />
     </class>
 </model>

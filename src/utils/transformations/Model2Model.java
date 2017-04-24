@@ -99,7 +99,11 @@ public class Model2Model {
                 if (childNode.getNodeName() == "attribute") {
                     String name = childNode.getAttributes().getNamedItem("name").getNodeValue();
                     String type = childNode.getAttributes().getNamedItem("type").getNodeValue();
+                    String required = childNode.getAttributes().getNamedItem("required").getNodeValue();
                     Attribute attribute = new Attribute(name, type);
+                    if(Boolean.parseBoolean(required)){
+                        attribute.setRequired();
+                    }
                     attributes.add(attribute);
                 }
             }

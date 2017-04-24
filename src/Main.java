@@ -26,7 +26,7 @@ public class Main {
         // Test ORM
         //  testORM();
         // LAB 6
-       Model model = Model2Model.getModel("src/models/bookstore.xml");
+       Model model = Model2Model.getModel("src/models/person.xml");
        buildModel(model);
     }
 
