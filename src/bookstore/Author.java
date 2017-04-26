@@ -76,8 +76,7 @@ public class Author {
         }else{
             sql = "SELECT * FROM Author WHERE " + condition;
         }
-        ResultSet rs = sqLiteConn.executeQuery(sql);
-        return rs;
+        return sqLiteConn.executeQuery(sql);
     }
 
     public static ArrayList all(){

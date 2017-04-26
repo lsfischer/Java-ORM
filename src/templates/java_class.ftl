@@ -161,8 +161,7 @@ public class ${name} {
         }else{
             sql = "SELECT * FROM ${name} WHERE " + condition;
         }
-        ResultSet rs = sqLiteConn.executeQuery(sql);
-        return rs;
+        return sqLiteConn.executeQuery(sql);
     }
 
     public static ArrayList all(){
