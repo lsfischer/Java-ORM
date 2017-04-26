@@ -160,6 +160,26 @@ public class ${name} {
         return sqLiteConn.executeQuery(sql);
     }
 
+    public static void getRelations(${name} ${name?lower_case}, int id){
+        <#list relations as rels>
+        <#if rels.regularClass.name == name>
+        <#if rels.relationshipType == "N2N">
+        String sql = "SELECT ${rels.foreignClass.name?lower_case}_id FROM ${name}_${rels.foreignClass.name} WHERE ${name?lower_case}_id = "+id;
+        ResultSet resultSet = sqLiteConn.executeQuery(sql);
+        try{
+            while(resultSet.next()){
+                String relationId = Integer.toString(resultSet.getInt("${rels.foreignClass.name?lower_case}_id"));
+                ${rels.foreignClass.name} ${rels.foreignClass.name?lower_case} = ${rels.foreignClass.name}.get(relationId);
+                ${name?lower_case}.add${rels.foreignClass.name}(${rels.foreignClass.name?lower_case});
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        </#if>
+        </#if>
+        </#list>
+    }
+
     public static ArrayList all(){
         ArrayList<${name}> list = new ArrayList<>();
         ResultSet rs = getResultSet("");
@@ -175,6 +195,10 @@ public class ${name} {
                 ${name?lower_case}.set${attribute.name?capitalize}(${attribute.name});
 
                 </#list>
+                <#if relations?size != 0>
+                getRelations(${name?lower_case},id);
+
+                </#if>
                 list.add(${name?lower_case});
             }
         }catch(Exception e){
@@ -196,10 +220,15 @@ public class ${name} {
                 ${name?lower_case}.set${attribute.name?capitalize}(${attribute.name});
 
                 </#list>
+
             }
         }catch(Exception e){
             e.printStackTrace();
         }
+        <#if relations?size != 0>
+        getRelations(${name?lower_case},${name?lower_case}.getId());
+
+        </#if>
         return ${name?lower_case};
     }
 
@@ -218,6 +247,10 @@ public class ${name} {
                 ${name?lower_case}.set${attribute.name?capitalize}(${attribute.name});
 
                 </#list>
+                <#if relations?size != 0>
+                getRelations(${name?lower_case},id);
+
+                </#if>
                 list.add(${name?lower_case});
             }
         }catch(Exception e){

@@ -1,6 +1,6 @@
 
 import bookstore.Author;
-import bookstore.Book;
+
 import com.sun.org.apache.xpath.internal.SourceTree;
 import metamodels.Attribute;
 import metamodels.Class;
@@ -145,6 +145,7 @@ public class Main {
 
     public static void testORM() {
         //TODO Por o TestORM a funcionar com base no modelo que o utilizador escolher no startProgram()
+        /*
         Book book1 = new Book();
         book1.setTitle("Title1");
         book1.setPrice(10);
@@ -153,6 +154,7 @@ public class Main {
         Author a = Author.get("1");
         System.out.println(a);
         book1.addAuthor(a);
+        */
         //book
         /*
         //Creates a new Author and saves it in the data base

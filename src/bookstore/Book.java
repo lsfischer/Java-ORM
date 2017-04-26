@@ -107,6 +107,20 @@ public class Book {
         return sqLiteConn.executeQuery(sql);
     }
 
+    public static void getRelations(Book book, int id){
+        String sql = "SELECT author_id FROM Book_Author WHERE book_id = "+id;
+        ResultSet resultSet = sqLiteConn.executeQuery(sql);
+        try{
+            while(resultSet.next()){
+                String relationId = Integer.toString(resultSet.getInt("author_id"));
+                Author author = Author.get(relationId);
+                book.addAuthor(author);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
     public static ArrayList all(){
         ArrayList<Book> list = new ArrayList<>();
         ResultSet rs = getResultSet("");
@@ -128,6 +142,8 @@ public class Book {
 
                 int quantity = rs.getInt("quantity");
                 book.setQuantity(quantity);
+
+                getRelations(book,id);
 
                 list.add(book);
             }
@@ -157,10 +173,13 @@ public class Book {
                 int quantity = rs.getInt("quantity");
                 book.setQuantity(quantity);
 
+
             }
         }catch(Exception e){
             e.printStackTrace();
         }
+        getRelations(book,book.getId());
+
         return book;
     }
 
@@ -185,6 +204,8 @@ public class Book {
 
                 int quantity = rs.getInt("quantity");
                 book.setQuantity(quantity);
+
+                getRelations(book,id);
 
                 list.add(book);
             }

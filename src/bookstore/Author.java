@@ -79,6 +79,9 @@ public class Author {
         return sqLiteConn.executeQuery(sql);
     }
 
+    public static void getRelations(Author author, int id){
+    }
+
     public static ArrayList all(){
         ArrayList<Author> list = new ArrayList<>();
         ResultSet rs = getResultSet("");
@@ -97,6 +100,8 @@ public class Author {
 
                 String email = rs.getString("email");
                 author.setEmail(email);
+
+                getRelations(author,id);
 
                 list.add(author);
             }
@@ -123,10 +128,13 @@ public class Author {
                 String email = rs.getString("email");
                 author.setEmail(email);
 
+
             }
         }catch(Exception e){
             e.printStackTrace();
         }
+        getRelations(author,author.getId());
+
         return author;
     }
 
@@ -148,6 +156,8 @@ public class Author {
 
                 String email = rs.getString("email");
                 author.setEmail(email);
+
+                getRelations(author,id);
 
                 list.add(author);
             }
