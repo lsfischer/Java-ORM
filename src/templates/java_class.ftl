@@ -114,7 +114,7 @@ public class ${name} {
         <#if relations?size != 0>
         <#list relations as rels>
         <#if rels.regularClass.name = name>
-         add${rels.foreignClass.name}ToDB();
+         saveRelation();
         </#if>
         </#list>
         </#if>
@@ -123,12 +123,22 @@ public class ${name} {
     <#if relations?size != 0>
     <#list relations as rels>
     <#if rels.regularClass.name = name>
-     public void add${rels.foreignClass.name}ToDB(){
+     public void saveRelation(){
         <#if rels.relationshipType == "N2N">
          for(${rels.foreignClass.name} object : ${rels.foreignClass.name?lower_case}){
             String sql = String.format("INSERT INTO ${rels.regularClass.name}_${rels.foreignClass.name} (${rels.regularClass.name?lower_case}_id, ${rels.foreignClass.name?lower_case}_id) VALUES ('%s', '%s')", this.id, object.getId());
             sqLiteConn.executeUpdate(sql);
          }
+        </#if>
+        <#if rels.relationshipType =="121">
+        String sql = String.format("UDPDATE ${rels.foreignClass.name} SET ${name?lower_case}_id = '%s' WHERE id = '%s'", this.id, ${rels.foreignClass.name?lower_case}.getId());
+        sqLiteConn.executeUpdate(sql);
+        </#if>
+        <#if rels.relationshipType == "12N" || rels.relationshipType == "N21">
+        for(${rels.foreignClass.name} object : ${rels.foreignClass.name?lower_case}){
+            String sql = String.format("UDPDATE ${rels.foreignClass.name} SET ${name?lower_case}_id = '%s' WHERE id = '%s", this.id, object.getId());
+            sqLiteConn.executeUpdate(sql);
+        }
         </#if>
      }
     </#if>

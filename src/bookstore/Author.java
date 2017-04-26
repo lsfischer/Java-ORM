@@ -57,7 +57,6 @@ public class Author {
             int idPerson = sqLiteConn.executeUpdate(sql);
             setId(idPerson);
         }
-
     }
 
 

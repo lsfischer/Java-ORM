@@ -1,5 +1,4 @@
 
-import bookstore.Author;
 import bookstore.Book;
 import com.sun.org.apache.xpath.internal.SourceTree;
 import metamodels.Attribute;

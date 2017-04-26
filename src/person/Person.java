@@ -1,7 +1,6 @@
 package person;
 
 import utils.sqlite.SQLiteConn;
-
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
@@ -10,15 +9,14 @@ public class Person {
     private String name;
     private int age;
     private int id;
-    SQLiteConn sqLiteConn = new SQLiteConn("src/person/person.db");
+    static SQLiteConn sqLiteConn = new SQLiteConn("src/person/person.db");
 
     public Person(String name, int age) {
         this.name = name;
         this.age = age;
     }
-
     //Empty Constructor
-    public Person() {
+    public Person(){
     }
 
     public String getName() {
@@ -45,33 +43,43 @@ public class Person {
         this.id = id;
     }
 
-    public void save() {
-        if (this.id >= 1) {
-            String sql = String.format("UPDATE Person SET name = '%s',age = '%s' WHERE id = '%s'", this.name, this.age, this.id);
+    public void save(){
+        if(this.id >= 1){
+            String sql = String.format("UPDATE Person SET name = '%s',age = '%s' WHERE id = '%s'",this.name,this.age,this.id);
             sqLiteConn.executeUpdate(sql);
-        } else {
-            String sql = String.format("INSERT INTO Person (name,age) VALUES ('%s','%s')", this.name, this.age);
+        }else{
+            String sql = String.format("INSERT INTO Person (name,age) VALUES ('%s','%s')",this.name,this.age);
             int idPerson = sqLiteConn.executeUpdate(sql);
             setId(idPerson);
         }
     }
 
-    public void delete() {
-        if (this.id >= 1) {
-            String sql = "DELETE FROM Person WHERE id = " + this.id;
+
+    public void delete(){
+        if(this.id >= 1){
+            String sql = "DELETE FROM Person WHERE id = "+this.id;
             sqLiteConn.executeUpdate(sql);
-        } else {
+        }else{
             System.out.println("This object does not exist in the database");
         }
     }
 
-    public static ArrayList all() {
-        ArrayList<Person> list = new ArrayList<>();
-        String sql = "SELECT * FROM Person";
-        SQLiteConn sqLiteConn = new SQLiteConn("src/person/person.db");
+    public static ResultSet getResultSet(String condition){
+        String sql;
+        if(condition.isEmpty()){
+            sql = "SELECT * FROM Person";
+        }else{
+            sql = "SELECT * FROM Person WHERE " + condition;
+        }
         ResultSet rs = sqLiteConn.executeQuery(sql);
-        try {
-            while (rs.next()) {
+        return rs;
+    }
+
+    public static ArrayList all(){
+        ArrayList<Person> list = new ArrayList<>();
+        ResultSet rs = getResultSet("");
+        try{
+            while(rs.next()){
                 Person person = new Person();
 
                 int id = rs.getInt("id");
@@ -85,19 +93,17 @@ public class Person {
 
                 list.add(person);
             }
-        } catch (Exception e) {
+        }catch(Exception e){
             e.printStackTrace();
         }
         return list;
     }
 
-    public static Person get(int id) {
+    public static Person get(String id){
         Person person = new Person();
-        String sql = "SELECT * FROM Person WHERE id = " + id;
-        SQLiteConn sqLiteConn = new SQLiteConn("src/person/person.db");
-        ResultSet rs = sqLiteConn.executeQuery(sql);
-        try {
-            while (rs.next()) {
+        ResultSet rs = getResultSet(id);
+        try{
+            while(rs.next()){
                 int idFromDB = rs.getInt("id");
                 person.setId(idFromDB);
 
@@ -108,19 +114,17 @@ public class Person {
                 person.setAge(age);
 
             }
-        } catch (Exception e) {
+        }catch(Exception e){
             e.printStackTrace();
         }
         return person;
     }
 
-    public static ArrayList where(String condition) {
+    public static ArrayList where(String condition){
         ArrayList<Person> list = new ArrayList<>();
-        String sql = "SELECT * FROM Person WHERE " + condition;
-        SQLiteConn sqLiteConn = new SQLiteConn("src/person/person.db");
-        ResultSet rs = sqLiteConn.executeQuery(sql);
-        try {
-            while (rs.next()) {
+        ResultSet rs = getResultSet(condition);
+        try{
+            while(rs.next()){
                 Person person = new Person();
 
                 int id = rs.getInt("id");
@@ -134,10 +138,15 @@ public class Person {
 
                 list.add(person);
             }
-        } catch (Exception e) {
+        }catch(Exception e){
             e.printStackTrace();
         }
         return list;
+    }
+
+    @Override
+    public String toString(){
+        return "ID: " + this.id + "\nname: " + this.name + "\nage: " + this.age ;
     }
 
 }

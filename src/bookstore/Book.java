@@ -56,11 +56,11 @@ public class Book {
     }
 
     public void addAuthor(Author author) {
-       // if(author.getId() == null){
+        if(author.getId() == 0){
             System.out.println("You need to save this object in the DataBase first");
-        //}else{
+        }else{
             this.author.add(author);
-        //}
+        }
     }
     public int getId() {
         return this.id;
@@ -79,11 +79,10 @@ public class Book {
             int idPerson = sqLiteConn.executeUpdate(sql);
             setId(idPerson);
         }
-
-         addAuthorToDB();
+         saveRelation();
     }
 
-     public void addAuthorToDB(){
+     public void saveRelation(){
          for(Author object : author){
             String sql = String.format("INSERT INTO Book_Author (book_id, author_id) VALUES ('%s', '%s')", this.id, object.getId());
             sqLiteConn.executeUpdate(sql);
