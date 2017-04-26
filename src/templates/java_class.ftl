@@ -37,7 +37,7 @@ public class ${name} {
     </#if>
     </#list>
     private int id;
-    SQLiteConn sqLiteConn = new SQLiteConn("src/${pkg}/${pkg}.db");
+    static SQLiteConn sqLiteConn = new SQLiteConn("src/${pkg}/${pkg}.db");
 
     <#if requiredAttributes?size != 0>
     public ${name}(<#list requiredAttributes as requiredAttribute>${requiredAttribute.type} ${requiredAttribute.name}<#sep>, </#sep></#list>) {
@@ -114,11 +114,20 @@ public class ${name} {
         }
     }
 
+    public static ResultSet getResultSet(String condition){
+        String sql;
+        if(condition.isEmpty()){
+            sql = "SELECT * FROM ${name}";
+        }else{
+            sql = "SELECT * FROM ${name} WHERE " + condition;
+        }
+        ResultSet rs = sqLiteConn.executeQuery(sql);
+        return rs;
+    }
+
     public static ArrayList all(){
         ArrayList<${name}> list = new ArrayList<>();
-        String sql = "SELECT * FROM ${name}";
-        SQLiteConn sqLiteConn = new SQLiteConn("src/${pkg}/${pkg}.db");
-        ResultSet rs = sqLiteConn.executeQuery(sql);
+        ResultSet rs = getResultSet("");
         try{
             while(rs.next()){
                 ${name} ${name?lower_case} = new ${name}();
@@ -139,11 +148,9 @@ public class ${name} {
         return list;
     }
 
-    public static ${name} get(int id){
+    public static ${name} get(String id){
         ${name} ${name?lower_case} = new ${name}();
-        String sql = "SELECT * FROM ${name} WHERE id = " + id;
-        SQLiteConn sqLiteConn = new SQLiteConn("src/${pkg}/${pkg}.db");
-        ResultSet rs = sqLiteConn.executeQuery(sql);
+        ResultSet rs = getResultSet(id);
         try{
             while(rs.next()){
                 int idFromDB = rs.getInt("id");
@@ -163,9 +170,7 @@ public class ${name} {
 
     public static ArrayList where(String condition){
         ArrayList<${name}> list = new ArrayList<>();
-        String sql = "SELECT * FROM ${name} WHERE " + condition;
-        SQLiteConn sqLiteConn = new SQLiteConn("src/${pkg}/${pkg}.db");
-        ResultSet rs = sqLiteConn.executeQuery(sql);
+        ResultSet rs = getResultSet(condition);
         try{
             while(rs.next()){
                 ${name} ${name?lower_case} = new ${name}();
@@ -184,6 +189,11 @@ public class ${name} {
             e.printStackTrace();
         }
         return list;
+    }
+
+    @Override
+    public String toString(){
+        return "ID: " + this.id <#list attributes as attribute>+ "\n${attribute.name}: " + this.${attribute.name} </#list>;
     }
 
     <#list relations as rels>

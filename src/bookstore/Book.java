@@ -13,7 +13,7 @@ public class Book {
     private int quantity;
     private ArrayList<Author> author;
     private int id;
-    SQLiteConn sqLiteConn = new SQLiteConn("src/bookstore/bookstore.db");
+    static SQLiteConn sqLiteConn = new SQLiteConn("src/bookstore/bookstore.db");
 
     //Empty Constructor
     public Book(){
@@ -86,11 +86,20 @@ public class Book {
         }
     }
 
+    public static ResultSet getResultSet(String condition){
+        String sql;
+        if(condition.isEmpty()){
+            sql = "SELECT * FROM Book";
+        }else{
+            sql = "SELECT * FROM Book WHERE " + condition;
+        }
+        ResultSet rs = sqLiteConn.executeQuery(sql);
+        return rs;
+    }
+
     public static ArrayList all(){
         ArrayList<Book> list = new ArrayList<>();
-        String sql = "SELECT * FROM Book";
-        SQLiteConn sqLiteConn = new SQLiteConn("src/bookstore/bookstore.db");
-        ResultSet rs = sqLiteConn.executeQuery(sql);
+        ResultSet rs = getResultSet("");
         try{
             while(rs.next()){
                 Book book = new Book();
@@ -118,11 +127,9 @@ public class Book {
         return list;
     }
 
-    public static Book get(int id){
+    public static Book get(String id){
         Book book = new Book();
-        String sql = "SELECT * FROM Book WHERE id = " + id;
-        SQLiteConn sqLiteConn = new SQLiteConn("src/bookstore/bookstore.db");
-        ResultSet rs = sqLiteConn.executeQuery(sql);
+        ResultSet rs = getResultSet(id);
         try{
             while(rs.next()){
                 int idFromDB = rs.getInt("id");
@@ -149,9 +156,7 @@ public class Book {
 
     public static ArrayList where(String condition){
         ArrayList<Book> list = new ArrayList<>();
-        String sql = "SELECT * FROM Book WHERE " + condition;
-        SQLiteConn sqLiteConn = new SQLiteConn("src/bookstore/bookstore.db");
-        ResultSet rs = sqLiteConn.executeQuery(sql);
+        ResultSet rs = getResultSet(condition);
         try{
             while(rs.next()){
                 Book book = new Book();
@@ -177,6 +182,11 @@ public class Book {
             e.printStackTrace();
         }
         return list;
+    }
+
+    @Override
+    public String toString(){
+        return "ID: " + this.id + "\ntitle: " + this.title + "\npubDate: " + this.pubDate + "\nprice: " + this.price + "\nquantity: " + this.quantity ;
     }
 
 }
