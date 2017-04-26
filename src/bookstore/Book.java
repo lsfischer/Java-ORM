@@ -129,11 +129,6 @@ public class Book {
                 int quantity = rs.getInt("quantity");
                 book.setQuantity(quantity);
 
-                int relationID = rs.getInt("author_id");
-                if(relationID != 0){
-                Author author = Author.get(Integer.toString(relationID));
-                book.addAuthor(author);
-                }
                 list.add(book);
             }
         }catch(Exception e){

@@ -175,19 +175,6 @@ public class ${name} {
                 ${name?lower_case}.set${attribute.name?capitalize}(${attribute.name});
 
                 </#list>
-                <#list relations as rels>
-                <#if rels.regularClass.name == name>
-                int relationID = rs.getInt("${rels.foreignClass.name?lower_case}_id");
-                if(relationID != 0){
-                ${rels.foreignClass.name} ${rels.foreignClass.name?lower_case} = ${rels.foreignClass.name}.get(Integer.toString(relationID));
-                <#if rels.relationshipType != "121">
-                ${name?lower_case}.add${rels.foreignClass.name}(${rels.foreignClass.name?lower_case});
-                <#else>
-                ${name?lower_case}.set${rels.foreignClass.name}(${rels.foreignClass.name?lower_case});
-                </#if>
-                }
-                </#if>
-                </#list>
                 list.add(${name?lower_case});
             }
         }catch(Exception e){
