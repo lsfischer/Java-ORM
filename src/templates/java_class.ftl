@@ -77,11 +77,19 @@ public class ${name} {
     </#if>
     <#if rels.relationshipType != '121'>
     public void add${rels.foreignClass.name}(${rels.foreignClass.name} ${rels.foreignClass.name?lower_case}) {
-        this.${rels.foreignClass.name?lower_case}.add(${rels.foreignClass.name?lower_case});
+        if(${rels.foreignClass.name?lower_case}.getId() == 0){
+            System.out.println("You need to save this object in the DataBase first");
+        }else{
+            this.${rels.foreignClass.name?lower_case}.add(${rels.foreignClass.name?lower_case});
+        }
     }
     <#else>
     public void set${rels.foreignClass.name}(${rels.foreignClass.name} ${rels.foreignClass.name?lower_case}) {
+        if(${rels.foreignClass.name?lower_case}.getId() == 0){
+            System.out.println("You need to save this object in the DataBase first");
+        }else{
             this.${rels.foreignClass.name?lower_case} = ${rels.foreignClass.name?lower_case};
+        }
     }
     </#if>
     </#if>
@@ -103,7 +111,29 @@ public class ${name} {
             int idPerson = sqLiteConn.executeUpdate(sql);
             setId(idPerson);
         }
+        <#if relations?size != 0>
+        <#list relations as rels>
+        <#if rels.regularClass.name = name>
+         add${rels.foreignClass.name}ToDB();
+        </#if>
+        </#list>
+        </#if>
     }
+
+    <#if relations?size != 0>
+    <#list relations as rels>
+    <#if rels.regularClass.name = name>
+     public void add${rels.foreignClass.name}ToDB(){
+        <#if rels.relationshipType == "N2N">
+         for(${rels.foreignClass.name} object : ${rels.foreignClass.name?lower_case}){
+            String sql = String.format("INSERT INTO ${rels.regularClass.name}_${rels.foreignClass.name} (${rels.regularClass.name?lower_case}_id, ${rels.foreignClass.name?lower_case}_id) VALUES ('%s', '%s')", this.id, object.getId());
+            sqLiteConn.executeUpdate(sql);
+         }
+        </#if>
+     }
+    </#if>
+    </#list>
+    </#if>
 
     public void delete(){
         if(this.id >= 1){

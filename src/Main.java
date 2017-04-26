@@ -1,3 +1,4 @@
+
 import bookstore.Author;
 import bookstore.Book;
 import com.sun.org.apache.xpath.internal.SourceTree;
@@ -125,7 +126,7 @@ public class Main {
         for (Class c : model.getClasses()) {
             String javaClasses = model2Text.render(c, "java_class.ftl");
             System.out.println(javaClasses);
-/*
+
             try {
                 File fout = new File("src/" + model.getName().toLowerCase() + "/" + c.getName() + ".java");
                 FileOutputStream fos = new FileOutputStream(fout);
@@ -135,22 +136,27 @@ public class Main {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-*/
+
         }
     }
 
     public static void testORM() {
         //TODO Por o TestORM a funcionar com base no modelo que o utilizador escolher no startProgram()
-        //Creates a new Author
+        //Creates a new Author and saves it in the data base
+/*
         Author newAuthor = new Author();
         newAuthor.setFirst_name("Lucas");
         newAuthor.setLast_name("Fischer");
         newAuthor.setEmail("lucasfischerpt@gmail.com");
         newAuthor.save();
+        System.out.println("-----------------------------------");
         ArrayList<Author> authors = Author.all();
         for(Author a : authors){
             System.out.println(a);
         }
+        System.out.println("-----------------------------------");
+*/
+
         /*
         Author a = Author.get(1);
         ArrayList<Book> bookList = a.getBooks();

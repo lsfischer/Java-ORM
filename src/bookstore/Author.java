@@ -57,7 +57,9 @@ public class Author {
             int idPerson = sqLiteConn.executeUpdate(sql);
             setId(idPerson);
         }
+
     }
+
 
     public void delete(){
         if(this.id >= 1){

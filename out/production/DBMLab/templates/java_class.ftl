@@ -37,7 +37,7 @@ public class ${name} {
     </#if>
     </#list>
     private int id;
-    SQLiteConn sqLiteConn = new SQLiteConn("src/${pkg}/${pkg}.db");
+    static SQLiteConn sqLiteConn = new SQLiteConn("src/${pkg}/${pkg}.db");
 
     <#if requiredAttributes?size != 0>
     public ${name}(<#list requiredAttributes as requiredAttribute>${requiredAttribute.type} ${requiredAttribute.name}<#sep>, </#sep></#list>) {
@@ -77,11 +77,19 @@ public class ${name} {
     </#if>
     <#if rels.relationshipType != '121'>
     public void add${rels.foreignClass.name}(${rels.foreignClass.name} ${rels.foreignClass.name?lower_case}) {
-        this.${rels.foreignClass.name?lower_case}.add(${rels.foreignClass.name?lower_case});
+        if(${rels.foreignClass.name?lower_case}.getId() == 0){
+            System.out.println("You need to save this object in the DataBase first");
+        }else{
+            this.${rels.foreignClass.name?lower_case}.add(${rels.foreignClass.name?lower_case});
+        }
     }
     <#else>
     public void set${rels.foreignClass.name}(${rels.foreignClass.name} ${rels.foreignClass.name?lower_case}) {
+        if(${rels.foreignClass.name?lower_case}.getId() == 0){
+            System.out.println("You need to save this object in the DataBase first");
+        }else{
             this.${rels.foreignClass.name?lower_case} = ${rels.foreignClass.name?lower_case};
+        }
     }
     </#if>
     </#if>
@@ -103,7 +111,30 @@ public class ${name} {
             int idPerson = sqLiteConn.executeUpdate(sql);
             setId(idPerson);
         }
+
+        <#if relations?size != 0>
+        <#list relations as rels>
+        <#if rels.regularClass.name = name>
+         add${rels.foreignClass.name}ToDB();
+        </#if>
+        </#list>
+        </#if>
     }
+
+    <#if relations?size != 0>
+    <#list relations as rels>
+    <#if rels.regularClass.name = name>
+     public void add${rels.foreignClass.name}ToDB(){
+        <#if rels.relationshipType == "N2N">
+         for(${rels.foreignClass.name} object : ${rels.foreignClass.name?lower_case}){
+            String sql = String.format("INSERT INTO ${rels.regularClass.name}_${rels.foreignClass.name} (${rels.regularClass.name?lower_case}_id, ${rels.foreignClass.name?lower_case}_id) VALUES ('%s', '%s')", this.id, object.getId());
+            sqLiteConn.executeUpdate(sql);
+         }
+        </#if>
+     }
+    </#if>
+    </#list>
+    </#if>
 
     public void delete(){
         if(this.id >= 1){
@@ -114,11 +145,20 @@ public class ${name} {
         }
     }
 
+    public static ResultSet getResultSet(String condition){
+        String sql;
+        if(condition.isEmpty()){
+            sql = "SELECT * FROM ${name}";
+        }else{
+            sql = "SELECT * FROM ${name} WHERE " + condition;
+        }
+        ResultSet rs = sqLiteConn.executeQuery(sql);
+        return rs;
+    }
+
     public static ArrayList all(){
         ArrayList<${name}> list = new ArrayList<>();
-        String sql = "SELECT * FROM ${name}";
-        SQLiteConn sqLiteConn = new SQLiteConn("src/${pkg}/${pkg}.db");
-        ResultSet rs = sqLiteConn.executeQuery(sql);
+        ResultSet rs = getResultSet("");
         try{
             while(rs.next()){
                 ${name} ${name?lower_case} = new ${name}();
@@ -139,11 +179,9 @@ public class ${name} {
         return list;
     }
 
-    public static ${name} get(int id){
+    public static ${name} get(String id){
         ${name} ${name?lower_case} = new ${name}();
-        String sql = "SELECT * FROM ${name} WHERE id = " + id;
-        SQLiteConn sqLiteConn = new SQLiteConn("src/${pkg}/${pkg}.db");
-        ResultSet rs = sqLiteConn.executeQuery(sql);
+        ResultSet rs = getResultSet(id);
         try{
             while(rs.next()){
                 int idFromDB = rs.getInt("id");
@@ -163,9 +201,7 @@ public class ${name} {
 
     public static ArrayList where(String condition){
         ArrayList<${name}> list = new ArrayList<>();
-        String sql = "SELECT * FROM ${name} WHERE " + condition;
-        SQLiteConn sqLiteConn = new SQLiteConn("src/${pkg}/${pkg}.db");
-        ResultSet rs = sqLiteConn.executeQuery(sql);
+        ResultSet rs = getResultSet(condition);
         try{
             while(rs.next()){
                 ${name} ${name?lower_case} = new ${name}();
@@ -184,6 +220,11 @@ public class ${name} {
             e.printStackTrace();
         }
         return list;
+    }
+
+    @Override
+    public String toString(){
+        return "ID: " + this.id <#list attributes as attribute>+ "\n${attribute.name}: " + this.${attribute.name} </#list>;
     }
 
     <#list relations as rels>
