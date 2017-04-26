@@ -8,7 +8,7 @@
     </class>
     <class name="Book">
         <attribute name="title" type="String" />
-        <attribute name="pubDate" type="Date" />
+        <attribute name="pubDate" type="String" />
         <attribute name="price" type="double" />
         <attribute name="quantity" type="int" />
     </class>

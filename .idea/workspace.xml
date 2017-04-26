@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/Main.java" line="140" />
+    <bookmark url="file://$PROJECT_DIR$/src/Main.java" line="144" />
     <bookmark url="file://$PROJECT_DIR$/src/utils/transformations/Model2Text.java" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="362a2e9b-8028-44a0-b85b-21b753214301" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/Main.class" afterPath="$PROJECT_DIR$/out/production/DBMLab/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/bookstore/Author.class" afterPath="$PROJECT_DIR$/out/production/DBMLab/bookstore/Author.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/bookstore/Book.class" afterPath="$PROJECT_DIR$/out/production/DBMLab/bookstore/Book.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/models/bookstore.xml" afterPath="$PROJECT_DIR$/out/production/DBMLab/models/bookstore.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/templates/java_class.ftl" afterPath="$PROJECT_DIR$/out/production/DBMLab/templates/java_class.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bookstore/Author.java" afterPath="$PROJECT_DIR$/src/bookstore/Author.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bookstore/Book.java" afterPath="$PROJECT_DIR$/src/bookstore/Book.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/bookstore.xml" afterPath="$PROJECT_DIR$/src/models/bookstore.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/java_class.ftl" afterPath="$PROJECT_DIR$/src/templates/java_class.ftl" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -33,12 +37,13 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="24" column="20" lean-forward="true" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+            <state relative-caret-position="183">
+              <caret line="28" column="10" lean-forward="false" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#getModelChoice#0;class#Main#0" expanded="false" />
                 <element signature="method#getLanguageChoice#0;class#Main#0" expanded="false" />
+                <element signature="method#startProgram#0;class#Main#0" expanded="false" />
                 <element signature="method#getPersonModel#0;class#Main#0" expanded="false" />
                 <element signature="method#getBookStoreModel#0;class#Main#0" expanded="false" />
               </folding>
@@ -49,42 +54,33 @@
       <file leaf-file-name="Book.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/bookstore/Book.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="105" column="57" lean-forward="true" selection-start-line="105" selection-start-column="57" selection-end-line="105" selection-end-column="57" />
+            <state relative-caret-position="186">
+              <caret line="133" column="72" lean-forward="false" selection-start-line="133" selection-start-column="72" selection-end-line="133" selection-end-column="72" />
               <folding>
-                <element signature="e#475#476#0" expanded="true" />
-                <element signature="e#503#504#0" expanded="true" />
-                <element signature="e#545#546#0" expanded="true" />
-                <element signature="e#579#580#0" expanded="true" />
-                <element signature="e#611#612#0" expanded="true" />
-                <element signature="e#641#642#0" expanded="true" />
-                <element signature="e#685#686#0" expanded="true" />
-                <element signature="e#723#724#0" expanded="true" />
-                <element signature="e#755#756#0" expanded="true" />
-                <element signature="e#783#784#0" expanded="true" />
-                <element signature="e#825#826#0" expanded="true" />
-                <element signature="e#859#860#0" expanded="true" />
-                <element signature="e#891#892#0" expanded="true" />
-                <element signature="e#922#923#0" expanded="true" />
-                <element signature="e#967#968#0" expanded="true" />
-                <element signature="e#1007#1008#0" expanded="true" />
-                <element signature="e#1051#1052#0" expanded="true" />
-                <element signature="e#1080#1081#0" expanded="true" />
-                <element signature="e#1336#1337#0" expanded="true" />
-                <element signature="e#1366#1367#0" expanded="true" />
-                <element signature="e#1399#1400#0" expanded="true" />
-                <element signature="e#1427#1428#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#474#475#0" expanded="true" />
+                <element signature="e#502#503#0" expanded="true" />
+                <element signature="e#544#545#0" expanded="true" />
+                <element signature="e#578#579#0" expanded="true" />
+                <element signature="e#612#613#0" expanded="true" />
+                <element signature="e#642#643#0" expanded="true" />
+                <element signature="e#688#689#0" expanded="true" />
+                <element signature="e#726#727#0" expanded="true" />
+                <element signature="e#758#759#0" expanded="true" />
+                <element signature="e#786#787#0" expanded="true" />
+                <element signature="e#828#829#0" expanded="true" />
+                <element signature="e#862#863#0" expanded="true" />
+                <element signature="e#894#895#0" expanded="true" />
+                <element signature="e#925#926#0" expanded="true" />
+                <element signature="e#970#971#0" expanded="true" />
+                <element signature="e#1010#1011#0" expanded="true" />
+                <element signature="e#1054#1055#0" expanded="true" />
+                <element signature="e#1083#1084#0" expanded="true" />
+                <element signature="e#1339#1340#0" expanded="true" />
+                <element signature="e#1369#1370#0" expanded="true" />
+                <element signature="e#1402#1403#0" expanded="true" />
+                <element signature="e#1430#1431#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bookstore.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/bookstore.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="25" lean-forward="false" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -92,8 +88,8 @@
       <file leaf-file-name="java_class.ftl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/templates/java_class.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="163" column="44" lean-forward="false" selection-start-line="163" selection-start-column="44" selection-end-line="163" selection-end-column="44" />
+            <state relative-caret-position="330">
+              <caret line="181" column="140" lean-forward="false" selection-start-line="181" selection-start-column="140" selection-end-line="181" selection-end-column="140" />
               <folding />
             </state>
           </provider>
@@ -152,9 +148,9 @@
         <option value="$PROJECT_DIR$/src/models/person.xml" />
         <option value="$PROJECT_DIR$/src/person/Person.java" />
         <option value="$PROJECT_DIR$/src/bookstore/Author.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/templates/sqlite3_create.ftl" />
         <option value="$PROJECT_DIR$/src/models/bookstore.xml" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/bookstore/Book.java" />
         <option value="$PROJECT_DIR$/src/templates/java_class.ftl" />
       </list>
@@ -897,7 +893,14 @@
       <option name="project" value="LOCAL" />
       <updated>1493232937335</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="update">
+      <created>1493233038425</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1493233038425</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TodoView">
@@ -955,7 +958,6 @@
     <MESSAGE value="Deu" />
     <MESSAGE value="Removed Teste Comments" />
     <MESSAGE value="Added Relation metamodel" />
-    <MESSAGE value="update" />
     <MESSAGE value="Completed Relation metamodel" />
     <MESSAGE value="Update ftl with Relation metamodel" />
     <MESSAGE value="Update sql3_create.ftl" />
@@ -975,7 +977,8 @@
     <MESSAGE value="Better java_class.ftl, added toString(), working on testORM()" />
     <MESSAGE value="Working on adding a relation object to the database" />
     <MESSAGE value="saveRelation() done" />
-    <option name="LAST_COMMIT_MESSAGE" value="saveRelation() done" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -996,6 +999,7 @@
             <element signature="imports" expanded="true" />
             <element signature="method#getModelChoice#0;class#Main#0" expanded="false" />
             <element signature="method#getLanguageChoice#0;class#Main#0" expanded="false" />
+            <element signature="method#startProgram#0;class#Main#0" expanded="false" />
             <element signature="method#getPersonModel#0;class#Main#0" expanded="false" />
             <element signature="method#getBookStoreModel#0;class#Main#0" expanded="false" />
           </folding>
@@ -1010,6 +1014,7 @@
             <element signature="imports" expanded="true" />
             <element signature="method#getModelChoice#0;class#Main#0" expanded="false" />
             <element signature="method#getLanguageChoice#0;class#Main#0" expanded="false" />
+            <element signature="method#startProgram#0;class#Main#0" expanded="false" />
             <element signature="method#getPersonModel#0;class#Main#0" expanded="false" />
             <element signature="method#getBookStoreModel#0;class#Main#0" expanded="false" />
           </folding>
@@ -1024,6 +1029,7 @@
             <element signature="imports" expanded="true" />
             <element signature="method#getModelChoice#0;class#Main#0" expanded="false" />
             <element signature="method#getLanguageChoice#0;class#Main#0" expanded="false" />
+            <element signature="method#startProgram#0;class#Main#0" expanded="false" />
             <element signature="method#getPersonModel#0;class#Main#0" expanded="false" />
             <element signature="method#getBookStoreModel#0;class#Main#0" expanded="false" />
           </folding>
@@ -1067,6 +1073,7 @@
             <element signature="imports" expanded="true" />
             <element signature="method#getModelChoice#0;class#Main#0" expanded="false" />
             <element signature="method#getLanguageChoice#0;class#Main#0" expanded="false" />
+            <element signature="method#startProgram#0;class#Main#0" expanded="false" />
             <element signature="method#getPersonModel#0;class#Main#0" expanded="false" />
             <element signature="method#getBookStoreModel#0;class#Main#0" expanded="false" />
           </folding>
@@ -1082,6 +1089,7 @@
             <element signature="imports" expanded="true" />
             <element signature="method#getModelChoice#0;class#Main#0" expanded="false" />
             <element signature="method#getLanguageChoice#0;class#Main#0" expanded="false" />
+            <element signature="method#startProgram#0;class#Main#0" expanded="false" />
             <element signature="method#getPersonModel#0;class#Main#0" expanded="false" />
             <element signature="method#getBookStoreModel#0;class#Main#0" expanded="false" />
           </folding>
@@ -1097,6 +1105,7 @@
             <element signature="imports" expanded="true" />
             <element signature="method#getModelChoice#0;class#Main#0" expanded="false" />
             <element signature="method#getLanguageChoice#0;class#Main#0" expanded="false" />
+            <element signature="method#startProgram#0;class#Main#0" expanded="false" />
             <element signature="method#getPersonModel#0;class#Main#0" expanded="false" />
             <element signature="method#getBookStoreModel#0;class#Main#0" expanded="false" />
           </folding>
@@ -1112,6 +1121,7 @@
             <element signature="imports" expanded="true" />
             <element signature="method#getModelChoice#0;class#Main#0" expanded="false" />
             <element signature="method#getLanguageChoice#0;class#Main#0" expanded="false" />
+            <element signature="method#startProgram#0;class#Main#0" expanded="false" />
             <element signature="method#getPersonModel#0;class#Main#0" expanded="false" />
             <element signature="method#getBookStoreModel#0;class#Main#0" expanded="false" />
           </folding>
@@ -1143,7 +1153,6 @@
     <entry file="file://$PROJECT_DIR$/src/Person.java" />
     <entry file="file://$PROJECT_DIR$/src/person/resdas.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/sql/Statement.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/sql/ResultSet.java" />
     <entry file="file://$PROJECT_DIR$/src/bookstore/BookStore.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/org/w3c/dom/Document.java" />
     <entry file="file://$PROJECT_DIR$/src/utils/transformations/Model2Text.java">
@@ -1254,14 +1263,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/bookstore.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="25" lean-forward="false" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/bookstore/Author.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-675">
@@ -1288,55 +1289,73 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/bookstore.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="46" lean-forward="false" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/sql/ResultSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="587" column="8" lean-forward="false" selection-start-line="587" selection-start-column="8" selection-end-line="587" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/java_class.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="181" column="140" lean-forward="false" selection-start-line="181" selection-start-column="140" selection-end-line="181" selection-end-column="140" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="24" column="20" lean-forward="true" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+        <state relative-caret-position="183">
+          <caret line="28" column="10" lean-forward="false" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#getModelChoice#0;class#Main#0" expanded="false" />
             <element signature="method#getLanguageChoice#0;class#Main#0" expanded="false" />
+            <element signature="method#startProgram#0;class#Main#0" expanded="false" />
             <element signature="method#getPersonModel#0;class#Main#0" expanded="false" />
             <element signature="method#getBookStoreModel#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/java_class.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="163" column="44" lean-forward="false" selection-start-line="163" selection-start-column="44" selection-end-line="163" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/bookstore/Book.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="105" column="57" lean-forward="true" selection-start-line="105" selection-start-column="57" selection-end-line="105" selection-end-column="57" />
+        <state relative-caret-position="186">
+          <caret line="133" column="72" lean-forward="false" selection-start-line="133" selection-start-column="72" selection-end-line="133" selection-end-column="72" />
           <folding>
-            <element signature="e#475#476#0" expanded="true" />
-            <element signature="e#503#504#0" expanded="true" />
-            <element signature="e#545#546#0" expanded="true" />
-            <element signature="e#579#580#0" expanded="true" />
-            <element signature="e#611#612#0" expanded="true" />
-            <element signature="e#641#642#0" expanded="true" />
-            <element signature="e#685#686#0" expanded="true" />
-            <element signature="e#723#724#0" expanded="true" />
-            <element signature="e#755#756#0" expanded="true" />
-            <element signature="e#783#784#0" expanded="true" />
-            <element signature="e#825#826#0" expanded="true" />
-            <element signature="e#859#860#0" expanded="true" />
-            <element signature="e#891#892#0" expanded="true" />
-            <element signature="e#922#923#0" expanded="true" />
-            <element signature="e#967#968#0" expanded="true" />
-            <element signature="e#1007#1008#0" expanded="true" />
-            <element signature="e#1051#1052#0" expanded="true" />
-            <element signature="e#1080#1081#0" expanded="true" />
-            <element signature="e#1336#1337#0" expanded="true" />
-            <element signature="e#1366#1367#0" expanded="true" />
-            <element signature="e#1399#1400#0" expanded="true" />
-            <element signature="e#1427#1428#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#474#475#0" expanded="true" />
+            <element signature="e#502#503#0" expanded="true" />
+            <element signature="e#544#545#0" expanded="true" />
+            <element signature="e#578#579#0" expanded="true" />
+            <element signature="e#612#613#0" expanded="true" />
+            <element signature="e#642#643#0" expanded="true" />
+            <element signature="e#688#689#0" expanded="true" />
+            <element signature="e#726#727#0" expanded="true" />
+            <element signature="e#758#759#0" expanded="true" />
+            <element signature="e#786#787#0" expanded="true" />
+            <element signature="e#828#829#0" expanded="true" />
+            <element signature="e#862#863#0" expanded="true" />
+            <element signature="e#894#895#0" expanded="true" />
+            <element signature="e#925#926#0" expanded="true" />
+            <element signature="e#970#971#0" expanded="true" />
+            <element signature="e#1010#1011#0" expanded="true" />
+            <element signature="e#1054#1055#0" expanded="true" />
+            <element signature="e#1083#1084#0" expanded="true" />
+            <element signature="e#1339#1340#0" expanded="true" />
+            <element signature="e#1369#1370#0" expanded="true" />
+            <element signature="e#1402#1403#0" expanded="true" />
+            <element signature="e#1430#1431#0" expanded="true" />
           </folding>
         </state>
       </provider>

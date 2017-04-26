@@ -1,4 +1,5 @@
 
+import bookstore.Author;
 import bookstore.Book;
 import com.sun.org.apache.xpath.internal.SourceTree;
 import metamodels.Attribute;
@@ -13,7 +14,10 @@ import utils.transformations.Model2Text;
 
 import java.io.*;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 
@@ -141,8 +145,17 @@ public class Main {
 
     public static void testORM() {
         //TODO Por o TestORM a funcionar com base no modelo que o utilizador escolher no startProgram()
+        Book book1 = new Book();
+        book1.setTitle("Title1");
+        book1.setPrice(10);
+        book1.setQuantity(100);
+        book1.setPubdate("10/01/2001");
+        Author a = Author.get("1");
+        System.out.println(a);
+        book1.addAuthor(a);
+        //book
+        /*
         //Creates a new Author and saves it in the data base
-/*
         Author newAuthor = new Author();
         newAuthor.setFirst_name("Lucas");
         newAuthor.setLast_name("Fischer");
@@ -154,68 +167,6 @@ public class Main {
             System.out.println(a);
         }
         System.out.println("-----------------------------------");
-*/
-
-        /*
-        Author a = Author.get(1);
-        ArrayList<Book> bookList = a.getBooks();
-        for (Book b : bookList) {
-            System.out.println(b.getId() + "\t" + b.getTitle() + "\t" + b.getPrice() + "\t" + b.getPubDate() + "\t" + b.getQuantity());
-        }
-
-        Person alfredo = new Person();
-        alfredo.setName("Alfredo");
-        alfredo.setAge(22);
-        //  alfredo.save();
-
-        Person lucas = new Person();
-        lucas.setName("Lucas");
-        lucas.setAge(20);
-        lucas.save();
-
-        ArrayList<Person> persons = Person.all();
-        for (Person p : persons) {
-            System.out.println(p.getId() + "\t" + p.getName() + "\t" + p.getAge());
-        }
-
-        System.out.println("-------------- UPDATE NAME AND AGE OF Lucas-----------");
-        lucas.setName("Updated Lucas");
-        lucas.setAge(22);
-        lucas.save();
-        ArrayList<Person> persons2 = Person.all();
-        for (Person p2 : persons2) {
-            System.out.println(p2.getId() + "\t" + p2.getName() + "\t" + p2.getAge());
-        }
-
-        lucas.delete();
-        System.out.println("-------------- DELETE Updated Lucas-----------");
-        ArrayList<Person> persons3 = Person.all();
-        for (Person p3 : persons3) {
-            System.out.println(p3.getId() + "\t" + p3.getName() + "\t" + p3.getAge());
-        }
-        Person p = new Person();
-        p.setName("asdasd");
-        p.setAge(20);
-        //Person not yet in DB, should return "This object does not exist in the database"
-        p.delete();
-
-        /*
-        System.out.println("---------------------- Find By id --------------------");
-        Person p = Person.get(38);
-        System.out.println("Getting id number 38 : " + p.getId() + "\t" + p.getName() + "\t" + p.getAge());
-
-        System.out.println("---------------------- Find By Name --------------------");
-        ArrayList<Person> alfredos = Person.where("name = 'Alfredo'");
-        for (Person p1 : alfredos) {
-            System.out.println(p1.getId() + "\t" + p1.getName() + "\t" + p1.getAge());
-        }
-
-        System.out.println("---------------------- Find By Age --------------------");
-        ArrayList<Person> ages = Person.where("age >= 21");
-        for (Person p1 : ages) {
-            System.out.println(p1.getId() + "\t" + p1.getName() + "\t" + p1.getAge());
-        }
         */
-
     }
 }

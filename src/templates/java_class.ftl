@@ -30,7 +30,7 @@ public class ${name} {
     <#list relations as rels>
     <#if rels.regularClass.name == name>
     <#if rels.relationshipType != '121'>
-    private ArrayList<${rels.foreignClass.name}> ${rels.foreignClass.name?lower_case};
+    private ArrayList<${rels.foreignClass.name}> ${rels.foreignClass.name?lower_case} = new ArrayList<>();
     <#else>
     private ${rels.foreignClass.name} ${rels.foreignClass.name?lower_case};
     </#if>
@@ -111,16 +111,13 @@ public class ${name} {
             int idPerson = sqLiteConn.executeUpdate(sql);
             setId(idPerson);
         }
-        <#if relations?size != 0>
         <#list relations as rels>
         <#if rels.regularClass.name = name>
          saveRelation();
         </#if>
         </#list>
-        </#if>
     }
 
-    <#if relations?size != 0>
     <#list relations as rels>
     <#if rels.regularClass.name = name>
      public void saveRelation(){
@@ -143,7 +140,6 @@ public class ${name} {
      }
     </#if>
     </#list>
-    </#if>
 
     public void delete(){
         if(this.id >= 1){
@@ -178,6 +174,19 @@ public class ${name} {
                 ${attribute.type} ${attribute.name} = rs.get${attribute.type?capitalize}("${attribute.name}");
                 ${name?lower_case}.set${attribute.name?capitalize}(${attribute.name});
 
+                </#list>
+                <#list relations as rels>
+                <#if rels.regularClass.name == name>
+                int relationID = rs.getInt("${rels.foreignClass.name?lower_case}_id");
+                if(relationID != 0){
+                ${rels.foreignClass.name} ${rels.foreignClass.name?lower_case} = ${rels.foreignClass.name}.get(Integer.toString(relationID));
+                <#if rels.relationshipType != "121">
+                ${name?lower_case}.add${rels.foreignClass.name}(${rels.foreignClass.name?lower_case});
+                <#else>
+                ${name?lower_case}.set${rels.foreignClass.name}(${rels.foreignClass.name?lower_case});
+                </#if>
+                }
+                </#if>
                 </#list>
                 list.add(${name?lower_case});
             }

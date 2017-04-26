@@ -1,5 +1,4 @@
 package bookstore;
-import java.util.Date;
 
 import utils.sqlite.SQLiteConn;
 import java.sql.ResultSet;
@@ -8,10 +7,10 @@ import java.util.ArrayList;
 public class Book {
 
     private String title;
-    private Date pubDate;
+    private String pubDate;
     private double price;
     private int quantity;
-    private ArrayList<Author> author;
+    private ArrayList<Author> author = new ArrayList<>();
     private int id;
     static SQLiteConn sqLiteConn = new SQLiteConn("src/bookstore/bookstore.db");
 
@@ -27,11 +26,11 @@ public class Book {
         this.title = title;
     }
 
-    public Date getPubDate() {
+    public String getPubDate() {
         return pubDate;
     }
 
-    public void setPubdate(Date pubDate) {
+    public void setPubdate(String pubDate) {
         this.pubDate = pubDate;
     }
 
@@ -121,7 +120,7 @@ public class Book {
                 String title = rs.getString("title");
                 book.setTitle(title);
 
-                Date pubDate = rs.getDate("pubDate");
+                String pubDate = rs.getString("pubDate");
                 book.setPubdate(pubDate);
 
                 double price = rs.getDouble("price");
@@ -130,6 +129,11 @@ public class Book {
                 int quantity = rs.getInt("quantity");
                 book.setQuantity(quantity);
 
+                int relationID = rs.getInt("author_id");
+                if(relationID != 0){
+                Author author = Author.get(Integer.toString(relationID));
+                book.addAuthor(author);
+                }
                 list.add(book);
             }
         }catch(Exception e){
@@ -149,7 +153,7 @@ public class Book {
                 String title = rs.getString("title");
                 book.setTitle(title);
 
-                Date pubDate = rs.getDate("pubDate");
+                String pubDate = rs.getString("pubDate");
                 book.setPubdate(pubDate);
 
                 double price = rs.getDouble("price");
@@ -178,7 +182,7 @@ public class Book {
                 String title = rs.getString("title");
                 book.setTitle(title);
 
-                Date pubDate = rs.getDate("pubDate");
+                String pubDate = rs.getString("pubDate");
                 book.setPubdate(pubDate);
 
                 double price = rs.getDouble("price");
