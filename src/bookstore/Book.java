@@ -108,13 +108,14 @@ public class Book {
     }
 
     public static void getRelations(Book book, int id){
-        String sql = "SELECT author_id FROM Book_Author WHERE book_id = "+id;
+        String sql = "SELECT author_id FROM Book_Author WHERE book_id = " + id;
         ResultSet resultSet = sqLiteConn.executeQuery(sql);
         try{
             while(resultSet.next()){
                 String relationId = Integer.toString(resultSet.getInt("author_id"));
-                Author author = Author.get(relationId);
-                book.addAuthor(author);
+                if(relationId != "0"){
+                    book.addAuthor(Author.get(relationId));
+                }
             }
         }catch(Exception e){
             e.printStackTrace();

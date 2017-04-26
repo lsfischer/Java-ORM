@@ -1,6 +1,6 @@
 
 import bookstore.Author;
-
+import bookstore.Book;
 import com.sun.org.apache.xpath.internal.SourceTree;
 import metamodels.Attribute;
 import metamodels.Class;
@@ -152,10 +152,18 @@ public class Main {
         book1.setQuantity(100);
         book1.setPubdate("10/01/2001");
         Author a = Author.get("1");
-        System.out.println(a);
+
         book1.addAuthor(a);
+        book1.save();
+        ArrayList<Book> books = Book.where("1");
+        for(Book b : books){
+            System.out.println(b);
+            System.out.println("\n");
+            for(Author au : b.getAuthor()){
+                System.out.println(au);
+            }
+        }
         */
-        //book
         /*
         //Creates a new Author and saves it in the data base
         Author newAuthor = new Author();
