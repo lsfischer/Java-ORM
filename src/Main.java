@@ -14,20 +14,62 @@ import utils.transformations.Model2Text;
 import java.io.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Scanner;
+
 
 public class Main {
+    static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
+        startProgram();
+        //testORM();
+        //TODO Por a posibilidade de o utilizador criar o seu proprio modelo
+    }
 
-        // Build model
-        //buildModel(getPersonModel());
-        //buildModel(getBookStoreModel());
+    public static String getModelChoice() {
+        System.out.println("Which model do you want ? (Answer with the number of the desired model)");
+        System.out.println("1 - BookStore");
+        System.out.println("2 - Person");
 
-        // Test ORM
-        //  testORM();
-        // LAB 6
-        Model model = Model2Model.getModel("src/models/bookstore.xml");
-        buildModel(model);
+        String modelChoice = sc.nextLine();
+        while (!modelChoice.equals("1") && !modelChoice.equals("2")) {
+            System.out.println("Invalid Choice");
+            modelChoice = sc.nextLine();
+        }
+        return modelChoice;
+    }
+
+    public static String getLanguageChoice() {
+        System.out.println("Do you want it in Java or XML ? (Answer with the desired number)");
+        System.out.println("1 - Java");
+        System.out.println("2 - XML");
+        String languageChoice = sc.nextLine();
+        while (!languageChoice.equals("1") && !languageChoice.equals("2")) {
+            System.out.println("Invalid Choice");
+            languageChoice = sc.nextLine();
+        }
+        return languageChoice;
+    }
+
+    public static void startProgram() {
+
+        String modelChoice = getModelChoice();
+        String languageChoice = getLanguageChoice();
+
+        if (modelChoice.equals("1") && languageChoice.equals("1")) {
+            buildModel(getBookStoreModel());
+        }
+        if (modelChoice.equals("2") && languageChoice.equals("1")) {
+            buildModel(getPersonModel());
+        }
+        if (modelChoice.equals("1") && languageChoice.equals("2")) {
+            Model model = Model2Model.getModel("src/models/bookstore.xml");
+            buildModel(model);
+        }
+        if (modelChoice.equals("2") && languageChoice.equals("2")) {
+            Model model = Model2Model.getModel("src/models/person.xml");
+            buildModel(model);
+        }
     }
 
     public static Model getPersonModel() {
@@ -69,7 +111,6 @@ public class Main {
 
     public static void buildModel(Model model) {
 
-
         // Generate SQL tables
         Model2Text model2Text = new Model2Text("src/templates");
         String sqlTables = model2Text.render(model, "sqlite3_create.ftl");
@@ -99,6 +140,7 @@ public class Main {
     }
 
     public static void testORM() {
+        //TODO Por o TestORM a funcionar com base no modelo que o utilizador escolher no startProgram()
         /*
         Author a = Author.get(1);
         ArrayList<Book> bookList = a.getBooks();
