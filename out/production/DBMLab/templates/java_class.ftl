@@ -276,7 +276,15 @@ public class ${name} {
      public ArrayList<${rels.regularClass.name}> get${rels.regularClass.name}s(){
         //TODO Fazer alguma coisa com isto
         ArrayList<${rels.regularClass.name}> list = new ArrayList<>();
-        //String sql = "SELECT * FROM Book Where id = "+this.bookID;
+        <#if rels.relationshipType == "N2N">
+        //String sql = String.format("SELECT * FROM ${rels.regularClass.name} WHERE id = (SELECT ${rels.regularClass.name?lower_case}_id FROM ${rels.regularClass.name}_${rels.foreignClass.name} WHERE ${rels.foreignClass.name?lower_case}_id = '%s');",this.id);
+        </#if>
+        <#if rels.relationshipType == "12N">
+        //String sql = "SELECT * FROM ${rels.regularClass.name} WHERE ${rels.foreignClass.name}_id = "+this.bookID;
+        </#if>
+
+
+
         return list;
      }
     </#if>

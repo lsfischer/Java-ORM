@@ -274,9 +274,17 @@ public class ${name} {
     <#list relations as rels>
     <#if rels.foreignClass.name == name>
      public ArrayList<${rels.regularClass.name}> get${rels.regularClass.name}s(){
-        //TODO Fazer alguma coisa com isto
+        //TODO Pode devolver mais que um valor, vai dar erro no select -> primeiro ir buscar todos os ids dos books escritos por um autor, mete-los num arraylist percorrer esse arraylist e fazer a um
         ArrayList<${rels.regularClass.name}> list = new ArrayList<>();
-        //String sql = "SELECT * FROM Book Where id = "+this.bookID;
+        <#if rels.relationshipType == "N2N">
+        //String sql = String.format("SELECT * FROM ${rels.regularClass.name} WHERE id = (SELECT ${rels.regularClass.name?lower_case}_id FROM ${rels.regularClass.name}_${rels.foreignClass.name} WHERE ${rels.foreignClass.name?lower_case}_id = '%s');",this.id);
+        </#if>
+        <#if rels.relationshipType == "12N">
+        //String sql = "SELECT * FROM ${rels.regularClass.name} WHERE ${rels.foreignClass.name}_id = "+this.bookID;
+        </#if>
+
+
+
         return list;
      }
     </#if>
