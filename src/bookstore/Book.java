@@ -1,6 +1,7 @@
 package bookstore;
 
 import utils.sqlite.SQLiteConn;
+
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
@@ -12,10 +13,10 @@ public class Book {
     private int quantity;
     private ArrayList<Author> author = new ArrayList<>();
     private int id;
-    static SQLiteConn sqLiteConn = new SQLiteConn("src/bookstore/bookstore.db");
+    private static SQLiteConn sqLiteConn = new SQLiteConn("src/bookstore/bookstore.db");
 
     //Empty Constructor
-    public Book(){
+    public Book() {
     }
 
     public String getTitle() {
@@ -55,12 +56,13 @@ public class Book {
     }
 
     public void addAuthor(Author author) throws IllegalArgumentException {
-        if(author.getId() == 0){
+        if (author.getId() == 0) {
             throw new IllegalArgumentException("You need to save Author id: " + author.getId() + " in the database first");
-        }else{
+        } else {
             this.author.add(author);
         }
     }
+
     public int getId() {
         return this.id;
     }
@@ -69,64 +71,64 @@ public class Book {
         this.id = id;
     }
 
-    public void save(){
-        if(this.id >= 1){
-            String sql = String.format("UPDATE Book SET title = '%s',pubDate = '%s',price = '%s',quantity = '%s' WHERE id = '%s'",this.title,this.pubDate,this.price,this.quantity,this.id);
+    public void save() {
+        if (this.id >= 1) {
+            String sql = String.format("UPDATE Book SET title = '%s',pubDate = '%s',price = '%s',quantity = '%s' WHERE id = '%s'", this.title, this.pubDate, this.price, this.quantity, this.id);
             sqLiteConn.executeUpdate(sql);
-        }else{
-            String sql = String.format("INSERT INTO Book (title,pubDate,price,quantity) VALUES ('%s','%s','%s','%s')",this.title,this.pubDate,this.price,this.quantity);
+        } else {
+            String sql = String.format("INSERT INTO Book (title,pubDate,price,quantity) VALUES ('%s','%s','%s','%s')", this.title, this.pubDate, this.price, this.quantity);
             int idPerson = sqLiteConn.executeUpdate(sql);
             setId(idPerson);
         }
-         saveRelation();
+        saveRelation();
     }
 
-     public void saveRelation(){
-         for(Author object : author){
+    private void saveRelation() {
+        for (Author object : author) {
             String sql = String.format("INSERT INTO Book_Author (book_id, author_id) VALUES ('%s', '%s')", this.id, object.getId());
             sqLiteConn.executeUpdate(sql);
-         }
-     }
+        }
+    }
 
-    public void delete(){
-        if(this.id >= 1){
-            String sql = "DELETE FROM Book WHERE id = "+this.id;
+    public void delete() {
+        if (this.id >= 1) {
+            String sql = "DELETE FROM Book WHERE id = " + this.id;
             sqLiteConn.executeUpdate(sql);
-        }else{
+        } else {
             System.out.println("This object does not exist in the database");
         }
     }
 
-    public static ResultSet getResultSet(String condition){
+    private static ResultSet getResultSet(String condition) {
         String sql;
-        if(condition.isEmpty()){
+        if (condition.isEmpty()) {
             sql = "SELECT * FROM Book";
-        }else{
+        } else {
             sql = "SELECT * FROM Book WHERE " + condition;
         }
         return sqLiteConn.executeQuery(sql);
     }
 
-    public static void getRelations(Book book, int id){
+    private static void getRelations(Book book, int id) {
         String sql = "SELECT author_id FROM Book_Author WHERE book_id = " + id;
         ResultSet resultSet = sqLiteConn.executeQuery(sql);
-        try{
-            while(resultSet.next()){
+        try {
+            while (resultSet.next()) {
                 String relationId = Integer.toString(resultSet.getInt("author_id"));
-                if(relationId != "0"){
+                if (!relationId.equals("0")) {
                     book.addAuthor(Author.get(relationId));
                 }
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static ArrayList all(){
+    public static ArrayList all() {
         ArrayList<Book> list = new ArrayList<>();
         ResultSet rs = getResultSet("");
-        try{
-            while(rs.next()){
+        try {
+            while (rs.next()) {
                 Book book = new Book();
 
                 int id = rs.getInt("id");
@@ -144,21 +146,21 @@ public class Book {
                 int quantity = rs.getInt("quantity");
                 book.setQuantity(quantity);
 
-                getRelations(book,id);
+                getRelations(book, id);
 
                 list.add(book);
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return list;
     }
 
-    public static Book get(String id){
+    public static Book get(String id) {
         Book book = new Book();
         ResultSet rs = getResultSet(id);
-        try{
-            while(rs.next()){
+        try {
+            while (rs.next()) {
                 int idFromDB = rs.getInt("id");
                 book.setId(idFromDB);
 
@@ -176,19 +178,19 @@ public class Book {
 
 
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        getRelations(book,book.getId());
+        getRelations(book, book.getId());
 
         return book;
     }
 
-    public static ArrayList where(String condition){
+    public static ArrayList where(String condition) {
         ArrayList<Book> list = new ArrayList<>();
         ResultSet rs = getResultSet(condition);
-        try{
-            while(rs.next()){
+        try {
+            while (rs.next()) {
                 Book book = new Book();
 
                 int id = rs.getInt("id");
@@ -206,19 +208,19 @@ public class Book {
                 int quantity = rs.getInt("quantity");
                 book.setQuantity(quantity);
 
-                getRelations(book,id);
+                getRelations(book, id);
 
                 list.add(book);
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return list;
     }
 
     @Override
-    public String toString(){
-        return "ID: " + this.id + "\ntitle: " + this.title + "\npubDate: " + this.pubDate + "\nprice: " + this.price + "\nquantity: " + this.quantity ;
+    public String toString() {
+        return "ID: " + this.id + "\ntitle: " + this.title + "\npubDate: " + this.pubDate + "\nprice: " + this.price + "\nquantity: " + this.quantity;
     }
 
 }

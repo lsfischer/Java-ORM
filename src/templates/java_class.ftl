@@ -37,7 +37,7 @@ public class ${name} {
     </#if>
     </#list>
     private int id;
-    static SQLiteConn sqLiteConn = new SQLiteConn("src/${pkg}/${pkg}.db");
+    private static SQLiteConn sqLiteConn = new SQLiteConn("src/${pkg}/${pkg}.db");
 
     <#if requiredAttributes?size != 0>
     public ${name}(<#list requiredAttributes as requiredAttribute>${requiredAttribute.type} ${requiredAttribute.name}<#sep>, </#sep></#list>) {
@@ -81,6 +81,7 @@ public class ${name} {
             throw new IllegalArgumentException("You need to save ${rels.foreignClass.name} id: " + ${rels.foreignClass.name?lower_case}.getId() + " in the database first");
         }else{
             this.${rels.foreignClass.name?lower_case}.add(${rels.foreignClass.name?lower_case});
+            //TODO Secalhar aqui arranjar maneira de chamar o update, caso o livro ja esteja na BD e queiramos adicionar mais um autor
         }
     }
     <#else>
@@ -120,7 +121,7 @@ public class ${name} {
 
     <#list relations as rels>
     <#if rels.regularClass.name = name>
-     public void saveRelation(){
+     private void saveRelation(){
         <#if rels.relationshipType == "N2N">
          for(${rels.foreignClass.name} object : ${rels.foreignClass.name?lower_case}){
             String sql = String.format("INSERT INTO ${rels.regularClass.name}_${rels.foreignClass.name} (${rels.regularClass.name?lower_case}_id, ${rels.foreignClass.name?lower_case}_id) VALUES ('%s', '%s')", this.id, object.getId());
@@ -150,7 +151,7 @@ public class ${name} {
         }
     }
 
-    public static ResultSet getResultSet(String condition){
+    private static ResultSet getResultSet(String condition){
         String sql;
         if(condition.isEmpty()){
             sql = "SELECT * FROM ${name}";
@@ -160,7 +161,7 @@ public class ${name} {
         return sqLiteConn.executeQuery(sql);
     }
 
-    public static void getRelations(${name} ${name?lower_case}, int id){
+    private static void getRelations(${name} ${name?lower_case}, int id){
         <#list relations as rels>
         <#if rels.regularClass.name == name>
         <#if rels.relationshipType == "N2N">
@@ -172,7 +173,7 @@ public class ${name} {
         try{
             while(resultSet.next()){
                 String relationId = Integer.toString(resultSet.getInt("${rels.foreignClass.name?lower_case}_id"));
-                if(relationId != "0"){
+                if(!relationId.equals("0")){
                     <#if rels.relationshipType != "121">
                     ${name?lower_case}.add${rels.foreignClass.name}(${rels.foreignClass.name}.get(relationId));
                     <#else>

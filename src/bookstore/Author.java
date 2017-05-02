@@ -10,7 +10,7 @@ public class Author {
     private String last_name;
     private String email;
     private int id;
-    static SQLiteConn sqLiteConn = new SQLiteConn("src/bookstore/bookstore.db");
+    private static SQLiteConn sqLiteConn = new SQLiteConn("src/bookstore/bookstore.db");
 
     //Empty Constructor
     public Author(){
@@ -69,7 +69,7 @@ public class Author {
         }
     }
 
-    public static ResultSet getResultSet(String condition){
+    private static ResultSet getResultSet(String condition){
         String sql;
         if(condition.isEmpty()){
             sql = "SELECT * FROM Author";
@@ -79,7 +79,7 @@ public class Author {
         return sqLiteConn.executeQuery(sql);
     }
 
-    public static void getRelations(Author author, int id){
+    private static void getRelations(Author author, int id){
     }
 
     public static ArrayList all(){

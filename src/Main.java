@@ -25,8 +25,8 @@ public class Main {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        startProgram();
-        //testORM();
+        //startProgram();
+        testORM();
         //TODO Por a posibilidade de o utilizador criar o seu proprio modelo
         //TODO Por exceptions nas cenas para "ser mais bonito"
     }
@@ -146,38 +146,45 @@ public class Main {
 
     public static void testORM() {
         //TODO Por o TestORM a funcionar com base no modelo que o utilizador escolher no startProgram()
+        //TODO Está a dar alguns problemas, no java ele está só a ir buscar o ultimo author que foi saved
+        //TODO Na base de dados acho que está algo errado quando ele vai para adicionar os autores, não adicionou o author com id 1 como deveria i think
         /*
         Book book1 = new Book();
-        book1.setTitle("Title1");
-        book1.setPrice(10);
-        book1.setQuantity(100);
-        book1.setPubdate("10/01/2001");
-        Author a = Author.get("1");
+        book1.setTitle("Livro com 3 Autores");
+        book1.setPrice(20);
+        book1.setQuantity(120);
+        book1.setPubdate("13/04/2017");
+        book1.addAuthor(Author.get("1"));
 
-        book1.addAuthor(a);
+        Author author2 = new Author();
+        author2.setFirst_name("Daniel");
+        author2.setLast_name("Basilio");
+        author2.setEmail("something@gmail.com");
+        author2.save();
+
+        Author author3 = new Author();
+        author3.setFirst_name("Author3");
+        author3.setLast_name("LastNameAuthor");
+        author3.setEmail("author3@gmail.com");
+        author3.save();
+
+        book1.addAuthor(author2);
+        book1.addAuthor(author3);
         book1.save();
-        ArrayList<Book> books = Book.where("1");
+
+        ArrayList<Book> books = Book.all();
         for(Book b : books){
+            System.out.println("Book:");
             System.out.println(b);
             System.out.println("\n");
             for(Author au : b.getAuthor()){
+                System.out.println("---------Dentro do Book : "+b.getId() );
+                System.out.println("Author:");
                 System.out.println(au);
+                System.out.println("\n");
+                System.out.println("-------------------------------------");
             }
         }
-        */
-        /*
-        //Creates a new Author and saves it in the data base
-        Author newAuthor = new Author();
-        newAuthor.setFirst_name("Lucas");
-        newAuthor.setLast_name("Fischer");
-        newAuthor.setEmail("lucasfischerpt@gmail.com");
-        newAuthor.save();
-        System.out.println("-----------------------------------");
-        ArrayList<Author> authors = Author.all();
-        for(Author a : authors){
-            System.out.println(a);
-        }
-        System.out.println("-----------------------------------");
         */
     }
 }
