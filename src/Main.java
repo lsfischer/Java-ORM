@@ -28,6 +28,7 @@ public class Main {
         startProgram();
         //testORM();
         //TODO Por a posibilidade de o utilizador criar o seu proprio modelo
+        //TODO Por exceptions nas cenas para "ser mais bonito"
     }
 
     public static String getModelChoice() {
