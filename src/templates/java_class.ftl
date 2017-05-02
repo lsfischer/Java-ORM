@@ -76,9 +76,9 @@ public class ${name} {
 
     </#if>
     <#if rels.relationshipType != '121'>
-    public void add${rels.foreignClass.name}(${rels.foreignClass.name} ${rels.foreignClass.name?lower_case}) {
+    public void add${rels.foreignClass.name}(${rels.foreignClass.name} ${rels.foreignClass.name?lower_case}) throws IllegalArgumentException {
         if(${rels.foreignClass.name?lower_case}.getId() == 0){
-            System.out.println("You need to save this object in the DataBase first");
+            throw new IllegalArgumentException("You need to save ${rels.foreignClass.name} id: " + ${rels.foreignClass.name?lower_case}.getId() + " in the database first");
         }else{
             this.${rels.foreignClass.name?lower_case}.add(${rels.foreignClass.name?lower_case});
         }

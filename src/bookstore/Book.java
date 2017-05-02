@@ -54,9 +54,9 @@ public class Book {
         return author;
     }
 
-    public void addAuthor(Author author) {
+    public void addAuthor(Author author) throws IllegalArgumentException {
         if(author.getId() == 0){
-            System.out.println("You need to save this object in the DataBase first");
+            throw new IllegalArgumentException("You need to save Author id: " + author.getId() + " in the database first");
         }else{
             this.author.add(author);
         }

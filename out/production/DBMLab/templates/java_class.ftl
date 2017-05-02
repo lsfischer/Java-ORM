@@ -76,9 +76,9 @@ public class ${name} {
 
     </#if>
     <#if rels.relationshipType != '121'>
-    public void add${rels.foreignClass.name}(${rels.foreignClass.name} ${rels.foreignClass.name?lower_case}) {
+    public void add${rels.foreignClass.name}(${rels.foreignClass.name} ${rels.foreignClass.name?lower_case}) throws IllegalArgumentException {
         if(${rels.foreignClass.name?lower_case}.getId() == 0){
-            System.out.println("You need to save this object in the DataBase first");
+            throw new IllegalArgumentException("You need to save ${rels.foreignClass.name} id: " + ${rels.foreignClass.name?lower_case}.getId() + " in the database first");
         }else{
             this.${rels.foreignClass.name?lower_case}.add(${rels.foreignClass.name?lower_case});
         }
@@ -274,7 +274,7 @@ public class ${name} {
     <#list relations as rels>
     <#if rels.foreignClass.name == name>
      public ArrayList<${rels.regularClass.name}> get${rels.regularClass.name}s(){
-        //TODO Fazer alguma coisa com isto
+        //TODO Pode devolver mais que um valor, vai dar erro no select -> primeiro ir buscar todos os ids dos books escritos por um autor, mete-los num arraylist percorrer esse arraylist e fazer a um
         ArrayList<${rels.regularClass.name}> list = new ArrayList<>();
         <#if rels.relationshipType == "N2N">
         //String sql = String.format("SELECT * FROM ${rels.regularClass.name} WHERE id = (SELECT ${rels.regularClass.name?lower_case}_id FROM ${rels.regularClass.name}_${rels.foreignClass.name} WHERE ${rels.foreignClass.name?lower_case}_id = '%s');",this.id);
