@@ -32,7 +32,7 @@ CREATE TABLE ${class.name} (
            ${class.name?lower_case}_id INTEGER,
            ${rels.foreignClass.name?lower_case}_id INTEGER,
            FOREIGN KEY (${class.name?lower_case}_id) REFERENCES ${class.name}(id),
-           FOREIGN KEY (name) REFERENCES ${rels.foreignClass.name}(id)
+           FOREIGN KEY (${name}) REFERENCES ${rels.foreignClass.name}(id)
         );
         </#if>
         </#if>
