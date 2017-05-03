@@ -129,12 +129,12 @@ public class ${name} {
          }
         </#if>
         <#if rels.relationshipType =="121">
-        String sql = String.format("UDPDATE ${rels.foreignClass.name} SET ${name?lower_case}_id = '%s' WHERE id = '%s'", this.id, ${rels.foreignClass.name?lower_case}.getId());
+        String sql = String.format("UPDATE ${rels.foreignClass.name} SET ${name?lower_case}_id = '%s' WHERE id = '%s'", this.id, ${rels.foreignClass.name?lower_case}.getId());
         sqLiteConn.executeUpdate(sql);
         </#if>
         <#if rels.relationshipType == "12N" || rels.relationshipType == "N21">
         for(${rels.foreignClass.name} object : ${rels.foreignClass.name?lower_case}){
-            String sql = String.format("UDPDATE ${rels.foreignClass.name} SET ${name?lower_case}_id = '%s' WHERE id = '%s", this.id, object.getId());
+            String sql = String.format("UPDATE ${rels.foreignClass.name} SET ${name?lower_case}_id = '%s' WHERE id = '%s'", this.id, object.getId());
             sqLiteConn.executeUpdate(sql);
         }
         </#if>
@@ -172,7 +172,11 @@ public class ${name} {
         ResultSet resultSet = sqLiteConn.executeQuery(sql);
         try{
             while(resultSet.next()){
+                <#if rels.relationshipType != "N2N">
+                String relationId = resultSet.getString("id");
+                <#else>
                 String relationId = Integer.toString(resultSet.getInt("${rels.foreignClass.name?lower_case}_id"));
+                </#if>
                 if(!relationId.equals("0")){
                     <#if rels.relationshipType != "121">
                     ${name?lower_case}.add${rels.foreignClass.name}(${rels.foreignClass.name}.get(relationId));
@@ -217,7 +221,7 @@ public class ${name} {
 
     public static ${name} get(String id){
         ${name} ${name?lower_case} = new ${name}();
-        ResultSet rs = getResultSet(id);
+        ResultSet rs = getResultSet("id = " + id);
         try{
             while(rs.next()){
                 int idFromDB = rs.getInt("id");

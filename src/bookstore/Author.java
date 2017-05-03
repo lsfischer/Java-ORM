@@ -113,7 +113,7 @@ public class Author {
 
     public static Author get(String id){
         Author author = new Author();
-        ResultSet rs = getResultSet(id);
+        ResultSet rs = getResultSet("id = " + id);
         try{
             while(rs.next()){
                 int idFromDB = rs.getInt("id");
@@ -175,7 +175,7 @@ public class Author {
      public ArrayList<Book> getBooks(){
         //TODO Pode devolver mais que um valor, vai dar erro no select -> primeiro ir buscar todos os ids dos books escritos por um autor, mete-los num arraylist percorrer esse arraylist e fazer a um
         ArrayList<Book> list = new ArrayList<>();
-        //String sql = String.format("SELECT * FROM Book WHERE id = (SELECT book_id FROM Book_Author WHERE author_id = '%s');",this.id);
+        //String sql = "SELECT * FROM Book WHERE Author_id = "+this.bookID;
 
 
 
