@@ -14,12 +14,9 @@ public class Book {
     private int id;
     private static SQLiteConn sqLiteConn = new SQLiteConn("src/bookstore/bookstore.db");
 
-    public Book(double price, int quantity) {
-        this.price = price;
+    public Book(String pubDate, int quantity) {
+        this.pubDate = pubDate;
         this.quantity = quantity;
-    }
-    //Empty Constructor
-    public Book(){
     }
 
     public String getTitle() {
@@ -132,7 +129,7 @@ public class Book {
         ResultSet rs = getResultSet("");
         try{
             while(rs.next()){
-                Book book = new Book(rs.getDouble("price"),rs.getInt("quantity"));
+                Book book = new Book(rs.getString("pubDate"), rs.getInt("quantity"));
 
                 int id = rs.getInt("id");
                 book.setId(id);
@@ -140,14 +137,8 @@ public class Book {
                 String title = rs.getString("title");
                 book.setTitle(title);
 
-                String pubDate = rs.getString("pubDate");
-                book.setPubdate(pubDate);
-
-              /*  double price = rs.getDouble("price");
+                double price = rs.getDouble("price");
                 book.setPrice(price);
-
-                int quantity = rs.getInt("quantity");
-                book.setQuantity(quantity);*/
 
                 getRelations(book,id);
 
@@ -160,29 +151,28 @@ public class Book {
     }
 
     public static Book get(String id){
-        Book book = new Book();
-        ResultSet rs = getResultSet("id = " + id);
+        Book book;
+
         try{
-            while(rs.next()){
-                int idFromDB = rs.getInt("id");
-                book.setId(idFromDB);
 
-                String title = rs.getString("title");
-                book.setTitle(title);
+            ResultSet rs = getResultSet("id = " + id);
+            rs.next();
 
-                String pubDate = rs.getString("pubDate");
-                book.setPubdate(pubDate);
+            book = new Book(rs.getString("pubDate"), rs.getInt("quantity"));
 
-                double price = rs.getDouble("price");
-                book.setPrice(price);
+            int idFromDB = rs.getInt("id");
+            book.setId(idFromDB);
 
-                int quantity = rs.getInt("quantity");
-                book.setQuantity(quantity);
+            String title = rs.getString("title");
+            book.setTitle(title);
+
+            double price = rs.getDouble("price");
+            book.setPrice(price);
 
 
-            }
         }catch(Exception e){
             e.printStackTrace();
+            return new Book("", 0);
         }
         getRelations(book,book.getId());
 
@@ -194,7 +184,7 @@ public class Book {
         ResultSet rs = getResultSet(condition);
         try{
             while(rs.next()){
-                Book book = new Book();
+                Book book = new Book(rs.getString("pubDate"), rs.getInt("quantity"));
 
                 int id = rs.getInt("id");
                 book.setId(id);
@@ -202,14 +192,8 @@ public class Book {
                 String title = rs.getString("title");
                 book.setTitle(title);
 
-                String pubDate = rs.getString("pubDate");
-                book.setPubdate(pubDate);
-
                 double price = rs.getDouble("price");
                 book.setPrice(price);
-
-                int quantity = rs.getInt("quantity");
-                book.setQuantity(quantity);
 
                 getRelations(book,id);
 

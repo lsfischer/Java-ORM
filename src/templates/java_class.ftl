@@ -45,10 +45,11 @@ public class ${name} {
         this.${requiredAttribute.name} = ${requiredAttribute.name};
     </#list>
     }
-    </#if>
+    <#else>
     //Empty Constructor
     public ${name}(){
     }
+    </#if>
 
     <#list attributes as attribute>
     <#-- Getter -->
@@ -197,7 +198,7 @@ public class ${name} {
         ResultSet rs = getResultSet("");
         try{
             while(rs.next()){
-                ${name} ${name?lower_case} = new ${name}(<#list requiredAttributes as requiredAttribute>rs.get${requiredAttribute.type?capitalize}(${requiredAttribute.name})<#sep>, </#sep></#list>);
+                ${name} ${name?lower_case} = new ${name}(<#list requiredAttributes as requiredAttribute>rs.get${requiredAttribute.type?capitalize}("${requiredAttribute.name}")<#sep>, </#sep></#list>);
 
                 int id = rs.getInt("id");
                 ${name?lower_case}.setId(id);
@@ -222,22 +223,29 @@ public class ${name} {
     }
 
     public static ${name} get(String id){
-        ${name} ${name?lower_case} = new ${name}();
-        ResultSet rs = getResultSet("id = " + id);
+        ${name} ${name?lower_case};
+
         try{
-            while(rs.next()){
-                int idFromDB = rs.getInt("id");
-                ${name?lower_case}.setId(idFromDB);
 
-                <#list attributes as attribute>
-                ${attribute.type} ${attribute.name} = rs.get${attribute.type?capitalize}("${attribute.name}");
-                ${name?lower_case}.set${attribute.name?capitalize}(${attribute.name});
+            ResultSet rs = getResultSet("id = " + id);
+            rs.next();
 
-                </#list>
+            ${name?lower_case} = new ${name?capitalize}(<#list requiredAttributes as requiredAttribute>rs.get${requiredAttribute.type?capitalize}("${requiredAttribute.name}")<#sep>, </#sep></#list>);
 
-            }
+            int idFromDB = rs.getInt("id");
+            ${name?lower_case}.setId(idFromDB);
+
+            <#list attributes as attribute>
+            <#if !attribute.required>
+            ${attribute.type} ${attribute.name} = rs.get${attribute.type?capitalize}("${attribute.name}");
+            ${name?lower_case}.set${attribute.name?capitalize}(${attribute.name});
+
+            </#if>
+            </#list>
+
         }catch(Exception e){
             e.printStackTrace();
+            return new ${name?capitalize}(<#list requiredAttributes as requiredAttribute><#if requiredAttribute.type != "String">0<#else>""</#if><#sep>, </#sep></#list>);
         }
         <#if relations?size != 0>
         getRelations(${name?lower_case},${name?lower_case}.getId());
@@ -251,15 +259,17 @@ public class ${name} {
         ResultSet rs = getResultSet(condition);
         try{
             while(rs.next()){
-                ${name} ${name?lower_case} = new ${name}();
+                ${name} ${name?lower_case} = new ${name}(<#list requiredAttributes as requiredAttribute>rs.get${requiredAttribute.type?capitalize}("${requiredAttribute.name}")<#sep>, </#sep></#list>);
 
                 int id = rs.getInt("id");
                 ${name?lower_case}.setId(id);
 
                 <#list attributes as attribute>
+                <#if !attribute.required>
                 ${attribute.type} ${attribute.name} = rs.get${attribute.type?capitalize}("${attribute.name}");
                 ${name?lower_case}.set${attribute.name?capitalize}(${attribute.name});
 
+                </#if>
                 </#list>
                 <#if relations?size != 0>
                 getRelations(${name?lower_case},id);

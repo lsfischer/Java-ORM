@@ -112,26 +112,31 @@ public class Author {
     }
 
     public static Author get(String id){
-        Author author = new Author();
-        ResultSet rs = getResultSet("id = " + id);
+        Author author;
+
         try{
-            while(rs.next()){
-                int idFromDB = rs.getInt("id");
-                author.setId(idFromDB);
 
-                String first_name = rs.getString("first_name");
-                author.setFirst_name(first_name);
+            ResultSet rs = getResultSet("id = " + id);
+            rs.next();
 
-                String last_name = rs.getString("last_name");
-                author.setLast_name(last_name);
+            author = new Author();
 
-                String email = rs.getString("email");
-                author.setEmail(email);
+            int idFromDB = rs.getInt("id");
+            author.setId(idFromDB);
+
+            String first_name = rs.getString("first_name");
+            author.setFirst_name(first_name);
+
+            String last_name = rs.getString("last_name");
+            author.setLast_name(last_name);
+
+            String email = rs.getString("email");
+            author.setEmail(email);
 
 
-            }
         }catch(Exception e){
             e.printStackTrace();
+            return new Author();
         }
         getRelations(author,author.getId());
 
@@ -143,7 +148,7 @@ public class Author {
         ResultSet rs = getResultSet(condition);
         try{
             while(rs.next()){
-                Author author = new Author();
+                 Author author = new Author();
 
                 int id = rs.getInt("id");
                 author.setId(id);
