@@ -1,6 +1,6 @@
 
-import bookstore.Author;
-import bookstore.Book;
+//import bookstore.Author;
+//import bookstore.Book;
 import com.sun.org.apache.xpath.internal.SourceTree;
 import metamodels.Attribute;
 import metamodels.Class;
@@ -25,9 +25,9 @@ public class Main {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        //buildModel(getBookStoreModel());
+        buildModel(Model2Model.getModel("src/models/bookstore.xml"));
         //startProgram();
-        testORM();
+       // testORM();
         //TODO Por a posibilidade de o utilizador criar o seu proprio modelo
         //TODO Por exceptions nas cenas para "ser mais bonito"
     }
@@ -177,7 +177,7 @@ public class Main {
         book1.addAuthor(author1);
         book1.addAuthor(author2);
         book1.save();
-*/
+
         ArrayList<Book> books = Book.all();
         for(Book b : books){
             System.out.println("Book:");
@@ -190,7 +190,7 @@ public class Main {
                 System.out.println("\n");
                 System.out.println("-------------------------------------");
             }
-        }
+        }*/
 
     }
 }

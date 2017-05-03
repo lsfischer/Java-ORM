@@ -8,16 +8,11 @@
     <list default="true" id="362a2e9b-8028-44a0-b85b-21b753214301" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/DBMLab/bookstore/Author.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/DBMLab/bookstore/Book.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/Main.class" afterPath="$PROJECT_DIR$/out/production/DBMLab/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/templates/java_class.ftl" afterPath="$PROJECT_DIR$/out/production/DBMLab/templates/java_class.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/templates/sqlite3_create.ftl" afterPath="$PROJECT_DIR$/out/production/DBMLab/templates/sqlite3_create.ftl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bookstore/Author.java" afterPath="$PROJECT_DIR$/src/bookstore/Author.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bookstore/Book.java" afterPath="$PROJECT_DIR$/src/bookstore/Book.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bookstore/bookstore.db" afterPath="$PROJECT_DIR$/src/bookstore/bookstore.db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/java_class.ftl" afterPath="$PROJECT_DIR$/src/templates/java_class.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/sqlite3_create.ftl" afterPath="$PROJECT_DIR$/src/templates/sqlite3_create.ftl" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,15 +34,27 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="179" column="2" lean-forward="false" selection-start-line="179" selection-start-column="2" selection-end-line="179" selection-end-column="2" />
+            <state relative-caret-position="196">
+              <caret line="133" column="0" lean-forward="true" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
               <folding>
+                <element signature="e#0#6982#0" expanded="true" />
                 <element signature="imports" expanded="true" />
                 <element signature="method#getModelChoice#0;class#Main#0" expanded="false" />
                 <element signature="method#getLanguageChoice#0;class#Main#0" expanded="false" />
                 <element signature="method#startProgram#0;class#Main#0" expanded="false" />
                 <element signature="method#getPersonModel#0;class#Main#0" expanded="false" />
+                <element signature="method#getBookStoreModel#0;class#Main#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SQLiteConn.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/utils/sqlite/SQLiteConn.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -55,18 +62,28 @@
       <file leaf-file-name="Book.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/bookstore/Book.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="125" column="34" lean-forward="true" selection-start-line="125" selection-start-column="34" selection-end-line="125" selection-end-column="34" />
+            <state relative-caret-position="465">
+              <caret line="125" column="34" lean-forward="false" selection-start-line="125" selection-start-column="34" selection-end-line="125" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Author.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/bookstore/Author.java">
+      <file leaf-file-name="bookstore.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/models/bookstore.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="76" column="60" lean-forward="false" selection-start-line="76" selection-start-column="60" selection-end-line="76" selection-end-column="60" />
+            <state relative-caret-position="210">
+              <caret line="14" column="25" lean-forward="false" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Model2Model.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/utils/transformations/Model2Model.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="795">
+              <caret line="65" column="35" lean-forward="false" selection-start-line="65" selection-start-column="35" selection-end-line="65" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -75,7 +92,7 @@
       <file leaf-file-name="java_class.ftl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/templates/java_class.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
+            <state relative-caret-position="2610">
               <caret line="174" column="50" lean-forward="false" selection-start-line="174" selection-start-column="50" selection-end-line="174" selection-end-column="50" />
               <folding />
             </state>
@@ -166,8 +183,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -284,6 +299,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -312,6 +328,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -928,7 +945,14 @@
       <option name="project" value="LOCAL" />
       <updated>1493728832288</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Modified java_class.ftl and fixed database bugs">
+      <created>1493821825576</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1493821825576</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TodoView">
@@ -953,13 +977,13 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60556465" sideWeight="0.5121029" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.87213117" sideWeight="0.48789713" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39016393" sideWeight="0.48789713" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16666667" sideWeight="0.4909091" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1689394" sideWeight="0.4909091" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -999,7 +1023,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Completed Relation metamodel" />
     <MESSAGE value="Update ftl with Relation metamodel" />
     <MESSAGE value="Update sql3_create.ftl" />
     <MESSAGE value="Working on 1 to N Relations" />
@@ -1024,7 +1047,8 @@
     <MESSAGE value="Getting relation data from the database is working" />
     <MESSAGE value="Working on getBooks()" />
     <MESSAGE value="updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates" />
+    <MESSAGE value="Modified java_class.ftl and fixed database bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modified java_class.ftl and fixed database bugs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1042,11 +1066,13 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="e#0#6982#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="method#getModelChoice#0;class#Main#0" expanded="false" />
             <element signature="method#getLanguageChoice#0;class#Main#0" expanded="false" />
             <element signature="method#startProgram#0;class#Main#0" expanded="false" />
             <element signature="method#getPersonModel#0;class#Main#0" expanded="false" />
+            <element signature="method#getBookStoreModel#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1085,11 +1111,13 @@
         <state relative-caret-position="930">
           <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
           <folding>
+            <element signature="e#0#6982#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="method#getModelChoice#0;class#Main#0" expanded="false" />
             <element signature="method#getLanguageChoice#0;class#Main#0" expanded="false" />
             <element signature="method#startProgram#0;class#Main#0" expanded="false" />
             <element signature="method#getPersonModel#0;class#Main#0" expanded="false" />
+            <element signature="method#getBookStoreModel#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1100,11 +1128,13 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="e#0#6982#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="method#getModelChoice#0;class#Main#0" expanded="false" />
             <element signature="method#getLanguageChoice#0;class#Main#0" expanded="false" />
             <element signature="method#startProgram#0;class#Main#0" expanded="false" />
             <element signature="method#getPersonModel#0;class#Main#0" expanded="false" />
+            <element signature="method#getBookStoreModel#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1115,11 +1145,13 @@
         <state relative-caret-position="615">
           <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding>
+            <element signature="e#0#6982#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="method#getModelChoice#0;class#Main#0" expanded="false" />
             <element signature="method#getLanguageChoice#0;class#Main#0" expanded="false" />
             <element signature="method#startProgram#0;class#Main#0" expanded="false" />
             <element signature="method#getPersonModel#0;class#Main#0" expanded="false" />
+            <element signature="method#getBookStoreModel#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1130,11 +1162,13 @@
         <state relative-caret-position="150">
           <caret line="10" column="19" lean-forward="true" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
           <folding>
+            <element signature="e#0#6982#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="method#getModelChoice#0;class#Main#0" expanded="false" />
             <element signature="method#getLanguageChoice#0;class#Main#0" expanded="false" />
             <element signature="method#startProgram#0;class#Main#0" expanded="false" />
             <element signature="method#getPersonModel#0;class#Main#0" expanded="false" />
+            <element signature="method#getBookStoreModel#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1187,13 +1221,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/sqlite/SQLiteConn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/car.xml" />
     <entry file="file://$PROJECT_DIR$/src/car/Car.java" />
     <entry file="file://$PROJECT_DIR$/src/metamodels/model.dtd">
@@ -1243,28 +1270,12 @@
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/sql/ResultSet.java" />
-    <entry file="file://$PROJECT_DIR$/src/models/bookstore.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="25" lean-forward="false" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/lang/IllegalArgumentException.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/lang/Exception.java" />
     <entry file="file://$PROJECT_DIR$/src/metamodels/Relation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="41" lean-forward="false" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/transformations/Model2Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="65" column="35" lean-forward="false" selection-start-line="65" selection-start-column="35" selection-end-line="65" selection-end-column="35" />
           <folding />
         </state>
       </provider>
@@ -1278,38 +1289,64 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/java_class.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
+        <state relative-caret-position="2610">
           <caret line="174" column="50" lean-forward="false" selection-start-line="174" selection-start-column="50" selection-end-line="174" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/bookstore/Book.java">
+    <entry file="file://$PROJECT_DIR$/src/utils/transformations/Model2Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="125" column="34" lean-forward="true" selection-start-line="125" selection-start-column="34" selection-end-line="125" selection-end-column="34" />
+        <state relative-caret-position="795">
+          <caret line="65" column="35" lean-forward="false" selection-start-line="65" selection-start-column="35" selection-end-line="65" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/bookstore/Author.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
+        <state relative-caret-position="-259">
           <caret line="76" column="60" lean-forward="false" selection-start-line="76" selection-start-column="60" selection-end-line="76" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/bookstore.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="25" lean-forward="false" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bookstore/Book.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="125" column="34" lean-forward="false" selection-start-line="125" selection-start-column="34" selection-end-line="125" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/sqlite/SQLiteConn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="179" column="2" lean-forward="false" selection-start-line="179" selection-start-column="2" selection-end-line="179" selection-end-column="2" />
+        <state relative-caret-position="196">
+          <caret line="133" column="0" lean-forward="true" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
           <folding>
+            <element signature="e#0#6982#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="method#getModelChoice#0;class#Main#0" expanded="false" />
             <element signature="method#getLanguageChoice#0;class#Main#0" expanded="false" />
             <element signature="method#startProgram#0;class#Main#0" expanded="false" />
             <element signature="method#getPersonModel#0;class#Main#0" expanded="false" />
+            <element signature="method#getBookStoreModel#0;class#Main#0" expanded="false" />
           </folding>
         </state>
       </provider>

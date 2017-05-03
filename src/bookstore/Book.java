@@ -83,10 +83,10 @@ public class Book {
     }
 
      private void saveRelation(){
-        for(Author object : author){
-            String sql = String.format("UPDATE Author SET book_id = '%s' WHERE id = '%s'", this.id, object.getId());
+         for(Author object : author){
+            String sql = String.format("INSERT INTO Book_Author (book_id, author_id) VALUES ('%s', '%s')", this.id, object.getId());
             sqLiteConn.executeUpdate(sql);
-        }
+         }
      }
 
     public void delete(){
@@ -109,11 +109,11 @@ public class Book {
     }
 
     private static void getRelations(Book book, int id){
-        String sql = "SELECT id FROM Author WHERE book_id = "+id;
+        String sql = "SELECT author_id FROM Book_Author WHERE book_id = " + id;
         ResultSet resultSet = sqLiteConn.executeQuery(sql);
         try{
             while(resultSet.next()){
-                String relationId = resultSet.getString("id");
+                String relationId = Integer.toString(resultSet.getInt("author_id"));
                 if(!relationId.equals("0")){
                     book.addAuthor(Author.get(relationId));
                 }
