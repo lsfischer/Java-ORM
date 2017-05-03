@@ -28,6 +28,9 @@ public class ${name} {
     private ${attribute.type} ${attribute.name};
     </#list>
     <#list relations as rels>
+    <#if rels.foreignClass.name == name && rels.relationshipType =="N2N">
+    private ArrayList<${rels.regularClass.name}> ${rels.regularClass.name?lower_case}s = new ArrayList<>();
+    </#if>
     <#if rels.regularClass.name == name>
     <#if rels.relationshipType != '121'>
     private ArrayList<${rels.foreignClass.name}> ${rels.foreignClass.name?lower_case} = new ArrayList<>();
@@ -64,6 +67,14 @@ public class ${name} {
 
     </#list>
     <#list relations as rels>
+    <#if rels.foreignClass.name == name && rels.relationshipType == "N2N">
+    public ArrayList<${rels.regularClass.name}> get${rels.regularClass.name}s() {
+        return ${rels.regularClass.name?lower_case}s;
+    }
+    public void add${rels.regularClass.name}(${rels.regularClass.name} ${rels.regularClass.name?lower_case}){
+        this.${rels.regularClass.name?lower_case}s.add(${rels.regularClass.name?lower_case});
+    }
+    </#if>
     <#if rels.regularClass.name == name>
     <#if rels.relationshipType != '121'>
     public ArrayList<${rels.foreignClass.name}> get${rels.foreignClass.name}() {
@@ -82,6 +93,9 @@ public class ${name} {
             throw new IllegalArgumentException("You need to save ${rels.foreignClass.name} id: " + ${rels.foreignClass.name?lower_case}.getId() + " in the database first");
         }else{
             this.${rels.foreignClass.name?lower_case}.add(${rels.foreignClass.name?lower_case});
+            <#if rels.relationshipType = "N2N">
+            ${rels.foreignClass.name?lower_case}.add${rels.regularClass.name}(this);
+            </#if>
             //TODO Secalhar aqui arranjar maneira de chamar o update, caso o livro ja esteja na BD e queiramos adicionar mais um autor
         }
     }
@@ -190,6 +204,20 @@ public class ${name} {
             e.printStackTrace();
         }
         </#if>
+        <#if rels.foreignClass.name == name && rels.relationshipType == "N2N">
+        String sql = "SELECT ${rels.regularClass.name?lower_case}_id FROM ${rels.regularClass.name}_${name} WHERE ${name?lower_case}_id = " + id;
+        ResultSet resultSet = sqLiteConn.executeQuery(sql);
+        try{
+            while(resultSet.next()){
+                String relationId = Integer.toString(resultSet.getInt("${rels.regularClass.name?lower_case}_id"));
+                if(!relationId.equals("0")){
+                    ${name?lower_case}.add${rels.regularClass.name}(${rels.regularClass.name}.get(relationId));
+                }
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        </#if>
         </#list>
     }
 
@@ -289,20 +317,16 @@ public class ${name} {
     }
 
     <#list relations as rels>
-    <#if rels.foreignClass.name == name>
-     public ArrayList<${rels.regularClass.name}> get${rels.regularClass.name}s(){
-        //TODO Pode devolver mais que um valor, vai dar erro no select -> primeiro ir buscar todos os ids dos books escritos por um autor, mete-los num arraylist percorrer esse arraylist e fazer a um
-        ArrayList<${rels.regularClass.name}> list = new ArrayList<>();
-        <#if rels.relationshipType == "N2N">
-        //String sql = String.format("SELECT * FROM ${rels.regularClass.name} WHERE id = (SELECT ${rels.regularClass.name?lower_case}_id FROM ${rels.regularClass.name}_${rels.foreignClass.name} WHERE ${rels.foreignClass.name?lower_case}_id = '%s');",this.id);
-        </#if>
-        <#if rels.relationshipType == "12N">
-        //String sql = "SELECT * FROM ${rels.regularClass.name} WHERE ${rels.foreignClass.name}_id = "+this.bookID;
-        </#if>
+    <#if rels.foreignClass.name == name && rels.relationshipType != "N2N">
+     public ${rels.regularClass.name} get${rels.regularClass.name}(){
+        String sql = String.format("SELECT * FROM ${rels.regularClass.name} WHERE id = (SELECT ${rels.regularClass.name?lower_case}_id FROM ${name} WHERE id = '%s')"",this.id);
+        ResultSet rs = sqLiteConn.executeQuery(sql);
+        try{
+            ${rels.regularClass.name} ${rels.regularClass.name?lower_case} = new ${rels.regularClass.name}(<#list requiredAttributes as requiredAttribute>rs.get${requiredAttribute.type?capitalize}("${requiredAttribute.name}")<#sep>, </#sep></#list>);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
 
-
-
-        return list;
      }
     </#if>
     </#list>

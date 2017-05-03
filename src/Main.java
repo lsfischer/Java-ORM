@@ -25,10 +25,8 @@ public class Main {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        buildModel(Model2Model.getModel("src/models/bookstore.xml"));
-        //startProgram();
+        startProgram();
         //testORM();
-        //TODO Por a posibilidade de o utilizador criar o seu proprio modelo
         //TODO Por exceptions nas cenas para "ser mais bonito"
     }
 
@@ -121,17 +119,17 @@ public class Main {
         Model2Text model2Text = new Model2Text("src/templates");
         String sqlTables = model2Text.render(model, "sqlite3_create.ftl");
         System.out.println(sqlTables);
-        File f = new File("src/"+model.getName().toLowerCase());
-        f.mkdirs();
+        //File f = new File("src/" + model.getName().toLowerCase());
+        //f.mkdirs();
 
         SQLiteConn sqLiteConn = new SQLiteConn("src/" + model.getName().toLowerCase() + "/" + model.getName().toLowerCase() + ".db");
-        sqLiteConn.execute(sqlTables);
+        //sqLiteConn.execute(sqlTables);
 
         // Generate Java classes
         for (Class c : model.getClasses()) {
             String javaClasses = model2Text.render(c, "java_class.ftl");
             System.out.println(javaClasses);
-
+/*
             try {
                 File fout = new File("src/" + model.getName().toLowerCase() + "/" + c.getName() + ".java");
                 FileOutputStream fos = new FileOutputStream(fout);
@@ -140,24 +138,14 @@ public class Main {
                 bw.close();
             } catch (IOException e) {
                 e.printStackTrace();
-            }
+            }*/
 
         }
     }
 
     public static void testORM() {
         //TODO Por o TestORM a funcionar com base no modelo que o utilizador escolher no startProgram()
-        //TODO Está a dar alguns problemas, no java ele está só a ir buscar o ultimo author que foi saved
-        //TODO Na base de dados acho que está algo errado quando ele vai para adicionar os autores, não adicionou o author com id 1 como deveria i think
- /*
-        Book e = new Book();
-        ArrayList<Book> authores = e.all();
-
-        for(int i = 0; i < authores.size(); i++){
-            System.out.println(authores.get(i).getTitle());
-        }
-
-
+        /*
         Author author1 = new Author();
         author1.setFirst_name("Daniel");
         author1.setLast_name("Basilio");

@@ -9,6 +9,7 @@ public class Author {
     private String first_name;
     private String last_name;
     private String email;
+    private ArrayList<Book> books = new ArrayList<>();
     private int id;
     private static SQLiteConn sqLiteConn = new SQLiteConn("src/bookstore/bookstore.db");
 
@@ -40,6 +41,12 @@ public class Author {
         this.email = email;
     }
 
+    public ArrayList<Book> getBooks() {
+        return books;
+    }
+    public void addBook(Book book){
+        this.books.add(book);
+    }
     public int getId() {
         return this.id;
     }
@@ -80,6 +87,18 @@ public class Author {
     }
 
     private static void getRelations(Author author, int id){
+        String sql = "SELECT book_id FROM Book_Author WHERE author_id = " + id;
+        ResultSet resultSet = sqLiteConn.executeQuery(sql);
+        try{
+            while(resultSet.next()){
+                String relationId = Integer.toString(resultSet.getInt("book_id"));
+                if(!relationId.equals("0")){
+                    author.addBook(Book.get(relationId));
+                }
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
     public static ArrayList all(){
@@ -177,14 +196,5 @@ public class Author {
         return "ID: " + this.id + "\nfirst_name: " + this.first_name + "\nlast_name: " + this.last_name + "\nemail: " + this.email ;
     }
 
-     public ArrayList<Book> getBooks(){
-        //TODO Pode devolver mais que um valor, vai dar erro no select -> primeiro ir buscar todos os ids dos books escritos por um autor, mete-los num arraylist percorrer esse arraylist e fazer a um
-        ArrayList<Book> list = new ArrayList<>();
-        //String sql = String.format("SELECT * FROM Book WHERE id = (SELECT book_id FROM Book_Author WHERE author_id = '%s');",this.id);
-
-
-
-        return list;
-     }
 }
 
