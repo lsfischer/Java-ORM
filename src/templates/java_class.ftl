@@ -197,15 +197,17 @@ public class ${name} {
         ResultSet rs = getResultSet("");
         try{
             while(rs.next()){
-                ${name} ${name?lower_case} = new ${name}();
+                ${name} ${name?lower_case} = new ${name}(<#list requiredAttributes as requiredAttribute>rs.get${requiredAttribute.type?capitalize}(${requiredAttribute.name})<#sep>, </#sep></#list>);
 
                 int id = rs.getInt("id");
                 ${name?lower_case}.setId(id);
 
                 <#list attributes as attribute>
+                <#if !attribute.required>
                 ${attribute.type} ${attribute.name} = rs.get${attribute.type?capitalize}("${attribute.name}");
                 ${name?lower_case}.set${attribute.name?capitalize}(${attribute.name});
 
+                </#if>
                 </#list>
                 <#if relations?size != 0>
                 getRelations(${name?lower_case},id);

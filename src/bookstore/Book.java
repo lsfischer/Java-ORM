@@ -14,6 +14,10 @@ public class Book {
     private int id;
     private static SQLiteConn sqLiteConn = new SQLiteConn("src/bookstore/bookstore.db");
 
+    public Book(double price, int quantity) {
+        this.price = price;
+        this.quantity = quantity;
+    }
     //Empty Constructor
     public Book(){
     }
@@ -128,7 +132,7 @@ public class Book {
         ResultSet rs = getResultSet("");
         try{
             while(rs.next()){
-                Book book = new Book();
+                Book book = new Book(rs.getDouble("price"),rs.getInt("quantity"));
 
                 int id = rs.getInt("id");
                 book.setId(id);
@@ -139,11 +143,11 @@ public class Book {
                 String pubDate = rs.getString("pubDate");
                 book.setPubdate(pubDate);
 
-                double price = rs.getDouble("price");
+              /*  double price = rs.getDouble("price");
                 book.setPrice(price);
 
                 int quantity = rs.getInt("quantity");
-                book.setQuantity(quantity);
+                book.setQuantity(quantity);*/
 
                 getRelations(book,id);
 

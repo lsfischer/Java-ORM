@@ -3,17 +3,18 @@
 <#assign text_types = ['String', 'Date']>
 <#assign object_type = ['Relation']>
 
+
 <#list classes as class>
 /* Create table ${class.name} */
 CREATE TABLE ${class.name} (
     id INTEGER PRIMARY KEY,
 <#list class.attributes as attr>
     <#if int_types?seq_contains(attr.type)>
-    ${attr.name?lower_case} INTEGER<#sep>,</#sep>
+    ${attr.name?lower_case} INTEGER <#if attr.required>NOT NULL</#if><#sep>,</#sep>
     <#elseif real_types?seq_contains(attr.type)>
-    ${attr.name?lower_case} REAL<#sep>,</#sep>
+    ${attr.name?lower_case} REAL <#if attr.required>NOT NULL</#if><#sep>,</#sep>
     <#elseif text_types?seq_contains(attr.type)>
-    ${attr.name?lower_case} TEXT<#sep>,</#sep>
+    ${attr.name?lower_case} TEXT <#if attr.required>NOT NULL</#if><#sep>,</#sep>
     </#if>
 </#list>
 );

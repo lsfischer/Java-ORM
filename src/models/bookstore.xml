@@ -8,9 +8,9 @@
     </class>
     <class name="Book">
         <attribute name="title" type="String" />
-        <attribute name="pubDate" type="String" />
+        <attribute name="pubDate" type="String" required="true"/>
         <attribute name="price" type="double" />
-        <attribute name="quantity" type="int" />
+        <attribute name="quantity" type="int" required="true"/>
     </class>
     <foreignKey type="N2N" firstClass ="Book" secondClass="Author" /> <!-- relação 12N, um Book pode ter vários autores -->
 </model>
