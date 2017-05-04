@@ -13,6 +13,7 @@ public class Author {
     private int id;
     private static SQLiteConn sqLiteConn = new SQLiteConn("src/bookstore/bookstore.db");
 
+    //TODO tirar isto maybe
     //Empty Constructor
     public Author(){
     }
@@ -42,7 +43,19 @@ public class Author {
     }
 
     public ArrayList<Book> getBooks() {
-        return books;
+        String sql = "SELECT book_id FROM Book_Author WHERE author_id = " + id;
+        ResultSet resultSet = sqLiteConn.executeQuery(sql);
+        try{
+            while(resultSet.next()){
+                String relationId = resultSet.getString("book_id");
+                if(!relationId.equals("0")){
+                    this.addBook(Book.get(relationId));
+                }
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return this.books;
     }
     public void addBook(Book book){
         this.books.add(book);
@@ -86,20 +99,6 @@ public class Author {
         return sqLiteConn.executeQuery(sql);
     }
 
-    private static void getRelations(Author author, int id){
-        String sql = "SELECT book_id FROM Book_Author WHERE author_id = " + id;
-        ResultSet resultSet = sqLiteConn.executeQuery(sql);
-        try{
-            while(resultSet.next()){
-                String relationId = Integer.toString(resultSet.getInt("book_id"));
-                if(!relationId.equals("0")){
-                    author.addBook(Book.get(relationId));
-                }
-            }
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-    }
 
     public static ArrayList all(){
         ArrayList<Author> list = new ArrayList<>();
@@ -120,7 +119,6 @@ public class Author {
                 String email = rs.getString("email");
                 author.setEmail(email);
 
-                getRelations(author,id);
 
                 list.add(author);
             }
@@ -157,7 +155,6 @@ public class Author {
             e.printStackTrace();
             return new Author();
         }
-        getRelations(author,author.getId());
 
         return author;
     }
@@ -167,7 +164,7 @@ public class Author {
         ResultSet rs = getResultSet(condition);
         try{
             while(rs.next()){
-                 Author author = new Author();
+                Author author = new Author();
 
                 int id = rs.getInt("id");
                 author.setId(id);
@@ -181,7 +178,6 @@ public class Author {
                 String email = rs.getString("email");
                 author.setEmail(email);
 
-                getRelations(author,id);
 
                 list.add(author);
             }
@@ -195,6 +191,5 @@ public class Author {
     public String toString(){
         return "ID: " + this.id + "\nfirst_name: " + this.first_name + "\nlast_name: " + this.last_name + "\nemail: " + this.email ;
     }
-
 }
 

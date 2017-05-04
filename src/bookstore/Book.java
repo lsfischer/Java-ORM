@@ -52,7 +52,19 @@ public class Book {
     }
 
     public ArrayList<Author> getAuthor() {
-        return author;
+        String sql = "SELECT author_id FROM Book_Author WHERE book_id = " + id;
+        ResultSet resultSet = sqLiteConn.executeQuery(sql);
+        try{
+            while(resultSet.next()){
+                String relationId = Integer.toString(resultSet.getInt("author_id"));
+                if(!relationId.equals("0")){
+                    this.addAuthor(Author.get(relationId));
+                }
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return this.author;
     }
 
     public void addAuthor(Author author) throws IllegalArgumentException {
@@ -85,6 +97,7 @@ public class Book {
     }
 
      private void saveRelation(){
+        getAuthor();
          for(Author object : author){
             String sql = String.format("INSERT INTO Book_Author (book_id, author_id) VALUES ('%s', '%s')", this.id, object.getId());
             sqLiteConn.executeUpdate(sql);
@@ -110,20 +123,6 @@ public class Book {
         return sqLiteConn.executeQuery(sql);
     }
 
-    private static void getRelations(Book book, int id){
-        String sql = "SELECT author_id FROM Book_Author WHERE book_id = " + id;
-        ResultSet resultSet = sqLiteConn.executeQuery(sql);
-        try{
-            while(resultSet.next()){
-                String relationId = Integer.toString(resultSet.getInt("author_id"));
-                if(!relationId.equals("0")){
-                    book.addAuthor(Author.get(relationId));
-                }
-            }
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-    }
 
     public static ArrayList all(){
         ArrayList<Book> list = new ArrayList<>();
@@ -141,7 +140,6 @@ public class Book {
                 double price = rs.getDouble("price");
                 book.setPrice(price);
 
-                getRelations(book,id);
 
                 list.add(book);
             }
@@ -175,7 +173,6 @@ public class Book {
             e.printStackTrace();
             return new Book("", 0);
         }
-        getRelations(book,book.getId());
 
         return book;
     }
@@ -196,7 +193,6 @@ public class Book {
                 double price = rs.getDouble("price");
                 book.setPrice(price);
 
-                getRelations(book,id);
 
                 list.add(book);
             }
@@ -210,6 +206,5 @@ public class Book {
     public String toString(){
         return "ID: " + this.id + "\ntitle: " + this.title + "\npubDate: " + this.pubDate + "\nprice: " + this.price + "\nquantity: " + this.quantity ;
     }
-
 }
 

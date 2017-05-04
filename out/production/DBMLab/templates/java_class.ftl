@@ -49,6 +49,7 @@ public class ${name} {
     </#list>
     }
     <#else>
+    //TODO tirar isto maybe
     //Empty Constructor
     public ${name}(){
     }
@@ -69,7 +70,21 @@ public class ${name} {
     <#list relations as rels>
     <#if rels.foreignClass.name == name && rels.relationshipType == "N2N">
     public ArrayList<${rels.regularClass.name}> get${rels.regularClass.name}s() {
-        return ${rels.regularClass.name?lower_case}s;
+        <#list relations as rels>
+        String sql = "SELECT ${rels.regularClass.name?lower_case}_id FROM ${rels.regularClass.name}_${name} WHERE ${name?lower_case}_id = " + id;
+        ResultSet resultSet = sqLiteConn.executeQuery(sql);
+        try{
+            while(resultSet.next()){
+                String relationId = resultSet.getString("${rels.regularClass.name?lower_case}_id");
+                if(!relationId.equals("0")){
+                    this.add${rels.regularClass.name}(${rels.regularClass.name}.get(relationId));
+                }
+            }
+        }catch(Exception e){
+        e.printStackTrace();
+        }
+        return this.${rels.regularClass.name?lower_case}s;
+        </#list>
     }
     public void add${rels.regularClass.name}(${rels.regularClass.name} ${rels.regularClass.name?lower_case}){
         this.${rels.regularClass.name?lower_case}s.add(${rels.regularClass.name?lower_case});
@@ -78,12 +93,51 @@ public class ${name} {
     <#if rels.regularClass.name == name>
     <#if rels.relationshipType != '121'>
     public ArrayList<${rels.foreignClass.name}> get${rels.foreignClass.name}() {
-        return ${rels.foreignClass.name?lower_case};
+        <#list relations as rels>
+        <#if rels.regularClass.name == name>
+        <#if rels.relationshipType == "N2N">
+        String sql = "SELECT ${rels.foreignClass.name?lower_case}_id FROM ${name}_${rels.foreignClass.name} WHERE ${name?lower_case}_id = " + id;
+        <#else>
+        String sql = "SELECT id FROM ${rels.foreignClass.name} WHERE ${name?lower_case}_id = "+id;
+        </#if>
+        ResultSet resultSet = sqLiteConn.executeQuery(sql);
+        try{
+            while(resultSet.next()){
+                <#if rels.relationshipType != "N2N">
+                String relationId = resultSet.getString("id");
+                <#else>
+                String relationId = Integer.toString(resultSet.getInt("${rels.foreignClass.name?lower_case}_id"));
+                </#if>
+                if(!relationId.equals("0")){
+                    this.add${rels.foreignClass.name}(${rels.foreignClass.name}.get(relationId));
+                }
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return this.${rels.foreignClass.name?lower_case};
+    </#if>
+    </#list>
     }
 
     <#else>
     public ${rels.foreignClass.name} get${rels.foreignClass.name}() {
-        return ${rels.foreignClass.name?lower_case};
+        <#list relations as rels>
+        <#if rels.regularClass.name == name>
+        String sql = "SELECT id FROM ${rels.foreignClass.name} WHERE ${name?lower_case}_id = "+id;
+        ResultSet resultSet = sqLiteConn.executeQuery(sql);
+            try{
+                resultSet.next();
+                String relationId = Integer.toString(resultSet.getInt("id"));
+                if(!relationId.equals("0")){
+                    this.set${rels.foreignClass.name}(${rels.foreignClass.name}.get(relationId));
+                }
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        return this.${rels.foreignClass.name?lower_case};
+        </#if>
+        </#list>
     }
 
     </#if>
@@ -100,9 +154,9 @@ public class ${name} {
         }
     }
     <#else>
-    public void set${rels.foreignClass.name}(${rels.foreignClass.name} ${rels.foreignClass.name?lower_case}) {
+    public void set${rels.foreignClass.name}(${rels.foreignClass.name} ${rels.foreignClass.name?lower_case}) throws IllegalArgumentException {
         if(${rels.foreignClass.name?lower_case}.getId() == 0){
-            System.out.println("You need to save this object in the DataBase first");
+            throw new IllegalArgumentException("You need to save ${rels.foreignClass.name} id: " + ${rels.foreignClass.name?lower_case}.getId() + " in the database first");
         }else{
             this.${rels.foreignClass.name?lower_case} = ${rels.foreignClass.name?lower_case};
         }
@@ -137,6 +191,7 @@ public class ${name} {
     <#list relations as rels>
     <#if rels.regularClass.name = name>
      private void saveRelation(){
+        get${rels.foreignClass.name}();
         <#if rels.relationshipType == "N2N">
          for(${rels.foreignClass.name} object : ${rels.foreignClass.name?lower_case}){
             String sql = String.format("INSERT INTO ${rels.regularClass.name}_${rels.foreignClass.name} (${rels.regularClass.name?lower_case}_id, ${rels.foreignClass.name?lower_case}_id) VALUES ('%s', '%s')", this.id, object.getId());
@@ -176,50 +231,6 @@ public class ${name} {
         return sqLiteConn.executeQuery(sql);
     }
 
-    private static void getRelations(${name} ${name?lower_case}, int id){
-        <#list relations as rels>
-        <#if rels.regularClass.name == name>
-        <#if rels.relationshipType == "N2N">
-        String sql = "SELECT ${rels.foreignClass.name?lower_case}_id FROM ${name}_${rels.foreignClass.name} WHERE ${name?lower_case}_id = " + id;
-        <#else>
-        String sql = "SELECT id FROM ${rels.foreignClass.name} WHERE ${name?lower_case}_id = "+id;
-        </#if>
-        ResultSet resultSet = sqLiteConn.executeQuery(sql);
-        try{
-            while(resultSet.next()){
-                <#if rels.relationshipType != "N2N">
-                String relationId = resultSet.getString("id");
-                <#else>
-                String relationId = Integer.toString(resultSet.getInt("${rels.foreignClass.name?lower_case}_id"));
-                </#if>
-                if(!relationId.equals("0")){
-                    <#if rels.relationshipType != "121">
-                    ${name?lower_case}.add${rels.foreignClass.name}(${rels.foreignClass.name}.get(relationId));
-                    <#else>
-                    ${name?lower_case}.set${rels.foreignClass.name}(${rels.foreignClass.name}.get(relationId));
-                    </#if>
-                }
-            }
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        </#if>
-        <#if rels.foreignClass.name == name && rels.relationshipType == "N2N">
-        String sql = "SELECT ${rels.regularClass.name?lower_case}_id FROM ${rels.regularClass.name}_${name} WHERE ${name?lower_case}_id = " + id;
-        ResultSet resultSet = sqLiteConn.executeQuery(sql);
-        try{
-            while(resultSet.next()){
-                String relationId = Integer.toString(resultSet.getInt("${rels.regularClass.name?lower_case}_id"));
-                if(!relationId.equals("0")){
-                    ${name?lower_case}.add${rels.regularClass.name}(${rels.regularClass.name}.get(relationId));
-                }
-            }
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        </#if>
-        </#list>
-    }
 
     public static ArrayList all(){
         ArrayList<${name}> list = new ArrayList<>();
@@ -238,10 +249,7 @@ public class ${name} {
 
                 </#if>
                 </#list>
-                <#if relations?size != 0>
-                getRelations(${name?lower_case},id);
 
-                </#if>
                 list.add(${name?lower_case});
             }
         }catch(Exception e){
@@ -275,10 +283,7 @@ public class ${name} {
             e.printStackTrace();
             return new ${name?capitalize}(<#list requiredAttributes as requiredAttribute><#if requiredAttribute.type != "String">0<#else>""</#if><#sep>, </#sep></#list>);
         }
-        <#if relations?size != 0>
-        getRelations(${name?lower_case},${name?lower_case}.getId());
 
-        </#if>
         return ${name?lower_case};
     }
 
@@ -287,7 +292,7 @@ public class ${name} {
         ResultSet rs = getResultSet(condition);
         try{
             while(rs.next()){
-                 ${name} ${name?lower_case} = new ${name}(<#list requiredAttributes as requiredAttribute>rs.get${requiredAttribute.type?capitalize}("${requiredAttribute.name}")<#sep>, </#sep></#list>);
+                ${name} ${name?lower_case} = new ${name}(<#list requiredAttributes as requiredAttribute>rs.get${requiredAttribute.type?capitalize}("${requiredAttribute.name}")<#sep>, </#sep></#list>);
 
                 int id = rs.getInt("id");
                 ${name?lower_case}.setId(id);
@@ -299,10 +304,7 @@ public class ${name} {
 
                 </#if>
                 </#list>
-                <#if relations?size != 0>
-                getRelations(${name?lower_case},id);
 
-                </#if>
                 list.add(${name?lower_case});
             }
         }catch(Exception e){
@@ -315,24 +317,21 @@ public class ${name} {
     public String toString(){
         return "ID: " + this.id <#list attributes as attribute>+ "\n${attribute.name}: " + this.${attribute.name} </#list>;
     }
-
+<#--
     <#list relations as rels>
     <#if rels.foreignClass.name == name && rels.relationshipType != "N2N">
-     public ArrayList<${rels.regularClass.name}> get${rels.regularClass.name}s(){
-        //TODO Pode devolver mais que um valor, vai dar erro no select -> primeiro ir buscar todos os ids dos books escritos por um autor, mete-los num arraylist percorrer esse arraylist e fazer a um
-        ArrayList<${rels.regularClass.name}> list = new ArrayList<>();
-        <#if rels.relationshipType == "N2N">
-        //String sql = String.format("SELECT * FROM ${rels.regularClass.name} WHERE id = (SELECT ${rels.regularClass.name?lower_case}_id FROM ${rels.regularClass.name}_${rels.foreignClass.name} WHERE ${rels.foreignClass.name?lower_case}_id = '%s');",this.id);
-        </#if>
-        <#if rels.relationshipType == "12N">
-        //String sql = "SELECT * FROM ${rels.regularClass.name} WHERE ${rels.foreignClass.name}_id = "+this.bookID;
-        </#if>
+     public ${rels.regularClass.name} get${rels.regularClass.name}(){
+        String sql = String.format("SELECT * FROM ${rels.regularClass.name} WHERE id = (SELECT ${rels.regularClass.name?lower_case}_id FROM ${name} WHERE id = '%s')"",this.id);
+        ResultSet rs = sqLiteConn.executeQuery(sql);
+        try{
+            ${rels.regularClass.name} ${rels.regularClass.name?lower_case} = new ${rels.regularClass.name}(<#list requiredAttributes as requiredAttribute>rs.get${requiredAttribute.type?capitalize}("${requiredAttribute.name}")<#sep>, </#sep></#list>);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
 
-
-
-        return list;
      }
     </#if>
     </#list>
+    -->
 }
 

@@ -129,7 +129,7 @@ public class Main {
         for (Class c : model.getClasses()) {
             String javaClasses = model2Text.render(c, "java_class.ftl");
             System.out.println(javaClasses);
-/*
+
             try {
                 File fout = new File("src/" + model.getName().toLowerCase() + "/" + c.getName() + ".java");
                 FileOutputStream fos = new FileOutputStream(fout);
@@ -138,7 +138,7 @@ public class Main {
                 bw.close();
             } catch (IOException e) {
                 e.printStackTrace();
-            }*/
+            }
 
         }
     }
