@@ -1,6 +1,6 @@
 
-//import bookstore.Author;
-//import bookstore.Book;
+import bookstore.Author;
+import bookstore.Book;
 import com.sun.org.apache.xpath.internal.SourceTree;
 import metamodels.Attribute;
 import metamodels.Class;
@@ -25,8 +25,8 @@ public class Main {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        startProgram();
-        //testORM();
+        //startProgram();
+        testORM();
         //TODO Por exceptions nas cenas para "ser mais bonito"
     }
 
@@ -119,11 +119,11 @@ public class Main {
         Model2Text model2Text = new Model2Text("src/templates");
         String sqlTables = model2Text.render(model, "sqlite3_create.ftl");
         System.out.println(sqlTables);
-        //File f = new File("src/" + model.getName().toLowerCase());
-        //f.mkdirs();
+        File f = new File("src/" + model.getName().toLowerCase());
+        f.mkdirs();
 
         SQLiteConn sqLiteConn = new SQLiteConn("src/" + model.getName().toLowerCase() + "/" + model.getName().toLowerCase() + ".db");
-        //sqLiteConn.execute(sqlTables);
+        sqLiteConn.execute(sqlTables);
 
         // Generate Java classes
         for (Class c : model.getClasses()) {
@@ -145,7 +145,8 @@ public class Main {
 
     public static void testORM() {
         //TODO Por o TestORM a funcionar com base no modelo que o utilizador escolher no startProgram()
-        /*
+
+
         Author author1 = new Author();
         author1.setFirst_name("Daniel");
         author1.setLast_name("Basilio");
@@ -164,16 +165,35 @@ public class Main {
         author3.setEmail("something123@gmail.com");
         author3.save();
 
-        Book book1 = new Book();
+        Book book1 = new Book("16/07/1996", 120);
         book1.setTitle("Livro com 3 Autores");
         book1.setPrice(20);
-        book1.setQuantity(120);
-        book1.setPubdate("13/04/2017");
 
         book1.addAuthor(author1);
         book1.addAuthor(author2);
+
         book1.save();
 
+        Book b = Book.get("1");
+
+        System.out.println("Book:");
+        System.out.println(b);
+        System.out.println("\n");
+        for(Author au : b.getAuthor()){
+            System.out.println("---------Dentro do Book : " + b.getId());
+            System.out.println("Author:");
+            System.out.println(au);
+            System.out.println("\n");
+            for(Book book : au.getBooks()){
+                System.out.println("Dentro do autor, inception ---------------------");
+                System.out.println(book);
+                System.out.println("\n");
+            }
+            System.out.println("-------------------------------------");
+        }
+
+
+/*
         ArrayList<Book> books = Book.all();
         for(Book b : books){
             System.out.println("Book:");
@@ -188,5 +208,5 @@ public class Main {
             }
         }*/
 
+        }
     }
-}

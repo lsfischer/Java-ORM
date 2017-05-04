@@ -81,7 +81,7 @@ public class ${name} {
                 }
             }
         }catch(Exception e){
-        e.printStackTrace();
+            e.printStackTrace();
         }
         return this.${rels.regularClass.name?lower_case}s;
         </#list>
