@@ -49,6 +49,7 @@ public class ${name} {
     </#list>
     }
     <#else>
+    //TODO tirar isto maybe
     //Empty Constructor
     public ${name}(){
     }
