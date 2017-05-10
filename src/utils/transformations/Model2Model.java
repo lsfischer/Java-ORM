@@ -157,7 +157,7 @@ public class Model2Model {
         return attributes;
     }
 
-
+    //TODO fazer com o modelo bookstore porque ainda não tem as relations
     public static String getModelFromXMI(String filename) {
         try {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -182,7 +182,7 @@ public class Model2Model {
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             DOMSource source = new DOMSource(doc);
 
-            String returnedPath = "src/models/" + modelName + ".xml";
+            String returnedPath = "src/models/" + modelName + "FromXMI.xml";
             StreamResult result = new StreamResult(returnedPath);
             transformer.transform(source, result);
 

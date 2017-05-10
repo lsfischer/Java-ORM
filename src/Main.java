@@ -25,10 +25,10 @@ public class Main {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        //startProgram();
+        startProgram();
         //testORM();
-        Model model = Model2Model.getModel("src/models/person.xmi",false);
-        buildModel(model);
+        //Model model = Model2Model.getModel("src/models/person.xmi",false);
+        //buildModel(model);
 
         //TODO Por exceptions nas cenas para "ser mais bonito"
     }
@@ -74,7 +74,7 @@ public class Main {
             buildModel(model);
         }
         if (modelChoice.equals("2") && languageChoice.equals("2")) {
-            Model model = Model2Model.getModel("src/models/personXML.xml",true);
+            Model model = Model2Model.getModel("src/models/person.xml",true);
             buildModel(model);
         }
     }

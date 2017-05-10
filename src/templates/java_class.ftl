@@ -317,14 +317,15 @@ public class ${name} {
     public String toString(){
         return "ID: " + this.id <#list attributes as attribute>+ "\n${attribute.name}: " + this.${attribute.name} </#list>;
     }
-<#--
+
     <#list relations as rels>
     <#if rels.foreignClass.name == name && rels.relationshipType != "N2N">
      public ${rels.regularClass.name} get${rels.regularClass.name}(){
-        String sql = String.format("SELECT * FROM ${rels.regularClass.name} WHERE id = (SELECT ${rels.regularClass.name?lower_case}_id FROM ${name} WHERE id = '%s')"",this.id);
+        String sql = String.format("SELECT * FROM ${rels.regularClass.name} WHERE id = (SELECT ${rels.regularClass.name?lower_case}_id FROM ${name} WHERE id = '%s')",this.id);
         ResultSet rs = sqLiteConn.executeQuery(sql);
         try{
-            ${rels.regularClass.name} ${rels.regularClass.name?lower_case} = new ${rels.regularClass.name}(<#list requiredAttributes as requiredAttribute>rs.get${requiredAttribute.type?capitalize}("${requiredAttribute.name}")<#sep>, </#sep></#list>);
+            ${rels.regularClass.name} ${rels.regularClass.name?lower_case} = new ${rels.regularClass.name}();
+
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -332,6 +333,6 @@ public class ${name} {
      }
     </#if>
     </#list>
-    -->
+
 }
 
