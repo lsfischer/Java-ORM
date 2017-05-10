@@ -113,13 +113,7 @@ public class Book {
         }
     }
 
-    private static ResultSet getResultSet(String condition){
-        String sql;
-        if(condition.isEmpty()){
-            sql = "SELECT * FROM Book";
-        }else{
-            sql = "SELECT * FROM Book WHERE " + condition;
-        }
+    private static ResultSet getResultSet(String sql){
         return sqLiteConn.executeQuery(sql);
     }
 
@@ -151,7 +145,6 @@ public class Book {
 
     public static Book get(String id){
         Book book;
-
         try{
 
             ResultSet rs = getResultSet("id = " + id);

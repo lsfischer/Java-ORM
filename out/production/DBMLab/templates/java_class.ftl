@@ -49,7 +49,6 @@ public class ${name} {
     </#list>
     }
     <#else>
-    //TODO tirar isto maybe
     //Empty Constructor
     public ${name}(){
     }
@@ -325,9 +324,12 @@ public class ${name} {
         ResultSet rs = sqLiteConn.executeQuery(sql);
         try{
             ${rels.regularClass.name} ${rels.regularClass.name?lower_case} = new ${rels.regularClass.name}();
-
-        }catch(Exception e){
+            int id = rs.getInt("id");
+            ${rels.regularClass.name?lower_case}.setId(id);
+            }catch(Exception e){
             e.printStackTrace();
+
+    //TODO PENSAR EM TIPO , NESTE CASO CHAMAR UM Book.searchAuthor(idAuthor) que va a tabela book e procure o livro com este autor
         }
 
      }
