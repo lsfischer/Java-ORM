@@ -74,7 +74,7 @@ public class Main {
             buildModel(model);
         }
         if (modelChoice.equals("2") && languageChoice.equals("2")) {
-            Model model = Model2Model.getModel("src/models/person.xml",true);
+            Model model = Model2Model.getModel("src/models/personXML.xml",true);
             buildModel(model);
         }
     }

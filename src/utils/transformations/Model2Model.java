@@ -52,17 +52,16 @@ public class Model2Model {
     public static Model getModel(String filename, boolean fromXML) {
         try {
             Document document;
-            if(fromXML){
+            if (fromXML) {
                 DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
                 dbf.setValidating(true);
                 DocumentBuilder db = dbf.newDocumentBuilder();
-                 document = db.parse(new File(filename));
-            }else{
+                document = db.parse(new File(filename));
+            } else {
                 DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
                 DocumentBuilder db = dbf.newDocumentBuilder();
-                 document = db.parse(getModelFromXMI(filename));
+                document = db.parse(getModelFromXMI(filename));
             }
-
 
 
             // Get model node
@@ -158,11 +157,10 @@ public class Model2Model {
         return attributes;
     }
 
+
     public static String getModelFromXMI(String filename) {
-        //TODO MELHORAR ISTO, DIVIDIR EM SUBMETODOS
         try {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-            //dbf.setValidating(true);
             DocumentBuilder db = dbf.newDocumentBuilder();
             Document document = db.parse(new File(filename));
 
@@ -176,54 +174,62 @@ public class Model2Model {
             rootElem.setAttribute("name", modelName);
             doc.appendChild(rootElem);
 
-            NodeList nList = modelNode.getChildNodes();
-            for (int i = 0; i < nList.getLength(); i++) {
-                Node nNode = nList.item(i);
-                if (nNode.getNodeType() == Node.ELEMENT_NODE && nNode.getNodeName() == "packagedElement") {
-
-                    Element classElem = doc.createElement("class");//Creates a <class> tag
-
-                    classElem.setAttribute("name", nNode.getAttributes().getNamedItem("name").getNodeValue());//Sets a name attribute to <class> tag
-                    //checks <class> tag sub-tags
-                    NodeList classAttributes = nNode.getChildNodes();
-                    for (int j = 0; j < classAttributes.getLength(); j++) {
-                        Node node = classAttributes.item(j);
-                        if (node.getNodeType() == Node.ELEMENT_NODE && node.getNodeName() == "ownedAttribute") {
-                            Element attributeElem = doc.createElement("attribute");
-                            attributeElem.setAttribute("name", node.getAttributes().getNamedItem("name").getNodeValue());
-
-                            NodeList attributeType = node.getChildNodes();
-                            for (int k = 0; k < attributeType.getLength(); k++) {
-                                Node typeNode = attributeType.item(k);
-                                if (typeNode.getNodeType() == Node.ELEMENT_NODE && typeNode.getNodeName() == "type") {
-                                    String type = typeNode.getAttributes().getNamedItem("href").getNodeValue();
-                                    String[] splited = type.split("#");
-                                    if (splited[1].equals("Integer"))
-                                        splited[1] = "int";
-                                    attributeElem.setAttribute("type", splited[1]);
-                                }
-                            }
-                            classElem.appendChild(attributeElem);
-                        }
-                    }
-                    rootElem.appendChild(classElem);
-                }
-            }
+            getClassesXMI(modelNode, rootElem, doc);
 
             //Write to a xml file
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             DOMSource source = new DOMSource(doc);
-            //TODO MUDAR O NOME DO FICHEIRO
-            StreamResult result = new StreamResult("src/models/person2.xml");
+
+            String returnedPath = "src/models/" + modelName + ".xml";
+            StreamResult result = new StreamResult(returnedPath);
             transformer.transform(source, result);
 
-            //TODO MUDAR ISTO PARA SER GENERICO
-            return "src/models/person2.xml";
+            return returnedPath;
         } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static void getClassesXMI(Node modelNode, Element modelElement, Document doc) {
+        NodeList nList = modelNode.getChildNodes();
+        for (int i = 0; i < nList.getLength(); i++) {
+            Node classNode = nList.item(i);
+            if (classNode.getNodeType() == Node.ELEMENT_NODE && classNode.getNodeName() == "packagedElement") {
+                Element classElem = doc.createElement("class");//Creates a <class> tag
+                classElem.setAttribute("name", classNode.getAttributes().getNamedItem("name").getNodeValue());
+                getAttributesXMI(classNode, classElem, doc);
+                modelElement.appendChild(classElem);
+            }
+        }
+    }
+
+    public static void getAttributesXMI(Node classNode, Element classElem, Document doc) {
+        NodeList classAttributes = classNode.getChildNodes();
+        for (int i = 0; i < classAttributes.getLength(); i++) {
+            Node attributeNode = classAttributes.item(i);
+            if (attributeNode.getNodeType() == Node.ELEMENT_NODE && attributeNode.getNodeName() == "ownedAttribute") {
+                Element attributeElem = doc.createElement("attribute");
+                attributeElem.setAttribute("name", attributeNode.getAttributes().getNamedItem("name").getNodeValue());
+                getAttributeTypeXMI(attributeNode, attributeElem, doc);
+                classElem.appendChild(attributeElem);
+            }
+        }
+    }
+
+    public static void getAttributeTypeXMI(Node attributeNode, Element attributeElem, Document doc) {
+        NodeList attributeType = attributeNode.getChildNodes();
+        for (int i = 0; i < attributeType.getLength(); i++) {
+            Node typeNode = attributeType.item(i);
+            if (typeNode.getNodeType() == Node.ELEMENT_NODE && typeNode.getNodeName() == "type") {
+                String type = typeNode.getAttributes().getNamedItem("href").getNodeValue();
+                String[] splited = type.split("#");
+                if (splited[1].equals("Integer"))
+                    splited[1] = "int";
+                attributeElem.setAttribute("type", splited[1]);
+            }
+        }
     }
 }
