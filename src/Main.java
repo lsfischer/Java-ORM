@@ -18,8 +18,8 @@ public class Main {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        //startProgram();
-        testORM();
+        startProgram();
+        //testORM();
         //Model model = Model2Model.getModel("src/models/person.xmi",false);
         //buildModel(model);
 
@@ -115,11 +115,11 @@ public class Main {
         Model2Text model2Text = new Model2Text("src/templates");
         String sqlTables = model2Text.render(model, "sqlite3_create.ftl");
         System.out.println(sqlTables);
-        File f = new File("src/" + model.getName().toLowerCase());
-        f.mkdirs();
+        //File f = new File("src/" + model.getName().toLowerCase());
+        //f.mkdirs();
 
         SQLiteConn sqLiteConn = new SQLiteConn("src/" + model.getName().toLowerCase() + "/" + model.getName().toLowerCase() + ".db");
-        sqLiteConn.execute(sqlTables);
+        //sqLiteConn.execute(sqlTables);
 
         // Generate Java classes
         for (Class c : model.getClasses()) {

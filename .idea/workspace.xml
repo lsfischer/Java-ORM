@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="362a2e9b-8028-44a0-b85b-21b753214301" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/bookstore/Author.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/bookstore/Book.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/bookstore/bookstore.db" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/Main.class" afterPath="$PROJECT_DIR$/out/production/DBMLab/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/models/bookstore.xml" afterPath="$PROJECT_DIR$/out/production/DBMLab/models/bookstore.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/templates/java_class.ftl" afterPath="$PROJECT_DIR$/out/production/DBMLab/templates/java_class.ftl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/bookstore.xml" afterPath="$PROJECT_DIR$/src/models/bookstore.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/java_class.ftl" afterPath="$PROJECT_DIR$/src/templates/java_class.ftl" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,51 +37,11 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="146" column="55" lean-forward="false" selection-start-line="146" selection-start-column="55" selection-end-line="146" selection-end-column="55" />
+            <state relative-caret-position="240">
+              <caret line="136" column="9" lean-forward="true" selection-start-line="136" selection-start-column="9" selection-end-line="136" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Author.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/bookstore/Author.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="930">
-              <caret line="144" column="26" lean-forward="false" selection-start-line="144" selection-start-column="26" selection-end-line="144" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Book.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/bookstore/Book.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-594">
-              <caret line="114" column="33" lean-forward="false" selection-start-line="114" selection-start-column="33" selection-end-line="114" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="java_class.ftl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/templates/java_class.ftl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="203" column="33" lean-forward="false" selection-start-line="203" selection-start-column="33" selection-end-line="203" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bookstore.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/bookstore.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="23" lean-forward="false" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -803,14 +755,7 @@
       <workItem from="1494247476567" duration="6423000" />
       <workItem from="1494319770031" duration="2564000" />
       <workItem from="1494412579175" duration="2001000" />
-      <workItem from="1494418469338" duration="14447000" />
-    </task>
-    <task id="LOCAL-00016" summary="Completed Relation metamodel">
-      <created>1492684778636</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1492684778636</updated>
+      <workItem from="1494418469338" duration="14670000" />
     </task>
     <task id="LOCAL-00017" summary="Update ftl with Relation metamodel">
       <created>1492685743132</created>
@@ -1148,11 +1093,18 @@
       <option name="project" value="LOCAL" />
       <updated>1494430239594</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="ORM Completed, minor TODOs left">
+      <created>1494437278183</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1494437278183</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33030000" />
+    <option name="totallyTimeSpent" value="33253000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1177,7 +1129,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60556465" sideWeight="0.5121029" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38328075" sideWeight="0.48789713" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38328075" sideWeight="0.48789713" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1226,7 +1178,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Working on required attributes" />
     <MESSAGE value="Required Attributes done" />
     <MESSAGE value="No Bugs" />
     <MESSAGE value="User Menu" />
@@ -1251,7 +1202,8 @@
     <MESSAGE value="updates" />
     <MESSAGE value="verify if model comes from XML or XMI" />
     <MESSAGE value="Added sqLiteConn.close(), big update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added sqLiteConn.close(), big update" />
+    <MESSAGE value="ORM Completed, minor TODOs left" />
+    <option name="LAST_COMMIT_MESSAGE" value="ORM Completed, minor TODOs left" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1485,7 +1437,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/java_class.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
+        <state relative-caret-position="195">
           <caret line="203" column="33" lean-forward="false" selection-start-line="203" selection-start-column="33" selection-end-line="203" selection-end-column="33" />
           <folding />
         </state>
@@ -1493,7 +1445,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/bookstore/Book.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-594">
+        <state relative-caret-position="261">
           <caret line="114" column="33" lean-forward="false" selection-start-line="114" selection-start-column="33" selection-end-line="114" selection-end-column="33" />
           <folding />
         </state>
@@ -1509,8 +1461,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="146" column="55" lean-forward="false" selection-start-line="146" selection-start-column="55" selection-end-line="146" selection-end-column="55" />
+        <state relative-caret-position="240">
+          <caret line="136" column="9" lean-forward="true" selection-start-line="136" selection-start-column="9" selection-end-line="136" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
