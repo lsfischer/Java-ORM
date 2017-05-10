@@ -12,5 +12,5 @@
         <attribute name="price" type="double" />
         <attribute name="quantity" type="int" required="true"/>
     </class>
-    <foreignKey type="12N" firstClass ="Book" secondClass="Author" /> <!-- relação 12N, um Book pode ter vários autores -->
+    <foreignKey type="N2N" firstClass ="Book" secondClass="Author" />
 </model>

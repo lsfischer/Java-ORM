@@ -10,8 +10,10 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/bookstore/bookstore.db" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/Main.class" afterPath="$PROJECT_DIR$/out/production/DBMLab/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/models/bookstore.xml" afterPath="$PROJECT_DIR$/out/production/DBMLab/models/bookstore.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/templates/java_class.ftl" afterPath="$PROJECT_DIR$/out/production/DBMLab/templates/java_class.ftl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/bookstore.xml" afterPath="$PROJECT_DIR$/src/models/bookstore.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/java_class.ftl" afterPath="$PROJECT_DIR$/src/templates/java_class.ftl" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -43,8 +45,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="145" column="21" lean-forward="true" selection-start-line="145" selection-start-column="21" selection-end-line="145" selection-end-column="21" />
+            <state relative-caret-position="116">
+              <caret line="146" column="55" lean-forward="false" selection-start-line="146" selection-start-column="55" selection-end-line="146" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -55,8 +57,18 @@
       <file leaf-file-name="Author.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/bookstore/Author.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
-              <caret line="146" column="0" lean-forward="false" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
+            <state relative-caret-position="930">
+              <caret line="144" column="26" lean-forward="false" selection-start-line="144" selection-start-column="26" selection-end-line="144" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Book.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/bookstore/Book.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-594">
+              <caret line="114" column="33" lean-forward="false" selection-start-line="114" selection-start-column="33" selection-end-line="114" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -65,8 +77,18 @@
       <file leaf-file-name="java_class.ftl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/templates/java_class.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="241" column="12" lean-forward="true" selection-start-line="241" selection-start-column="12" selection-end-line="241" selection-end-column="12" />
+            <state relative-caret-position="105">
+              <caret line="203" column="33" lean-forward="false" selection-start-line="203" selection-start-column="33" selection-end-line="203" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bookstore.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/models/bookstore.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="23" lean-forward="false" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -123,12 +145,12 @@
         <option value="$PROJECT_DIR$/src/person/Person.java" />
         <option value="$PROJECT_DIR$/src/templates/sqlite3_create.ftl" />
         <option value="$PROJECT_DIR$/src/metamodels/Class.java" />
-        <option value="$PROJECT_DIR$/src/models/bookstore.xml" />
         <option value="$PROJECT_DIR$/src/utils/transformations/Model2Model.java" />
         <option value="$PROJECT_DIR$/src/utils/sqlite/SQLiteConn.java" />
         <option value="$PROJECT_DIR$/src/bookstore/Author.java" />
-        <option value="$PROJECT_DIR$/src/bookstore/Book.java" />
+        <option value="$PROJECT_DIR$/src/models/bookstore.xml" />
         <option value="$PROJECT_DIR$/src/templates/java_class.ftl" />
+        <option value="$PROJECT_DIR$/src/bookstore/Book.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
       </list>
     </option>
@@ -781,14 +803,7 @@
       <workItem from="1494247476567" duration="6423000" />
       <workItem from="1494319770031" duration="2564000" />
       <workItem from="1494412579175" duration="2001000" />
-      <workItem from="1494418469338" duration="8081000" />
-    </task>
-    <task id="LOCAL-00015" summary="update">
-      <created>1492684122668</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1492684122668</updated>
+      <workItem from="1494418469338" duration="14447000" />
     </task>
     <task id="LOCAL-00016" summary="Completed Relation metamodel">
       <created>1492684778636</created>
@@ -1126,11 +1141,18 @@
       <option name="project" value="LOCAL" />
       <updated>1494427280105</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="Added sqLiteConn.close(), big update">
+      <created>1494430239594</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1494430239594</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26664000" />
+    <option name="totallyTimeSpent" value="33030000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1155,7 +1177,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60556465" sideWeight="0.5121029" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5031546" sideWeight="0.48789713" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38328075" sideWeight="0.48789713" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1204,7 +1226,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated Model2Model" />
     <MESSAGE value="Working on required attributes" />
     <MESSAGE value="Required Attributes done" />
     <MESSAGE value="No Bugs" />
@@ -1229,7 +1250,8 @@
     <MESSAGE value="Working on getBooks();" />
     <MESSAGE value="updates" />
     <MESSAGE value="verify if model comes from XML or XMI" />
-    <option name="LAST_COMMIT_MESSAGE" value="verify if model comes from XML or XMI" />
+    <MESSAGE value="Added sqLiteConn.close(), big update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added sqLiteConn.close(), big update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1429,38 +1451,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/bookstore.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
           <caret line="110" column="19" lean-forward="false" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/transformations/Model2Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="539">
-          <caret line="141" column="21" lean-forward="false" selection-start-line="141" selection-start-column="21" selection-end-line="141" selection-end-column="21" />
-          <folding>
-            <element signature="method#getClassesXMI#0;class#Model2Model#0" expanded="false" />
-            <element signature="method#getAttributesXMI#0;class#Model2Model#0" expanded="false" />
-            <element signature="method#getAttributeTypeXMI#0;class#Model2Model#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bookstore/Book.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1052">
-          <caret line="119" column="10" lean-forward="false" selection-start-line="119" selection-start-column="10" selection-end-line="119" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -1473,26 +1467,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/transformations/Model2Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-224">
+          <caret line="170" column="45" lean-forward="true" selection-start-line="170" selection-start-column="45" selection-end-line="170" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/bookstore.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="23" lean-forward="false" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/java_class.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="241" column="12" lean-forward="true" selection-start-line="241" selection-start-column="12" selection-end-line="241" selection-end-column="12" />
+        <state relative-caret-position="105">
+          <caret line="203" column="33" lean-forward="false" selection-start-line="203" selection-start-column="33" selection-end-line="203" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bookstore/Book.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-594">
+          <caret line="114" column="33" lean-forward="false" selection-start-line="114" selection-start-column="33" selection-end-line="114" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/bookstore/Author.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="146" column="0" lean-forward="false" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
+        <state relative-caret-position="930">
+          <caret line="144" column="26" lean-forward="false" selection-start-line="144" selection-start-column="26" selection-end-line="144" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="145" column="21" lean-forward="true" selection-start-line="145" selection-start-column="21" selection-end-line="145" selection-end-column="21" />
+        <state relative-caret-position="116">
+          <caret line="146" column="55" lean-forward="false" selection-start-line="146" selection-start-column="55" selection-end-line="146" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

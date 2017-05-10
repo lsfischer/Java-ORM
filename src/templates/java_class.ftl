@@ -71,6 +71,7 @@ public class ${name} {
     private static void openSqLite(){
         sqLiteConn = new SQLiteConn("src/${pkg}/${pkg}.db");
     }
+
     <#list relations as rels>
     <#if rels.foreignClass.name == name && rels.relationshipType == "N2N">
     public ArrayList<${rels.regularClass.name}> get${rels.regularClass.name}s() {
@@ -201,7 +202,6 @@ public class ${name} {
     <#list relations as rels>
     <#if rels.regularClass.name = name>
      private void saveRelation(){
-        get${rels.foreignClass.name}();
         openSqLite();
         <#if rels.relationshipType == "N2N">
          for(${rels.foreignClass.name} object : ${rels.foreignClass.name?lower_case}){
@@ -235,7 +235,7 @@ public class ${name} {
         }
     }
 
-    public static ArrayList all(){
+    public static ArrayList<${name}> all(){
         ArrayList<${name}> list = new ArrayList<>();
         openSqLite();
         ResultSet rs = sqLiteConn.executeQuery("SELECT * FROM ${name}");
@@ -290,7 +290,7 @@ public class ${name} {
         return ${name?lower_case};
     }
 
-    public static ArrayList where(String condition){
+    public static ArrayList<${name}> where(String condition){
         ArrayList<${name}> list = new ArrayList<>();
         openSqLite();
         ResultSet rs = sqLiteConn.executeQuery("SELECT * FROM ${name} WHERE " + condition);

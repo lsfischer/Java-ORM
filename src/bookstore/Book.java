@@ -62,13 +62,14 @@ public class Book {
     private static void openSqLite(){
         sqLiteConn = new SQLiteConn("src/bookstore/bookstore.db");
     }
+
     public ArrayList<Author> getAuthor() {
         openSqLite();
-        String sql = "SELECT id FROM Author WHERE book_id = "+id;
+        String sql = "SELECT author_id FROM Book_Author WHERE book_id = " + id;
         ResultSet resultSet = sqLiteConn.executeQuery(sql);
         try{
             while(resultSet.next()){
-                String relationId = resultSet.getString("id");
+                String relationId = Integer.toString(resultSet.getInt("author_id"));
                 if(!relationId.equals("0")){
                     this.addAuthor(Author.get(relationId));
                 }
@@ -85,6 +86,7 @@ public class Book {
             throw new IllegalArgumentException("You need to save Author id: " + author.getId() + " in the database first");
         }else{
             this.author.add(author);
+            author.addBook(this);
             //TODO Secalhar aqui arranjar maneira de chamar o update, caso o livro ja esteja na BD e queiramos adicionar mais um autor
         }
     }
@@ -111,13 +113,11 @@ public class Book {
     }
 
      private void saveRelation(){
-        getAuthor();
         openSqLite();
-        for(Author object : author){
-            String sql = String.format("UPDATE Author SET book_id = '%s' WHERE id = '%s'", this.id, object.getId());
+         for(Author object : author){
+            String sql = String.format("INSERT INTO Book_Author (book_id, author_id) VALUES ('%s', '%s')", this.id, object.getId());
             sqLiteConn.executeUpdate(sql);
-        }
-        sqLiteConn.close();
+         }
      }
 
     public void delete(){
@@ -131,7 +131,7 @@ public class Book {
         }
     }
 
-    public static ArrayList all(){
+    public static ArrayList<Book> all(){
         ArrayList<Book> list = new ArrayList<>();
         openSqLite();
         ResultSet rs = sqLiteConn.executeQuery("SELECT * FROM Book");
@@ -184,7 +184,7 @@ public class Book {
         return book;
     }
 
-    public static ArrayList where(String condition){
+    public static ArrayList<Book> where(String condition){
         ArrayList<Book> list = new ArrayList<>();
         openSqLite();
         ResultSet rs = sqLiteConn.executeQuery("SELECT * FROM Book WHERE " + condition);
