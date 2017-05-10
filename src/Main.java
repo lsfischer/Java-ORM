@@ -1,23 +1,15 @@
 
 import bookstore.Author;
 import bookstore.Book;
-import com.sun.org.apache.xpath.internal.SourceTree;
 import metamodels.Attribute;
 import metamodels.Class;
 import metamodels.Model;
 import metamodels.Relation;
-import org.sqlite.SQLiteException;
-import person.Person;
 import utils.sqlite.SQLiteConn;
 import utils.transformations.Model2Model;
 import utils.transformations.Model2Text;
-
 import java.io.*;
-import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Scanner;
 
 
@@ -25,8 +17,8 @@ public class Main {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        startProgram();
-        //testORM();
+        //startProgram();
+        testORM();
         //Model model = Model2Model.getModel("src/models/person.xmi",false);
         //buildModel(model);
 
@@ -122,11 +114,11 @@ public class Main {
         Model2Text model2Text = new Model2Text("src/templates");
         String sqlTables = model2Text.render(model, "sqlite3_create.ftl");
         System.out.println(sqlTables);
-        //File f = new File("src/" + model.getName().toLowerCase());
-        //f.mkdirs();
+        File f = new File("src/" + model.getName().toLowerCase());
+        f.mkdirs();
 
         SQLiteConn sqLiteConn = new SQLiteConn("src/" + model.getName().toLowerCase() + "/" + model.getName().toLowerCase() + ".db");
-        //sqLiteConn.execute(sqlTables);
+        sqLiteConn.execute(sqlTables);
 
         // Generate Java classes
         for (Class c : model.getClasses()) {
@@ -146,7 +138,12 @@ public class Main {
 
     public static void testORM() {
         //TODO Por o TestORM a funcionar com base no modelo que o utilizador escolher no startProgram()
-
+        Book book1 = new Book("16/07/1996", 120);
+        book1.setTitle("Livro com 2 Autores");
+        book1.setPrice(20);
+        book1.addAuthor(Author.get("1"));
+        book1.addAuthor(Author.get("2"));
+        book1.save();
 /*
         Author author1 = new Author();
         author1.setFirst_name("Daniel");

@@ -65,13 +65,18 @@ public class ${name} {
         this.${attribute.name} = ${attribute.name};
     }
 
+
+
     </#list>
+    private static void openSqLite(){
+        sqLiteConn = new SQLiteConn("src/${pkg}/${pkg}.db");
+    }
     <#list relations as rels>
     <#if rels.foreignClass.name == name && rels.relationshipType == "N2N">
     public ArrayList<${rels.regularClass.name}> get${rels.regularClass.name}s() {
+        openSqLite();
         <#list relations as rels>
-        String sql = "SELECT ${rels.regularClass.name?lower_case}_id FROM ${rels.regularClass.name}_${name} WHERE ${name?lower_case}_id = " + id;
-        ResultSet resultSet = sqLiteConn.executeQuery(sql);
+        ResultSet resultSet = sqLiteConn.executeQuery("SELECT ${rels.regularClass.name?lower_case}_id FROM ${rels.regularClass.name}_${name} WHERE ${name?lower_case}_id = " + id);
         try{
             while(resultSet.next()){
                 String relationId = resultSet.getString("${rels.regularClass.name?lower_case}_id");
@@ -82,6 +87,7 @@ public class ${name} {
         }catch(Exception e){
             e.printStackTrace();
         }
+        sqLiteConn.close();
         return this.${rels.regularClass.name?lower_case}s;
         </#list>
     }
@@ -92,6 +98,7 @@ public class ${name} {
     <#if rels.regularClass.name == name>
     <#if rels.relationshipType != '121'>
     public ArrayList<${rels.foreignClass.name}> get${rels.foreignClass.name}() {
+        openSqLite();
         <#list relations as rels>
         <#if rels.regularClass.name == name>
         <#if rels.relationshipType == "N2N">
@@ -114,6 +121,7 @@ public class ${name} {
         }catch(Exception e){
             e.printStackTrace();
         }
+        sqLiteConn.close();
         return this.${rels.foreignClass.name?lower_case};
     </#if>
     </#list>
@@ -123,8 +131,8 @@ public class ${name} {
     public ${rels.foreignClass.name} get${rels.foreignClass.name}() {
         <#list relations as rels>
         <#if rels.regularClass.name == name>
-        String sql = "SELECT id FROM ${rels.foreignClass.name} WHERE ${name?lower_case}_id = "+id;
-        ResultSet resultSet = sqLiteConn.executeQuery(sql);
+        openSqLite();
+        ResultSet resultSet = sqLiteConn.executeQuery("SELECT id FROM ${rels.foreignClass.name} WHERE ${name?lower_case}_id = "+id);
             try{
                 resultSet.next();
                 String relationId = Integer.toString(resultSet.getInt("id"));
@@ -134,6 +142,7 @@ public class ${name} {
             }catch(Exception e){
                 e.printStackTrace();
             }
+        sqLiteConn.close();
         return this.${rels.foreignClass.name?lower_case};
         </#if>
         </#list>
@@ -172,6 +181,7 @@ public class ${name} {
     }
 
     public void save(){
+        openSqLite();
         if(this.id >= 1){
             String sql = String.format("UPDATE ${name} SET <#list attributes as attribute><#if attribute.name != "id">${attribute.name} = '%s'<#sep>,</#sep></#if></#list> WHERE id = '%s'",<#list attributes as attribute><#if attribute.name != "id">this.${attribute.name}<#sep>,</#sep></#if></#list>,this.id);
             sqLiteConn.executeUpdate(sql);
@@ -180,6 +190,7 @@ public class ${name} {
             int idPerson = sqLiteConn.executeUpdate(sql);
             setId(idPerson);
         }
+        sqLiteConn.close();
         <#list relations as rels>
         <#if rels.regularClass.name = name>
          saveRelation();
@@ -191,6 +202,7 @@ public class ${name} {
     <#if rels.regularClass.name = name>
      private void saveRelation(){
         get${rels.foreignClass.name}();
+        openSqLite();
         <#if rels.relationshipType == "N2N">
          for(${rels.foreignClass.name} object : ${rels.foreignClass.name?lower_case}){
             String sql = String.format("INSERT INTO ${rels.regularClass.name}_${rels.foreignClass.name} (${rels.regularClass.name?lower_case}_id, ${rels.foreignClass.name?lower_case}_id) VALUES ('%s', '%s')", this.id, object.getId());
@@ -206,6 +218,7 @@ public class ${name} {
             String sql = String.format("UPDATE ${rels.foreignClass.name} SET ${name?lower_case}_id = '%s' WHERE id = '%s'", this.id, object.getId());
             sqLiteConn.executeUpdate(sql);
         }
+        sqLiteConn.close();
         </#if>
      }
     </#if>
@@ -214,7 +227,9 @@ public class ${name} {
     public void delete(){
         if(this.id >= 1){
             String sql = "DELETE FROM ${name} WHERE id = "+this.id;
+            openSqLite();
             sqLiteConn.executeUpdate(sql);
+            sqLiteConn.close();
         }else{
             System.out.println("This object does not exist in the database");
         }
@@ -222,6 +237,7 @@ public class ${name} {
 
     public static ArrayList all(){
         ArrayList<${name}> list = new ArrayList<>();
+        openSqLite();
         ResultSet rs = sqLiteConn.executeQuery("SELECT * FROM ${name}");
         try{
             while(rs.next()){
@@ -243,11 +259,13 @@ public class ${name} {
         }catch(Exception e){
             e.printStackTrace();
         }
+        sqLiteConn.close();
         return list;
     }
     //POR O GET A IR BUSCAR O WHERE com id = id, escusamos de ter dois metodos
     public static ${name} get(String id){
-        ${name} ${name?lower_case};
+        ${name} ${name?lower_case} = null;
+        openSqLite();
         ResultSet rs = sqLiteConn.executeQuery("SELECT * FROM ${name} WHERE id = " + id);
         try{
             rs.next();
@@ -268,12 +286,13 @@ public class ${name} {
         }catch(Exception e){
             e.printStackTrace();
         }
-
+        sqLiteConn.close();
         return ${name?lower_case};
     }
 
     public static ArrayList where(String condition){
         ArrayList<${name}> list = new ArrayList<>();
+        openSqLite();
         ResultSet rs = sqLiteConn.executeQuery("SELECT * FROM ${name} WHERE " + condition);
         try{
             while(rs.next()){
@@ -295,6 +314,7 @@ public class ${name} {
         }catch(Exception e){
             e.printStackTrace();
         }
+        sqLiteConn.close();
         return list;
     }
 
@@ -307,6 +327,7 @@ public class ${name} {
     <#if rels.foreignClass.name == name && rels.relationshipType != "N2N">
      public ${rels.regularClass.name} get${rels.regularClass.name}(){
         ${rels.regularClass.name} ${rels.regularClass.name?lower_case} = null;
+        openSqLite();
         ResultSet rs = sqLiteConn.executeQuery("SELECT ${rels.regularClass.name?lower_case}_id FROM ${rels.foreignClass.name} WHERE id = " + this.id);
         try{
             rs.next();
@@ -314,6 +335,7 @@ public class ${name} {
         }catch(Exception e){
             e.printStackTrace();
         }
+        sqLiteConn.close();
         return ${rels.regularClass.name?lower_case};
      }
     </#if>

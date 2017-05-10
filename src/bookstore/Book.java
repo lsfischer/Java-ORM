@@ -14,8 +14,9 @@ public class Book {
     private int id;
     private static SQLiteConn sqLiteConn = new SQLiteConn("src/bookstore/bookstore.db");
 
-    //Empty Constructor
-    public Book(){
+    public Book(String pubDate, int quantity) {
+        this.pubDate = pubDate;
+        this.quantity = quantity;
     }
 
     public String getTitle() {
@@ -26,6 +27,8 @@ public class Book {
         this.title = title;
     }
 
+
+
     public String getPubDate() {
         return pubDate;
     }
@@ -33,6 +36,8 @@ public class Book {
     public void setPubdate(String pubDate) {
         this.pubDate = pubDate;
     }
+
+
 
     public double getPrice() {
         return price;
@@ -42,6 +47,8 @@ public class Book {
         this.price = price;
     }
 
+
+
     public int getQuantity() {
         return quantity;
     }
@@ -50,7 +57,13 @@ public class Book {
         this.quantity = quantity;
     }
 
+
+
+    private static void openSqLite(){
+        sqLiteConn = new SQLiteConn("src/bookstore/bookstore.db");
+    }
     public ArrayList<Author> getAuthor() {
+        openSqLite();
         String sql = "SELECT id FROM Author WHERE book_id = "+id;
         ResultSet resultSet = sqLiteConn.executeQuery(sql);
         try{
@@ -63,6 +76,7 @@ public class Book {
         }catch(Exception e){
             e.printStackTrace();
         }
+        sqLiteConn.close();
         return this.author;
     }
 
@@ -83,6 +97,7 @@ public class Book {
     }
 
     public void save(){
+        openSqLite();
         if(this.id >= 1){
             String sql = String.format("UPDATE Book SET title = '%s',pubDate = '%s',price = '%s',quantity = '%s' WHERE id = '%s'",this.title,this.pubDate,this.price,this.quantity,this.id);
             sqLiteConn.executeUpdate(sql);
@@ -91,21 +106,26 @@ public class Book {
             int idPerson = sqLiteConn.executeUpdate(sql);
             setId(idPerson);
         }
+        sqLiteConn.close();
          saveRelation();
     }
 
      private void saveRelation(){
         getAuthor();
+        openSqLite();
         for(Author object : author){
             String sql = String.format("UPDATE Author SET book_id = '%s' WHERE id = '%s'", this.id, object.getId());
             sqLiteConn.executeUpdate(sql);
         }
+        sqLiteConn.close();
      }
 
     public void delete(){
         if(this.id >= 1){
             String sql = "DELETE FROM Book WHERE id = "+this.id;
+            openSqLite();
             sqLiteConn.executeUpdate(sql);
+            sqLiteConn.close();
         }else{
             System.out.println("This object does not exist in the database");
         }
@@ -113,10 +133,11 @@ public class Book {
 
     public static ArrayList all(){
         ArrayList<Book> list = new ArrayList<>();
+        openSqLite();
         ResultSet rs = sqLiteConn.executeQuery("SELECT * FROM Book");
         try{
             while(rs.next()){
-                Book book = new Book();
+                Book book = new Book(rs.getString("pubDate"), rs.getInt("quantity"));
 
                 int id = rs.getInt("id");
                 book.setId(id);
@@ -124,14 +145,8 @@ public class Book {
                 String title = rs.getString("title");
                 book.setTitle(title);
 
-                String pubDate = rs.getString("pubDate");
-                book.setPubdate(pubDate);
-
                 double price = rs.getDouble("price");
                 book.setPrice(price);
-
-                int quantity = rs.getInt("quantity");
-                book.setQuantity(quantity);
 
 
                 list.add(book);
@@ -139,16 +154,18 @@ public class Book {
         }catch(Exception e){
             e.printStackTrace();
         }
+        sqLiteConn.close();
         return list;
     }
     //POR O GET A IR BUSCAR O WHERE com id = id, escusamos de ter dois metodos
     public static Book get(String id){
         Book book = null;
+        openSqLite();
         ResultSet rs = sqLiteConn.executeQuery("SELECT * FROM Book WHERE id = " + id);
         try{
             rs.next();
 
-            book = new Book();
+            book = new Book(rs.getString("pubDate"), rs.getInt("quantity"));
 
             int idFromDB = rs.getInt("id");
             book.setId(idFromDB);
@@ -156,29 +173,24 @@ public class Book {
             String title = rs.getString("title");
             book.setTitle(title);
 
-            String pubDate = rs.getString("pubDate");
-            book.setPubdate(pubDate);
-
             double price = rs.getDouble("price");
             book.setPrice(price);
-
-            int quantity = rs.getInt("quantity");
-            book.setQuantity(quantity);
 
 
         }catch(Exception e){
             e.printStackTrace();
         }
-
+        sqLiteConn.close();
         return book;
     }
 
     public static ArrayList where(String condition){
         ArrayList<Book> list = new ArrayList<>();
+        openSqLite();
         ResultSet rs = sqLiteConn.executeQuery("SELECT * FROM Book WHERE " + condition);
         try{
             while(rs.next()){
-                Book book = new Book();
+                Book book = new Book(rs.getString("pubDate"), rs.getInt("quantity"));
 
                 int id = rs.getInt("id");
                 book.setId(id);
@@ -186,14 +198,8 @@ public class Book {
                 String title = rs.getString("title");
                 book.setTitle(title);
 
-                String pubDate = rs.getString("pubDate");
-                book.setPubdate(pubDate);
-
                 double price = rs.getDouble("price");
                 book.setPrice(price);
-
-                int quantity = rs.getInt("quantity");
-                book.setQuantity(quantity);
 
 
                 list.add(book);
@@ -201,6 +207,7 @@ public class Book {
         }catch(Exception e){
             e.printStackTrace();
         }
+        sqLiteConn.close();
         return list;
     }
 
