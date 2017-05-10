@@ -9,11 +9,9 @@ public class Author {
     private String first_name;
     private String last_name;
     private String email;
-    private ArrayList<Book> books = new ArrayList<>();
     private int id;
     private static SQLiteConn sqLiteConn = new SQLiteConn("src/bookstore/bookstore.db");
 
-    //TODO tirar isto maybe
     //Empty Constructor
     public Author(){
     }
@@ -42,24 +40,6 @@ public class Author {
         this.email = email;
     }
 
-    public ArrayList<Book> getBooks() {
-        String sql = "SELECT book_id FROM Book_Author WHERE author_id = " + id;
-        ResultSet resultSet = sqLiteConn.executeQuery(sql);
-        try{
-            while(resultSet.next()){
-                String relationId = resultSet.getString("book_id");
-                if(!relationId.equals("0")){
-                    this.addBook(Book.get(relationId));
-                }
-            }
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        return this.books;
-    }
-    public void addBook(Book book){
-        this.books.add(book);
-    }
     public int getId() {
         return this.id;
     }
@@ -89,20 +69,9 @@ public class Author {
         }
     }
 
-    private static ResultSet getResultSet(String condition){
-        String sql;
-        if(condition.isEmpty()){
-            sql = "SELECT * FROM Author";
-        }else{
-            sql = "SELECT * FROM Author WHERE " + condition;
-        }
-        return sqLiteConn.executeQuery(sql);
-    }
-
-
     public static ArrayList all(){
         ArrayList<Author> list = new ArrayList<>();
-        ResultSet rs = getResultSet("");
+        ResultSet rs = sqLiteConn.executeQuery("SELECT * FROM Author");
         try{
             while(rs.next()){
                 Author author = new Author();
@@ -127,13 +96,11 @@ public class Author {
         }
         return list;
     }
-
+    //POR O GET A IR BUSCAR O WHERE com id = id, escusamos de ter dois metodos
     public static Author get(String id){
-        Author author;
-
+        Author author = null;
+        ResultSet rs = sqLiteConn.executeQuery("SELECT * FROM Author WHERE id = " + id);
         try{
-
-            ResultSet rs = getResultSet("id = " + id);
             rs.next();
 
             author = new Author();
@@ -153,7 +120,6 @@ public class Author {
 
         }catch(Exception e){
             e.printStackTrace();
-            return new Author();
         }
 
         return author;
@@ -161,7 +127,7 @@ public class Author {
 
     public static ArrayList where(String condition){
         ArrayList<Author> list = new ArrayList<>();
-        ResultSet rs = getResultSet(condition);
+        ResultSet rs = sqLiteConn.executeQuery("SELECT * FROM Author WHERE " + condition);
         try{
             while(rs.next()){
                 Author author = new Author();
@@ -191,5 +157,18 @@ public class Author {
     public String toString(){
         return "ID: " + this.id + "\nfirst_name: " + this.first_name + "\nlast_name: " + this.last_name + "\nemail: " + this.email ;
     }
+
+     public Book getBook(){
+        Book book = null;
+        ResultSet rs = sqLiteConn.executeQuery("SELECT book_id FROM Author WHERE id = " + this.id);
+        try{
+            rs.next();
+            book = Book.get(Integer.toString(rs.getInt("book_id")));
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return book;
+     }
+
 }
 

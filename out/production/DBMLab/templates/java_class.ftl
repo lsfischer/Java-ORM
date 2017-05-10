@@ -220,20 +220,9 @@ public class ${name} {
         }
     }
 
-    private static ResultSet getResultSet(String condition){
-        String sql;
-        if(condition.isEmpty()){
-            sql = "SELECT * FROM ${name}";
-        }else{
-            sql = "SELECT * FROM ${name} WHERE " + condition;
-        }
-        return sqLiteConn.executeQuery(sql);
-    }
-
-
     public static ArrayList all(){
         ArrayList<${name}> list = new ArrayList<>();
-        ResultSet rs = getResultSet("");
+        ResultSet rs = sqLiteConn.executeQuery("SELECT * FROM ${name}");
         try{
             while(rs.next()){
                 ${name} ${name?lower_case} = new ${name}(<#list requiredAttributes as requiredAttribute>rs.get${requiredAttribute.type?capitalize}("${requiredAttribute.name}")<#sep>, </#sep></#list>);
@@ -256,13 +245,11 @@ public class ${name} {
         }
         return list;
     }
-
+    //POR O GET A IR BUSCAR O WHERE com id = id, escusamos de ter dois metodos
     public static ${name} get(String id){
         ${name} ${name?lower_case};
-
+        ResultSet rs = sqLiteConn.executeQuery("SELECT * FROM ${name} WHERE id = " + id);
         try{
-
-            ResultSet rs = getResultSet("id = " + id);
             rs.next();
 
             ${name?lower_case} = new ${name?capitalize}(<#list requiredAttributes as requiredAttribute>rs.get${requiredAttribute.type?capitalize}("${requiredAttribute.name}")<#sep>, </#sep></#list>);
@@ -280,7 +267,6 @@ public class ${name} {
 
         }catch(Exception e){
             e.printStackTrace();
-            return new ${name?capitalize}(<#list requiredAttributes as requiredAttribute><#if requiredAttribute.type != "String">0<#else>""</#if><#sep>, </#sep></#list>);
         }
 
         return ${name?lower_case};
@@ -288,7 +274,7 @@ public class ${name} {
 
     public static ArrayList where(String condition){
         ArrayList<${name}> list = new ArrayList<>();
-        ResultSet rs = getResultSet(condition);
+        ResultSet rs = sqLiteConn.executeQuery("SELECT * FROM ${name} WHERE " + condition);
         try{
             while(rs.next()){
                 ${name} ${name?lower_case} = new ${name}(<#list requiredAttributes as requiredAttribute>rs.get${requiredAttribute.type?capitalize}("${requiredAttribute.name}")<#sep>, </#sep></#list>);
@@ -320,18 +306,15 @@ public class ${name} {
     <#list relations as rels>
     <#if rels.foreignClass.name == name && rels.relationshipType != "N2N">
      public ${rels.regularClass.name} get${rels.regularClass.name}(){
-        String sql = String.format("SELECT * FROM ${rels.regularClass.name} WHERE id = (SELECT ${rels.regularClass.name?lower_case}_id FROM ${name} WHERE id = '%s')",this.id);
-        ResultSet rs = sqLiteConn.executeQuery(sql);
+        ${rels.regularClass.name} ${rels.regularClass.name?lower_case} = null;
+        ResultSet rs = sqLiteConn.executeQuery("SELECT ${rels.regularClass.name?lower_case}_id FROM ${rels.foreignClass.name} WHERE id = " + this.id);
         try{
-            ${rels.regularClass.name} ${rels.regularClass.name?lower_case} = new ${rels.regularClass.name}();
-            int id = rs.getInt("id");
-            ${rels.regularClass.name?lower_case}.setId(id);
-            }catch(Exception e){
+            rs.next();
+            ${rels.regularClass.name?lower_case} = Book.get(Integer.toString(rs.getInt("${rels.regularClass.name?lower_case}_id")));
+        }catch(Exception e){
             e.printStackTrace();
-
-    //TODO PENSAR EM TIPO , NESTE CASO CHAMAR UM Book.searchAuthor(idAuthor) que va a tabela book e procure o livro com este autor
         }
-
+        return ${rels.regularClass.name?lower_case};
      }
     </#if>
     </#list>

@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="362a2e9b-8028-44a0-b85b-21b753214301" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/Main.class" afterPath="$PROJECT_DIR$/out/production/DBMLab/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/templates/java_class.ftl" afterPath="$PROJECT_DIR$/out/production/DBMLab/templates/java_class.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bookstore/Author.java" afterPath="$PROJECT_DIR$/src/bookstore/Author.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bookstore/Book.java" afterPath="$PROJECT_DIR$/src/bookstore/Book.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/java_class.ftl" afterPath="$PROJECT_DIR$/src/templates/java_class.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utils/transformations/Model2Model.java" afterPath="$PROJECT_DIR$/src/utils/transformations/Model2Model.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,8 +43,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-513">
-              <caret line="27" column="8" lean-forward="false" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
+            <state relative-caret-position="735">
+              <caret line="145" column="0" lean-forward="true" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -48,15 +52,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Model2Model.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Model2Model.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/utils/transformations/Model2Model.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="188" column="24" lean-forward="true" selection-start-line="188" selection-start-column="24" selection-end-line="188" selection-end-column="24" />
+            <state relative-caret-position="179">
+              <caret line="141" column="21" lean-forward="true" selection-start-line="141" selection-start-column="21" selection-end-line="141" selection-end-column="21" />
               <folding>
-                <element signature="method#getModel#0;class#Model2Model#0" expanded="false" />
-                <element signature="method#getRelations#0;class#Model2Model#0" expanded="false" />
-                <element signature="method#getAttributes#0;class#Model2Model#0" expanded="false" />
                 <element signature="method#getClassesXMI#0;class#Model2Model#0" expanded="false" />
                 <element signature="method#getAttributesXMI#0;class#Model2Model#0" expanded="false" />
                 <element signature="method#getAttributeTypeXMI#0;class#Model2Model#0" expanded="false" />
@@ -65,11 +66,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="java_class.ftl" pinned="false" current-in-tab="true">
+      <file leaf-file-name="java_class.ftl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/templates/java_class.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-369">
-              <caret line="247" column="78" lean-forward="false" selection-start-line="247" selection-start-column="78" selection-end-line="247" selection-end-column="78" />
+            <state relative-caret-position="568">
+              <caret line="283" column="0" lean-forward="true" selection-start-line="283" selection-start-column="0" selection-end-line="283" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Author.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/bookstore/Author.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="87">
+              <caret line="100" column="28" lean-forward="false" selection-start-line="100" selection-start-column="28" selection-end-line="100" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -78,12 +89,40 @@
       <file leaf-file-name="Book.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/bookstore/Book.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="116" column="44" lean-forward="true" selection-start-line="116" selection-start-column="44" selection-end-line="116" selection-end-column="44" />
+            <state relative-caret-position="30">
+              <caret line="145" column="24" lean-forward="false" selection-start-line="145" selection-start-column="24" selection-end-line="145" selection-end-column="24" />
               <folding>
-                <element signature="e#3446#3447#0" expanded="true" />
-                <element signature="e#3497#3498#0" expanded="true" />
+                <element signature="e#482#483#0" expanded="true" />
+                <element signature="e#510#511#0" expanded="true" />
+                <element signature="e#552#553#0" expanded="true" />
+                <element signature="e#586#587#0" expanded="true" />
+                <element signature="e#620#621#0" expanded="true" />
+                <element signature="e#650#651#0" expanded="true" />
+                <element signature="e#696#697#0" expanded="true" />
+                <element signature="e#734#735#0" expanded="true" />
+                <element signature="e#766#767#0" expanded="true" />
+                <element signature="e#794#795#0" expanded="true" />
+                <element signature="e#836#837#0" expanded="true" />
+                <element signature="e#870#871#0" expanded="true" />
+                <element signature="e#902#903#0" expanded="true" />
+                <element signature="e#933#934#0" expanded="true" />
+                <element signature="e#978#979#0" expanded="true" />
+                <element signature="e#1018#1019#0" expanded="true" />
+                <element signature="e#2005#2006#0" expanded="true" />
+                <element signature="e#2035#2036#0" expanded="true" />
+                <element signature="e#2068#2069#0" expanded="true" />
+                <element signature="e#2096#2097#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bookstore.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/models/bookstore.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -140,12 +179,12 @@
         <option value="$PROJECT_DIR$/src/person/Person.java" />
         <option value="$PROJECT_DIR$/src/templates/sqlite3_create.ftl" />
         <option value="$PROJECT_DIR$/src/metamodels/Class.java" />
+        <option value="$PROJECT_DIR$/src/models/bookstore.xml" />
+        <option value="$PROJECT_DIR$/src/templates/java_class.ftl" />
         <option value="$PROJECT_DIR$/src/bookstore/Author.java" />
+        <option value="$PROJECT_DIR$/src/bookstore/Book.java" />
         <option value="$PROJECT_DIR$/src/utils/transformations/Model2Model.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
-        <option value="$PROJECT_DIR$/src/models/bookstore.xml" />
-        <option value="$PROJECT_DIR$/src/bookstore/Book.java" />
-        <option value="$PROJECT_DIR$/src/templates/java_class.ftl" />
       </list>
     </option>
   </component>
@@ -797,14 +836,7 @@
       <workItem from="1494247476567" duration="6423000" />
       <workItem from="1494319770031" duration="2564000" />
       <workItem from="1494412579175" duration="2001000" />
-      <workItem from="1494418469338" duration="4073000" />
-    </task>
-    <task id="LOCAL-00013" summary="Added Relation metamodel">
-      <created>1492683649152</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1492683649152</updated>
+      <workItem from="1494418469338" duration="5147000" />
     </task>
     <task id="LOCAL-00014" summary="Added Relation metamodel">
       <created>1492683986636</created>
@@ -1142,11 +1174,18 @@
       <option name="project" value="LOCAL" />
       <updated>1494419643737</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="updates">
+      <created>1494426170688</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1494426170688</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22656000" />
+    <option name="totallyTimeSpent" value="23730000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1234,7 +1273,6 @@
     <MESSAGE value="Made a mistake, correcting it" />
     <MESSAGE value="Getting relation data from the database is working" />
     <MESSAGE value="Working on getBooks()" />
-    <MESSAGE value="updates" />
     <MESSAGE value="Modified java_class.ftl and fixed database bugs" />
     <MESSAGE value="Modified construtor and all() method" />
     <MESSAGE value="Updates" />
@@ -1245,7 +1283,8 @@
     <MESSAGE value="Added XMI support, needs work though" />
     <MESSAGE value="One class model XMI support done" />
     <MESSAGE value="Working on getBooks();" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working on getBooks();" />
+    <MESSAGE value="updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1451,6 +1490,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/java_class.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="568">
+          <caret line="283" column="0" lean-forward="true" selection-start-line="283" selection-start-column="0" selection-end-line="283" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/bookstore.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1459,55 +1506,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/bookstore/Book.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-513">
-          <caret line="27" column="8" lean-forward="false" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
+        <state relative-caret-position="30">
+          <caret line="145" column="24" lean-forward="false" selection-start-line="145" selection-start-column="24" selection-end-line="145" selection-end-column="24" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#482#483#0" expanded="true" />
+            <element signature="e#510#511#0" expanded="true" />
+            <element signature="e#552#553#0" expanded="true" />
+            <element signature="e#586#587#0" expanded="true" />
+            <element signature="e#620#621#0" expanded="true" />
+            <element signature="e#650#651#0" expanded="true" />
+            <element signature="e#696#697#0" expanded="true" />
+            <element signature="e#734#735#0" expanded="true" />
+            <element signature="e#766#767#0" expanded="true" />
+            <element signature="e#794#795#0" expanded="true" />
+            <element signature="e#836#837#0" expanded="true" />
+            <element signature="e#870#871#0" expanded="true" />
+            <element signature="e#902#903#0" expanded="true" />
+            <element signature="e#933#934#0" expanded="true" />
+            <element signature="e#978#979#0" expanded="true" />
+            <element signature="e#1018#1019#0" expanded="true" />
+            <element signature="e#2005#2006#0" expanded="true" />
+            <element signature="e#2035#2036#0" expanded="true" />
+            <element signature="e#2068#2069#0" expanded="true" />
+            <element signature="e#2096#2097#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/bookstore/Author.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-930">
-          <caret line="15" column="6" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+        <state relative-caret-position="87">
+          <caret line="100" column="28" lean-forward="false" selection-start-line="100" selection-start-column="28" selection-end-line="100" selection-end-column="28" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="145" column="0" lean-forward="true" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/transformations/Model2Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="188" column="24" lean-forward="true" selection-start-line="188" selection-start-column="24" selection-end-line="188" selection-end-column="24" />
+        <state relative-caret-position="179">
+          <caret line="141" column="21" lean-forward="true" selection-start-line="141" selection-start-column="21" selection-end-line="141" selection-end-column="21" />
           <folding>
-            <element signature="method#getModel#0;class#Model2Model#0" expanded="false" />
-            <element signature="method#getRelations#0;class#Model2Model#0" expanded="false" />
-            <element signature="method#getAttributes#0;class#Model2Model#0" expanded="false" />
             <element signature="method#getClassesXMI#0;class#Model2Model#0" expanded="false" />
             <element signature="method#getAttributesXMI#0;class#Model2Model#0" expanded="false" />
             <element signature="method#getAttributeTypeXMI#0;class#Model2Model#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bookstore/Book.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="116" column="44" lean-forward="true" selection-start-line="116" selection-start-column="44" selection-end-line="116" selection-end-column="44" />
-          <folding>
-            <element signature="e#3446#3447#0" expanded="true" />
-            <element signature="e#3497#3498#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/java_class.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-369">
-          <caret line="247" column="78" lean-forward="false" selection-start-line="247" selection-start-column="78" selection-end-line="247" selection-end-column="78" />
-          <folding />
         </state>
       </provider>
     </entry>

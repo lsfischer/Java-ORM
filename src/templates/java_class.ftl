@@ -267,7 +267,6 @@ public class ${name} {
 
         }catch(Exception e){
             e.printStackTrace();
-            return new ${name?capitalize}(<#list requiredAttributes as requiredAttribute><#if requiredAttribute.type != "String">0<#else>""</#if><#sep>, </#sep></#list>);
         }
 
         return ${name?lower_case};
@@ -307,8 +306,15 @@ public class ${name} {
     <#list relations as rels>
     <#if rels.foreignClass.name == name && rels.relationshipType != "N2N">
      public ${rels.regularClass.name} get${rels.regularClass.name}(){
-        String sql = "SELECT ${rels.regularClass.name?lower_case}_id FROM ${rels.foreignClass.name} WHERE id = " + this.id;
-        ResultSet rs = sqLiteConn.executeQuery()
+        ${rels.regularClass.name} ${rels.regularClass.name?lower_case} = null;
+        ResultSet rs = sqLiteConn.executeQuery("SELECT ${rels.regularClass.name?lower_case}_id FROM ${rels.foreignClass.name} WHERE id = " + this.id);
+        try{
+            rs.next();
+            ${rels.regularClass.name?lower_case} = Book.get(Integer.toString(rs.getInt("${rels.regularClass.name?lower_case}_id")));
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return ${rels.regularClass.name?lower_case};
      }
     </#if>
     </#list>

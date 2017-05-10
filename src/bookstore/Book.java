@@ -14,9 +14,8 @@ public class Book {
     private int id;
     private static SQLiteConn sqLiteConn = new SQLiteConn("src/bookstore/bookstore.db");
 
-    public Book(String pubDate, int quantity) {
-        this.pubDate = pubDate;
-        this.quantity = quantity;
+    //Empty Constructor
+    public Book(){
     }
 
     public String getTitle() {
@@ -52,11 +51,11 @@ public class Book {
     }
 
     public ArrayList<Author> getAuthor() {
-        String sql = "SELECT author_id FROM Book_Author WHERE book_id = " + id;
+        String sql = "SELECT id FROM Author WHERE book_id = "+id;
         ResultSet resultSet = sqLiteConn.executeQuery(sql);
         try{
             while(resultSet.next()){
-                String relationId = Integer.toString(resultSet.getInt("author_id"));
+                String relationId = resultSet.getString("id");
                 if(!relationId.equals("0")){
                     this.addAuthor(Author.get(relationId));
                 }
@@ -72,7 +71,6 @@ public class Book {
             throw new IllegalArgumentException("You need to save Author id: " + author.getId() + " in the database first");
         }else{
             this.author.add(author);
-            author.addBook(this);
             //TODO Secalhar aqui arranjar maneira de chamar o update, caso o livro ja esteja na BD e queiramos adicionar mais um autor
         }
     }
@@ -98,10 +96,10 @@ public class Book {
 
      private void saveRelation(){
         getAuthor();
-         for(Author object : author){
-            String sql = String.format("INSERT INTO Book_Author (book_id, author_id) VALUES ('%s', '%s')", this.id, object.getId());
+        for(Author object : author){
+            String sql = String.format("UPDATE Author SET book_id = '%s' WHERE id = '%s'", this.id, object.getId());
             sqLiteConn.executeUpdate(sql);
-         }
+        }
      }
 
     public void delete(){
@@ -113,17 +111,12 @@ public class Book {
         }
     }
 
-    private static ResultSet getResultSet(String sql){
-        return sqLiteConn.executeQuery(sql);
-    }
-
-
     public static ArrayList all(){
         ArrayList<Book> list = new ArrayList<>();
-        ResultSet rs = getResultSet("");
+        ResultSet rs = sqLiteConn.executeQuery("SELECT * FROM Book");
         try{
             while(rs.next()){
-                Book book = new Book(rs.getString("pubDate"), rs.getInt("quantity"));
+                Book book = new Book();
 
                 int id = rs.getInt("id");
                 book.setId(id);
@@ -131,8 +124,14 @@ public class Book {
                 String title = rs.getString("title");
                 book.setTitle(title);
 
+                String pubDate = rs.getString("pubDate");
+                book.setPubdate(pubDate);
+
                 double price = rs.getDouble("price");
                 book.setPrice(price);
+
+                int quantity = rs.getInt("quantity");
+                book.setQuantity(quantity);
 
 
                 list.add(book);
@@ -142,15 +141,14 @@ public class Book {
         }
         return list;
     }
-
+    //POR O GET A IR BUSCAR O WHERE com id = id, escusamos de ter dois metodos
     public static Book get(String id){
-        Book book;
+        Book book = null;
+        ResultSet rs = sqLiteConn.executeQuery("SELECT * FROM Book WHERE id = " + id);
         try{
-
-            ResultSet rs = getResultSet("id = " + id);
             rs.next();
 
-            book = new Book(rs.getString("pubDate"), rs.getInt("quantity"));
+            book = new Book();
 
             int idFromDB = rs.getInt("id");
             book.setId(idFromDB);
@@ -158,13 +156,18 @@ public class Book {
             String title = rs.getString("title");
             book.setTitle(title);
 
+            String pubDate = rs.getString("pubDate");
+            book.setPubdate(pubDate);
+
             double price = rs.getDouble("price");
             book.setPrice(price);
+
+            int quantity = rs.getInt("quantity");
+            book.setQuantity(quantity);
 
 
         }catch(Exception e){
             e.printStackTrace();
-            return new Book("", 0);
         }
 
         return book;
@@ -172,10 +175,10 @@ public class Book {
 
     public static ArrayList where(String condition){
         ArrayList<Book> list = new ArrayList<>();
-        ResultSet rs = getResultSet(condition);
+        ResultSet rs = sqLiteConn.executeQuery("SELECT * FROM Book WHERE " + condition);
         try{
             while(rs.next()){
-                Book book = new Book(rs.getString("pubDate"), rs.getInt("quantity"));
+                Book book = new Book();
 
                 int id = rs.getInt("id");
                 book.setId(id);
@@ -183,8 +186,14 @@ public class Book {
                 String title = rs.getString("title");
                 book.setTitle(title);
 
+                String pubDate = rs.getString("pubDate");
+                book.setPubdate(pubDate);
+
                 double price = rs.getDouble("price");
                 book.setPrice(price);
+
+                int quantity = rs.getInt("quantity");
+                book.setQuantity(quantity);
 
 
                 list.add(book);
@@ -199,5 +208,7 @@ public class Book {
     public String toString(){
         return "ID: " + this.id + "\ntitle: " + this.title + "\npubDate: " + this.pubDate + "\nprice: " + this.price + "\nquantity: " + this.quantity ;
     }
+
+
 }
 

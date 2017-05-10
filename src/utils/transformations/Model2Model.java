@@ -52,17 +52,14 @@ public class Model2Model {
     public static Model getModel(String filename, boolean fromXML) {
         try {
             Document document;
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+            DocumentBuilder db = dbf.newDocumentBuilder();
             if (fromXML) {
-                DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
                 dbf.setValidating(true);
-                DocumentBuilder db = dbf.newDocumentBuilder();
                 document = db.parse(new File(filename));
             } else {
-                DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-                DocumentBuilder db = dbf.newDocumentBuilder();
                 document = db.parse(getModelFromXMI(filename));
             }
-
 
             // Get model node
             Node modelNode = document.getDocumentElement();
@@ -71,7 +68,7 @@ public class Model2Model {
 
             Model model = new Model(modelName);
 
-            model.addVariousClasses(getClasses(modelNode));
+            model.addVariousClasses(getClasses(modelNode, fromXML));
 
             for (Class c : model.getClasses()) {
                 for (Relation relation : getRelations(modelNode)) {
@@ -91,7 +88,7 @@ public class Model2Model {
         return null;
     }
 
-    public static ArrayList<Class> getClasses(Node modelNode) {
+    public static ArrayList<Class> getClasses(Node modelNode, boolean fromXML) {
 
         ArrayList<Class> classes = new ArrayList<>();
         NodeList nList = modelNode.getChildNodes();
@@ -102,7 +99,7 @@ public class Model2Model {
 
                 Class clazz = new Class(nNode.getAttributes().getNamedItem("name").getNodeValue());
                 clazz.setPkg(modelNode.getAttributes().getNamedItem("name").getNodeValue().toLowerCase());
-                clazz.addVariousAttributes(getAttributes(nNode));
+                clazz.addVariousAttributes(getAttributes(nNode, fromXML));
                 classes.add(clazz);
             }
         }
@@ -126,7 +123,7 @@ public class Model2Model {
     }
 
 
-    public static ArrayList<Attribute> getAttributes(Node classNode) {
+    public static ArrayList<Attribute> getAttributes(Node classNode, boolean fromXML) {
 
         ArrayList<Attribute> attributes = new ArrayList<>();
         NodeList classChilds = classNode.getChildNodes();
@@ -140,12 +137,9 @@ public class Model2Model {
                     String name = childNode.getAttributes().getNamedItem("name").getNodeValue();
                     String type = childNode.getAttributes().getNamedItem("type").getNodeValue();
                     String required = "false";
-                    //TODO VERIFICAR SE VEM DO XML OU DO XMI
-                    /*
-                    if(childNode.getAttributes().getNamedItem("required").getNodeValue() != null){
-                         required = childNode.getAttributes().getNamedItem("required").getNodeValue();
+                    if (fromXML) {
+                        required = childNode.getAttributes().getNamedItem("required").getNodeValue();
                     }
-*/
                     Attribute attribute = new Attribute(name, type);
                     if (Boolean.parseBoolean(required)) {
                         attribute.setRequired();
