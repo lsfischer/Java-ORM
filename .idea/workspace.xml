@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="362a2e9b-8028-44a0-b85b-21b753214301" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/Main.class" afterPath="$PROJECT_DIR$/out/production/DBMLab/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/templates/java_class.ftl" afterPath="$PROJECT_DIR$/out/production/DBMLab/templates/java_class.ftl" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -820,14 +821,7 @@
       <workItem from="1494319770031" duration="2564000" />
       <workItem from="1494412579175" duration="2001000" />
       <workItem from="1494418469338" duration="16945000" />
-      <workItem from="1494498604810" duration="3512000" />
-    </task>
-    <task id="LOCAL-00019" summary="Update ftl with Relation metamodel">
-      <created>1492690317586</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1492690317586</updated>
+      <workItem from="1494498604810" duration="3540000" />
     </task>
     <task id="LOCAL-00020" summary="Update ftl with Relation metamodel">
       <created>1492691082286</created>
@@ -1165,11 +1159,18 @@
       <option name="project" value="LOCAL" />
       <updated>1494502232045</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="updates">
+      <created>1494502339524</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1494502339524</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39040000" />
+    <option name="totallyTimeSpent" value="39068000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1266,9 +1267,9 @@
     <MESSAGE value="verify if model comes from XML or XMI" />
     <MESSAGE value="Added sqLiteConn.close(), big update" />
     <MESSAGE value="ORM Completed, minor TODOs left" />
-    <MESSAGE value="updates" />
     <MESSAGE value="Code reusability, worked on todos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code reusability, worked on todos" />
+    <MESSAGE value="updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

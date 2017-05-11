@@ -262,31 +262,14 @@ public class ${name} {
         sqLiteConn.close();
         return list;
     }
-    //POR O GET A IR BUSCAR O WHERE com id = id, escusamos de ter dois metodos
+
     public static ${name} get(String id){
         ${name} ${name?lower_case} = null;
-        openSqLite();
-        ResultSet rs = sqLiteConn.executeQuery("SELECT * FROM ${name} WHERE id = " + id);
-        try{
-            rs.next();
-
-            ${name?lower_case} = new ${name?capitalize}(<#list requiredAttributes as requiredAttribute>rs.get${requiredAttribute.type?capitalize}("${requiredAttribute.name}")<#sep>, </#sep></#list>);
-
-            int idFromDB = rs.getInt("id");
-            ${name?lower_case}.setId(idFromDB);
-
-            <#list attributes as attribute>
-            <#if !attribute.required>
-            ${attribute.type} ${attribute.name} = rs.get${attribute.type?capitalize}("${attribute.name}");
-            ${name?lower_case}.set${attribute.name?capitalize}(${attribute.name});
-
-            </#if>
-            </#list>
-
-        }catch(Exception e){
-            e.printStackTrace();
+        if(!where("id = "+id).isEmpty()){
+            ${name?lower_case} = where("id = "+id).get(0);
+        }else{
+            System.out.println("There is no Author with id: "+ id);
         }
-        sqLiteConn.close();
         return ${name?lower_case};
     }
 
