@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_i9yFEDYuEee3evjvc8aaWA" name="bookstore">
+  <eAnnotations xmi:id="_i9yFETYuEee3evjvc8aaWA" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_i9yFEjYuEee3evjvc8aaWA" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_i9yFEzYuEee3evjvc8aaWA" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Class" xmi:id="_i9yFFDYuEee3evjvc8aaWA" name="Book">
+    <ownedAttribute xmi:id="_i9yFFTYuEee3evjvc8aaWA" name="title" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_i9yFFjYuEee3evjvc8aaWA" name="pubDate" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_i9yFFzYuEee3evjvc8aaWA" name="price" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_i9yFGDYuEee3evjvc8aaWA" name="quantity" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_i9yFGTYuEee3evjvc8aaWA" name="Author">
+    <ownedAttribute xmi:id="_i9yFGjYuEee3evjvc8aaWA" name="book" visibility="public" type="_i9yFFDYuEee3evjvc8aaWA" association="_i9ysIDYuEee3evjvc8aaWA">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_i9yFGzYuEee3evjvc8aaWA" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_i9yFHDYuEee3evjvc8aaWA" name="first_name" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_i9yFHTYuEee3evjvc8aaWA" name="last_name" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_i9yFHjYuEee3evjvc8aaWA" name="email" visibility="public" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_i9ysIDYuEee3evjvc8aaWA" memberEnd="_i9yFGjYuEee3evjvc8aaWA _i9ysITYuEee3evjvc8aaWA">
+    <ownedEnd xmi:id="_i9ysITYuEee3evjvc8aaWA" visibility="public" type="_i9yFGTYuEee3evjvc8aaWA" association="_i9ysIDYuEee3evjvc8aaWA">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_i9ysIjYuEee3evjvc8aaWA" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+</uml:Model>

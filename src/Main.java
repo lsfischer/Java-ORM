@@ -140,7 +140,6 @@ public class Main {
         //TODO adicionar uma exception quando tenta fazer save a um book sem author, ou apenas uma verificação para deixar ele adicionar sem book mas não rebentar
         //TODO era fixe adicionar obrigatoriedade nas relations
         //TODO secalhar deviamos ter on delete cascade
-
 /*
         Author author1 = new Author();
         author1.setFirst_name("Daniel");
