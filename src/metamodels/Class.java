@@ -11,7 +11,6 @@ public class Class {
     private List<Attribute> attributes;
     private List<Relation> relations;
     private String pkg;
-    //TODO por aqui uma lista de atributos required
     public Class(String name) {
         this.name = name;
         this.attributes = new ArrayList<>();
