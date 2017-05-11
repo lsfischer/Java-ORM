@@ -87,7 +87,6 @@ public class Book {
         }else{
             this.author.add(author);
             author.addBook(this);
-            //TODO Secalhar aqui arranjar maneira de chamar o update, caso o livro ja esteja na BD e queiramos adicionar mais um autor
         }
     }
     public int getId() {
