@@ -1,5 +1,5 @@
-import bookstore.Author;
-import bookstore.Book;
+//import bookstore.Author;
+//import bookstore.Book;
 import metamodels.Attribute;
 import metamodels.Class;
 import metamodels.Model;
@@ -18,8 +18,8 @@ public class Main {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        //startProgram();
-        testORM();
+        startProgram();
+        //testORM();
         //Model model = Model2Model.getModel("src/models/person.xmi",false);
         //buildModel(model);
     }
@@ -97,7 +97,6 @@ public class Main {
         book.addAttribute(new Attribute("quantity", "int"));
         book.setPkg(model.getName().toLowerCase());
 
-        //Da nova maneira agora é assim
         Relation relation = new Relation(book, author, "12N");
         book.addRelation(relation);
         author.addRelation(relation);

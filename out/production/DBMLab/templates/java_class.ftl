@@ -22,6 +22,9 @@ import utils.sqlite.SQLiteConn;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+/**
+ * Classe ${name}
+ */
 public class ${name} {
 
     <#list attributes as attribute>
@@ -43,37 +46,58 @@ public class ${name} {
     private static SQLiteConn sqLiteConn = new SQLiteConn("src/${pkg}/${pkg}.db");
 
     <#if requiredAttributes?size != 0>
+    /**
+     * Construtor da classe ${name}
+     <#list requiredAttributes as requiredAttribute>
+     * @param ${requiredAttribute.name} Parametro para inicializaçao do Atributo ${requiredAttribute.name}
+     </#list>
+     */
     public ${name}(<#list requiredAttributes as requiredAttribute>${requiredAttribute.type} ${requiredAttribute.name}<#sep>, </#sep></#list>) {
     <#list requiredAttributes as requiredAttribute>
         this.${requiredAttribute.name} = ${requiredAttribute.name};
     </#list>
     }
     <#else>
-    //Empty Constructor
+    /**
+     * Construtor vazio da classe ${name}
+     */
     public ${name}(){
     }
     </#if>
 
     <#list attributes as attribute>
     <#-- Getter -->
+    /**
+     * Metodo que retorna o Atributo ${attribute.name}
+     * @return Valor do Atributo ${attribute.name}
+     */
     public ${attribute.type} get${attribute.name?cap_first}() {
         return ${attribute.name};
     }
 
     <#-- Setter -->
+    /**
+     * Metodo que altera o nome do Atributo ${attribute.name}
+     * @param ${attribute.name} Novo valor do Atributo
+     */
     public void set${attribute.name?lower_case?cap_first}(${attribute.type} ${attribute.name}) {
         this.${attribute.name} = ${attribute.name};
     }
 
-
-
     </#list>
+    /**
+     * Metodo privado que inicializa o atributo sqLiteConn
+     */
     private static void openSqLite(){
         sqLiteConn = new SQLiteConn("src/${pkg}/${pkg}.db");
     }
 
     <#list relations as rels>
     <#if rels.foreignClass.name == name && rels.relationshipType == "N2N">
+    /**
+     * Metodo que retorna uma ArrayList de ${rels.regularClass.name} pertencentes ao ${name}
+     * @return ArrayList de ${rels.regularClass.name}
+     */
     public ArrayList<${rels.regularClass.name}> get${rels.regularClass.name}s() {
         openSqLite();
         <#list relations as rels>
@@ -92,12 +116,21 @@ public class ${name} {
         return this.${rels.regularClass.name?lower_case}s;
         </#list>
     }
+
+    /**
+     * Metodo que adiciona um ${rels.regularClass.name} a ArrayList de ${rels.regularClass.name}
+     * @param ${rels.regularClass.name?lower_case} ${rels.regularClass.name} a ser adicionado
+     */
     public void add${rels.regularClass.name}(${rels.regularClass.name} ${rels.regularClass.name?lower_case}){
         this.${rels.regularClass.name?lower_case}s.add(${rels.regularClass.name?lower_case});
     }
     </#if>
     <#if rels.regularClass.name == name>
     <#if rels.relationshipType != '121'>
+    /**
+     * Metodo que retorna os ${rels.foreignClass.name} pertencentes a este Objeto
+     * @return
+     */
     public ArrayList<${rels.foreignClass.name}> get${rels.foreignClass.name}() {
         openSqLite();
         <#list relations as rels>
@@ -129,6 +162,10 @@ public class ${name} {
     }
 
     <#else>
+    /**
+     * Metodo que retorna um ${rels.foreignClass.name} pertencente a este Objeto
+     * @return ${rels.foreignClass.name} do ${rels.regularClass.name}
+     */
     public ${rels.foreignClass.name} get${rels.foreignClass.name}() {
         <#list relations as rels>
         <#if rels.regularClass.name == name>
@@ -151,6 +188,10 @@ public class ${name} {
 
     </#if>
     <#if rels.relationshipType != '121'>
+    /**
+     * Metodo que adiciona um ${rels.foreignClass.name} a ArrayList de ${rels.foreignClass.name}
+     * @param ${rels.foreignClass.name?lower_case} ${rels.foreignClass.name} a ser adicionado
+     */
     public void add${rels.foreignClass.name}(${rels.foreignClass.name} ${rels.foreignClass.name?lower_case}) throws IllegalArgumentException {
         if(${rels.foreignClass.name?lower_case}.getId() == 0){
             throw new IllegalArgumentException("You need to save ${rels.foreignClass.name} id: " + ${rels.foreignClass.name?lower_case}.getId() + " in the database first");
@@ -163,6 +204,10 @@ public class ${name} {
         }
     }
     <#else>
+    /**
+     * Metodo que altera o valor do atributo ${rels.foreignClass.name?lower_case}
+     * @param ${rels.foreignClass.name?lower_case} ${rels.foreignClass.name} a ser inserido
+     */
     public void set${rels.foreignClass.name}(${rels.foreignClass.name} ${rels.foreignClass.name?lower_case}) throws IllegalArgumentException {
         if(${rels.foreignClass.name?lower_case}.getId() == 0){
             throw new IllegalArgumentException("You need to save ${rels.foreignClass.name} id: " + ${rels.foreignClass.name?lower_case}.getId() + " in the database first");
@@ -173,14 +218,26 @@ public class ${name} {
     </#if>
     </#if>
     </#list>
+
+    /**
+      * Metodo que retorna o atributo Id
+      * @return Inteiro id
+      */
     public int getId() {
         return this.id;
     }
 
+    /**
+     * Metodo que altera o atributo Id
+     * @param id Novo Id
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * Metodo que guarda na base de dados o estado atual de todos os atributos da Classe
+     */
     public void save(){
         openSqLite();
         if(this.id >= 1){
@@ -201,6 +258,9 @@ public class ${name} {
 
     <#list relations as rels>
     <#if rels.regularClass.name = name>
+     /**
+      * Metodo privado que adiciona na tabela relacao, as relacoes entre este Objeto e os Objetos presentes na ArrayList de {rels.foreignClass.name}
+      */
      private void saveRelation(){
         openSqLite();
         <#if rels.relationshipType == "N2N">
@@ -224,6 +284,9 @@ public class ${name} {
     </#if>
     </#list>
 
+    /**
+     * Metodo que elimina da base de dados o registo correspondente a esta Classe
+     */
     public void delete(){
         if(this.id >= 1){
             String sql = "DELETE FROM ${name} WHERE id = "+this.id;
@@ -235,34 +298,19 @@ public class ${name} {
         }
     }
 
+    /**
+     * Metodo que retorna uma ArrayList de ${name} correspondente a todos os ${name} atualmente na base de dados
+     * @return ArrayList de ${name}
+     */
     public static ArrayList<${name}> all(){
-        ArrayList<${name}> list = new ArrayList<>();
-        openSqLite();
-        ResultSet rs = sqLiteConn.executeQuery("SELECT * FROM ${name}");
-        try{
-            while(rs.next()){
-                ${name} ${name?lower_case} = new ${name}(<#list requiredAttributes as requiredAttribute>rs.get${requiredAttribute.type?capitalize}("${requiredAttribute.name}")<#sep>, </#sep></#list>);
-
-                int id = rs.getInt("id");
-                ${name?lower_case}.setId(id);
-
-                <#list attributes as attribute>
-                <#if !attribute.required>
-                ${attribute.type} ${attribute.name} = rs.get${attribute.type?capitalize}("${attribute.name}");
-                ${name?lower_case}.set${attribute.name?capitalize}(${attribute.name});
-
-                </#if>
-                </#list>
-
-                list.add(${name?lower_case});
-            }
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        sqLiteConn.close();
-        return list;
+        return where("id = id");
     }
 
+    /**
+     * Metodo que retorna um ${name} correspondente ao Id inserido
+     * @param id Id do ${name} a retornar
+     * @return ${name}
+     */
     public static ${name} get(String id){
         ${name} ${name?lower_case} = null;
         if(!where("id = "+id).isEmpty()){
@@ -273,6 +321,11 @@ public class ${name} {
         return ${name?lower_case};
     }
 
+    /**
+     * Metodo que retorna uma ArrayList de ${name} com base na condicao recebida por parametro
+     * @param condition String que especifica a condiçao a realizar na base de dados
+     * @return ArrayList de ${name}
+     */
     public static ArrayList<${name}> where(String condition){
         ArrayList<${name}> list = new ArrayList<>();
         openSqLite();
@@ -308,6 +361,10 @@ public class ${name} {
 
     <#list relations as rels>
     <#if rels.foreignClass.name == name && rels.relationshipType != "N2N">
+     /**
+      * Metodo que retorna o ${rels.regularClass.name} pertencente a este Objeto
+      * @return ${rels.regularClass.name}
+      */
      public ${rels.regularClass.name} get${rels.regularClass.name}(){
         ${rels.regularClass.name} ${rels.regularClass.name?lower_case} = null;
         openSqLite();
