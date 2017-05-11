@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="362a2e9b-8028-44a0-b85b-21b753214301" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bookstore/Book.java" afterPath="$PROJECT_DIR$/src/bookstore/Book.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -820,14 +819,7 @@
       <workItem from="1494319770031" duration="2564000" />
       <workItem from="1494412579175" duration="2001000" />
       <workItem from="1494418469338" duration="16945000" />
-      <workItem from="1494498604810" duration="4257000" />
-    </task>
-    <task id="LOCAL-00021" summary="Update ftl with Relation metamodel">
-      <created>1492691536108</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1492691536108</updated>
+      <workItem from="1494498604810" duration="4271000" />
     </task>
     <task id="LOCAL-00022" summary="Update ftl with Relation metamodel">
       <created>1492691599496</created>
@@ -1165,11 +1157,18 @@
       <option name="project" value="LOCAL" />
       <updated>1494502352393</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="removed one to do">
+      <created>1494503078066</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1494503078066</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39785000" />
+    <option name="totallyTimeSpent" value="39799000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1243,7 +1242,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="No Bugs" />
     <MESSAGE value="User Menu" />
     <MESSAGE value="Better java_class.ftl, added toString(), working on testORM()" />
     <MESSAGE value="Working on adding a relation object to the database" />
@@ -1268,7 +1266,8 @@
     <MESSAGE value="ORM Completed, minor TODOs left" />
     <MESSAGE value="Code reusability, worked on todos" />
     <MESSAGE value="updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates" />
+    <MESSAGE value="removed one to do" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed one to do" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
