@@ -157,30 +157,14 @@ public class Book {
         sqLiteConn.close();
         return list;
     }
-    //POR O GET A IR BUSCAR O WHERE com id = id, escusamos de ter dois metodos
+
     public static Book get(String id){
         Book book = null;
-        openSqLite();
-        ResultSet rs = sqLiteConn.executeQuery("SELECT * FROM Book WHERE id = " + id);
-        try{
-            rs.next();
-
-            book = new Book(rs.getString("pubDate"), rs.getInt("quantity"));
-
-            int idFromDB = rs.getInt("id");
-            book.setId(idFromDB);
-
-            String title = rs.getString("title");
-            book.setTitle(title);
-
-            double price = rs.getDouble("price");
-            book.setPrice(price);
-
-
-        }catch(Exception e){
-            e.printStackTrace();
+        if(!where("id = "+id).isEmpty()){
+            book = where("id = "+id).get(0);
+        }else{
+            System.out.println("There is no Author with id: "+ id);
         }
-        sqLiteConn.close();
         return book;
     }
 

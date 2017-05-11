@@ -96,7 +96,6 @@ public class Model2Model {
             Node nNode = nList.item(i);
 
             if (nNode.getNodeType() == Node.ELEMENT_NODE && nNode.getNodeName() == "class") {
-
                 Class clazz = new Class(nNode.getAttributes().getNamedItem("name").getNodeValue());
                 clazz.setPkg(modelNode.getAttributes().getNamedItem("name").getNodeValue().toLowerCase());
                 clazz.addVariousAttributes(getAttributes(nNode, fromXML));

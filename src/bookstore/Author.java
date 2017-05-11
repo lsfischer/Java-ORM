@@ -35,8 +35,6 @@ public class Author {
         this.last_name = last_name;
     }
 
-
-
     public String getEmail() {
         return email;
     }
@@ -104,61 +102,16 @@ public class Author {
     }
 
     public static ArrayList<Author> all(){
-        ArrayList<Author> list = new ArrayList<>();
-        openSqLite();
-        ResultSet rs = sqLiteConn.executeQuery("SELECT * FROM Author");
-        try{
-            while(rs.next()){
-                Author author = new Author();
-
-                int id = rs.getInt("id");
-                author.setId(id);
-
-                String first_name = rs.getString("first_name");
-                author.setFirst_name(first_name);
-
-                String last_name = rs.getString("last_name");
-                author.setLast_name(last_name);
-
-                String email = rs.getString("email");
-                author.setEmail(email);
-
-
-                list.add(author);
-            }
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        sqLiteConn.close();
-        return list;
+        return where("id = id");
     }
-    //POR O GET A IR BUSCAR O WHERE com id = id, escusamos de ter dois metodos
+
     public static Author get(String id){
         Author author = null;
-        openSqLite();
-        ResultSet rs = sqLiteConn.executeQuery("SELECT * FROM Author WHERE id = " + id);
-        try{
-            rs.next();
-
-            author = new Author();
-
-            int idFromDB = rs.getInt("id");
-            author.setId(idFromDB);
-
-            String first_name = rs.getString("first_name");
-            author.setFirst_name(first_name);
-
-            String last_name = rs.getString("last_name");
-            author.setLast_name(last_name);
-
-            String email = rs.getString("email");
-            author.setEmail(email);
-
-
-        }catch(Exception e){
-            e.printStackTrace();
+        if(!where("id = "+id).isEmpty()){
+            author = where("id = "+id).get(0);
+        }else{
+            System.out.println("There is no Author with id: "+ id);
         }
-        sqLiteConn.close();
         return author;
     }
 

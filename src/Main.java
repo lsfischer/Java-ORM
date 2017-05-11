@@ -18,12 +18,10 @@ public class Main {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        startProgram();
-        //testORM();
+        //startProgram();
+        testORM();
         //Model model = Model2Model.getModel("src/models/person.xmi",false);
         //buildModel(model);
-
-        //TODO Por exceptions nas cenas para "ser mais bonito"
     }
 
     public static String getModelChoice() {
@@ -139,12 +137,10 @@ public class Main {
 
     public static void testORM() {
         //TODO Por o TestORM a funcionar com base no modelo que o utilizador escolher no startProgram()
-        //TODO VERIFICAR SE FOR 12N OU 121 SE UM AUTHOR JA TIVER UM BOOK ENTÃO NÃO PODEMOS DEIXAR ADICIONAR MAIS NENHUM
-        //TODO o que queria dizer aqui em cima é que se o book1 ja tiver o author1 e tentar adicionar outra vez o author1 secalhar da bot
         //TODO adicionar uma exception quando tenta fazer save a um book sem author, ou apenas uma verificação para deixar ele adicionar sem book mas não rebentar
         //TODO era fixe adicionar obrigatoriedade nas relations
-        //TODO adicionar uma exception para o quando o gajo faz get ou where a algo que não exista (devolve ID = 0)
-        //TODO secalhar deviamos ter on delete casacade
+        //TODO secalhar deviamos ter on delete cascade
+
 /*
         Author author1 = new Author();
         author1.setFirst_name("Daniel");
