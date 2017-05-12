@@ -5,19 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="362a2e9b-8028-44a0-b85b-21b753214301" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/bookstore/Author.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/bookstore/Book.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/Main.class" afterPath="$PROJECT_DIR$/out/production/DBMLab/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/metamodels/model.dtd" afterPath="$PROJECT_DIR$/out/production/DBMLab/metamodels/model.dtd" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/models/bookstore.xml" afterPath="$PROJECT_DIR$/out/production/DBMLab/models/bookstore.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/templates/java_class.ftl" afterPath="$PROJECT_DIR$/out/production/DBMLab/templates/java_class.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/metamodels/Relation.java" afterPath="$PROJECT_DIR$/src/metamodels/Relation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/metamodels/model.dtd" afterPath="$PROJECT_DIR$/src/metamodels/model.dtd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/bookstore.xml" afterPath="$PROJECT_DIR$/src/models/bookstore.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/java_class.ftl" afterPath="$PROJECT_DIR$/src/templates/java_class.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utils/transformations/Model2Model.java" afterPath="$PROJECT_DIR$/src/utils/transformations/Model2Model.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -84,7 +76,7 @@
       <file leaf-file-name="Book.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/bookstore/Book.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
+            <state relative-caret-position="251">
               <caret line="170" column="9" lean-forward="true" selection-start-line="170" selection-start-column="9" selection-end-line="170" selection-end-column="9" />
               <folding>
                 <marker date="1494600708069" expanded="false" signature="5882:5892" ph=" { " />
@@ -829,14 +821,7 @@
       <workItem from="1494418469338" duration="16945000" />
       <workItem from="1494498604810" duration="4433000" />
       <workItem from="1494580701403" duration="8974000" />
-      <workItem from="1494599554395" duration="1205000" />
-    </task>
-    <task id="LOCAL-00024" summary="Update sql3_create.ftl">
-      <created>1492699033459</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1492699033459</updated>
+      <workItem from="1494599554395" duration="1243000" />
     </task>
     <task id="LOCAL-00025" summary="Working on 1 to N Relations">
       <created>1492884485421</created>
@@ -1174,11 +1159,18 @@
       <option name="project" value="LOCAL" />
       <updated>1494511321817</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="Added mandatory classes">
+      <created>1494600802309</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1494600802310</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51500000" />
+    <option name="totallyTimeSpent" value="51538000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1252,7 +1244,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Better java_class.ftl, added toString(), working on testORM()" />
     <MESSAGE value="Working on adding a relation object to the database" />
     <MESSAGE value="saveRelation() done" />
     <MESSAGE value="update" />
@@ -1277,7 +1268,8 @@
     <MESSAGE value="updates" />
     <MESSAGE value="removed one to do" />
     <MESSAGE value="Manually added comments to metamodel classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Manually added comments to metamodel classes" />
+    <MESSAGE value="Added mandatory classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added mandatory classes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1560,7 +1552,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/bookstore/Book.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
+        <state relative-caret-position="251">
           <caret line="170" column="9" lean-forward="true" selection-start-line="170" selection-start-column="9" selection-end-line="170" selection-end-column="9" />
           <folding>
             <marker date="1494600708069" expanded="false" signature="5882:5892" ph=" { " />
