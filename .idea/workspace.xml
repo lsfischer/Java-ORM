@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="362a2e9b-8028-44a0-b85b-21b753214301" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/Main.class" afterPath="$PROJECT_DIR$/out/production/DBMLab/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/metamodels/model.dtd" afterPath="$PROJECT_DIR$/out/production/DBMLab/metamodels/model.dtd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/models/bookstore.xml" afterPath="$PROJECT_DIR$/out/production/DBMLab/models/bookstore.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/templates/java_class.ftl" afterPath="$PROJECT_DIR$/out/production/DBMLab/templates/java_class.ftl" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -821,14 +817,7 @@
       <workItem from="1494418469338" duration="16945000" />
       <workItem from="1494498604810" duration="4433000" />
       <workItem from="1494580701403" duration="8974000" />
-      <workItem from="1494599554395" duration="1243000" />
-    </task>
-    <task id="LOCAL-00025" summary="Working on 1 to N Relations">
-      <created>1492884485421</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1492884485421</updated>
+      <workItem from="1494599554395" duration="1256000" />
     </task>
     <task id="LOCAL-00026" summary="Removed &lt;foreignKey /&gt; tag from &lt;class /&gt; tag and into &lt;model /&gt; tag">
       <created>1492886975316</created>
@@ -1166,11 +1155,18 @@
       <option name="project" value="LOCAL" />
       <updated>1494600802310</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="Added mandatory classes">
+      <created>1494600816002</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1494600816002</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51538000" />
+    <option name="totallyTimeSpent" value="51551000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
