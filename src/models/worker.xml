@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE model SYSTEM "../metamodels/model.dtd">
+<model name="Worker">
+    <class name="Person">
+        <attribute name="first_name" type="String" />
+        <attribute name="last_name" type="String" />
+    </class>
+    <class name="Worker">
+        <attribute name="job" type="String" />
+        <attribute name="jobDescription" type="String" />
+        <attribute name="salary" type="double" />
+    </class>
+    <foreignKey type="121" firstClass ="Person" secondClass="Worker"/>
+    <!--Uma pessoa pode não ser um trabalhador, mas um trabalhador é uma pessoa-->
+    <!-- Uma Pessoa pode ser apenas um funcionário, e uma funcionário é apenas uma pessoa-->
+</model>

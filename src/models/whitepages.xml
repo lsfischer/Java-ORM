@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE model SYSTEM "../metamodels/model.dtd">
+<model name="Whitepages">
+    <class name="Person">
+        <attribute name="first_name" type="String" required="true" />
+        <attribute name="last_name" type="String" />
+    </class>
+    <class name="Cellphone">
+        <attribute name="number" type="int" required="true" />
+    </class>
+    <foreignKey type="12N" firstClass ="Person" secondClass="Cellphone"/>
+    <!--Uma pessoa pode não ter nº de telemovel, mas um nº de telemovel tem que ser de uma pessoa-->
+    <!-- Uma pessoa pode ter varios telemoveis, um telemovel só pode pertencer a uma pessoa-->
+</model>

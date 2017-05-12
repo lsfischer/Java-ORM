@@ -124,14 +124,9 @@ public class Book {
      * Metodo que adiciona um Author a ArrayList de Author
      * @param author Author a ser adicionado
      */
-    public void addAuthor(Author author) throws IllegalArgumentException {
-        if(author.getId() == 0){
-            throw new IllegalArgumentException("You need to save Author id: " + author.getId() + " in the database first");
-        }else{
-            this.author.add(author);
-            author.addBook(this);
-            //TODO Secalhar aqui arranjar maneira de chamar o update, caso o livro ja esteja na BD e queiramos adicionar mais um autor
-        }
+    public void addAuthor(Author author) {
+        this.author.add(author);
+        author.addBook(this);
     }
 
     /**
@@ -175,10 +170,14 @@ public class Book {
       * Metodo privado que adiciona na tabela relacao, as relacoes entre este Objeto e os Objetos presentes na ArrayList de {rels.foreignClass.name}
       */
      private void saveRelation(){
-        openSqLite();
          for(Author object : author){
+            if(object.getId() == 0){
+                object.save();
+            }
+            openSqLite();
             String sql = String.format("INSERT INTO Book_Author (book_id, author_id) VALUES ('%s', '%s')", this.id, object.getId());
             sqLiteConn.executeUpdate(sql);
+            sqLiteConn.close();
          }
      }
 
@@ -214,7 +213,7 @@ public class Book {
         if(!where("id = "+id).isEmpty()){
             book = where("id = "+id).get(0);
         }else{
-            System.out.println("There is no Author with id: "+ id);
+            System.out.println("There is no Book with id: "+ id);
         }
         return book;
     }

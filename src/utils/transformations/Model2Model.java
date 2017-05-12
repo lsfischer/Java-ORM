@@ -22,33 +22,12 @@ import java.util.ArrayList;
  * Created by Lucas on 17-Apr-17.
  */
 public class Model2Model {
-
-    public static Document getDocument(boolean needed, String filename) {
-        if (needed) {
-            try {
-                DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-                dbf.setValidating(true);
-                DocumentBuilder db = dbf.newDocumentBuilder();
-                Document document = db.parse(new File(filename));
-                return document;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } else {
-            try {
-                DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-                dbf.setValidating(true);
-                DocumentBuilder db = dbf.newDocumentBuilder();
-                Document document = db.parse(getModelFromXMI(filename));
-                return document;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-        }
-        return null;
-    }
-
+    /**
+     * Metodo que permite retornar a tag <model></model>
+     * @param filename nome do ficheiro xml
+     * @param fromXML valor que indica se o ficheiro é em formato xml ou xmi
+     * @return
+     */
     public static Model getModel(String filename, boolean fromXML) {
         try {
             Document document;
@@ -88,6 +67,12 @@ public class Model2Model {
         return null;
     }
 
+    /**
+     * Metodo que permite retornar todas as tags <class></class>
+     * @param modelNode Nó xml "model"
+     * @param fromXML valor que indica se o ficheiro é em formato xml ou xmi
+     * @return
+     */
     public static ArrayList<Class> getClasses(Node modelNode, boolean fromXML) {
 
         ArrayList<Class> classes = new ArrayList<>();
@@ -105,6 +90,12 @@ public class Model2Model {
         return classes;
     }
 
+    /**
+     *  Metodo que permite retornar todas as tags <foreignKey></foreignKey>
+     * @param modelNode Nó xml "model"
+     * @param fromXML valor que indica se o ficheiro é em formato xml ou xmi
+     * @return
+     */
     public static ArrayList<Relation> getRelations(Node modelNode,boolean fromXML) {
         ArrayList<Relation> relations = new ArrayList<>();
         NodeList nList = modelNode.getChildNodes();
@@ -129,7 +120,12 @@ public class Model2Model {
         return relations;
     }
 
-
+    /**
+     * Metodo que permite retornar todas as tags <attribute></attribute>
+     * @param classNode Nó xml "class"
+     * @param fromXML valor que indica se o ficheiro é em formato xml ou xmi
+     * @return
+     */
     public static ArrayList<Attribute> getAttributes(Node classNode, boolean fromXML) {
 
         ArrayList<Attribute> attributes = new ArrayList<>();
@@ -158,6 +154,11 @@ public class Model2Model {
         return attributes;
     }
 
+    /**
+     * Metodo que permite retornar um modelo em xmi
+     * @param filename path do ficheiro xmi
+     * @return
+     */
     public static String getModelFromXMI(String filename) {
         try {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -193,10 +194,12 @@ public class Model2Model {
         return null;
     }
 
-    public static void getRelationsXMI(Node classNode, Element classElem, Document doc) {
-
-    }
-
+    /**
+     * Metodo que permite retornar todas classes de um ficheiro xmi
+     * @param modelNode Nó xmi "model"
+     * @param modelElement Elemento model
+     * @param doc Documento xmi
+     */
     public static void getClassesXMI(Node modelNode, Element modelElement, Document doc) {
         NodeList nList = modelNode.getChildNodes();
         for (int i = 0; i < nList.getLength(); i++) {
@@ -205,12 +208,17 @@ public class Model2Model {
                 Element classElem = doc.createElement("class");//Creates a <class> tag
                 classElem.setAttribute("name", classNode.getAttributes().getNamedItem("name").getNodeValue());
                 getAttributesXMI(classNode, classElem, doc);
-                getRelationsXMI(classNode, classElem, doc);
                 modelElement.appendChild(classElem);
             }
         }
     }
 
+    /**
+     *  Metodo que permite retornar todos os atributos das classes de um ficheiro xmi
+     * @param classNode Nó xmi "class"
+     * @param classElem Elemento class
+     * @param doc Documento xmi
+     */
     public static void getAttributesXMI(Node classNode, Element classElem, Document doc) {
         NodeList classAttributes = classNode.getChildNodes();
         for (int i = 0; i < classAttributes.getLength(); i++) {
@@ -224,6 +232,12 @@ public class Model2Model {
         }
     }
 
+    /**
+     *  Metodo que permite retornar os tipos dos atributos das classes de um ficheiro xmi
+     * @param attributeNode Nó xmi "attribute"
+     * @param attributeElem Elemento attribute
+     * @param doc Documento xmi
+     */
     public static void getAttributeTypeXMI(Node attributeNode, Element attributeElem, Document doc) {
         NodeList attributeType = attributeNode.getChildNodes();
         for (int i = 0; i < attributeType.getLength(); i++) {

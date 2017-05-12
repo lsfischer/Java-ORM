@@ -129,7 +129,7 @@ public class Person {
         if(!where("id = "+id).isEmpty()){
             person = where("id = "+id).get(0);
         }else{
-            System.out.println("There is no Author with id: "+ id);
+            System.out.println("There is no Person with id: "+ id);
         }
         return person;
     }

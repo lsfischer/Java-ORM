@@ -192,28 +192,19 @@ public class ${name} {
      * Metodo que adiciona um ${rels.foreignClass.name} a ArrayList de ${rels.foreignClass.name}
      * @param ${rels.foreignClass.name?lower_case} ${rels.foreignClass.name} a ser adicionado
      */
-    public void add${rels.foreignClass.name}(${rels.foreignClass.name} ${rels.foreignClass.name?lower_case}) throws IllegalArgumentException {
-        if(${rels.foreignClass.name?lower_case}.getId() == 0){
-            throw new IllegalArgumentException("You need to save ${rels.foreignClass.name} id: " + ${rels.foreignClass.name?lower_case}.getId() + " in the database first");
-        }else{
-            this.${rels.foreignClass.name?lower_case}.add(${rels.foreignClass.name?lower_case});
-            <#if rels.relationshipType = "N2N">
-            ${rels.foreignClass.name?lower_case}.add${rels.regularClass.name}(this);
-            </#if>
-            //TODO Secalhar aqui arranjar maneira de chamar o update, caso o livro ja esteja na BD e queiramos adicionar mais um autor
-        }
+    public void add${rels.foreignClass.name}(${rels.foreignClass.name} ${rels.foreignClass.name?lower_case}) {
+        this.${rels.foreignClass.name?lower_case}.add(${rels.foreignClass.name?lower_case});
+        <#if rels.relationshipType = "N2N">
+        ${rels.foreignClass.name?lower_case}.add${rels.regularClass.name}(this);
+        </#if>
     }
     <#else>
     /**
      * Metodo que altera o valor do atributo ${rels.foreignClass.name?lower_case}
      * @param ${rels.foreignClass.name?lower_case} ${rels.foreignClass.name} a ser inserido
      */
-    public void set${rels.foreignClass.name}(${rels.foreignClass.name} ${rels.foreignClass.name?lower_case}) throws IllegalArgumentException {
-        if(${rels.foreignClass.name?lower_case}.getId() == 0){
-            throw new IllegalArgumentException("You need to save ${rels.foreignClass.name} id: " + ${rels.foreignClass.name?lower_case}.getId() + " in the database first");
-        }else{
-            this.${rels.foreignClass.name?lower_case} = ${rels.foreignClass.name?lower_case};
-        }
+    public void set${rels.foreignClass.name}(${rels.foreignClass.name} ${rels.foreignClass.name?lower_case}) {
+        this.${rels.foreignClass.name?lower_case} = ${rels.foreignClass.name?lower_case};
     }
     </#if>
     </#if>
@@ -286,23 +277,36 @@ public class ${name} {
       * Metodo privado que adiciona na tabela relacao, as relacoes entre este Objeto e os Objetos presentes na ArrayList de {rels.foreignClass.name}
       */
      private void saveRelation(){
-        openSqLite();
         <#if rels.relationshipType == "N2N">
          for(${rels.foreignClass.name} object : ${rels.foreignClass.name?lower_case}){
+            if(object.getId() == 0){
+                object.save();
+            }
+            openSqLite();
             String sql = String.format("INSERT INTO ${rels.regularClass.name}_${rels.foreignClass.name} (${rels.regularClass.name?lower_case}_id, ${rels.foreignClass.name?lower_case}_id) VALUES ('%s', '%s')", this.id, object.getId());
             sqLiteConn.executeUpdate(sql);
+            sqLiteConn.close();
          }
         </#if>
         <#if rels.relationshipType =="121">
+        if(${rels.foreignClass.name?lower_case}.getId() == 0){
+            ${rels.foreignClass.name?lower_case}.save();
+        }
+        openSqLite();
         String sql = String.format("UPDATE ${rels.foreignClass.name} SET ${name?lower_case}_id = '%s' WHERE id = '%s'", this.id, ${rels.foreignClass.name?lower_case}.getId());
         sqLiteConn.executeUpdate(sql);
+        sqLiteConn.close();
         </#if>
         <#if rels.relationshipType == "12N" || rels.relationshipType == "N21">
         for(${rels.foreignClass.name} object : ${rels.foreignClass.name?lower_case}){
+            if(object.getId() == 0){
+                object.save();
+            }
+            openSqLite();
             String sql = String.format("UPDATE ${rels.foreignClass.name} SET ${name?lower_case}_id = '%s' WHERE id = '%s'", this.id, object.getId());
             sqLiteConn.executeUpdate(sql);
+            sqLiteConn.close();
         }
-        sqLiteConn.close();
         </#if>
      }
     </#if>
@@ -340,7 +344,7 @@ public class ${name} {
         if(!where("id = "+id).isEmpty()){
             ${name?lower_case} = where("id = "+id).get(0);
         }else{
-            System.out.println("There is no Author with id: "+ id);
+            System.out.println("There is no ${name} with id: "+ id);
         }
         return ${name?lower_case};
     }
@@ -395,7 +399,7 @@ public class ${name} {
         ResultSet rs = sqLiteConn.executeQuery("SELECT ${rels.regularClass.name?lower_case}_id FROM ${rels.foreignClass.name} WHERE id = " + this.id);
         try{
             rs.next();
-            ${rels.regularClass.name?lower_case} = Book.get(Integer.toString(rs.getInt("${rels.regularClass.name?lower_case}_id")));
+            ${rels.regularClass.name?lower_case} = ${rels.regularClass.name}.get(Integer.toString(rs.getInt("${rels.regularClass.name?lower_case}_id")));
         }catch(Exception e){
             e.printStackTrace();
         }
