@@ -5,21 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="362a2e9b-8028-44a0-b85b-21b753214301" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/models/personXML.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/Main.class" afterPath="$PROJECT_DIR$/out/production/DBMLab/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/person/Person.class" afterPath="$PROJECT_DIR$/out/production/DBMLab/person/Person.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/metamodels/model.dtd" afterPath="$PROJECT_DIR$/out/production/DBMLab/metamodels/model.dtd" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/models/bookstore.xml" afterPath="$PROJECT_DIR$/out/production/DBMLab/models/bookstore.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/templates/java_class.ftl" afterPath="$PROJECT_DIR$/out/production/DBMLab/templates/java_class.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bookstore/Author.java" afterPath="$PROJECT_DIR$/src/bookstore/Author.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/metamodels/Relation.java" afterPath="$PROJECT_DIR$/src/metamodels/Relation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/metamodels/model.dtd" afterPath="$PROJECT_DIR$/src/metamodels/model.dtd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/bookstore.xml" afterPath="$PROJECT_DIR$/src/models/bookstore.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/person/Person.java" afterPath="$PROJECT_DIR$/src/person/Person.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/java_class.ftl" afterPath="$PROJECT_DIR$/src/templates/java_class.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utils/transformations/Model2Model.java" afterPath="$PROJECT_DIR$/src/utils/transformations/Model2Model.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -776,14 +767,7 @@
       <workItem from="1494418469338" duration="16945000" />
       <workItem from="1494498604810" duration="4433000" />
       <workItem from="1494580701403" duration="8974000" />
-      <workItem from="1494599554395" duration="5082000" />
-    </task>
-    <task id="LOCAL-00027" summary="Updates">
-      <created>1492889132978</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1492889132978</updated>
+      <workItem from="1494599554395" duration="5095000" />
     </task>
     <task id="LOCAL-00028" summary="Bug Fixes in java_class.ftl">
       <created>1492890051931</created>
@@ -1121,11 +1105,18 @@
       <option name="project" value="LOCAL" />
       <updated>1494600823455</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="Updates">
+      <created>1494607590090</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1494607590090</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55377000" />
+    <option name="totallyTimeSpent" value="55390000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1208,7 +1199,6 @@
     <MESSAGE value="Working on getBooks()" />
     <MESSAGE value="Modified java_class.ftl and fixed database bugs" />
     <MESSAGE value="Modified construtor and all() method" />
-    <MESSAGE value="Updates" />
     <MESSAGE value="Added TODO" />
     <MESSAGE value="Added TODO to remove empty constructor" />
     <MESSAGE value="jesus christ" />
@@ -1224,7 +1214,8 @@
     <MESSAGE value="removed one to do" />
     <MESSAGE value="Manually added comments to metamodel classes" />
     <MESSAGE value="Added mandatory classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added mandatory classes" />
+    <MESSAGE value="Updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updates" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
