@@ -18,7 +18,7 @@
     firstClass CDATA #REQUIRED
     secondClass CDATA #REQUIRED
     firstClassRequired CDATA "true"
-    secondClassRequired CDATA "true">
+    secondClassRequired CDATA "false">
 
 
 

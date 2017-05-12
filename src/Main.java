@@ -1,5 +1,6 @@
 //import bookstore.Author;
 //import bookstore.Book;
+
 import bookstore.Book;
 import metamodels.Attribute;
 import metamodels.Class;
@@ -21,17 +22,16 @@ public class Main {
     public static void main(String[] args) {
         startProgram();
         //testORM();
-        //Model model = Model2Model.getModel("src/models/person.xmi",false);
-        //buildModel(model);
     }
 
     public static String getModelChoice() {
         System.out.println("Which model do you want ? (Answer with the number of the desired model)");
         System.out.println("1 - BookStore");
         System.out.println("2 - Person");
+        System.out.println("3 - Person(XMI model)");
 
         String modelChoice = sc.nextLine();
-        while (!modelChoice.equals("1") && !modelChoice.equals("2")) {
+        while (!modelChoice.equals("1") && !modelChoice.equals("2") && !modelChoice.equals("3")) {
             System.out.println("Invalid Choice");
             modelChoice = sc.nextLine();
         }
@@ -53,7 +53,14 @@ public class Main {
     public static void startProgram() {
 
         String modelChoice = getModelChoice();
-        String languageChoice = getLanguageChoice();
+        String languageChoice = "";
+        if (modelChoice.equals("3")) {
+            Model model = Model2Model.getModel("src/models/person.xmi", false);
+            buildModel(model);
+        } else {
+            languageChoice = getLanguageChoice();
+        }
+
 
         if (modelChoice.equals("1") && languageChoice.equals("1")) {
             buildModel(getBookStoreModel());
@@ -98,7 +105,7 @@ public class Main {
         book.addAttribute(new Attribute("quantity", "int"));
         book.setPkg(model.getName().toLowerCase());
 
-        Relation relation = new Relation(book, author, "12N",true,true);
+        Relation relation = new Relation(book, author, "12N", false, true);
         book.addRelation(relation);
         author.addRelation(relation);
 
@@ -136,53 +143,5 @@ public class Main {
     }
 
     public static void testORM() {
-        //TODO Por o TestORM a funcionar com base no modelo que o utilizador escolher no startProgram()
-        //TODO adicionar uma exception quando tenta fazer save a um book sem author, ou apenas uma verificação para deixar ele adicionar sem book mas não rebentar
-        //TODO secalhar deviamos ter on delete cascade
-        Book book1 = new Book("16/07/1996", 120);
-        book1.setTitle("Sem Autores");
-        book1.setPrice(20);
-        book1.save();
-/*
-        Author author1 = new Author();
-        author1.setFirst_name("Daniel");
-        author1.setLast_name("Basilio");
-        author1.setEmail("something@gmail.com");
-        author1.save();
-
-        Author author2 = new Author();
-        author2.setFirst_name("Boneco");
-        author2.setLast_name("Fixe");
-        author2.setEmail("somethingLindo@gmail.com");
-        author2.save();
-
-        Author author3 = new Author();
-        author3.setFirst_name("Lucas");
-        author3.setLast_name("Fischer");
-        author3.setEmail("something123@gmail.com");
-        author3.save();
-
-        Book book1 = new Book("16/07/1996", 120);
-        book1.setTitle("Livro com 3 Autores");
-        book1.setPrice(20);
-
-        book1.addAuthor(author1);
-        book1.addAuthor(author2);
-
-        book1.save();
-        ArrayList<Book> books = Book.all();
-        for(Book b : books){
-            System.out.println("Book:");
-            System.out.println(b);
-            System.out.println("\n");
-            for(Author au : b.getAuthor()){
-                System.out.println("---------Dentro do Book : "+b.getId() );
-                System.out.println("Author:");
-                System.out.println(au);
-                System.out.println("\n");
-                System.out.println("-------------------------------------");
-            }
-        }*/
-
     }
 }

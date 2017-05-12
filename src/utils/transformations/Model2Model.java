@@ -115,7 +115,7 @@ public class Model2Model {
                 Class regularClass = new Class(nNode.getAttributes().getNamedItem("firstClass").getNodeValue());
                 Class foreignClass = new Class(nNode.getAttributes().getNamedItem("secondClass").getNodeValue());
                 String firstClassRequiredString = "true";
-                String secondClassRequiredString = "true";
+                String secondClassRequiredString = "false"; //Both classes cannont be required at the same time
                 if(fromXML){
                     firstClassRequiredString = nNode.getAttributes().getNamedItem("firstClassRequired").getNodeValue();
                     secondClassRequiredString = nNode.getAttributes().getNamedItem("secondClassRequired").getNodeValue();

@@ -248,10 +248,8 @@ public class ${name} {
         </#if>
         </#if>
         <#if rels.foreignClass.name = name && rels.firstClassRequired>
-        <#if rels.relationshipType != "121">
+        <#if rels.relationshipType == "N2N">
         if(!${rels.regularClass.name?lower_case}s.isEmpty()){
-        <#else>
-        if(!${rels.foreignClass.name?lower_case}.equals(null)){
         </#if>
         </#if>
         </#list>
@@ -274,7 +272,7 @@ public class ${name} {
             System.out.println("You need to add a ${rels.foreignClass.name?lower_case} to this ${name?lower_case}");
         }
         </#if>
-        <#if rels.foreignClass.name = name && rels.firstClassRequired>
+        <#if rels.foreignClass.name = name && rels.firstClassRequired && rels.relationshipType == "N2N">
         }else{
             System.out.println("You need to add a ${rels.regularClass.name?lower_case} to this ${name?lower_case}");
         }

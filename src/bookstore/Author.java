@@ -126,7 +126,6 @@ public class Author {
      * Metodo que guarda na base de dados o estado atual de todos os atributos da Classe
      */
     public void save(){
-        if(!books.isEmpty()){
         openSqLite();
         if(this.id >= 1){
             String sql = String.format("UPDATE Author SET first_name = '%s',last_name = '%s',email = '%s' WHERE id = '%s'",this.first_name,this.last_name,this.email,this.id);
@@ -137,9 +136,6 @@ public class Author {
             setId(idPerson);
         }
         sqLiteConn.close();
-        }else{
-            System.out.println("You need to add a book to this author");
-        }
     }
 
 
