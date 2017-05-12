@@ -71,7 +71,7 @@ public class Model2Model {
             model.addVariousClasses(getClasses(modelNode, fromXML));
 
             for (Class c : model.getClasses()) {
-                for (Relation relation : getRelations(modelNode)) {
+                for (Relation relation : getRelations(modelNode,fromXML)) {
 
                     //If the Class is in a relation, add that relation to the class
                     if (relation.getRegularClass().getName().equals(c.getName())
@@ -105,7 +105,7 @@ public class Model2Model {
         return classes;
     }
 
-    public static ArrayList<Relation> getRelations(Node modelNode) {
+    public static ArrayList<Relation> getRelations(Node modelNode,boolean fromXML) {
         ArrayList<Relation> relations = new ArrayList<>();
         NodeList nList = modelNode.getChildNodes();
         for (int i = 0; i < nList.getLength(); i++) {
@@ -114,7 +114,15 @@ public class Model2Model {
             if (nNode.getNodeType() == Node.ELEMENT_NODE && nNode.getNodeName() == "foreignKey") {
                 Class regularClass = new Class(nNode.getAttributes().getNamedItem("firstClass").getNodeValue());
                 Class foreignClass = new Class(nNode.getAttributes().getNamedItem("secondClass").getNodeValue());
-                Relation relation = new Relation(regularClass, foreignClass, nNode.getAttributes().getNamedItem("type").getNodeValue());
+                String firstClassRequiredString = "true";
+                String secondClassRequiredString = "true";
+                if(fromXML){
+                    firstClassRequiredString = nNode.getAttributes().getNamedItem("firstClassRequired").getNodeValue();
+                    secondClassRequiredString = nNode.getAttributes().getNamedItem("secondClassRequired").getNodeValue();
+                }
+                boolean firstClassRequired = Boolean.parseBoolean(firstClassRequiredString);
+                boolean secondClassRequired = Boolean.parseBoolean(secondClassRequiredString);
+                Relation relation = new Relation(regularClass, foreignClass, nNode.getAttributes().getNamedItem("type").getNodeValue(),firstClassRequired,secondClassRequired);
                 relations.add(relation);
             }
         }
@@ -150,7 +158,6 @@ public class Model2Model {
         return attributes;
     }
 
-    //TODO fazer com o modelo bookstore porque ainda não tem as relations
     public static String getModelFromXMI(String filename) {
         try {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -186,6 +193,10 @@ public class Model2Model {
         return null;
     }
 
+    public static void getRelationsXMI(Node classNode, Element classElem, Document doc) {
+
+    }
+
     public static void getClassesXMI(Node modelNode, Element modelElement, Document doc) {
         NodeList nList = modelNode.getChildNodes();
         for (int i = 0; i < nList.getLength(); i++) {
@@ -194,6 +205,7 @@ public class Model2Model {
                 Element classElem = doc.createElement("class");//Creates a <class> tag
                 classElem.setAttribute("name", classNode.getAttributes().getNamedItem("name").getNodeValue());
                 getAttributesXMI(classNode, classElem, doc);
+                getRelationsXMI(classNode, classElem, doc);
                 modelElement.appendChild(classElem);
             }
         }

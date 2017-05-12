@@ -77,7 +77,7 @@ public class ${name} {
 
     <#-- Setter -->
     /**
-     * Metodo que altera o nome do Atributo ${attribute.name}
+     * Metodo que altera o valor do Atributo ${attribute.name}
      * @param ${attribute.name} Novo valor do Atributo
      */
     public void set${attribute.name?lower_case?cap_first}(${attribute.type} ${attribute.name}) {
@@ -239,6 +239,22 @@ public class ${name} {
      * Metodo que guarda na base de dados o estado atual de todos os atributos da Classe
      */
     public void save(){
+        <#list relations as rels>
+        <#if rels.regularClass.name = name && rels.secondClassRequired>
+        <#if rels.relationshipType != "121">
+        if(!${rels.foreignClass.name?lower_case}.isEmpty()){
+        <#else>
+        if(!${rels.foreignClass.name?lower_case}.equals(null)){
+        </#if>
+        </#if>
+        <#if rels.foreignClass.name = name && rels.firstClassRequired>
+        <#if rels.relationshipType != "121">
+        if(!${rels.regularClass.name?lower_case}s.isEmpty()){
+        <#else>
+        if(!${rels.foreignClass.name?lower_case}.equals(null)){
+        </#if>
+        </#if>
+        </#list>
         openSqLite();
         if(this.id >= 1){
             String sql = String.format("UPDATE ${name} SET <#list attributes as attribute><#if attribute.name != "id">${attribute.name} = '%s'<#sep>,</#sep></#if></#list> WHERE id = '%s'",<#list attributes as attribute><#if attribute.name != "id">this.${attribute.name}<#sep>,</#sep></#if></#list>,this.id);
@@ -252,6 +268,16 @@ public class ${name} {
         <#list relations as rels>
         <#if rels.regularClass.name = name>
          saveRelation();
+        </#if>
+        <#if rels.regularClass.name = name && rels.secondClassRequired>
+         }else{
+            System.out.println("You need to add a ${rels.foreignClass.name?lower_case} to this ${name?lower_case}");
+        }
+        </#if>
+        <#if rels.foreignClass.name = name && rels.firstClassRequired>
+        }else{
+            System.out.println("You need to add a ${rels.regularClass.name?lower_case} to this ${name?lower_case}");
+        }
         </#if>
         </#list>
     }

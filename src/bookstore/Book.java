@@ -36,7 +36,7 @@ public class Book {
     }
 
     /**
-     * Metodo que altera o nome do Atributo title
+     * Metodo que altera o valor do Atributo title
      * @param title Novo valor do Atributo
      */
     public void setTitle(String title) {
@@ -52,7 +52,7 @@ public class Book {
     }
 
     /**
-     * Metodo que altera o nome do Atributo pubDate
+     * Metodo que altera o valor do Atributo pubDate
      * @param pubDate Novo valor do Atributo
      */
     public void setPubdate(String pubDate) {
@@ -68,7 +68,7 @@ public class Book {
     }
 
     /**
-     * Metodo que altera o nome do Atributo price
+     * Metodo que altera o valor do Atributo price
      * @param price Novo valor do Atributo
      */
     public void setPrice(double price) {
@@ -84,7 +84,7 @@ public class Book {
     }
 
     /**
-     * Metodo que altera o nome do Atributo quantity
+     * Metodo que altera o valor do Atributo quantity
      * @param quantity Novo valor do Atributo
      */
     public void setQuantity(int quantity) {
@@ -154,6 +154,7 @@ public class Book {
      * Metodo que guarda na base de dados o estado atual de todos os atributos da Classe
      */
     public void save(){
+        if(!author.isEmpty()){
         openSqLite();
         if(this.id >= 1){
             String sql = String.format("UPDATE Book SET title = '%s',pubDate = '%s',price = '%s',quantity = '%s' WHERE id = '%s'",this.title,this.pubDate,this.price,this.quantity,this.id);
@@ -165,6 +166,9 @@ public class Book {
         }
         sqLiteConn.close();
          saveRelation();
+         }else{
+            System.out.println("You need to add a author to this book");
+        }
     }
 
      /**

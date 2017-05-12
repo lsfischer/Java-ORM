@@ -1,5 +1,6 @@
 //import bookstore.Author;
 //import bookstore.Book;
+import bookstore.Book;
 import metamodels.Attribute;
 import metamodels.Class;
 import metamodels.Model;
@@ -97,7 +98,7 @@ public class Main {
         book.addAttribute(new Attribute("quantity", "int"));
         book.setPkg(model.getName().toLowerCase());
 
-        Relation relation = new Relation(book, author, "12N");
+        Relation relation = new Relation(book, author, "12N",true,true);
         book.addRelation(relation);
         author.addRelation(relation);
 
@@ -137,8 +138,11 @@ public class Main {
     public static void testORM() {
         //TODO Por o TestORM a funcionar com base no modelo que o utilizador escolher no startProgram()
         //TODO adicionar uma exception quando tenta fazer save a um book sem author, ou apenas uma verificação para deixar ele adicionar sem book mas não rebentar
-        //TODO era fixe adicionar obrigatoriedade nas relations
         //TODO secalhar deviamos ter on delete cascade
+        Book book1 = new Book("16/07/1996", 120);
+        book1.setTitle("Sem Autores");
+        book1.setPrice(20);
+        book1.save();
 /*
         Author author1 = new Author();
         author1.setFirst_name("Daniel");

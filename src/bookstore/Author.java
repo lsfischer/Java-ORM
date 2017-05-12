@@ -31,7 +31,7 @@ public class Author {
     }
 
     /**
-     * Metodo que altera o nome do Atributo first_name
+     * Metodo que altera o valor do Atributo first_name
      * @param first_name Novo valor do Atributo
      */
     public void setFirst_name(String first_name) {
@@ -47,7 +47,7 @@ public class Author {
     }
 
     /**
-     * Metodo que altera o nome do Atributo last_name
+     * Metodo que altera o valor do Atributo last_name
      * @param last_name Novo valor do Atributo
      */
     public void setLast_name(String last_name) {
@@ -63,7 +63,7 @@ public class Author {
     }
 
     /**
-     * Metodo que altera o nome do Atributo email
+     * Metodo que altera o valor do Atributo email
      * @param email Novo valor do Atributo
      */
     public void setEmail(String email) {
@@ -126,6 +126,7 @@ public class Author {
      * Metodo que guarda na base de dados o estado atual de todos os atributos da Classe
      */
     public void save(){
+        if(!books.isEmpty()){
         openSqLite();
         if(this.id >= 1){
             String sql = String.format("UPDATE Author SET first_name = '%s',last_name = '%s',email = '%s' WHERE id = '%s'",this.first_name,this.last_name,this.email,this.id);
@@ -136,6 +137,9 @@ public class Author {
             setId(idPerson);
         }
         sqLiteConn.close();
+        }else{
+            System.out.println("You need to add a book to this author");
+        }
     }
 
 

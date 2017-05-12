@@ -12,6 +12,8 @@ public class Relation {
     private Class foreignClass;
     private Class regularClass;
     private String relationshipType;
+    private boolean firstClassRequired;
+    private boolean secondClassRequired;
 
     /**
      * Constructor da classe metamodelo
@@ -19,10 +21,12 @@ public class Relation {
      * @param foreignClass Classe que e a foreign key
      * @param relationshipType Tipo de relacao (1-1/1-n/n-n)
      */
-    public Relation(Class regularClass, Class foreignClass, String relationshipType){
+    public Relation(Class regularClass, Class foreignClass, String relationshipType,boolean firstClassRequired, boolean secondClassRequired){
         this.regularClass = regularClass;
         this.foreignClass = foreignClass;
         this.relationshipType = relationshipType;
+        this.firstClassRequired = firstClassRequired;
+        this.secondClassRequired = secondClassRequired;
     }
 
     /**
@@ -39,6 +43,22 @@ public class Relation {
      */
     public Class getForeignClass(){
         return this.foreignClass;
+    }
+
+    /**
+     * Metodo que retorna o valor da obrigatoriedade da classe de origem da relação
+     * @return boolean com o valor da obrigatoriedade da classe de origem da relação
+     */
+    public boolean getFirstClassRequired(){
+        return this.firstClassRequired;
+    }
+
+    /**
+     * Metodo que retorna o valor da obrigatoriedade da classe de destino da relação
+     * @return boolean com o valor da obrigatoriedade da classe de destino da relação
+     */
+    public boolean getSecondClassRequired(){
+        return this.secondClassRequired;
     }
 
     /**
@@ -71,6 +91,22 @@ public class Relation {
      */
     public void setRelationshipType(String relationshipType){
         this.relationshipType = relationshipType;
+    }
+
+    /**
+     * Metodo que altera a obrigatoriedade da classe de origem da relação
+     * @param firstClassRequired Novo valor para o atributo firstClassRequired
+     */
+    public void setFirstClassRequired(boolean firstClassRequired){
+        this.firstClassRequired = firstClassRequired;
+    }
+
+    /**
+     * Metodo que altera a obrigatoriedade da classe de origem da relação
+     * @param secondClassRequired Novo valor para o atributo firstClassRequired
+     */
+    public void setSecondClassRequired(boolean secondClassRequired){
+        this.secondClassRequired = secondClassRequired;
     }
 
 }

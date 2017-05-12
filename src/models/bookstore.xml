@@ -12,5 +12,5 @@
         <attribute name="price" type="double" />
         <attribute name="quantity" type="int" required="true"/>
     </class>
-    <foreignKey type="N2N" firstClass ="Book" secondClass="Author" />
+    <foreignKey type="N2N" firstClass ="Book" secondClass="Author"/>
 </model>

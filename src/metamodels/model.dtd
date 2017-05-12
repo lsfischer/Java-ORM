@@ -16,7 +16,9 @@
     <!ATTLIST foreignKey
     type CDATA #REQUIRED
     firstClass CDATA #REQUIRED
-    secondClass CDATA #REQUIRED>
+    secondClass CDATA #REQUIRED
+    firstClassRequired CDATA "true"
+    secondClassRequired CDATA "true">
 
 
 
