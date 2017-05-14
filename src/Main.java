@@ -205,6 +205,7 @@ public class Main {
     }
 
     public static void testORM() {
+        //worked eheheh
 
         //Bookstore N-N
         /*Author a1 = new Author();
