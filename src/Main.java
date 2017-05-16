@@ -25,6 +25,7 @@ public class Main {
     public static void main(String[] args) {
         startProgram();
         //testORM();
+        //ENVIEI ISTO
     }
 
     public static String getModelChoice() {
