@@ -26,6 +26,7 @@ public class Main {
         startProgram();
         //testORM();
         //agora tou a tentar por isto
+
     }
 
     public static String getModelChoice() {
