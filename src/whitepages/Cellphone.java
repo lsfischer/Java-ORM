@@ -110,7 +110,7 @@ public class Cellphone {
         if(!where("id = "+id).isEmpty()){
             cellphone = where("id = "+id).get(0);
         }else{
-            System.out.println("There is no Author with id: "+ id);
+            System.out.println("There is no Cellphone with id: "+ id);
         }
         return cellphone;
     }

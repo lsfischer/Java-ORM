@@ -11,14 +11,16 @@ public class Person {
 
     private String first_name;
     private String last_name;
-    private ArrayList<CellPhone> cellphone = new ArrayList<>();
+    private ArrayList<Cellphone> cellphone = new ArrayList<>();
     private int id;
     private static SQLiteConn sqLiteConn = new SQLiteConn("src/whitepages/whitepages.db");
 
     /**
-     * Construtor vazio da classe Person
+     * Construtor da classe Person
+     * @param first_name Parametro para inicializaçao do Atributo first_name
      */
-    public Person(){
+    public Person(String first_name) {
+        this.first_name = first_name;
     }
 
     /**
@@ -61,18 +63,18 @@ public class Person {
     }
 
     /**
-     * Metodo que retorna os CellPhone pertencentes a este Objeto
+     * Metodo que retorna os Cellphone pertencentes a este Objeto
      * @return
      */
-    public ArrayList<CellPhone> getCellPhone() {
+    public ArrayList<Cellphone> getCellphone() {
         openSqLite();
-        String sql = "SELECT id FROM CellPhone WHERE person_id = "+id;
+        String sql = "SELECT id FROM Cellphone WHERE person_id = "+id;
         ResultSet resultSet = sqLiteConn.executeQuery(sql);
         try{
             while(resultSet.next()){
                 String relationId = resultSet.getString("id");
                 if(!relationId.equals("0")){
-                    this.addCellPhone(CellPhone.get(relationId));
+                    this.addCellphone(Cellphone.get(relationId));
                 }
             }
         }catch(Exception e){
@@ -83,10 +85,10 @@ public class Person {
     }
 
     /**
-     * Metodo que adiciona um CellPhone a ArrayList de CellPhone
-     * @param cellphone CellPhone a ser adicionado
+     * Metodo que adiciona um Cellphone a ArrayList de Cellphone
+     * @param cellphone Cellphone a ser adicionado
      */
-    public void addCellPhone(CellPhone cellphone) {
+    public void addCellphone(Cellphone cellphone) {
         this.cellphone.add(cellphone);
     }
 
@@ -127,12 +129,12 @@ public class Person {
       * Metodo privado que adiciona na tabela relacao, as relacoes entre este Objeto e os Objetos presentes na ArrayList de {rels.foreignClass.name}
       */
      private void saveRelation(){
-        for(CellPhone object : cellphone){
+        for(Cellphone object : cellphone){
             if(object.getId() == 0){
                 object.save();
             }
             openSqLite();
-            String sql = String.format("UPDATE CellPhone SET person_id = '%s' WHERE id = '%s'", this.id, object.getId());
+            String sql = String.format("UPDATE Cellphone SET person_id = '%s' WHERE id = '%s'", this.id, object.getId());
             sqLiteConn.executeUpdate(sql);
             sqLiteConn.close();
         }
@@ -186,13 +188,10 @@ public class Person {
         ResultSet rs = sqLiteConn.executeQuery("SELECT * FROM Person WHERE " + condition);
         try{
             while(rs.next()){
-                Person person = new Person();
+                Person person = new Person(rs.getString("first_name"));
 
                 int id = rs.getInt("id");
                 person.setId(id);
-
-                String first_name = rs.getString("first_name");
-                person.setFirst_name(first_name);
 
                 String last_name = rs.getString("last_name");
                 person.setLast_name(last_name);

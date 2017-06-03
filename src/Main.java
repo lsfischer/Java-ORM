@@ -1,21 +1,12 @@
-
-import bookstore.Author;
-import bookstore.Book;
-import javafx.scene.control.Cell;
 import metamodels.Attribute;
 import metamodels.Class;
 import metamodels.Model;
 import metamodels.Relation;
-import sun.net.www.protocol.http.AuthenticationHeader;
 import utils.sqlite.SQLiteConn;
 import utils.transformations.Model2Model;
 import utils.transformations.Model2Text;
-import whitepages.Cellphone;
-import whitepages.Person;
-import worker.Worker;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -25,8 +16,6 @@ public class Main {
     public static void main(String[] args) {
         startProgram();
         //testORM();
-        //agora tou a tentar por isto
-
     }
 
     public static String getModelChoice() {
@@ -207,8 +196,6 @@ public class Main {
     }
 
     public static void testORM() {
-        //worked eheheh
-
         //Bookstore N-N
         /*Author a1 = new Author();
         a1.setFirst_name("Lucas");
@@ -225,7 +212,7 @@ public class Main {
         b1.setTitle("Livro com 2 autores");
         b1.addAuthor(a1);
         b1.addAuthor(a2);
-        b1.save();
+        //b1.save();
         System.out.println(Book.get("1").getAuthor());
         System.out.println(Book.where("title = 'Livro com 2 autores'"));
         System.out.println(Author.get("1").getBooks());*/
@@ -237,7 +224,7 @@ public class Main {
         Cellphone c2 = new Cellphone(123456789);
         person1.addCellphone(c1);
         person1.addCellphone(c2);
-        person1.save(); //no need to save the cellphones, it does that automaticly
+        //person1.save(); //no need to save the cellphones, it does that automaticly
         System.out.println(Person.get("1").getCellphone());
         System.out.println(Cellphone.get("2").getPerson());*/
 
@@ -250,18 +237,87 @@ public class Main {
         w1.setJobdescription("Pessoa que so tira 20s nos projetos de DBM");
         w1.setSalary(20.0);
         p1.setWorker(w1);
-        p1.save();
+        //p1.save();
         System.out.println(worker.Person.get("2").getWorker());
         System.out.println(Worker.get("1").getPerson());*/
 
         //Person
         /*person.Person p1 = new person.Person("Lucas",20);
         person.Person p2 = new person.Person("Daniel", 21);
-        p1.save();
-        p2.save();
+        //p1.save();
+        //p2.save();
         System.out.println(person.Person.all());
         System.out.println(person.Person.where("name = 'Lucas'"));
         System.out.println(person.Person.get("2"));*/
+    }
+    public static void buildServerApp(Model model) {
+        buildWebIndex(model);
+        buildWebList(model);
+        buildWebGet(model);
+        buildWebCreate(model);
+        buildApplication(model);
+    }
 
+    private static void createFile(String parsedFile, Model model, String path) {
+        try {
+            File fout = new File(path);
+            FileOutputStream fos = new FileOutputStream(fout);
+            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
+            bw.write(parsedFile);
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //Web_index
+    public static void buildWebIndex(Model model) {
+        Model2Text model2Text = new Model2Text("src/templates");
+        String javaClasses = model2Text.render(model, "web_index.ftl");
+        System.out.println(javaClasses);
+        File f = new File("src/out/resources/templates/");
+        f.mkdirs();
+        createFile(javaClasses, model, "src/out/resources/templates/web_index.html");
+    }
+
+    //Web_list
+    public static void buildWebList(Model model) {
+        Model2Text model2Text = new Model2Text("src/templates");
+        for (Class c : model.getClasses()) {
+            File f = new File("src/out/resources/templates/" + model.getName().toLowerCase());
+            f.mkdirs();
+            String javaClasses = model2Text.render(c, "web_list.ftl");
+            System.out.println(javaClasses);
+            createFile(javaClasses, model, "src/out/resources/templates/" + model.getName().toLowerCase() + "/web_list.html");
+        }
+
+    }
+
+
+    //Web_get
+    public static void buildWebGet(Model model) {
+        Model2Text model2Text = new Model2Text("src/templates");
+        for (Class c : model.getClasses()) {
+            String javaClasses = model2Text.render(c, "web_get.ftl");
+            System.out.println(javaClasses);
+            createFile(javaClasses, model, "src/out/resources/templates/" + model.getName().toLowerCase() + "/web_get.html");
+        }
+    }
+
+    //Web_create
+    public static void buildWebCreate(Model model) {
+        Model2Text model2Text = new Model2Text("src/templates");
+        for (Class c : model.getClasses()) {
+            String javaClasses = model2Text.render(c, "web_create.ftl");
+            System.out.println(javaClasses);
+            createFile(javaClasses, model, "src/out/resources/templates/" + model.getName().toLowerCase() + "/web_create.html");
+        }
+    }
+
+    public static void buildApplication(Model model) {
+        Model2Text model2Text = new Model2Text("src/templates");
+        String applicationJava = model2Text.render(model, "web_Application.ftl");
+        System.out.println(applicationJava);
+        createFile(applicationJava, model, "src/out/resources/Application.java");
     }
 }
