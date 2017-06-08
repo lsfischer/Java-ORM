@@ -16,7 +16,7 @@ public class Main {
     public static void main(String[] args) {
         //startProgram();
         //testORM();
-        buildServerApp(Model2Model.getModel("src/models/person.xml", true));
+        buildServerApp(Model2Model.getModel("src/models/bookstore.xml", true));
     }
 
     public static String getModelChoice() {
@@ -226,18 +226,18 @@ public class Main {
         System.out.println(javaClasses);
         File f = new File("src/out/resources/templates/");
         f.mkdirs();
-        createFile(javaClasses, model, "src/out/resources/templates/web_index.html");
+        createFile(javaClasses, model, "src/out/resources/templates/index.html");
     }
 
     //Web_list
     public static void buildWebList(Model model) {
         Model2Text model2Text = new Model2Text("src/templates");
         for (Class c : model.getClasses()) {
-            File f = new File("src/out/resources/templates/" + model.getName().toLowerCase());
+            File f = new File("src/out/resources/templates/" + model.getName().toLowerCase() + "/" + c.getName().toLowerCase());
             f.mkdirs();
             String javaClasses = model2Text.render(c, "web_list.ftl");
             System.out.println(javaClasses);
-            createFile(javaClasses, model, "src/out/resources/templates/" + model.getName().toLowerCase() + "/web_list.html");
+            createFile(javaClasses, model, "src/out/resources/templates/" + model.getName().toLowerCase() + "/" + c.getName().toLowerCase() + "/list.html");
         }
 
     }
@@ -249,7 +249,7 @@ public class Main {
         for (Class c : model.getClasses()) {
             String javaClasses = model2Text.render(c, "web_get.ftl");
             System.out.println(javaClasses);
-            createFile(javaClasses, model, "src/out/resources/templates/" + model.getName().toLowerCase() + "/web_get.html");
+            createFile(javaClasses, model, "src/out/resources/templates/" + model.getName().toLowerCase() + "/" + c.getName().toLowerCase() + "/get.html");
         }
     }
 
@@ -259,7 +259,7 @@ public class Main {
         for (Class c : model.getClasses()) {
             String javaClasses = model2Text.render(c, "web_create.ftl");
             System.out.println(javaClasses);
-            createFile(javaClasses, model, "src/out/resources/templates/" + model.getName().toLowerCase() + "/web_create.html");
+            createFile(javaClasses, model, "src/out/resources/templates/" + model.getName().toLowerCase() + "/" + c.getName().toLowerCase() + "/create.html");
         }
     }
 
