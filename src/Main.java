@@ -14,8 +14,9 @@ public class Main {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        startProgram();
+        //startProgram();
         //testORM();
+        buildServerApp(Model2Model.getModel("src/models/person.xml", true));
     }
 
     public static String getModelChoice() {
@@ -89,7 +90,7 @@ public class Main {
         }
     }
 
-    public static Model getWhitePagesModel(){
+    public static Model getWhitePagesModel() {
         Model model = new Model("Whitepages");
         Class person = new Class("Person");
         person.addAttribute(new Attribute("first_name", "String"));
@@ -109,7 +110,7 @@ public class Main {
         return model;
     }
 
-    public static Model getWorkerModel(){
+    public static Model getWorkerModel() {
         Model model = new Model("Worker");
         Class person = new Class("Person");
         person.addAttribute(new Attribute("first_name", "String"));
@@ -196,60 +197,8 @@ public class Main {
     }
 
     public static void testORM() {
-        //Bookstore N-N
-        /*Author a1 = new Author();
-        a1.setFirst_name("Lucas");
-        a1.setLast_name("Fischer");
-        a1.setEmail("lucas@gmail.com");
-
-        Author a2 = new Author();
-        a2.setFirst_name("Lucas");
-        a2.setLast_name("Fischer");
-        a2.setEmail("lucas@gmail.com");
-
-        Book b1 = new Book("11/05/2017",20);
-        b1.setPrice(20);
-        b1.setTitle("Livro com 2 autores");
-        b1.addAuthor(a1);
-        b1.addAuthor(a2);
-        //b1.save();
-        System.out.println(Book.get("1").getAuthor());
-        System.out.println(Book.where("title = 'Livro com 2 autores'"));
-        System.out.println(Author.get("1").getBooks());*/
-
-        //WhitePages 1-N
-        /*Person person1 = new Person("Lucas");
-        person1.setLast_name("Fischer");
-        Cellphone c1 = new Cellphone(912345678);
-        Cellphone c2 = new Cellphone(123456789);
-        person1.addCellphone(c1);
-        person1.addCellphone(c2);
-        //person1.save(); //no need to save the cellphones, it does that automaticly
-        System.out.println(Person.get("1").getCellphone());
-        System.out.println(Cellphone.get("2").getPerson());*/
-
-        //Worker 1-1
-        /*worker.Person p1 = new worker.Person();
-        p1.setFirst_name("Lucas");
-        p1.setLast_name("Fischer");
-        Worker w1 = new Worker();
-        w1.setJob("Tirador de 20s");
-        w1.setJobdescription("Pessoa que so tira 20s nos projetos de DBM");
-        w1.setSalary(20.0);
-        p1.setWorker(w1);
-        //p1.save();
-        System.out.println(worker.Person.get("2").getWorker());
-        System.out.println(Worker.get("1").getPerson());*/
-
-        //Person
-        /*person.Person p1 = new person.Person("Lucas",20);
-        person.Person p2 = new person.Person("Daniel", 21);
-        //p1.save();
-        //p2.save();
-        System.out.println(person.Person.all());
-        System.out.println(person.Person.where("name = 'Lucas'"));
-        System.out.println(person.Person.get("2"));*/
     }
+
     public static void buildServerApp(Model model) {
         buildWebIndex(model);
         buildWebList(model);
