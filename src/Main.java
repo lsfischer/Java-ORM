@@ -201,9 +201,9 @@ public class Main {
 
     public static void buildServerApp(Model model) {
         buildWebIndex(model);
-        buildWebList(model);
+        buildWebList(model);        //TODO from Daniel: meti isto ja a funcionar fixe, falta agr meter isto a funcionar numa app e ver se existem bugs (OBVIO QUE SIM NE)
         buildWebGet(model);
-       /* buildWebCreate(model);*/
+        buildWebCreate(model);
         buildApplication(model);
     }
 

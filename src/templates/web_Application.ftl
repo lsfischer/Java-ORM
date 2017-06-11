@@ -37,7 +37,7 @@ public class Application {
         });
 
 
-        get("/person/get", (request, response) -> {
+        get("/${class.name?lower_case}/get", (request, response) -> {
             HashMap<Object,Object> n = new HashMap<>();
             ${class.name} objct = ${class.name}.get(Integer.parseInt(request.queryParams("id")));
             n.put("obj",objct);
@@ -45,23 +45,22 @@ public class Application {
         });
 
 
-        post("/person/update", (request, response) -> {
-            ${class.name} obj = ${name}.get(Integer.parseInt(request.queryParams("id")));
+        post("/${class.name?lower_case}/update", (request, response) -> {
+            ${class.name?capitalize} obj = ${class.name?capitalize}.get(Integer.parseInt(request.queryParams("id")));
 
             <#list class.attributes as attr>
-                <#if attr.type == "int">
-                    obj.set${attr.name?capitalize}(Integer.parseInt(request.queryParams("${attr.name?lower_case}")));
-                </#if>
-                <#if attr.type == "double">
-                    obj.set${attr.name?capitalize}(Double.parseDouble(request.queryParams("${attr.name?lower_case}")));
-                </#if>
-                <#if attr.type == "float">
-                    obj.set${attr.name?capitalize}(Float.parseFloat(request.queryParams("${attr.name?lower_case}")));
-                </#if>
-                <#if attr.type != "float" && attr.type != "int" && attr.type != "double">
-                    obj.set${attr.name?capitalize}(request.queryParams("${attr.name?lower_case}"));
-                </#if>
-
+            <#if attr.type == "int">
+            obj.set${attr.name?capitalize}(Integer.parseInt(request.queryParams("${attr.name?lower_case}")));
+            </#if>
+            <#if attr.type == "double">
+            obj.set${attr.name?capitalize}(Double.parseDouble(request.queryParams("${attr.name?lower_case}")));
+            </#if>
+            <#if attr.type == "float">
+            obj.set${attr.name?capitalize}(Float.parseFloat(request.queryParams("${attr.name?lower_case}")));
+            </#if>
+            <#if attr.type != "float" && attr.type != "int" && attr.type != "double">
+            obj.set${attr.name?capitalize}(request.queryParams("${attr.name?lower_case}"));
+            </#if>
             </#list>
             obj.save();
 
@@ -69,27 +68,40 @@ public class Application {
             return null;
         });
 
-        get("/person/delete", (request, response) -> {
-            Person pessoa = Person.get(Integer.parseInt(request.queryParams("id")));
-            pessoa.delete();
+        get("/${class.name?lower_case}/delete", (request, response) -> {
+            ${class.name?capitalize} obj = ${class.name?capitalize}.get(Integer.parseInt(request.queryParams("id")));
+            obj.delete();
 
-            response.redirect("/person/list");
+            response.redirect("/${class.name?lower_case}/list");
             return null;
         });
 
-        get("/person/create", (request, response) -> {
+        get("/${class.name?lower_case}/create", (request, response) -> {
 
-            return engine.render(null,"person/create.html");
+            return engine.render(null,"${class.name?lower_case}/create.html");
         });
 
-        post("/person/create", (request, response) -> {
-            Person pessoa = new Person();
-            pessoa.setName(request.queryParams("name"));
-            pessoa.setAge(Integer.parseInt(request.queryParams("age")));
-            pessoa.save();
+        post("/${class.name?lower_case}/create", (request, response) -> {
+            ${class.name?capitalize} obj = new ${class.name?capitalize}();
+            <#list class.attributes as attr>
+            <#if attr.type == "int">
+            obj.set${attr.name?capitalize}(Integer.parseInt(request.queryParams("${attr.name?lower_case}")));
+             </#if>
+            <#if attr.type == "double">
+            obj.set${attr.name?capitalize}(Double.parseDouble(request.queryParams("${attr.name?lower_case}")));
+            </#if>
+            <#if attr.type == "float">
+            obj.set${attr.name?capitalize}(Float.parseFloat(request.queryParams("${attr.name?lower_case}")));
+            </#if>
+            <#if attr.type != "float" && attr.type != "int" && attr.type != "double">
+            obj.set${attr.name?capitalize}(request.queryParams("${attr.name?lower_case}"));
+            </#if>
+            </#list>
+            obj.save();
 
-            response.redirect("/person/list");
+            response.redirect("/${class.name?lower_case}/list");
             return null;
+
         });
 
         </#list>

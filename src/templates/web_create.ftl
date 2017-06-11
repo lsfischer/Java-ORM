@@ -1,4 +1,4 @@
-<h1>Create ${name}:</h1>
+<h1>Create new ${name}:</h1>
 
 <form action="/${name?lower_case}/create" method="post">
     <#list attributes as attr>
