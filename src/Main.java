@@ -203,13 +203,12 @@ public class Main {
         buildWebIndex(model);
         buildWebList(model);
         buildWebGet(model);
-        buildWebCreate(model);
+       /* buildWebCreate(model);*/
         buildApplication(model);
     }
 
     private static void createFile(String parsedFile, Model model, String path) {
-        try {
-            File fout = new File(path);
+        try {            File fout = new File(path);
             FileOutputStream fos = new FileOutputStream(fout);
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
             bw.write(parsedFile);
@@ -246,6 +245,7 @@ public class Main {
     //Web_get
     public static void buildWebGet(Model model) {
         Model2Text model2Text = new Model2Text("src/templates");
+
         for (Class c : model.getClasses()) {
             String javaClasses = model2Text.render(c, "web_get.ftl");
             System.out.println(javaClasses);

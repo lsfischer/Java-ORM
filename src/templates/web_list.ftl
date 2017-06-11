@@ -1,3 +1,4 @@
+<!-- Endpoint on browser:  "/${name?lower_case}/list/"  -->
 <h1>List all ${name}s</h1>
 
 <a href="/${name?lower_case}/create">Create a new ${name}</a>
@@ -8,16 +9,6 @@
     ${r"</#list>"}
 
 </ul>
-
-
-
-
-
-
-
-
-
-
 
 
 
