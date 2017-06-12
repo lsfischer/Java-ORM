@@ -1,0 +1,7 @@
+<h1>List all Person</h1>
+<ul>
+    <a href="/person/create">create new person</a>
+    <#list objs as obj>
+        <li><a href="/person/get?id=${obj.id}">${obj.name}</a> [<a href="/person/delete?id=${obj.id}">Delete</a>]</li>
+    </#list>
+</ul>
