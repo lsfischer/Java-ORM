@@ -1,0 +1,21 @@
+<!-- Endpoint on browser:  "/person/get"  -->
+<h1>List one Book</h1>
+
+<form action="/book/update" method="post">
+    <input name="id" type="hidden" value="${obj.id}"/>
+    <label for="title">Title</label>
+    <input id="title" name="title" type="text" value="${obj.title}"/>
+    <label for="pubDate">Pubdate</label>
+    <input id="pubDate" name="pubDate" type="text" value="${obj.pubDate}"/>
+    <label for="price">Price</label>
+    <input id="price" name="price" type="text" value="${obj.price}"/>
+    <label for="quantity">Quantity</label>
+    <input id="quantity" name="quantity" type="text" value="${obj.quantity}"/>
+    <input type="submit" value="Update"/>
+</form>
+    <h2>Authors</h2>
+<select>
+    <#list relation as rel>
+        <option>${rel}</option>
+    </#list>
+</select>
