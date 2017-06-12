@@ -38,10 +38,18 @@ public class Application {
 
 
         get("/${class.name?lower_case}/get", (request, response) -> {
-            HashMap<Object,Object> n = new HashMap<>();
+            HashMap<Object,Object> model = new HashMap<>();
             ${class.name} objct = ${class.name}.get(request.queryParams("id"));
-            n.put("obj",objct);
-            return engine.render(n,"${name?lower_case}/${class.name?lower_case}/get.html");
+            model.put("obj",objct);
+            <#list class.relations as rels>
+            <#if rels.foreignClass.name == class.name>
+            model.put("relation",objct.get${rels.regularClass.name}s());
+            <#else>
+            model.put("relation",objct.get${rels.foreignClass.name}());
+            </#if>
+            </#list>
+
+            return engine.render(model,"${name?lower_case}/${class.name?lower_case}/get.html");
         });
 
 
