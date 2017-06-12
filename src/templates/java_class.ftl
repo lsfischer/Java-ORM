@@ -18,7 +18,7 @@ package ${pkg};
         </#if>
 </#list>
 
-import utils.sqlite.SQLiteConn;
+import utils.SQLiteConn;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
@@ -228,6 +228,14 @@ public class ${name} {
         this.id = id;
     }
 
+    public String get__name__(){
+        return this.__name__;
+    }
+
+    public void set__name__(String __name__){
+        this.__name__ = __name__;
+    }
+
     /**
      * Metodo que guarda na base de dados o estado atual de todos os atributos da Classe
      */
@@ -248,10 +256,10 @@ public class ${name} {
         </#list>
         openSqLite();
         if(this.id >= 1){
-            String sql = String.format("UPDATE ${name} SET <#list attributes as attribute><#if attribute.name != "id">${attribute.name} = '%s'<#sep>,</#sep></#if></#list> WHERE id = '%s'",<#list attributes as attribute><#if attribute.name != "id">this.${attribute.name}<#sep>,</#sep></#if></#list>,this.id);
+            String sql = String.format("UPDATE ${name} SET __name__ = '%s',<#list attributes as attribute><#if attribute.name != "id">${attribute.name} = '%s'<#sep>,</#sep></#if></#list> WHERE id = '%s'",this.__name__,<#list attributes as attribute><#if attribute.name != "id">this.${attribute.name}<#sep>,</#sep></#if></#list>,this.id);
             sqLiteConn.executeUpdate(sql);
         }else{
-            String sql = String.format("INSERT INTO ${name} (<#list attributes as attribute>${attribute.name}<#sep>,</#sep></#list>) VALUES (<#list attributes as attribute>'%s'<#sep>,</#sep></#list>)",<#list attributes as attribute>this.${attribute.name}<#sep>,</#sep></#list>);
+            String sql = String.format("INSERT INTO ${name} (__name__,<#list attributes as attribute>${attribute.name}<#sep>,</#sep></#list>) VALUES ('%s',<#list attributes as attribute>'%s'<#sep>,</#sep></#list>)",this.__name__,<#list attributes as attribute>this.${attribute.name}<#sep>,</#sep></#list>);
             int idPerson = sqLiteConn.executeUpdate(sql);
             setId(idPerson);
         }
@@ -366,6 +374,9 @@ public class ${name} {
 
                 int id = rs.getInt("id");
                 ${name?lower_case}.setId(id);
+
+                String __name__ = rs.getString("__name__");
+                ${name?lower_case}.set__name__(__name__);
 
                 <#list attributes as attribute>
                 <#if !attribute.required>

@@ -5,7 +5,7 @@
 
 <ul>
     ${r"<#list objs as obj>"}
-        <li><a href="/${name}/get?id=${r"${obj.id}"}">${r"${obj.name}"}</a> <a href="/${name?lower_case}/delete?id=${r"${obj.id}"}">[Delete]</a></li>
+        <li><a href="/${name?lower_case}/get?id=${r"${obj.id}"}">${r"${obj.__name__}"}</a> <a href="/${name?lower_case}/delete?id=${r"${obj.id}"}">[Delete]</a></li>
     ${r"</#list>"}
 
 </ul>

@@ -8,6 +8,7 @@
 /* Create table ${class.name} */
 CREATE TABLE ${class.name} (
     id INTEGER PRIMARY KEY,
+    __name__ TEXT,
 <#list class.attributes as attr>
     <#if int_types?seq_contains(attr.type)>
     ${attr.name?lower_case} INTEGER <#if attr.required>NOT NULL</#if><#sep>,</#sep>
