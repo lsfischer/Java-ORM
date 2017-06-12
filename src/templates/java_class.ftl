@@ -43,6 +43,7 @@ public class ${name} {
     </#if>
     </#list>
     private int id;
+    private String __name__;
     private static SQLiteConn sqLiteConn = new SQLiteConn("src/${pkg}/${pkg}.db");
 
     <#if requiredAttributes?size != 0>
@@ -62,6 +63,7 @@ public class ${name} {
      * Construtor vazio da classe ${name}
      */
     public ${name}(){
+        this.__name__ = "${name}_"+this.id;
     }
     </#if>
 

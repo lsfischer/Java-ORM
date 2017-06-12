@@ -1,7 +1,14 @@
-<h1>List all Book</h1>
+<!-- Endpoint on browser:  "/book/list/"  -->
+<h1>List all Books</h1>
+
+<a href="/book/create">Create a new Book</a>
+
 <ul>
-    <a href="/book/create">create new person</a>
     <#list objs as obj>
-        <li><a href="/book/get?id=${obj.id}">${obj.name}</a> [<a href="/book/delete?id=${obj.id}">Delete</a>]</li>
+        <li><a href="/Book/get?id=${obj.id}">${obj.name}</a> <a href="/book/delete?id=${obj.id}">[Delete]</a></li>
     </#list>
+
 </ul>
+
+
+

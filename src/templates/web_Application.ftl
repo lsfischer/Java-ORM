@@ -4,7 +4,7 @@
  */
 
 <#list classes as class>
-import ${class.name?lower_case}.${class.name};
+import ${name?lower_case}.${class.name};
 </#list>
 import utils.FreemarkerEngine;
 import java.util.HashMap;
@@ -33,20 +33,20 @@ public class Application {
         get("/${class.name?lower_case}/list", (request, response) -> {
             HashMap<Object,Object> n = new HashMap<>();
             n.put("objs",${class.name}.all());
-            return engine.render(n,"${class.name?lower_case}/list.html");
+            return engine.render(n,"${name?lower_case}/${class.name?lower_case}/list.html");
         });
 
 
         get("/${class.name?lower_case}/get", (request, response) -> {
             HashMap<Object,Object> n = new HashMap<>();
-            ${class.name} objct = ${class.name}.get(Integer.parseInt(request.queryParams("id")));
+            ${class.name} objct = ${class.name}.get(request.queryParams("id"));
             n.put("obj",objct);
-            return engine.render(n,"${class.name?lower_case}/get.html");
+            return engine.render(n,"${name?lower_case}/${class.name?lower_case}/get.html");
         });
 
 
         post("/${class.name?lower_case}/update", (request, response) -> {
-            ${class.name?capitalize} obj = ${class.name?capitalize}.get(Integer.parseInt(request.queryParams("id")));
+            ${class.name?capitalize} obj = ${class.name?capitalize}.get(request.queryParams("id"));
 
             <#list class.attributes as attr>
             <#if attr.type == "int">
@@ -69,7 +69,7 @@ public class Application {
         });
 
         get("/${class.name?lower_case}/delete", (request, response) -> {
-            ${class.name?capitalize} obj = ${class.name?capitalize}.get(Integer.parseInt(request.queryParams("id")));
+            ${class.name?capitalize} obj = ${class.name?capitalize}.get(request.queryParams("id"));
             obj.delete();
 
             response.redirect("/${class.name?lower_case}/list");
@@ -78,7 +78,7 @@ public class Application {
 
         get("/${class.name?lower_case}/create", (request, response) -> {
 
-            return engine.render(null,"${class.name?lower_case}/create.html");
+            return engine.render(null,"${name?lower_case}/${class.name?lower_case}/create.html");
         });
 
         post("/${class.name?lower_case}/create", (request, response) -> {

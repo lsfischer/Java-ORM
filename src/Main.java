@@ -199,16 +199,43 @@ public class Main {
     public static void testORM() {
     }
 
+    public static void buildModelToServer(Model model) {
+        Model2Text model2Text = new Model2Text("src/templates");
+        String sqlTables = model2Text.render(model, "sqlite3_create.ftl");
+        System.out.println(sqlTables);
+        File f = new File("src/out/" + model.getName().toLowerCase());
+        f.mkdirs();
+
+        SQLiteConn sqLiteConn = new SQLiteConn("src/out/" + model.getName().toLowerCase() + "/" + model.getName().toLowerCase() + ".db");
+        sqLiteConn.execute(sqlTables);
+
+        for (Class c : model.getClasses()) {
+            String javaClasses = model2Text.render(c, "java_class.ftl");
+            System.out.println(javaClasses);
+            try {
+                File fout = new File("src/out/" + model.getName().toLowerCase() + "/" + c.getName() + ".java");
+                FileOutputStream fos = new FileOutputStream(fout);
+                BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
+                bw.write(javaClasses);
+                bw.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public static void buildServerApp(Model model) {
+        buildModelToServer(model);
         buildWebIndex(model);
-        buildWebList(model);        //TODO from Daniel: meti isto ja a funcionar fixe, falta agr meter isto a funcionar numa app e ver se existem bugs (OBVIO QUE SIM NE)
+        buildWebList(model);
         buildWebGet(model);
         buildWebCreate(model);
         buildApplication(model);
     }
 
     private static void createFile(String parsedFile, Model model, String path) {
-        try {            File fout = new File(path);
+        try {
+            File fout = new File(path);
             FileOutputStream fos = new FileOutputStream(fout);
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
             bw.write(parsedFile);
@@ -238,7 +265,6 @@ public class Main {
             System.out.println(javaClasses);
             createFile(javaClasses, model, "src/out/resources/templates/" + model.getName().toLowerCase() + "/" + c.getName().toLowerCase() + "/list.html");
         }
-
     }
 
 
@@ -267,6 +293,6 @@ public class Main {
         Model2Text model2Text = new Model2Text("src/templates");
         String applicationJava = model2Text.render(model, "web_Application.ftl");
         System.out.println(applicationJava);
-        createFile(applicationJava, model, "src/out/resources/Application.java");
+        createFile(applicationJava, model, "src/out/Application.java");
     }
 }
