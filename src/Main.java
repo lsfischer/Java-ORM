@@ -203,17 +203,17 @@ public class Main {
         Model2Text model2Text = new Model2Text("src/templates");
         String sqlTables = model2Text.render(model, "sqlite3_create.ftl");
         System.out.println(sqlTables);
-        File f = new File("src/out/" + model.getName().toLowerCase());
+        File f = new File("src/out/GeneratedProject/src/" + model.getName().toLowerCase());
         f.mkdirs();
 
-        SQLiteConn sqLiteConn = new SQLiteConn("src/out/" + model.getName().toLowerCase() + "/" + model.getName().toLowerCase() + ".db");
+        SQLiteConn sqLiteConn = new SQLiteConn("src/out/GeneratedProject/src/" + model.getName().toLowerCase() + "/" + model.getName().toLowerCase() + ".db");
         sqLiteConn.execute(sqlTables);
 
         for (Class c : model.getClasses()) {
             String javaClasses = model2Text.render(c, "java_class.ftl");
             System.out.println(javaClasses);
             try {
-                File fout = new File("src/out/" + model.getName().toLowerCase() + "/" + c.getName() + ".java");
+                File fout = new File("src/out/GeneratedProject/src/" + model.getName().toLowerCase() + "/" + c.getName() + ".java");
                 FileOutputStream fos = new FileOutputStream(fout);
                 BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
                 bw.write(javaClasses);
@@ -250,20 +250,20 @@ public class Main {
         Model2Text model2Text = new Model2Text("src/templates");
         String javaClasses = model2Text.render(model, "web_index.ftl");
         System.out.println(javaClasses);
-        File f = new File("src/out/resources/templates/");
+        File f = new File("src/out/GeneratedProject/src/resources/templates/");
         f.mkdirs();
-        createFile(javaClasses, model, "src/out/resources/templates/index.html");
+        createFile(javaClasses, model, "src/out/GeneratedProject/src/resources/templates/index.html");
     }
 
     //Web_list
     public static void buildWebList(Model model) {
         Model2Text model2Text = new Model2Text("src/templates");
         for (Class c : model.getClasses()) {
-            File f = new File("src/out/resources/templates/" + model.getName().toLowerCase() + "/" + c.getName().toLowerCase());
+            File f = new File("src/out/GeneratedProject/src/resources/templates/" + model.getName().toLowerCase() + "/" + c.getName().toLowerCase());
             f.mkdirs();
             String javaClasses = model2Text.render(c, "web_list.ftl");
             System.out.println(javaClasses);
-            createFile(javaClasses, model, "src/out/resources/templates/" + model.getName().toLowerCase() + "/" + c.getName().toLowerCase() + "/list.html");
+            createFile(javaClasses, model, "src/out/GeneratedProject/src/resources/templates/" + model.getName().toLowerCase() + "/" + c.getName().toLowerCase() + "/list.html");
         }
     }
 
@@ -275,7 +275,7 @@ public class Main {
         for (Class c : model.getClasses()) {
             String javaClasses = model2Text.render(c, "web_get.ftl");
             System.out.println(javaClasses);
-            createFile(javaClasses, model, "src/out/resources/templates/" + model.getName().toLowerCase() + "/" + c.getName().toLowerCase() + "/get.html");
+            createFile(javaClasses, model, "src/out/GeneratedProject/src/resources/templates/" + model.getName().toLowerCase() + "/" + c.getName().toLowerCase() + "/get.html");
         }
     }
 
@@ -285,7 +285,7 @@ public class Main {
         for (Class c : model.getClasses()) {
             String javaClasses = model2Text.render(c, "web_create.ftl");
             System.out.println(javaClasses);
-            createFile(javaClasses, model, "src/out/resources/templates/" + model.getName().toLowerCase() + "/" + c.getName().toLowerCase() + "/create.html");
+            createFile(javaClasses, model, "src/out/GeneratedProject/src/resources/templates/" + model.getName().toLowerCase() + "/" + c.getName().toLowerCase() + "/create.html");
         }
     }
 
@@ -293,6 +293,6 @@ public class Main {
         Model2Text model2Text = new Model2Text("src/templates");
         String applicationJava = model2Text.render(model, "web_Application.ftl");
         System.out.println(applicationJava);
-        createFile(applicationJava, model, "src/out/Application.java");
+        createFile(applicationJava, model, "src/out/GeneratedProject/src/Application.java");
     }
 }
