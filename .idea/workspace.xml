@@ -5,21 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="362a2e9b-8028-44a0-b85b-21b753214301" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/Application.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/bookstore/Author.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/bookstore/Book.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/bookstore/bookstore.db" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/resources/templates/bookstore/author/create.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/resources/templates/bookstore/author/get.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/resources/templates/bookstore/author/list.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/resources/templates/bookstore/book/create.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/resources/templates/bookstore/book/get.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/resources/templates/bookstore/book/list.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/resources/templates/index.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/Main.class" afterPath="$PROJECT_DIR$/out/production/DBMLab/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/web_index.ftl" afterPath="$PROJECT_DIR$/src/templates/web_index.ftl" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -917,14 +904,7 @@
       <workItem from="1497354406869" duration="50000" />
       <workItem from="1497625125037" duration="521000" />
       <workItem from="1497628020077" duration="305000" />
-      <workItem from="1497628366784" duration="22000" />
-    </task>
-    <task id="LOCAL-00041" summary="saveRelation() done">
-      <created>1493232937335</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1493232937335</updated>
+      <workItem from="1497628366784" duration="88000" />
     </task>
     <task id="LOCAL-00042" summary="update">
       <created>1493233038425</created>
@@ -1262,11 +1242,18 @@
       <option name="project" value="LOCAL" />
       <updated>1497293478388</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="added css to index page">
+      <created>1497628418672</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1497628418672</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84872000" />
+    <option name="totallyTimeSpent" value="84938000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1371,7 +1358,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Modified construtor and all() method" />
     <MESSAGE value="Added TODO" />
     <MESSAGE value="Added TODO to remove empty constructor" />
     <MESSAGE value="jesus christ" />
@@ -1396,7 +1382,8 @@
     <MESSAGE value="update" />
     <MESSAGE value="updates" />
     <MESSAGE value="sei la" />
-    <option name="LAST_COMMIT_MESSAGE" value="sei la" />
+    <MESSAGE value="added css to index page" />
+    <option name="LAST_COMMIT_MESSAGE" value="added css to index page" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
