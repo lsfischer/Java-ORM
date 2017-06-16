@@ -1,0 +1,47 @@
+body, head{
+    padding:0;
+    margin:0;
+}
+h1{
+    color: white;
+    background-color: #009688;
+    width:100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:0;
+    height: 80px;
+}
+h2{
+    color: #009688;
+    margin-bottom: 5px;
+}
+#bodySection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#entities {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+ul{
+    padding: 0;
+    list-style-type: none;
+}
+li{
+    margin-bottom: 10px;
+}
+a{
+    text-decoration: none;
+
+    color: black;
+    transition-duration: 0.2s;
+}
+a:hover{
+    font-size: 24px;
+}

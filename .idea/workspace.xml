@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="362a2e9b-8028-44a0-b85b-21b753214301" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/Main.class" afterPath="$PROJECT_DIR$/out/production/DBMLab/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -37,8 +36,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="275" column="54" lean-forward="false" selection-start-line="275" selection-start-column="54" selection-end-line="275" selection-end-column="54" />
+            <state relative-caret-position="299">
+              <caret line="284" column="44" lean-forward="true" selection-start-line="284" selection-start-column="44" selection-end-line="284" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#getModelChoice#0;class#Main#0" expanded="false" />
@@ -904,14 +903,7 @@
       <workItem from="1497354406869" duration="50000" />
       <workItem from="1497625125037" duration="521000" />
       <workItem from="1497628020077" duration="305000" />
-      <workItem from="1497628366784" duration="88000" />
-    </task>
-    <task id="LOCAL-00042" summary="update">
-      <created>1493233038425</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1493233038425</updated>
+      <workItem from="1497628366784" duration="278000" />
     </task>
     <task id="LOCAL-00043" summary="fixin' bugs ... again">
       <created>1493235750893</created>
@@ -1249,11 +1241,18 @@
       <option name="project" value="LOCAL" />
       <updated>1497628418672</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="css to index page">
+      <created>1497628541982</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1497628541982</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84938000" />
+    <option name="totallyTimeSpent" value="85128000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1358,7 +1357,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added TODO" />
     <MESSAGE value="Added TODO to remove empty constructor" />
     <MESSAGE value="jesus christ" />
     <MESSAGE value="bugs fixed" />
@@ -1383,7 +1381,8 @@
     <MESSAGE value="updates" />
     <MESSAGE value="sei la" />
     <MESSAGE value="added css to index page" />
-    <option name="LAST_COMMIT_MESSAGE" value="added css to index page" />
+    <MESSAGE value="css to index page" />
+    <option name="LAST_COMMIT_MESSAGE" value="css to index page" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1594,8 +1593,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="275" column="54" lean-forward="false" selection-start-line="275" selection-start-column="54" selection-end-line="275" selection-end-column="54" />
+        <state relative-caret-position="299">
+          <caret line="284" column="44" lean-forward="true" selection-start-line="284" selection-start-column="44" selection-end-line="284" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#getModelChoice#0;class#Main#0" expanded="false" />
