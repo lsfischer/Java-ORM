@@ -1,5 +1,5 @@
 <head>
-    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../../../styles/mainPage.css">
 </head>
 <h1>Create new ${name}:</h1>
 
@@ -7,6 +7,7 @@
     <#list attributes as attr>
     <label for="${attr.name?lower_case}">${attr.name?capitalize}</label>
     <input id="${attr.name?lower_case}" name="${attr.name?lower_case}" type="text" />
+    <br/>
     </#list>
     <#list relations as rels>
     <select name="<#if rels.relationshipType == "N2N"><#if name?lower_case == rels.foreignClass.name?lower_case>${rels.regularClass.name?lower_case}_id<#else>${rels.foreignClass.name?lower_case}_id</#if>" multiple="multiple"</#if>>
@@ -16,9 +17,8 @@
             </#list>
         </#noparse>
     </select>
-
     </#list>
-
+    <br/>
     <input type="submit" value="Create" />
 </form>
 
