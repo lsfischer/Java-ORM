@@ -2,7 +2,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="../../../styles/mainPage.css">
 </head>
-<h1>List all Books</h1>
+<h1>Existing Books</h1>
 <div id="bodySection">
 <ul>
 <#assign nmr = 1 />
@@ -10,9 +10,7 @@
         <li><a href="/book/get?id=${obj.id}">Book_${nmr}</a> <a href="/book/delete?id=${obj.id}">[Delete]</a></li>
     <#assign nmr = nmr + 1 />
     </#list>
-
 </ul>
-
 <a class="button" href="/book/create">Create a new Book</a>
 </div>
 

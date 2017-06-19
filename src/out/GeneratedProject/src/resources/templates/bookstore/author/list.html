@@ -2,7 +2,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="../../../styles/mainPage.css">
 </head>
-<h1>List all Authors</h1>
+<h1>Existing Authors</h1>
 <div id="bodySection">
 <ul>
 <#assign nmr = 1 />
@@ -10,9 +10,7 @@
         <li><a href="/author/get?id=${obj.id}">Author_${nmr}</a> <a href="/author/delete?id=${obj.id}">[Delete]</a></li>
     <#assign nmr = nmr + 1 />
     </#list>
-
 </ul>
-
 <a class="button" href="/author/create">Create a new Author</a>
 </div>
 

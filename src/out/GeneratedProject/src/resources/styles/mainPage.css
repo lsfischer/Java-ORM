@@ -1,28 +1,32 @@
-body, head{
-    padding:0;
-    margin:0;
-   font-family: 'Open Sans', sans-serif;
+body, head {
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
 }
-h1{
+
+h1 {
     color: white;
     background-color: #009688;
-    width:100vw;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin:0;
+    margin: 0;
     height: 80px;
 }
-h2{
+
+h2 {
     color: #009688;
     margin-bottom: 5px;
 }
-#bodySection{
+
+#bodySection {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
+
 #entities {
     display: flex;
     justify-content: center;
@@ -30,19 +34,23 @@ h2{
     flex-direction: column;
     text-align: center;
 }
-ul{
+
+ul {
     padding: 0;
     list-style-type: none;
 }
-li{
+
+li {
     margin-bottom: 10px;
 }
-.entitiesItem{
+
+.entitiesItem {
     text-decoration: none;
     color: black;
     transition-duration: 0.2s;
 }
-.entitiesItem:hover{
+
+.entitiesItem:hover {
     font-size: 24px;
 }
 
@@ -66,4 +74,22 @@ li{
     background-color: #009688;
     color: white;
 }
+
+.textField {
+    border-radius: 5px;
+    margin: 20px 0 20px 20px;
+}
+
+.textField:focus {
+    outline: none !important;
+    border: 2px solid #009688;
+    box-shadow: 0 0 5px #009688;
+}
+
+.inputLabels {
+    margin-left: 20px;
+    color: #009688;
+    font-weight: bold;
+}
+
 

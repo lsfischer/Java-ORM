@@ -1,24 +1,27 @@
 <head>
-    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../../../styles/mainPage.css">
 </head>
 <h1>Create new Book:</h1>
 
 <form action="/book/create" method="post">
     <label for="title">Title</label>
     <input id="title" name="title" type="text" />
+    <br/>
     <label for="pubdate">Pubdate</label>
     <input id="pubdate" name="pubdate" type="text" />
+    <br/>
     <label for="price">Price</label>
     <input id="price" name="price" type="text" />
+    <br/>
     <label for="quantity">Quantity</label>
     <input id="quantity" name="quantity" type="text" />
+    <br/>
     <select name="author_id" multiple="multiple">
             <#list foreignObjs as obj>
                 <option value="${obj.id}">${obj}</option>
             </#list>
     </select>
-
-
+    <br/>
     <input type="submit" value="Create" />
 </form>
 

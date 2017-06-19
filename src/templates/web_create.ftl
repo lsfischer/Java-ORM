@@ -5,8 +5,8 @@
 
 <form action="/${name?lower_case}/create" method="post">
     <#list attributes as attr>
-    <label for="${attr.name?lower_case}">${attr.name?capitalize}</label>
-    <input id="${attr.name?lower_case}" name="${attr.name?lower_case}" type="text" />
+    <label class="inputLabels" for="${attr.name?lower_case}">${attr.name?capitalize}</label>
+    <input class="textField" id="${attr.name?lower_case}" name="${attr.name?lower_case}" type="text" />
     <br/>
     </#list>
     <#list relations as rels>
@@ -19,7 +19,7 @@
     </select>
     </#list>
     <br/>
-    <input type="submit" value="Create" />
+    <input class="button" type="submit" value="Create" />
 </form>
 
 
