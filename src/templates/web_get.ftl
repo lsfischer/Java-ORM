@@ -1,4 +1,8 @@
 <!-- Endpoint on browser:  "/person/get"  -->
+<head>
+    <link rel="stylesheet" type="text/css" href="../../../styles/mainPage.css">
+</head>
+
 <h1>List one ${name}</h1>
 
 <form action="/${name?lower_case}/update" method="post">
@@ -6,8 +10,10 @@
 <#list attributes as attr>
     <label for="${attr.name}">${attr.name?capitalize}</label>
     <input id="${attr.name}" name="${attr.name}" type="text" value="${r"${"}obj.${attr.name}}"/>
+    <br/>
 </#list>
-    <input type="submit" value="Update"/>
+    <input class="button" type="submit" value="Update"/>
+    <br/>
 </form>
 <#list relations as rels>
     <#if rels.foreignClass.name == name>

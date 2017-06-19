@@ -1,17 +1,26 @@
 <!-- Endpoint on browser:  "/person/get"  -->
+<head>
+    <link rel="stylesheet" type="text/css" href="../../../styles/mainPage.css">
+</head>
+
 <h1>List one Book</h1>
 
 <form action="/book/update" method="post">
     <input name="id" type="hidden" value="${obj.id}"/>
     <label for="title">Title</label>
     <input id="title" name="title" type="text" value="${obj.title}"/>
+    <br/>
     <label for="pubDate">Pubdate</label>
     <input id="pubDate" name="pubDate" type="text" value="${obj.pubDate}"/>
+    <br/>
     <label for="price">Price</label>
     <input id="price" name="price" type="text" value="${obj.price}"/>
+    <br/>
     <label for="quantity">Quantity</label>
     <input id="quantity" name="quantity" type="text" value="${obj.quantity}"/>
-    <input type="submit" value="Update"/>
+    <br/>
+    <input class="button" type="submit" value="Update"/>
+    <br/>
 </form>
     <h2>Authors</h2>
 <select>
