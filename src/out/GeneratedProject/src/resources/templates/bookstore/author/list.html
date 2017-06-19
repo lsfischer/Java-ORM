@@ -1,8 +1,9 @@
 <!-- Endpoint on browser:  "/author/list/"  -->
+<head>
+    <link rel="stylesheet" type="text/css" href="../../../styles/mainPage.css">
+</head>
 <h1>List all Authors</h1>
-
-<a href="/author/create">Create a new Author</a>
-
+<div id="bodySection">
 <ul>
 <#assign nmr = 1 />
     <#list objs as obj>
@@ -12,5 +13,7 @@
 
 </ul>
 
+<a href="/author/create">Create a new Author</a>
+</div>
 
 

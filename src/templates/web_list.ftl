@@ -1,8 +1,9 @@
 <!-- Endpoint on browser:  "/${name?lower_case}/list/"  -->
+<head>
+    <link rel="stylesheet" type="text/css" href="../../../styles/mainPage.css">
+</head>
 <h1>List all ${name}s</h1>
-
-<a href="/${name?lower_case}/create">Create a new ${name}</a>
-
+<div id="bodySection">
 <ul>
 ${r"<#assign nmr = 1 />"}
     ${r"<#list objs as obj>"}
@@ -12,5 +13,7 @@ ${r"<#assign nmr = 1 />"}
 
 </ul>
 
+<a href="/${name?lower_case}/create">Create a new ${name}</a>
+</div>
 
 

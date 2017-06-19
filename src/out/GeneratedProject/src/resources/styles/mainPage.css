@@ -37,12 +37,33 @@ ul{
 li{
     margin-bottom: 10px;
 }
-a{
+.entitiesItem{
     text-decoration: none;
-
     color: black;
     transition-duration: 0.2s;
 }
-a:hover{
+.entitiesItem:hover{
     font-size: 24px;
 }
+
+.button {
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    margin: 0 20px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    text-decoration: none;
+    border-radius: 8px;
+    background-color: white;
+    color: black;
+    border: 2px solid #009688;
+    transition-duration: 0.4s;
+}
+
+.button:hover {
+    background-color: #009688;
+    color: white;
+}
+
