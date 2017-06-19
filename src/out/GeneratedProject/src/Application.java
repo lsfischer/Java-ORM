@@ -29,9 +29,9 @@ public class Application {
 
         // Set up Person endpoints
         get("/author/list", (request, response) -> {
-            HashMap<Object,Object> n = new HashMap<>();
-            n.put("objs",Author.all());
-            return engine.render(n,"bookstore/author/list.html");
+            HashMap<Object,Object> model = new HashMap<>();
+            model.put("objs",Author.all());
+            return engine.render(model,"bookstore/author/list.html");
         });
 
 
@@ -60,15 +60,14 @@ public class Application {
         get("/author/delete", (request, response) -> {
             Author obj = Author.get(request.queryParams("id"));
             obj.delete();
-
             response.redirect("/author/list");
             return null;
         });
 
         get("/author/create", (request, response) -> {
-            HashMap<Object,Object> n = new HashMap<>();
-                n.put("foreignObjs",Book.all());
-            return engine.render(n,"bookstore/author/create.html");
+            HashMap<Object,Object> model = new HashMap<>();
+	    model.put("foreignObjs",Book.all());
+            return engine.render(model,"bookstore/author/create.html");
         });
 
         post("/author/create", (request, response) -> {
@@ -92,9 +91,9 @@ public class Application {
 
         // Set up Person endpoints
         get("/book/list", (request, response) -> {
-            HashMap<Object,Object> n = new HashMap<>();
-            n.put("objs",Book.all());
-            return engine.render(n,"bookstore/book/list.html");
+            HashMap<Object,Object> model = new HashMap<>();
+            model.put("objs",Book.all());
+            return engine.render(model,"bookstore/book/list.html");
         });
 
 
@@ -124,15 +123,14 @@ public class Application {
         get("/book/delete", (request, response) -> {
             Book obj = Book.get(request.queryParams("id"));
             obj.delete();
-
             response.redirect("/book/list");
             return null;
         });
 
         get("/book/create", (request, response) -> {
-            HashMap<Object,Object> n = new HashMap<>();
-                n.put("foreignObjs",Author.all());
-            return engine.render(n,"bookstore/book/create.html");
+            HashMap<Object,Object> model = new HashMap<>();
+	    model.put("foreignObjs",Author.all());
+            return engine.render(model,"bookstore/book/create.html");
         });
 
         post("/book/create", (request, response) -> {

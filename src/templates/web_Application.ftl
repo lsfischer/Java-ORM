@@ -31,9 +31,9 @@ public class Application {
 
         // Set up Person endpoints
         get("/${class.name?lower_case}/list", (request, response) -> {
-            HashMap<Object,Object> n = new HashMap<>();
-            n.put("objs",${class.name}.all());
-            return engine.render(n,"${name?lower_case}/${class.name?lower_case}/list.html");
+            HashMap<Object,Object> model = new HashMap<>();
+            model.put("objs",${class.name}.all());
+            return engine.render(model,"${name?lower_case}/${class.name?lower_case}/list.html");
         });
 
 
@@ -79,21 +79,20 @@ public class Application {
         get("/${class.name?lower_case}/delete", (request, response) -> {
             ${class.name?capitalize} obj = ${class.name?capitalize}.get(request.queryParams("id"));
             obj.delete();
-
             response.redirect("/${class.name?lower_case}/list");
             return null;
         });
 
         get("/${class.name?lower_case}/create", (request, response) -> {
-            HashMap<Object,Object> n = new HashMap<>();
+            HashMap<Object,Object> model = new HashMap<>();
             <#list class.relations as rels>
-                <#if rels.foreignClass.name == class.name>
-                n.put("foreignObjs",${rels.regularClass.name}.all());
-                <#else>
-                n.put("foreignObjs",${rels.foreignClass.name}.all());
-                </#if>
+	    <#if rels.foreignClass.name == class.name>
+	    model.put("foreignObjs",${rels.regularClass.name}.all());
+	    <#else>
+	    model.put("foreignObjs",${rels.foreignClass.name}.all());
+	    </#if>
             </#list>
-            return engine.render(n,"${name?lower_case}/${class.name?lower_case}/create.html");
+            return engine.render(model,"${name?lower_case}/${class.name?lower_case}/create.html");
         });
 
         post("/${class.name?lower_case}/create", (request, response) -> {

@@ -7,23 +7,23 @@
 
 <form action="/book/update" method="post">
     <input name="id" type="hidden" value="${obj.id}"/>
-    <label for="title">Title</label>
-    <input id="title" name="title" type="text" value="${obj.title}"/>
+    <label class="inputLabels" for="title">Title</label>
+    <input class="textField" id="title" name="title" type="text" value="${obj.title}"/>
     <br/>
-    <label for="pubDate">Pubdate</label>
-    <input id="pubDate" name="pubDate" type="text" value="${obj.pubDate}"/>
+    <label class="inputLabels" for="pubDate">Pubdate</label>
+    <input class="textField" id="pubDate" name="pubDate" type="text" value="${obj.pubDate}"/>
     <br/>
-    <label for="price">Price</label>
-    <input id="price" name="price" type="text" value="${obj.price}"/>
+    <label class="inputLabels" for="price">Price</label>
+    <input class="textField" id="price" name="price" type="text" value="${obj.price}"/>
     <br/>
-    <label for="quantity">Quantity</label>
-    <input id="quantity" name="quantity" type="text" value="${obj.quantity}"/>
+    <label class="inputLabels" for="quantity">Quantity</label>
+    <input class="textField" id="quantity" name="quantity" type="text" value="${obj.quantity}"/>
     <br/>
     <input class="button" type="submit" value="Update"/>
     <br/>
 </form>
-    <h2>Authors</h2>
-<select>
+    <h2 class="foreignTitle">Authors</h2>
+<select class="selectInput">
     <#list relation as rel>
         <option>${rel}</option>
     </#list>
