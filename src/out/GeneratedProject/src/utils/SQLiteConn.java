@@ -2,7 +2,7 @@
  * SQLite JDBC Connection
  *
  */
-/*
+
 package utils;
 
 import java.sql.Connection;
@@ -25,7 +25,7 @@ public class SQLiteConn {
     /**
      * Closes the database connection.
      */
-    /*public void close() {
+    public void close() {
         try {
             connection.close();
         } catch (SQLException e) {
@@ -40,7 +40,7 @@ public class SQLiteConn {
      * @return either the id or 0 for statements that
      *         do not return anything
      */
-    /*public int executeUpdate(String sql) {
+    public int executeUpdate(String sql) {
         try {
             Statement stmt = connection.createStatement();
             stmt.executeUpdate(sql);
@@ -57,7 +57,7 @@ public class SQLiteConn {
      * @param sql the sql statement
      * @return ResultSet with the results
      */
-    /*public ResultSet executeQuery(String sql) {
+    public ResultSet executeQuery(String sql) {
         try {
             Statement stmt = connection.createStatement();
             return stmt.executeQuery(sql);
@@ -65,5 +65,5 @@ public class SQLiteConn {
             e.printStackTrace();
             return null;
         }
-    }*/
-//}
+    }
+}

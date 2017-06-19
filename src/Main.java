@@ -275,7 +275,7 @@ public class Main {
         for (Class c : model.getClasses()) {
             String javaClasses = model2Text.render(c, "web_get.ftl");
             System.out.println(javaClasses);
-            createFile(javaClasses, model, "src/out/GeneratedProject/src/resources/templates/" + model.getName().toLowerCase() + "/" + c.getName().toLowerCase() + "/get.html");
+            createFile(javaClasses, model, "src/out/GeneratedProjec t/src/resources/templates/" + model.getName().toLowerCase() + "/" + c.getName().toLowerCase() + "/get.html");
         }
     }
 

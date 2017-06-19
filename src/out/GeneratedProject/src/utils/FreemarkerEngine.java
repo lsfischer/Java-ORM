@@ -3,7 +3,7 @@
  *
  */
 
-/*package utils;
+package utils;
 
 import java.io.File;
 import java.io.IOException;
@@ -35,7 +35,7 @@ public class FreemarkerEngine {
      * @param name  the template name
      * @return      String
      */
-    /*public String render(Object model, String name) {
+    public String render(Object model, String name) {
         try {
             Template template = cfg.getTemplate(name);
             Writer out = new StringWriter();
@@ -47,4 +47,3 @@ public class FreemarkerEngine {
         }
     }
 }
-*/
