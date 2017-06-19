@@ -76,6 +76,8 @@ public class Application {
             obj.setFirst_name(request.queryParams("first_name"));
             obj.setLast_name(request.queryParams("last_name"));
             obj.setEmail(request.queryParams("email"));
+            Book book = Book.get(request.queryParams("book_id"));
+            obj.addBook(book);
             obj.save();
             obj.set__name__("Author_"+obj.getId());
             obj.save();
@@ -141,6 +143,8 @@ public class Application {
             obj.setPubdate(request.queryParams("pubdate"));
             obj.setPrice(Double.parseDouble(request.queryParams("price")));
             obj.setQuantity(Integer.parseInt(request.queryParams("quantity")));
+            Author author = Author.get(request.queryParams("author_id"));
+            obj.addAuthor(author);
             obj.save();
             obj.set__name__("Book_"+obj.getId());
             obj.save();

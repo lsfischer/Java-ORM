@@ -118,6 +118,16 @@ public class Application {
             obj.set${attr.name?capitalize}(request.queryParams("${attr.name?lower_case}"));
             </#if>
             </#list>
+            <#list class.relations as rels>
+            <#if rels.foreignClass.name == class.name>
+            ${rels.regularClass.name} ${rels.regularClass.name?lower_case} = ${rels.regularClass.name}.get(request.queryParams("${rels.regularClass.name?lower_case}_id"));
+            obj.add${rels.regularClass.name}(${rels.regularClass.name?lower_case});
+            </#if>
+            <#if rels.regularClass.name == class.name>
+            ${rels.foreignClass.name} ${rels.foreignClass.name?lower_case} = ${rels.foreignClass.name}.get(request.queryParams("${rels.foreignClass.name?lower_case}_id"));
+            obj.add${rels.foreignClass.name}(${rels.foreignClass.name?lower_case});
+            </#if>
+            </#list>
             obj.save();
             obj.set__name__("${class.name}_"+obj.getId());
             obj.save();
