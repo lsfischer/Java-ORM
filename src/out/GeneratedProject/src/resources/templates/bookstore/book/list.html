@@ -6,7 +6,7 @@
 <ul>
 <#assign nmr = 1 />
     <#list objs as obj>
-        <li><a href="/book/get?id=${obj.id}">${name}_${nmr}</a> <a href="/book/delete?id=${obj.id}">[Delete]</a></li>
+        <li><a href="/book/get?id=${obj.id}">Book_${nmr}</a> <a href="/book/delete?id=${obj.id}">[Delete]</a></li>
     <#assign nmr = nmr + 1 />
     </#list>
 

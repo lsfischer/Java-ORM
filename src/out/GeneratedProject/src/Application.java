@@ -66,9 +66,9 @@ public class Application {
         });
 
         get("/author/create", (request, response) -> {
-        HashMap<Object,Object> n = new HashMap<>();
+            HashMap<Object,Object> n = new HashMap<>();
                 n.put("foreignObjs",Book.all());
-        return engine.render(n,"bookstore/author/create.html");
+            return engine.render(n,"bookstore/author/create.html");
         });
 
         post("/author/create", (request, response) -> {
@@ -130,9 +130,9 @@ public class Application {
         });
 
         get("/book/create", (request, response) -> {
-        HashMap<Object,Object> n = new HashMap<>();
+            HashMap<Object,Object> n = new HashMap<>();
                 n.put("foreignObjs",Author.all());
-        return engine.render(n,"bookstore/book/create.html");
+            return engine.render(n,"bookstore/book/create.html");
         });
 
         post("/book/create", (request, response) -> {
