@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="362a2e9b-8028-44a0-b85b-21b753214301" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/Application.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/bookstore/Author.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/bookstore/Book.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/bookstore/bookstore.db" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/bookstore/author/list.html" afterPath="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/bookstore/author/list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/bookstore/book/list.html" afterPath="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/bookstore/book/list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/web_list.ftl" afterPath="$PROJECT_DIR$/src/templates/web_list.ftl" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -1027,13 +1020,6 @@
       <workItem from="1497881870418" duration="2115000" />
       <workItem from="1497884745581" duration="940000" />
     </task>
-    <task id="LOCAL-00048" summary="updates">
-      <created>1493728832288</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1493728832288</updated>
-    </task>
     <task id="LOCAL-00049" summary="Modified java_class.ftl and fixed database bugs">
       <created>1493821825576</created>
       <option name="number" value="00049" />
@@ -1370,11 +1356,18 @@
       <option name="project" value="LOCAL" />
       <updated>1497883720587</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <task id="LOCAL-00097" summary="correcao daquele bug do name">
+      <created>1497889298537</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1497889298538</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91097000" />
+    <option name="totallyTimeSpent" value="91164000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1501,7 +1494,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="One class model XMI support done" />
     <MESSAGE value="Working on getBooks();" />
     <MESSAGE value="verify if model comes from XML or XMI" />
     <MESSAGE value="Added sqLiteConn.close(), big update" />
@@ -1526,7 +1518,8 @@
     <MESSAGE value="generated projects" />
     <MESSAGE value="/create done" />
     <MESSAGE value="required constructores on /post/create done" />
-    <option name="LAST_COMMIT_MESSAGE" value="required constructores on /post/create done" />
+    <MESSAGE value="correcao daquele bug do name" />
+    <option name="LAST_COMMIT_MESSAGE" value="correcao daquele bug do name" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
