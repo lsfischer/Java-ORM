@@ -119,8 +119,6 @@ public class Application {
             </#if>
             </#list>
             obj.save();
-            obj.set__name__("${class.name}_"+obj.getId());
-            obj.save();
 
             response.redirect("/${class.name?lower_case}/list");
             return null;

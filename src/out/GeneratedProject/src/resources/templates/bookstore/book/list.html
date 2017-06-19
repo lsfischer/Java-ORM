@@ -4,8 +4,10 @@
 <a href="/book/create">Create a new Book</a>
 
 <ul>
+<#assign nmr = 1>
     <#list objs as obj>
-        <li><a href="/book/get?id=${obj.id}">${obj.__name__}</a> <a href="/book/delete?id=${obj.id}">[Delete]</a></li>
+        <li><a href="/book/get?id=${obj.id}">${obj.name}_${nmr}</a> <a href="/book/delete?id=${obj.id}">[Delete]</a></li>
+    <#assign nmr = nmr + 1>
     </#list>
 
 </ul>

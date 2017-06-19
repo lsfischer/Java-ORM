@@ -4,8 +4,10 @@
 <a href="/${name?lower_case}/create">Create a new ${name}</a>
 
 <ul>
+${r"<#assign nmr = 1 />"}
     ${r"<#list objs as obj>"}
-        <li><a href="/${name?lower_case}/get?id=${r"${obj.id}"}">${r"${obj.__name__}"}</a> <a href="/${name?lower_case}/delete?id=${r"${obj.id}"}">[Delete]</a></li>
+        <li><a href="/${name?lower_case}/get?id=${r"${obj.id}"}">${r"${obj.name}_${nmr}"}</a> <a href="/${name?lower_case}/delete?id=${r"${obj.id}"}">[Delete]</a></li>
+    ${r"<#assign nmr = nmr + 1 />"}
     ${r"</#list>"}
 
 </ul>
