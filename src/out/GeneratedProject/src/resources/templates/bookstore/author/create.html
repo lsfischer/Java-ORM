@@ -4,14 +4,14 @@
 <h1>Create new Author:</h1>
 
 <form action="/author/create" method="post">
-    <label for="first_name">First_name</label>
-    <input id="first_name" name="first_name" type="text" />
+    <label class="inputLabels" for="first_name">First_name</label>
+    <input class="textField" id="first_name" name="first_name" type="text" />
     <br/>
-    <label for="last_name">Last_name</label>
-    <input id="last_name" name="last_name" type="text" />
+    <label class="inputLabels" for="last_name">Last_name</label>
+    <input class="textField" id="last_name" name="last_name" type="text" />
     <br/>
-    <label for="email">Email</label>
-    <input id="email" name="email" type="text" />
+    <label class="inputLabels" for="email">Email</label>
+    <input class="textField" id="email" name="email" type="text" />
     <br/>
     <select name="book_id" multiple="multiple">
             <#list foreignObjs as obj>
@@ -19,7 +19,7 @@
             </#list>
     </select>
     <br/>
-    <input type="submit" value="Create" />
+    <input class="button" type="submit" value="Create" />
 </form>
 
 

@@ -4,17 +4,17 @@
 <h1>Create new Book:</h1>
 
 <form action="/book/create" method="post">
-    <label for="title">Title</label>
-    <input id="title" name="title" type="text" />
+    <label class="inputLabels" for="title">Title</label>
+    <input class="textField" id="title" name="title" type="text" />
     <br/>
-    <label for="pubdate">Pubdate</label>
-    <input id="pubdate" name="pubdate" type="text" />
+    <label class="inputLabels" for="pubdate">Pubdate</label>
+    <input class="textField" id="pubdate" name="pubdate" type="text" />
     <br/>
-    <label for="price">Price</label>
-    <input id="price" name="price" type="text" />
+    <label class="inputLabels" for="price">Price</label>
+    <input class="textField" id="price" name="price" type="text" />
     <br/>
-    <label for="quantity">Quantity</label>
-    <input id="quantity" name="quantity" type="text" />
+    <label class="inputLabels" for="quantity">Quantity</label>
+    <input class="textField" id="quantity" name="quantity" type="text" />
     <br/>
     <select name="author_id" multiple="multiple">
             <#list foreignObjs as obj>
@@ -22,7 +22,7 @@
             </#list>
     </select>
     <br/>
-    <input type="submit" value="Create" />
+    <input class="button" type="submit" value="Create" />
 </form>
 
 

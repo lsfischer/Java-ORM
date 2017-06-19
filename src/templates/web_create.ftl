@@ -1,7 +1,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="../../../styles/mainPage.css">
 </head>
-<h1>Create new ${name}:</h1>
+<h1>Create a new ${name}</h1>
 
 <form action="/${name?lower_case}/create" method="post">
     <#list attributes as attr>
@@ -10,7 +10,7 @@
     <br/>
     </#list>
     <#list relations as rels>
-    <select name="<#if rels.relationshipType == "N2N"><#if name?lower_case == rels.foreignClass.name?lower_case>${rels.regularClass.name?lower_case}_id<#else>${rels.foreignClass.name?lower_case}_id</#if>" multiple="multiple"</#if>>
+    <select class="selectInput" name="<#if rels.relationshipType == "N2N"><#if name?lower_case == rels.foreignClass.name?lower_case>${rels.regularClass.name?lower_case}_id<#else>${rels.foreignClass.name?lower_case}_id</#if>" multiple="multiple"</#if>>
         <#noparse>
             <#list foreignObjs as obj>
                 <option value="${obj.id}">${obj}</option>
