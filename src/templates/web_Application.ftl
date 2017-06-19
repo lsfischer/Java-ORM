@@ -85,8 +85,15 @@ public class Application {
         });
 
         get("/${class.name?lower_case}/create", (request, response) -> {
-
-            return engine.render(null,"${name?lower_case}/${class.name?lower_case}/create.html");
+        HashMap<Object,Object> n = new HashMap<>();
+            <#list class.relations as rels>
+                <#if rels.foreignClass.name == class.name>
+                n.put("foreignObjs",${rels.regularClass.name}.all());
+                <#else>
+                n.put("foreignObjs",${rels.foreignClass.name}.all());
+                </#if>
+            </#list>
+        return engine.render(n,"${name?lower_case}/${class.name?lower_case}/create.html");
         });
 
         post("/${class.name?lower_case}/create", (request, response) -> {
@@ -108,7 +115,7 @@ public class Application {
             obj.save();
             obj.set__name__("${class.name}_"+obj.getId());
             obj.save();
-        
+
             response.redirect("/${class.name?lower_case}/list");
             return null;
 
