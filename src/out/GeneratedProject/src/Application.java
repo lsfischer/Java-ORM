@@ -66,8 +66,9 @@ public class Application {
         });
 
         get("/author/create", (request, response) -> {
-
-            return engine.render(null,"bookstore/author/create.html");
+        HashMap<Object,Object> n = new HashMap<>();
+                n.put("foreignObjs",Book.all());
+        return engine.render(n,"bookstore/author/create.html");
         });
 
         post("/author/create", (request, response) -> {
@@ -78,7 +79,7 @@ public class Application {
             obj.save();
             obj.set__name__("Author_"+obj.getId());
             obj.save();
-        
+
             response.redirect("/author/list");
             return null;
 
@@ -129,12 +130,13 @@ public class Application {
         });
 
         get("/book/create", (request, response) -> {
-
-            return engine.render(null,"bookstore/book/create.html");
+        HashMap<Object,Object> n = new HashMap<>();
+                n.put("foreignObjs",Author.all());
+        return engine.render(n,"bookstore/book/create.html");
         });
 
         post("/book/create", (request, response) -> {
-            Book obj = new Book();
+            Book obj = new Book("", 0);
             obj.setTitle(request.queryParams("title"));
             obj.setPubdate(request.queryParams("pubdate"));
             obj.setPrice(Double.parseDouble(request.queryParams("price")));
@@ -142,7 +144,7 @@ public class Application {
             obj.save();
             obj.set__name__("Book_"+obj.getId());
             obj.save();
-        
+
             response.redirect("/book/list");
             return null;
 

@@ -97,7 +97,13 @@ public class Application {
         });
 
         post("/${class.name?lower_case}/create", (request, response) -> {
-            ${class.name?capitalize} obj = new ${class.name?capitalize}();
+            <#assign requiredAttributes =[]/>
+            <#list class.attributes as attribute>
+                <#if attribute.required>
+                    <#assign requiredAttributes = requiredAttributes + [attribute] />
+                </#if>
+            </#list>
+            ${class.name} obj = new ${class.name}(<#list requiredAttributes as requiredAttribute><#if requiredAttribute.type == "String">""<#else>0</#if><#sep>, </#sep></#list>);
             <#list class.attributes as attr>
             <#if attr.type == "int">
             obj.set${attr.name?capitalize}(Integer.parseInt(request.queryParams("${attr.name?lower_case}")));
