@@ -6,7 +6,7 @@
 <ul>
 ${r"<#assign nmr = 1 />"}
     ${r"<#list objs as obj>"}
-        <li><a href="/${name?lower_case}/get?id=${r"${obj.id}"}">${r"${name}_${nmr}"}</a> <a href="/${name?lower_case}/delete?id=${r"${obj.id}"}">[Delete]</a></li>
+        <li><a href="/${name?lower_case}/get?id=${r"${obj.id}"}">${name}${r"_${nmr}"}</a> <a href="/${name?lower_case}/delete?id=${r"${obj.id}"}">[Delete]</a></li>
     ${r"<#assign nmr = nmr + 1 />"}
     ${r"</#list>"}
 
