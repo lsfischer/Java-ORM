@@ -1,7 +1,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="../../../styles/mainPage.css">
 </head>
-<h1>Create new Author:</h1>
+<h1>Create a new Author</h1>
 
 <form action="/author/create" method="post">
     <label class="inputLabels" for="first_name">First_name</label>
@@ -13,7 +13,7 @@
     <label class="inputLabels" for="email">Email</label>
     <input class="textField" id="email" name="email" type="text" />
     <br/>
-    <select name="book_id" multiple="multiple">
+    <select class="selectInput" name="book_id" multiple="multiple">
             <#list foreignObjs as obj>
                 <option value="${obj.id}">${obj}</option>
             </#list>
