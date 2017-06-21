@@ -4,15 +4,15 @@
     <bookmark url="file://$PROJECT_DIR$/src/utils/transformations/Model2Text.java" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="362a2e9b-8028-44a0-b85b-21b753214301" name="Default" comment="validações nos forms create (falta os update)">
+    <list default="true" id="362a2e9b-8028-44a0-b85b-21b753214301" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/Application.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/bookstore/Author.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/bookstore/Book.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/bookstore/bookstore.db" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/bookstore/author/create.html" afterPath="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/bookstore/author/create.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/bookstore/book/create.html" afterPath="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/bookstore/book/create.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/web_create.ftl" afterPath="$PROJECT_DIR$/src/templates/web_create.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/bookstore/author/get.html" afterPath="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/bookstore/author/get.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/bookstore/book/get.html" afterPath="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/bookstore/book/get.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/web_get.ftl" afterPath="$PROJECT_DIR$/src/templates/web_get.ftl" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -63,8 +63,8 @@
       <file leaf-file-name="web_create.ftl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/templates/web_create.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="92" lean-forward="false" selection-start-line="6" selection-start-column="92" selection-end-line="6" selection-end-column="92" />
+            <state relative-caret-position="323">
+              <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
               <folding>
                 <marker date="1498044764962" expanded="true" signature="619:1166" ph="..." />
               </folding>
@@ -72,24 +72,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/bookstore/author/create.html">
+      <file leaf-file-name="web_get.ftl" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/templates/web_get.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="48" lean-forward="true" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
+            <state relative-caret-position="44">
+              <caret line="4" column="7" lean-forward="true" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/bookstore/book/create.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="44" lean-forward="false" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
-              <folding>
-                <marker date="1498044791053" expanded="true" signature="898:1039" ph="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -190,11 +178,11 @@
         <option value="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/bookstore/author/list.html" />
         <option value="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/index.html" />
         <option value="$PROJECT_DIR$/src/templates/web_list.ftl" />
-        <option value="$PROJECT_DIR$/src/templates/web_get.ftl" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/scripts/script.js" />
         <option value="$PROJECT_DIR$/src/templates/web_script.ftl" />
         <option value="$PROJECT_DIR$/src/templates/web_create.ftl" />
+        <option value="$PROJECT_DIR$/src/templates/web_get.ftl" />
       </list>
     </option>
   </component>
@@ -228,58 +216,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Java-ORM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Java-ORM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Java-ORM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Java-ORM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Java-ORM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Java-ORM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="out" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="production" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DBMLab" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -464,38 +400,64 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="out.GeneratedProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Java-ORM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DBMLab" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Java-ORM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Java-ORM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Java-ORM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Java-ORM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Java-ORM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Java-ORM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="out" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="production" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DBMLab" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1040,14 +1002,8 @@
       <workItem from="1498042898698" duration="101000" />
       <workItem from="1498043766346" duration="260000" />
       <workItem from="1498044183961" duration="126000" />
-      <workItem from="1498044345175" duration="474000" />
-    </task>
-    <task id="LOCAL-00064" summary="Added sqLiteConn.close(), big update">
-      <created>1494430239594</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1494430239594</updated>
+      <workItem from="1498044345175" duration="567000" />
+      <workItem from="1498052292626" duration="203000" />
     </task>
     <task id="LOCAL-00065" summary="ORM Completed, minor TODOs left">
       <created>1494437278183</created>
@@ -1385,11 +1341,18 @@
       <option name="project" value="LOCAL" />
       <updated>1498043976285</updated>
     </task>
-    <option name="localTasksCounter" value="113" />
+    <task id="LOCAL-00113" summary="as validações dos selects required ja estão feitas (se tivermos a criar um book e ele não escolher nenhum autor o browser pede ao user para escolher)">
+      <created>1498044869414</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1498044869414</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96574000" />
+    <option name="totallyTimeSpent" value="96870000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1494,7 +1457,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added missing files" />
     <MESSAGE value="Created Inicial web templates" />
     <MESSAGE value="web_get.ftl  with the ${r&quot;&quot;} aliens, working good!" />
     <MESSAGE value="update ao author/list" />
@@ -1519,7 +1481,8 @@
     <MESSAGE value="acho que nem mudei nada mas só naquela" />
     <MESSAGE value="working on automated javascript form validation" />
     <MESSAGE value="validações nos forms create (falta os update)" />
-    <option name="LAST_COMMIT_MESSAGE" value="validações nos forms create (falta os update)" />
+    <MESSAGE value="as validações dos selects required ja estão feitas (se tivermos a criar um book e ele não escolher nenhum autor o browser pede ao user para escolher)" />
+    <option name="LAST_COMMIT_MESSAGE" value="as validações dos selects required ja estão feitas (se tivermos a criar um book e ele não escolher nenhum autor o browser pede ao user para escolher)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1728,19 +1691,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/web_get.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="54" lean-forward="false" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/transformations/Model2Model.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="105" column="29" lean-forward="true" selection-start-line="105" selection-start-column="29" selection-end-line="105" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1756,17 +1710,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="16" column="38" lean-forward="false" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/web_create.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="92" lean-forward="false" selection-start-line="6" selection-start-column="92" selection-end-line="6" selection-end-column="92" />
-          <folding>
-            <marker date="1498044764962" expanded="true" signature="619:1166" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1775,15 +1718,33 @@
         <state relative-caret-position="170">
           <caret line="10" column="44" lean-forward="false" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
           <folding>
-            <marker date="1498044791053" expanded="true" signature="898:1039" ph="..." />
+            <marker date="1498052406762" expanded="true" signature="898:1039" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/bookstore/author/create.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="48" lean-forward="true" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
+        <state relative-caret-position="136">
+          <caret line="8" column="77" lean-forward="false" selection-start-line="8" selection-start-column="77" selection-end-line="8" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/web_create.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding>
+            <marker date="1498044764962" expanded="true" signature="619:1166" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/web_get.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="4" column="7" lean-forward="true" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
           <folding />
         </state>
       </provider>
