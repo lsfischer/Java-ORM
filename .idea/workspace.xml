@@ -5,14 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="362a2e9b-8028-44a0-b85b-21b753214301" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/templates/web_script.ftl" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/Application.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/bookstore/Author.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/bookstore/Book.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/bookstore/bookstore.db" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBMLab/Main.class" afterPath="$PROJECT_DIR$/out/production/DBMLab/Main.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/bookstore/author/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/bookstore/author/get.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/bookstore/author/list.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/bookstore/book/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/bookstore/book/get.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/bookstore/book/list.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/scripts/script.js" afterPath="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/scripts/script.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/web_create.ftl" afterPath="$PROJECT_DIR$/src/templates/web_create.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/web_script.ftl" afterPath="$PROJECT_DIR$/src/templates/web_script.ftl" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,7 +49,7 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
+            <state relative-caret-position="2431">
               <caret line="304" column="51" lean-forward="false" selection-start-line="304" selection-start-column="51" selection-end-line="304" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -60,34 +66,60 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="web_create.ftl" pinned="false" current-in-tab="false">
+      <file leaf-file-name="web_create.ftl" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/templates/web_create.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="43" lean-forward="false" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+            <state relative-caret-position="255">
+              <caret line="15" column="38" lean-forward="true" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
               <folding>
-                <marker date="1497895633415" expanded="true" signature="495:898" ph="..." />
+                <marker date="1498043861184" expanded="true" signature="619:1022" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="web_script.ftl" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/templates/web_script.ftl">
+      <file leaf-file-name="web_get.ftl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/templates/web_get.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="12" lean-forward="true" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+            <state relative-caret-position="187">
+              <caret line="11" column="54" lean-forward="false" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="web_Application.ftl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/templates/web_Application.ftl">
+      <file leaf-file-name="web_script.ftl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/templates/web_script.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="98" column="12" lean-forward="false" selection-start-line="98" selection-start-column="12" selection-end-line="103" selection-end-column="20" />
+            <state relative-caret-position="170">
+              <caret line="10" column="12" lean-forward="false" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/bookstore/book/create.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="10" column="44" lean-forward="false" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+              <folding>
+                <marker date="1498043938396" expanded="true" signature="252:1106" ph="..." />
+                <marker date="1498043938396" expanded="true" signature="898:1030" ph="..." />
+                <marker date="1498043938396" expanded="true" signature="918:1016" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="script.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/out/GeneratedProject/src/resources/scripts/script.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="29" lean-forward="false" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+              <folding>
+                <marker date="1498043938424" expanded="true" signature="409:469" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -131,7 +163,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/transformers/Model2Text.java" />
         <option value="$PROJECT_DIR$/src/transformations/Model2Text.java" />
         <option value="$PROJECT_DIR$/src/metamodels/Model.java" />
         <option value="$PROJECT_DIR$/src/templates/class.ftl" />
@@ -170,7 +201,6 @@
         <option value="$PROJECT_DIR$/src/out/bookstore/Book.java" />
         <option value="$PROJECT_DIR$/src/out/bookstore/Author.java" />
         <option value="$PROJECT_DIR$/src/out/resources/templates/bookstore/author/get.html" />
-        <option value="$PROJECT_DIR$/src/templates/web_create.ftl" />
         <option value="$PROJECT_DIR$/src/out/resources/templates/bookstore/author/create.html" />
         <option value="$PROJECT_DIR$/src/out/GeneratedProject/src/utils/SQLiteConn.java" />
         <option value="$PROJECT_DIR$/src/out/GeneratedProject/src/utils/FreemarkerEngine.java" />
@@ -181,7 +211,9 @@
         <option value="$PROJECT_DIR$/src/templates/web_list.ftl" />
         <option value="$PROJECT_DIR$/src/templates/web_get.ftl" />
         <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/scripts/script.js" />
         <option value="$PROJECT_DIR$/src/templates/web_script.ftl" />
+        <option value="$PROJECT_DIR$/src/templates/web_create.ftl" />
       </list>
     </option>
   </component>
@@ -215,6 +247,58 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Java-ORM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Java-ORM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Java-ORM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Java-ORM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Java-ORM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Java-ORM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="out" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="production" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DBMLab" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -270,28 +354,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Java-ORM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DBMLab" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="out.GeneratedProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -384,6 +446,10 @@
               <option name="myItemId" value="bookstore" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="author" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -435,58 +501,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Java-ORM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Java-ORM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Java-ORM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Java-ORM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Java-ORM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Java-ORM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="out" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="production" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DBMLab" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1026,14 +1040,10 @@
       <workItem from="1497905398194" duration="616000" />
       <workItem from="1497990588259" duration="149000" />
       <workItem from="1498039048924" duration="66000" />
-      <workItem from="1498040307976" duration="918000" />
-    </task>
-    <task id="LOCAL-00062" summary="updates">
-      <created>1494426170688</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1494426170688</updated>
+      <workItem from="1498040307976" duration="1647000" />
+      <workItem from="1498042083350" duration="274000" />
+      <workItem from="1498042898698" duration="101000" />
+      <workItem from="1498043766346" duration="176000" />
     </task>
     <task id="LOCAL-00063" summary="verify if model comes from XML or XMI">
       <created>1494427280105</created>
@@ -1371,11 +1381,18 @@
       <option name="project" value="LOCAL" />
       <updated>1497905411019</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="working on automated javascript form validation">
+      <created>1498041258520</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1498041258521</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94610000" />
+    <option name="totallyTimeSpent" value="95890000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1480,7 +1497,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updates" />
     <MESSAGE value="added lab10 functionalities" />
     <MESSAGE value="added missing files" />
     <MESSAGE value="Created Inicial web templates" />
@@ -1505,7 +1521,8 @@
     <MESSAGE value="updates ao css do get" />
     <MESSAGE value="Css kinda done" />
     <MESSAGE value="acho que nem mudei nada mas só naquela" />
-    <option name="LAST_COMMIT_MESSAGE" value="acho que nem mudei nada mas só naquela" />
+    <MESSAGE value="working on automated javascript form validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on automated javascript form validation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1686,48 +1703,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/web_get.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="54" lean-forward="false" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/out/GeneratedProject/src/resources/scripts/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/bookstore/author/create.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="9" lean-forward="true" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/web_Application.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
+        <state relative-caret-position="1666">
           <caret line="98" column="12" lean-forward="false" selection-start-line="98" selection-start-column="12" selection-end-line="103" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/metamodels/Attribute.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="47" column="7" lean-forward="false" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
+        <state relative-caret-position="2431">
           <caret line="304" column="51" lean-forward="false" selection-start-line="304" selection-start-column="51" selection-end-line="304" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1743,29 +1729,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/web_create.ftl">
+    <entry file="file://$PROJECT_DIR$/src/metamodels/Attribute.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="43" lean-forward="false" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
-          <folding>
-            <marker date="1497895633415" expanded="true" signature="495:898" ph="..." />
-          </folding>
+        <state relative-caret-position="731">
+          <caret line="47" column="7" lean-forward="false" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/bookstore/book/create.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="39" lean-forward="false" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
+        <state relative-caret-position="153">
+          <caret line="10" column="44" lean-forward="false" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+          <folding>
+            <marker date="1498043938396" expanded="true" signature="252:1106" ph="..." />
+            <marker date="1498043938396" expanded="true" signature="898:1030" ph="..." />
+            <marker date="1498043938396" expanded="true" signature="918:1016" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/bookstore/author/create.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="9" lean-forward="false" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/out/GeneratedProject/src/resources/scripts/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="29" lean-forward="false" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+          <folding>
+            <marker date="1498043938424" expanded="true" signature="409:469" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/web_script.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="12" lean-forward="true" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+        <state relative-caret-position="170">
+          <caret line="10" column="12" lean-forward="false" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/web_get.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="54" lean-forward="false" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/web_create.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="38" lean-forward="true" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+          <folding>
+            <marker date="1498043861184" expanded="true" signature="619:1022" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

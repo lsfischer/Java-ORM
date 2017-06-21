@@ -1,9 +1,10 @@
 <head>
     <link rel="stylesheet" type="text/css" href="../../../styles/mainPage.css">
+    <script src="../../../scripts/script.js"></script>
 </head>
 <h1>Create a new Author</h1>
 
-<form action="/author/create" method="post">
+<form action="/author/create" method="post" onsubmit="return validateAuthor()">
     <label class="inputLabels" for="first_name">First_name</label>
     <input class="textField" id="first_name" name="first_name" type="text" />
     <br/>
