@@ -51,6 +51,8 @@ public class Application {
             obj.setFirst_name(request.queryParams("first_name"));
             obj.setLast_name(request.queryParams("last_name"));
             obj.setEmail(request.queryParams("email"));
+            Book book = Book.get(request.queryParams("foreignList"));
+            obj.addBook(book);
             obj.save();
 
             response.redirect("/author/list");
@@ -114,6 +116,8 @@ public class Application {
             obj.setPubdate(request.queryParams("pubdate"));
             obj.setPrice(Double.parseDouble(request.queryParams("price")));
             obj.setQuantity(Integer.parseInt(request.queryParams("quantity")));
+            Author author = Author.get(request.queryParams("foreignList"));
+            obj.addAuthor(author);
             obj.save();
 
             response.redirect("/book/list");

@@ -17,12 +17,14 @@
     <label class="inputLabels" for="email">Email</label>
     <input class="textField" id="email" name="email" type="text" value="${obj.email}" />
     <br/>
+        <h2 class="foreignTitle">Books</h2>
+    <select class="selectInput" name="foreignList">
+        <#list relation as rel>
+            <option value="${rel.id}">${rel}</option>
+        </#list>
+    </select>
+    <br/>
     <input class="button" type="submit" value="Update"/>
     <br/>
 </form>
-    <h2 class="foreignTitle">Books</h2>
-<select class="selectInput">
-    <#list relation as rel>
-        <option>${rel}</option>
-    </#list>
-</select>
+
