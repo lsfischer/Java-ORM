@@ -106,6 +106,7 @@ public class Application {
         });
 
         post("/${class.name?lower_case}/create", (request, response) -> {
+
             <#assign requiredAttributes =[]/>
             <#list class.attributes as attribute>
                 <#if attribute.required>
@@ -113,6 +114,26 @@ public class Application {
                 </#if>
             </#list>
             ${class.name} obj = new ${class.name}(<#list requiredAttributes as requiredAttribute><#if requiredAttribute.type == "String">""<#else>0</#if><#sep>, </#sep></#list>);
+            <#list class.relations as rels>
+                <#if rels.foreignClass.name == class.name>
+            if(request.queryParams("${rels.regularClass.name?lower_case}_id") != null){
+                String ${rels.regularClass.name?lower_case}s[] = request.queryMap("${rels.regularClass.name?lower_case}_id").values();
+                for(int i = 0; i < ${rels.regularClass.name?lower_case}s.length;i++){
+                        ${rels.regularClass.name} ${rels.regularClass.name?lower_case} = ${rels.regularClass.name}.get(${rels.regularClass.name?lower_case}s[i]);
+                        obj.add${rels.regularClass.name}(${rels.regularClass.name?lower_case});
+                }
+            }
+                </#if>
+                <#if rels.regularClass.name == class.name>
+            if(request.queryParams("${rels.foreignClass.name?lower_case}_id") != null){
+                String ${rels.foreignClass.name?lower_case}s[] = request.queryMap("${rels.foreignClass.name?lower_case}_id").values();
+                for(int i = 0; i < ${rels.foreignClass.name?lower_case}s.length;i++){
+                    ${rels.foreignClass.name} ${rels.foreignClass.name?lower_case} = ${rels.foreignClass.name}.get(${rels.foreignClass.name?lower_case}s[i]);
+                    obj.add${rels.foreignClass.name}(${rels.foreignClass.name?lower_case});
+                }
+            }
+                </#if>
+            </#list>
             <#list class.attributes as attr>
             <#if attr.type == "int">
             obj.set${attr.name?capitalize}(Integer.parseInt(request.queryParams("${attr.name?lower_case}")));
@@ -125,16 +146,6 @@ public class Application {
             </#if>
             <#if attr.type != "float" && attr.type != "int" && attr.type != "double">
             obj.set${attr.name?capitalize}(request.queryParams("${attr.name?lower_case}"));
-            </#if>
-            </#list>
-            <#list class.relations as rels>
-            <#if rels.foreignClass.name == class.name>
-            ${rels.regularClass.name} ${rels.regularClass.name?lower_case} = ${rels.regularClass.name}.get(request.queryParams("${rels.regularClass.name?lower_case}_id"));
-            obj.add${rels.regularClass.name}(${rels.regularClass.name?lower_case});
-            </#if>
-            <#if rels.regularClass.name == class.name>
-            ${rels.foreignClass.name} ${rels.foreignClass.name?lower_case} = ${rels.foreignClass.name}.get(request.queryParams("${rels.foreignClass.name?lower_case}_id"));
-            obj.add${rels.foreignClass.name}(${rels.foreignClass.name?lower_case});
             </#if>
             </#list>
             obj.save();

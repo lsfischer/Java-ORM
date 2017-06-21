@@ -73,12 +73,18 @@ public class Application {
         });
 
         post("/author/create", (request, response) -> {
+
             Author obj = new Author();
+            if(request.queryParams("book_id") != null){
+                String books[] = request.queryMap("book_id").values();
+                for(int i = 0; i < books.length;i++){
+                        Book book = Book.get(books[i]);
+                        obj.addBook(book);
+                }
+            }
             obj.setFirst_name(request.queryParams("first_name"));
             obj.setLast_name(request.queryParams("last_name"));
             obj.setEmail(request.queryParams("email"));
-            Book book = Book.get(request.queryParams("book_id"));
-            obj.addBook(book);
             obj.save();
 
             response.redirect("/author/list");
@@ -138,13 +144,19 @@ public class Application {
         });
 
         post("/book/create", (request, response) -> {
+
             Book obj = new Book("", 0);
+            if(request.queryParams("author_id") != null){
+                String authors[] = request.queryMap("author_id").values();
+                for(int i = 0; i < authors.length;i++){
+                    Author author = Author.get(authors[i]);
+                    obj.addAuthor(author);
+                }
+            }
             obj.setTitle(request.queryParams("title"));
             obj.setPubdate(request.queryParams("pubdate"));
             obj.setPrice(Double.parseDouble(request.queryParams("price")));
             obj.setQuantity(Integer.parseInt(request.queryParams("quantity")));
-            Author author = Author.get(request.queryParams("author_id"));
-            obj.addAuthor(author);
             obj.save();
 
             response.redirect("/book/list");
