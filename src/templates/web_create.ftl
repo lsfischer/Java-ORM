@@ -11,7 +11,7 @@
     <br/>
     </#list>
     <#list relations as rels>
-    <select class="selectInput" name="<#if rels.relationshipType == "N2N"><#if name?lower_case == rels.foreignClass.name?lower_case>${rels.regularClass.name?lower_case}_id<#else>${rels.foreignClass.name?lower_case}_id</#if>" multiple="multiple"</#if>>
+    <select class="selectInput" name="<#if rels.relationshipType == "N2N"><#if name?lower_case == rels.foreignClass.name?lower_case>${rels.regularClass.name?lower_case}_id<#else>${rels.foreignClass.name?lower_case}_id</#if>" multiple="multiple"</#if> <#if (rels.regularClass.name == name && rels.secondClassRequired) || (rels.foreignClass.name == name && rels.firstClassRequired)>required</#if>>
         <#noparse>
             <#list foreignObjs as obj>
                 <option value="${obj.id}">${obj}</option>

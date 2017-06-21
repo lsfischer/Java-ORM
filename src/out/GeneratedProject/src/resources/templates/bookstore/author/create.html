@@ -14,7 +14,7 @@
     <label class="inputLabels" for="email">Email</label>
     <input class="textField" id="email" name="email" type="text" />
     <br/>
-    <select class="selectInput" name="book_id" multiple="multiple">
+    <select class="selectInput" name="book_id" multiple="multiple" >
             <#list foreignObjs as obj>
                 <option value="${obj.id}">${obj}</option>
             </#list>

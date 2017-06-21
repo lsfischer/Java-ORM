@@ -17,7 +17,7 @@
     <label class="inputLabels" for="quantity">Quantity</label>
     <input class="textField" id="quantity" name="quantity" type="text" required/>
     <br/>
-    <select class="selectInput" name="author_id" multiple="multiple">
+    <select class="selectInput" name="author_id" multiple="multiple" required>
             <#list foreignObjs as obj>
                 <option value="${obj.id}">${obj}</option>
             </#list>
