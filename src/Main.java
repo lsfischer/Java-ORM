@@ -218,7 +218,7 @@ public class Main {
                 BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
                 bw.write(javaClasses);
                 bw.close();
-            } catch (IOException     e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
@@ -231,6 +231,7 @@ public class Main {
         buildWebGet(model);
         buildWebCreate(model);
         buildApplication(model);
+        buildWebScript(model);
     }
 
     private static void createFile(String parsedFile, Model model, String path) {
@@ -294,5 +295,14 @@ public class Main {
         String applicationJava = model2Text.render(model, "web_Application.ftl");
         System.out.println(applicationJava);
         createFile(applicationJava, model, "src/out/GeneratedProject/src/Application.java");
+    }
+
+    public static void buildWebScript(Model model) {
+        Model2Text model2Text = new Model2Text("src/templates");
+
+            String javaClasses = model2Text.render(model, "web_script.ftl");
+            System.out.println(javaClasses);
+            createFile(javaClasses, model, "src/out/GeneratedProject/src/resources/scripts/script.js");
+
     }
 }
