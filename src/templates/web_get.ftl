@@ -31,4 +31,5 @@
     <input class="button" type="submit" value="Update"/>
     <br/>
 </form>
+<a class="button" href="/${name?lower_case}/list">Back</a>
 

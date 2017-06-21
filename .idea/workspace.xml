@@ -17,7 +17,9 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/bookstore/book/list.html" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/index.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/web_Application.ftl" afterPath="$PROJECT_DIR$/src/templates/web_Application.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/web_create.ftl" afterPath="$PROJECT_DIR$/src/templates/web_create.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/web_get.ftl" afterPath="$PROJECT_DIR$/src/templates/web_get.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/web_list.ftl" afterPath="$PROJECT_DIR$/src/templates/web_list.ftl" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,7 +50,7 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2057">
+            <state relative-caret-position="55">
               <caret line="282" column="16" lean-forward="false" selection-start-line="282" selection-start-column="16" selection-end-line="282" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -60,17 +62,46 @@
                 <element signature="method#getPersonModel#0;class#Main#0" expanded="false" />
                 <element signature="method#getBookStoreModel#0;class#Main#0" expanded="false" />
                 <element signature="method#buildModel#0;class#Main#0" expanded="false" />
-                <marker date="1498055661024" expanded="true" signature="12132:12138" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="web_Application.ftl" pinned="false" current-in-tab="true">
+      <file leaf-file-name="web_Application.ftl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/templates/web_Application.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="446">
-              <caret line="134" column="22" lean-forward="false" selection-start-line="134" selection-start-column="22" selection-end-line="134" selection-end-column="22" />
+            <state relative-caret-position="378">
+              <caret line="130" column="27" lean-forward="false" selection-start-line="130" selection-start-column="27" selection-end-line="130" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="web_list.ftl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/templates/web_list.ftl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="50" lean-forward="false" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="web_create.ftl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/templates/web_create.ftl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="58" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="web_get.ftl" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/templates/web_get.ftl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="28" column="11" lean-forward="true" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -169,14 +200,14 @@
         <option value="$PROJECT_DIR$/src/templates/web_index.ftl" />
         <option value="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/bookstore/author/list.html" />
         <option value="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/index.html" />
-        <option value="$PROJECT_DIR$/src/templates/web_list.ftl" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/scripts/script.js" />
         <option value="$PROJECT_DIR$/src/templates/web_script.ftl" />
-        <option value="$PROJECT_DIR$/src/templates/web_create.ftl" />
-        <option value="$PROJECT_DIR$/src/templates/web_get.ftl" />
         <option value="$PROJECT_DIR$/src/out/GeneratedProject/src/Application.java" />
         <option value="$PROJECT_DIR$/src/templates/web_Application.ftl" />
+        <option value="$PROJECT_DIR$/src/templates/web_list.ftl" />
+        <option value="$PROJECT_DIR$/src/templates/web_create.ftl" />
+        <option value="$PROJECT_DIR$/src/templates/web_get.ftl" />
       </list>
     </option>
   </component>
@@ -370,32 +401,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Java-ORM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DBMLab" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="out.GeneratedProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1093,13 +1098,6 @@
       <workItem from="1498054126359" duration="460000" />
       <workItem from="1498054718029" duration="108000" />
     </task>
-    <task id="LOCAL-00067" summary="Code reusability, worked on todos">
-      <created>1494502232044</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1494502232045</updated>
-    </task>
     <task id="LOCAL-00068" summary="updates">
       <created>1494502339524</created>
       <option name="number" value="00068" />
@@ -1436,11 +1434,18 @@
       <option name="project" value="LOCAL" />
       <updated>1498054553562</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="Já adiciona multiplos autores e livros de uma so vez">
+      <created>1498061445538</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1498061445539</updated>
+    </task>
+    <option name="localTasksCounter" value="117" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101348000" />
+    <option name="totallyTimeSpent" value="102054000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1453,6 +1458,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-11" width="1368" height="780" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32615384" sideWeight="0.49924242" order="6" side_tool="false" content_ui="tabs" />
@@ -1469,7 +1475,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32923076" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19033232" sideWeight="0.4909091" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19033232" sideWeight="0.4909091" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32307693" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1566,7 +1572,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update ao author/list" />
     <MESSAGE value="nem sei" />
     <MESSAGE value="sei la" />
     <MESSAGE value="added css to index page" />
@@ -1591,7 +1596,8 @@
     <MESSAGE value="as validações dos selects required ja estão feitas (se tivermos a criar um book e ele não escolher nenhum autor o browser pede ao user para escolher)" />
     <MESSAGE value="validacoes no update done" />
     <MESSAGE value="correcao do bug do update (valta fazer quando é 1-1 mudar de .addAuthor para .setAuthor) e falta ver quando o utilizador escolhe varios autores ou varios livros ao mesmo tempo" />
-    <option name="LAST_COMMIT_MESSAGE" value="correcao do bug do update (valta fazer quando é 1-1 mudar de .addAuthor para .setAuthor) e falta ver quando o utilizador escolhe varios autores ou varios livros ao mesmo tempo" />
+    <MESSAGE value="Já adiciona multiplos autores e livros de uma so vez" />
+    <option name="LAST_COMMIT_MESSAGE" value="Já adiciona multiplos autores e livros de uma so vez" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1748,6 +1754,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="40" lean-forward="false" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1765,25 +1772,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2057">
-          <caret line="282" column="16" lean-forward="false" selection-start-line="282" selection-start-column="16" selection-end-line="282" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getModelChoice#0;class#Main#0" expanded="false" />
-            <element signature="method#getLanguageChoice#0;class#Main#0" expanded="false" />
-            <element signature="method#startProgram#0;class#Main#0" expanded="false" />
-            <element signature="method#getWhitePagesModel#0;class#Main#0" expanded="false" />
-            <element signature="method#getWorkerModel#0;class#Main#0" expanded="false" />
-            <element signature="method#getPersonModel#0;class#Main#0" expanded="false" />
-            <element signature="method#getBookStoreModel#0;class#Main#0" expanded="false" />
-            <element signature="method#buildModel#0;class#Main#0" expanded="false" />
-            <marker date="1498055661024" expanded="true" signature="12132:12138" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/bookstore/book/create.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1795,14 +1783,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/web_get.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="86" lean-forward="false" selection-start-line="12" selection-start-column="86" selection-end-line="12" selection-end-column="86" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1822,22 +1802,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/web_list.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/web_create.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="57" lean-forward="true" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/out/GeneratedProject/src/Application.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2040">
@@ -1846,10 +1810,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="55">
+          <caret line="282" column="16" lean-forward="false" selection-start-line="282" selection-start-column="16" selection-end-line="282" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getModelChoice#0;class#Main#0" expanded="false" />
+            <element signature="method#getLanguageChoice#0;class#Main#0" expanded="false" />
+            <element signature="method#startProgram#0;class#Main#0" expanded="false" />
+            <element signature="method#getWhitePagesModel#0;class#Main#0" expanded="false" />
+            <element signature="method#getWorkerModel#0;class#Main#0" expanded="false" />
+            <element signature="method#getPersonModel#0;class#Main#0" expanded="false" />
+            <element signature="method#getBookStoreModel#0;class#Main#0" expanded="false" />
+            <element signature="method#buildModel#0;class#Main#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/web_Application.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="134" column="22" lean-forward="false" selection-start-line="134" selection-start-column="22" selection-end-line="134" selection-end-column="22" />
+        <state relative-caret-position="378">
+          <caret line="130" column="27" lean-forward="false" selection-start-line="130" selection-start-column="27" selection-end-line="130" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/web_list.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="50" lean-forward="false" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/web_create.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/web_get.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="28" column="11" lean-forward="true" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
           <folding />
         </state>
       </provider>

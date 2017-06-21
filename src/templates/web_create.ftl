@@ -22,6 +22,7 @@
     <br/>
     <input class="button" type="submit" value="Create" />
 </form>
+<a class="button" href="/${name?lower_case}/list">Back</a>
 
 
 

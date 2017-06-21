@@ -14,4 +14,4 @@ ${r"<#assign nmr = 1 />"}
 <a class="button" href="/${name?lower_case}/create">Create a new ${name}</a>
 </div>
 
-
+<a class="button" href="/">Back</a>
