@@ -1,0 +1,38 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="../../../styles/mainPage.css">
+    <script src="../../../scripts/script.js"></script>
+</head>
+<h1>Create a new Book</h1>
+
+<form action="/book/create" method="post" onsubmit="return validateBook()">
+    <label class="inputLabels" for="title">Title</label>
+    <input class="textField" id="title" name="title" type="text" />
+    <br/>
+    <label class="inputLabels" for="pubdate">Pubdate</label>
+    <input class="textField" id="pubdate" name="pubdate" type="text" required/>
+    <br/>
+    <label class="inputLabels" for="price">Price</label>
+    <input class="textField" id="price" name="price" type="text" />
+    <br/>
+    <label class="inputLabels" for="quantity">Quantity</label>
+    <input class="textField" id="quantity" name="quantity" type="text" required/>
+    <br/>
+    <select class="selectInput" name="author_id" multiple="multiple" required>
+            <#list foreignObjs as obj>
+                <option value="${obj.id}">${obj}</option>
+            </#list>
+    </select>
+    <br/>
+    <input class="button" type="submit" value="Create" />
+</form>
+<a class="button" href="/book/list">Back</a>
+
+
+
+
+
+
+
+
+
+

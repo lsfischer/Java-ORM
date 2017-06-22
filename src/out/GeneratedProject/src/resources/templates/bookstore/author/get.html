@@ -1,0 +1,33 @@
+<!-- Endpoint on browser:  "/person/get"  -->
+<head>
+    <link rel="stylesheet" type="text/css" href="../../../styles/mainPage.css">
+    <script src="../../../scripts/script.js"></script>
+</head>
+
+<h1>List one Author</h1>
+
+<form action="/author/update" method="post" onsubmit="return validateAuthor()">
+    <input name="id" type="hidden" value="${obj.id}"/>
+    <label class="inputLabels" for="first_name">First_name</label>
+    <input class="textField" id="first_name" name="first_name" type="text" value="${obj.first_name}" />
+    <br/>
+    <label class="inputLabels" for="last_name">Last_name</label>
+    <input class="textField" id="last_name" name="last_name" type="text" value="${obj.last_name}" />
+    <br/>
+    <label class="inputLabels" for="email">Email</label>
+    <input class="textField" id="email" name="email" type="text" value="${obj.email}" />
+    <br/>
+        <h2 class="foreignTitle">Books</h2>
+        <select class="selectInput" name="foreignList">
+            <#list relation as rel>
+                <option value="${rel.id}">${rel}</option>
+            </#list>
+        </select>
+
+
+    <br/>
+    <input class="button" type="submit" value="Update"/>
+    <br/>
+</form>
+<a class="button" href="/author/list">Back</a>
+

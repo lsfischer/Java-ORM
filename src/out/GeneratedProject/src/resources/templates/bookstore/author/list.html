@@ -1,0 +1,17 @@
+<!-- Endpoint on browser:  "/author/list/"  -->
+<head>
+    <link rel="stylesheet" type="text/css" href="../../../styles/mainPage.css">
+</head>
+<h1>Existing Authors</h1>
+<div id="bodySection">
+<ul>
+<#assign nmr = 1 />
+    <#list objs as obj>
+        <li><a class="entitiesItem" href="/author/get?id=${obj.id}">Author_${nmr}</a> <a class="deleteButton" href="/author/delete?id=${obj.id}">[Delete]</a></li>
+    <#assign nmr = nmr + 1 />
+    </#list>
+</ul>
+<a class="button" href="/author/create">Create a new Author</a>
+
+<a class="button" style="margin-top: 20px;" href="/">Back</a>
+</div>

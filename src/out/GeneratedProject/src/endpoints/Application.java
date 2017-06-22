@@ -4,7 +4,8 @@ package endpoints;
  *
  */
 
-import person.Person;
+import bookstore.Author;
+import bookstore.Book;
 import utils.FreemarkerEngine;
 import java.util.HashMap;
 
@@ -19,54 +20,135 @@ public class Application {
             return engine.render(null, "index.html");
         });
 
-        // Set up Person endpoints
-        get("/person/list", (request, response) -> {
+        // Set up Author endpoints
+        get("/author/list", (request, response) -> {
             HashMap<Object,Object> model = new HashMap<>();
-            model.put("objs",Person.all());
-            return engine.render(model,"person/person/list.html");
+            model.put("objs",Author.all());
+            return engine.render(model,"bookstore/author/list.html");
         });
 
 
-        get("/person/get", (request, response) -> {
+        get("/author/get", (request, response) -> {
             HashMap<Object,Object> model = new HashMap<>();
-            Person objct = Person.get(request.queryParams("id"));
+            Author objct = Author.get(request.queryParams("id"));
             model.put("obj",objct);
+            model.put("relation",objct.getBooks());
 
-            return engine.render(model,"person/person/get.html");
+            return engine.render(model,"bookstore/author/get.html");
         });
 
 
-        post("/person/update", (request, response) -> {
-            Person obj = Person.get(request.queryParams("id"));
+        post("/author/update", (request, response) -> {
+            Author obj = Author.get(request.queryParams("id"));
 
-            obj.setName(request.queryParams("name"));
-            obj.setAge(Integer.parseInt(request.queryParams("age")));
+            obj.setFirst_name(request.queryParams("first_name"));
+            obj.setLast_name(request.queryParams("last_name"));
+            obj.setEmail(request.queryParams("email"));
+            Book book = Book.get(request.queryParams("foreignList"));
+            obj.addBook(book);
             obj.save();
 
-            response.redirect("/person/list");
+            response.redirect("/author/list");
             return null;
         });
 
-        get("/person/delete", (request, response) -> {
-            Person obj = Person.get(request.queryParams("id"));
+        get("/author/delete", (request, response) -> {
+            Author obj = Author.get(request.queryParams("id"));
             obj.delete();
-            response.redirect("/person/list");
+            response.redirect("/author/list");
             return null;
         });
 
-        get("/person/create", (request, response) -> {
+        get("/author/create", (request, response) -> {
             HashMap<Object,Object> model = new HashMap<>();
-            return engine.render(model,"person/person/create.html");
+	    model.put("foreignObjs",Book.all());
+            return engine.render(model,"bookstore/author/create.html");
         });
 
-        post("/person/create", (request, response) -> {
+        post("/author/create", (request, response) -> {
 
-            Person obj = new Person("", 0);
-            obj.setName(request.queryParams("name"));
-            obj.setAge(Integer.parseInt(request.queryParams("age")));
+            Author obj = new Author();
+            if(request.queryParams("book_id") != null){
+                String books[] = request.queryMap("book_id").values();
+                for(int i = 0; i < books.length;i++){
+                        Book book = Book.get(books[i]);
+                        obj.addBook(book);
+                }
+            }
+            obj.setFirst_name(request.queryParams("first_name"));
+            obj.setLast_name(request.queryParams("last_name"));
+            obj.setEmail(request.queryParams("email"));
             obj.save();
 
-            response.redirect("/person/list");
+            response.redirect("/author/list");
+            return null;
+
+        });
+
+
+        // Set up Book endpoints
+        get("/book/list", (request, response) -> {
+            HashMap<Object,Object> model = new HashMap<>();
+            model.put("objs",Book.all());
+            return engine.render(model,"bookstore/book/list.html");
+        });
+
+
+        get("/book/get", (request, response) -> {
+            HashMap<Object,Object> model = new HashMap<>();
+            Book objct = Book.get(request.queryParams("id"));
+            model.put("obj",objct);
+            model.put("relation",objct.getAuthor());
+
+            return engine.render(model,"bookstore/book/get.html");
+        });
+
+
+        post("/book/update", (request, response) -> {
+            Book obj = Book.get(request.queryParams("id"));
+
+            obj.setTitle(request.queryParams("title"));
+            obj.setPubdate(request.queryParams("pubdate"));
+            obj.setPrice(Double.parseDouble(request.queryParams("price")));
+            obj.setQuantity(Integer.parseInt(request.queryParams("quantity")));
+            Author author = Author.get(request.queryParams("foreignList"));
+            obj.addAuthor(author);
+            obj.save();
+
+            response.redirect("/book/list");
+            return null;
+        });
+
+        get("/book/delete", (request, response) -> {
+            Book obj = Book.get(request.queryParams("id"));
+            obj.delete();
+            response.redirect("/book/list");
+            return null;
+        });
+
+        get("/book/create", (request, response) -> {
+            HashMap<Object,Object> model = new HashMap<>();
+	    model.put("foreignObjs",Author.all());
+            return engine.render(model,"bookstore/book/create.html");
+        });
+
+        post("/book/create", (request, response) -> {
+
+            Book obj = new Book("", 0);
+            if(request.queryParams("author_id") != null){
+                String authors[] = request.queryMap("author_id").values();
+                for(int i = 0; i < authors.length;i++){
+                    Author author = Author.get(authors[i]);
+                    obj.addAuthor(author);
+                }
+            }
+            obj.setTitle(request.queryParams("title"));
+            obj.setPubdate(request.queryParams("pubdate"));
+            obj.setPrice(Double.parseDouble(request.queryParams("price")));
+            obj.setQuantity(Integer.parseInt(request.queryParams("quantity")));
+            obj.save();
+
+            response.redirect("/book/list");
             return null;
 
         });
