@@ -5,17 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="362a2e9b-8028-44a0-b85b-21b753214301" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/MainApplication.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/endpoints/Application.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/endpoints/ApplicationREST.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/person/Person.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/person/person.db" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/person/person/create.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/person/person/get.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/person/person/list.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/scripts/script.js" afterPath="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/scripts/script.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/index.html" afterPath="$PROJECT_DIR$/src/out/GeneratedProject/src/resources/templates/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -986,14 +976,7 @@
       <workItem from="1498168436799" duration="382000" />
       <workItem from="1498171961923" duration="2255000" />
       <workItem from="1498174470196" duration="313000" />
-      <workItem from="1498174938648" duration="49000" />
-    </task>
-    <task id="LOCAL-00076" summary="Updates">
-      <created>1494607590090</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1494607590090</updated>
+      <workItem from="1498174938648" duration="69000" />
     </task>
     <task id="LOCAL-00077" summary="Updates">
       <created>1494607601567</created>
@@ -1331,11 +1314,18 @@
       <option name="project" value="LOCAL" />
       <updated>1498174960467</updated>
     </task>
-    <option name="localTasksCounter" value="125" />
+    <task id="LOCAL-00125" summary="Final commit">
+      <created>1498174998268</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1498174998268</updated>
+    </task>
+    <option name="localTasksCounter" value="126" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116219000" />
+    <option name="totallyTimeSpent" value="116239000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
