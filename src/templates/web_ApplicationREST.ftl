@@ -21,8 +21,6 @@ public class ApplicationREST {
             <#list class.relations as rels>
             <#if class.name == rels.foreignClass.name>
                 obj.get${rels.regularClass.name}s();
-            <#else>
-                obj.get${rels.foreignClass.name}();
             </#if>
             </#list>
             }
@@ -34,6 +32,11 @@ public class ApplicationREST {
         get("/api/${class.name?lower_case}/:id/", (request, response) -> {
             String id = request.params(":id");
             ${class.name} ${class.name?lower_case} = ${class.name}.get(id);
+            <#list class.relations as rels>
+            <#if class.name == rels.foreignClass.name>
+            ${class.name?lower_case}.get${rels.regularClass.name}s();
+            </#if>
+            </#list>
             if (${class.name?lower_case} == null) {
              response.status(404);
             } else {

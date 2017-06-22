@@ -26,6 +26,7 @@ public class ApplicationREST {
         get("/api/author/:id/", (request, response) -> {
             String id = request.params(":id");
             Author author = Author.get(id);
+            author.getBooks();
             if (author == null) {
              response.status(404);
             } else {
@@ -39,7 +40,6 @@ public class ApplicationREST {
         get("/api/book/", (request, response) -> {
             ArrayList<Book> books = Book.all();
             for(Book obj : books){
-                obj.getAuthor();
             }
             String jsonStr = gson.toJson(books);
             response.type("application/json");
