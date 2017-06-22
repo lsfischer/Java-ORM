@@ -47,6 +47,20 @@ public class ApplicationREST {
             return null;
         });
 
+        post("/api/${class.name?lower_case}/", (request, response) -> {
+            String json = request.body();
+            if (json.isEmpty()) {
+                response.status(400);
+                return "";
+            } else {
+                ${class.name} fromJson = gson.fromJson(json, ${class.name}.class);
+                fromJson.setId(0);
+                fromJson.save();
+                response.status(201);
+                return gson.toJson(fromJson);
+            }
+        });
+
         put("/api/${class.name?lower_case}/:id/", (request, response) -> {
             String jsonStr = request.body();
             if (jsonStr.isEmpty()) {

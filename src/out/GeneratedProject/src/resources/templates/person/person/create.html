@@ -1,0 +1,27 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="../../../styles/mainPage.css">
+    <script src="../../../scripts/script.js"></script>
+</head>
+<h1>Create a new Person</h1>
+
+<form action="/person/create" method="post" onsubmit="return validatePerson()">
+    <label class="inputLabels" for="name">Name</label>
+    <input class="textField" id="name" name="name" type="text" required/>
+    <br/>
+    <label class="inputLabels" for="age">Age</label>
+    <input class="textField" id="age" name="age" type="text" required/>
+    <br/>
+    <br/>
+    <input class="button" type="submit" value="Create" />
+</form>
+<a class="button" href="/person/list">Back</a>
+
+
+
+
+
+
+
+
+
+

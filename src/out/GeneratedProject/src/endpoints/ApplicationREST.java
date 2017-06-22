@@ -6,46 +6,57 @@ import utils.FreemarkerEngine;
 import java.util.ArrayList;
 import java.util.HashMap;
 import static spark.Spark.*;
-import bookstore.Author;
-import bookstore.Book;
+import person.Person;
 
 public class ApplicationREST {
 
     public static void restEndPoints(FreemarkerEngine engine) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        get("/api/author/", (request, response) -> {
-            ArrayList<Author> authors = Author.all();
-            for(Author obj : authors){
-                obj.getBooks();
+        get("/api/person/", (request, response) -> {
+            ArrayList<Person> persons = Person.all();
+            for(Person obj : persons){
             }
-            String jsonStr = gson.toJson(authors);
+            String jsonStr = gson.toJson(persons);
             response.type("application/json");
             return jsonStr;
             });
 
-        get("/api/author/:id/", (request, response) -> {
+        get("/api/person/:id/", (request, response) -> {
             String id = request.params(":id");
-            Author author = Author.get(id);
-            author.getBooks();
-            if (author == null) {
+            Person person = Person.get(id);
+            if (person == null) {
              response.status(404);
             } else {
-                String jsonStr = gson.toJson(author);
+                String jsonStr = gson.toJson(person);
                 response.type("application/json");
                 return jsonStr;
             }
             return null;
         });
 
-        put("/api/author/:id/", (request, response) -> {
+        post("/api/person/", (request, response) -> {
+            String json = request.body();
+            if (json.isEmpty()) {
+                response.status(400);
+                return "";
+            } else {
+                Person fromJson = gson.fromJson(json, Person.class);
+                fromJson.setId(0);
+                fromJson.save();
+                response.status(201);
+                return gson.toJson(fromJson);
+            }
+        });
+
+        put("/api/person/:id/", (request, response) -> {
             String jsonStr = request.body();
             if (jsonStr.isEmpty()) {
                 response.status(400);
                 return "";
             } else {
-                Author fromJson = gson.fromJson(jsonStr, Author.class);
+                Person fromJson = gson.fromJson(jsonStr, Person.class);
                 String id = request.params(":id");
-                Author objectToUpdate = Author.get(id);
+                Person objectToUpdate = Person.get(id);
                 objectToUpdate = fromJson;
                 objectToUpdate.save();
                 response.type("application/json");
@@ -53,65 +64,15 @@ public class ApplicationREST {
             }
         });
 
-        delete("/api/author/:id/", (request, response) -> {
+        delete("/api/person/:id/", (request, response) -> {
             String id = request.params(":id");
-            Author toDelete = Author.get(id);
+            Person toDelete = Person.get(id);
             if (toDelete == null) {
                 response.status(404); //podiamos omitir porque ao fazermos return null ele ja nos da 404
                 return null;
             } else {
                 toDelete.delete();
-                response.redirect("/api/author/");
-                return null;
-            }
-        });
-        get("/api/book/", (request, response) -> {
-            ArrayList<Book> books = Book.all();
-            for(Book obj : books){
-            }
-            String jsonStr = gson.toJson(books);
-            response.type("application/json");
-            return jsonStr;
-            });
-
-        get("/api/book/:id/", (request, response) -> {
-            String id = request.params(":id");
-            Book book = Book.get(id);
-            if (book == null) {
-             response.status(404);
-            } else {
-                String jsonStr = gson.toJson(book);
-                response.type("application/json");
-                return jsonStr;
-            }
-            return null;
-        });
-
-        put("/api/book/:id/", (request, response) -> {
-            String jsonStr = request.body();
-            if (jsonStr.isEmpty()) {
-                response.status(400);
-                return "";
-            } else {
-                Book fromJson = gson.fromJson(jsonStr, Book.class);
-                String id = request.params(":id");
-                Book objectToUpdate = Book.get(id);
-                objectToUpdate = fromJson;
-                objectToUpdate.save();
-                response.type("application/json");
-                return gson.toJson(objectToUpdate);
-            }
-        });
-
-        delete("/api/book/:id/", (request, response) -> {
-            String id = request.params(":id");
-            Book toDelete = Book.get(id);
-            if (toDelete == null) {
-                response.status(404); //podiamos omitir porque ao fazermos return null ele ja nos da 404
-                return null;
-            } else {
-                toDelete.delete();
-                response.redirect("/api/book/");
+                response.redirect("/api/person/");
                 return null;
             }
         });
