@@ -47,13 +47,13 @@ public class ApplicationREST {
             return null;
         });
 
-        put("/api/${class.name}/:id/", (request, response) -> {
+        put("/api/${class.name?lower_case}/:id/", (request, response) -> {
             String jsonStr = request.body();
             if (jsonStr.isEmpty()) {
                 response.status(400);
                 return "";
             } else {
-                ${class.name} fromJson = gson.fromJson(jsonStr, Person.class);
+                ${class.name} fromJson = gson.fromJson(jsonStr, ${class.name}.class);
                 String id = request.params(":id");
                 ${class.name} objectToUpdate = ${class.name}.get(id);
                 objectToUpdate = fromJson;
@@ -63,6 +63,18 @@ public class ApplicationREST {
             }
         });
 
+        delete("/api/${class.name?lower_case}/:id/", (request, response) -> {
+            String id = request.params(":id");
+            ${class.name} toDelete = ${class.name}.get(id);
+            if (toDelete == null) {
+                response.status(404); //podiamos omitir porque ao fazermos return null ele ja nos da 404
+                return null;
+            } else {
+                toDelete.delete();
+                response.redirect("/api/${class.name?lower_case}/");
+                return null;
+            }
+        });
         </#list>
 
     }
