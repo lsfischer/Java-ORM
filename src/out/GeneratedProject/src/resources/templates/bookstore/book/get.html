@@ -21,11 +21,13 @@
     <input class="textField" id="quantity" name="quantity" type="text" value="${obj.quantity}" required/>
     <br/>
         <h2 class="foreignTitle">Authors</h2>
-    <select class="selectInput" name="foreignList">
-        <#list relation as rel>
-            <option value="${rel.id}">${rel}</option>
-        </#list>
-    </select>
+        <select class="selectInput" name="foreignList">
+            <#list relation as rel>
+                <option value="${rel.id}">${rel}</option>
+            </#list>
+        </select>
+
+
     <br/>
     <input class="button" type="submit" value="Update"/>
     <br/>

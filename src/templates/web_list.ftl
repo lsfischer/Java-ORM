@@ -12,6 +12,6 @@ ${r"<#assign nmr = 1 />"}
     ${r"</#list>"}
 </ul>
 <a class="button" href="/${name?lower_case}/create">Create a new ${name}</a>
-</div>
 
-<a class="button" href="/">Back</a>
+<a class="button" style="margin-top: 20px;" href="/">Back</a>
+</div>

@@ -22,12 +22,9 @@ public class Main {
         System.out.println("1 - BookStore");
         System.out.println("2 - Person");
         System.out.println("3 - Person(XMI model)");
-        System.out.println("4- WhitePages");
-        System.out.println("5- Worker");
 
         String modelChoice = sc.nextLine();
-        while (!modelChoice.equals("1") && !modelChoice.equals("2") && !modelChoice.equals("3")
-                && !modelChoice.equals("4") && !modelChoice.equals("5")) {
+        while (!modelChoice.equals("1") && !modelChoice.equals("2") && !modelChoice.equals("3")) {
             System.out.println("Invalid Choice");
             modelChoice = sc.nextLine();
         }
@@ -72,63 +69,8 @@ public class Main {
             Model model = Model2Model.getModel("src/models/person.xml", true);
             buildServerApp(model);
         }
-        if (modelChoice.equals("4") && languageChoice.equals("1")) {
-            buildServerApp(getWhitePagesModel());
-        }
-        if (modelChoice.equals("4") && languageChoice.equals("2")) {
-            Model model = Model2Model.getModel("src/models/whitepages.xml", true);
-            buildServerApp(model);
-        }
-        if (modelChoice.equals("5") && languageChoice.equals("1")) {
-            buildServerApp(getWorkerModel());
-        }
-        if (modelChoice.equals("5") && languageChoice.equals("2")) {
-            Model model = Model2Model.getModel("src/models/worker.xml", true);
-            buildServerApp(model);
-        }
     }
 
-    public static Model getWhitePagesModel() {
-        Model model = new Model("Whitepages");
-        Class person = new Class("Person");
-        person.addAttribute(new Attribute("first_name", "String"));
-        person.addAttribute(new Attribute("last_name", "String"));
-        person.setPkg(model.getName().toLowerCase());
-
-        Class cellPhone = new Class("CellPhone");
-        cellPhone.addAttribute(new Attribute("number", "int"));
-        cellPhone.setPkg(model.getName().toLowerCase());
-
-        Relation relation = new Relation(person, cellPhone, "12N", true, false);
-        person.addRelation(relation);
-        cellPhone.addRelation(relation);
-
-        model.addClass(person);
-        model.addClass(cellPhone);
-        return model;
-    }
-
-    public static Model getWorkerModel() {
-        Model model = new Model("Worker");
-        Class person = new Class("Person");
-        person.addAttribute(new Attribute("first_name", "String"));
-        person.addAttribute(new Attribute("last_name", "String"));
-        person.setPkg(model.getName().toLowerCase());
-
-        Class worker = new Class("Worker");
-        worker.addAttribute(new Attribute("job", "String"));
-        worker.addAttribute(new Attribute("jobDescription", "String"));
-        worker.addAttribute(new Attribute("salary", "int"));
-        worker.setPkg(model.getName().toLowerCase());
-
-        Relation relation = new Relation(person, worker, "121", true, false);
-        person.addRelation(relation);
-        worker.addRelation(relation);
-
-        model.addClass(person);
-        model.addClass(worker);
-        return model;
-    }
 
     public static Model getPersonModel() {
         Model model = new Model("Person");

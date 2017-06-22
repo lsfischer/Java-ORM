@@ -20,13 +20,17 @@
         <h2 class="foreignTitle">${rels.foreignClass.name}s</h2>
     </#if>
 </#list>
-<#noparse>
-    <select class="selectInput" name="foreignList">
-        <#list relation as rel>
-            <option value="${rel.id}">${rel}</option>
-        </#list>
-    </select>
-</#noparse>
+<#if relations?size != 0>
+    <#noparse>
+        <select class="selectInput" name="foreignList">
+            <#list relation as rel>
+                <option value="${rel.id}">${rel}</option>
+            </#list>
+        </select>
+    </#noparse>
+</#if>
+
+
     <br/>
     <input class="button" type="submit" value="Update"/>
     <br/>
