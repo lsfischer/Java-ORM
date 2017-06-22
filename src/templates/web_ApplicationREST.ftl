@@ -22,7 +22,7 @@ public class ApplicationREST {
             <#if class.name == rels.foreignClass.name>
                 obj.get${rels.regularClass.name}s();
             <#else>
-                obj.get${rels.foreignClass.name}s();
+                obj.get${rels.foreignClass.name}();
             </#if>
             </#list>
             }
@@ -32,7 +32,7 @@ public class ApplicationREST {
             });
 
         get("/api/${class.name?lower_case}/:id/", (request, response) -> {
-            int id = Integer.parseInt(request.params(":id"));
+            String id = request.params(":id");
             ${class.name} ${class.name?lower_case} = ${class.name}.get(id);
             if (${class.name?lower_case} == null) {
              response.status(404);
