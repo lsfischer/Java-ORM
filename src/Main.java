@@ -14,9 +14,7 @@ public class Main {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        //startProgram();
-        //testORM();
-        buildServerApp(Model2Model.getModel("src/models/bookstore.xml", true));
+        startProgram();
     }
 
     public static String getModelChoice() {
@@ -54,39 +52,39 @@ public class Main {
         String languageChoice = "";
         if (modelChoice.equals("3")) {
             Model model = Model2Model.getModel("src/models/person.xmi", false);
-            buildModel(model);
+            buildServerApp(model);
         } else {
             languageChoice = getLanguageChoice();
         }
 
 
         if (modelChoice.equals("1") && languageChoice.equals("1")) {
-            buildModel(getBookStoreModel());
+            buildServerApp(getBookStoreModel());
         }
         if (modelChoice.equals("2") && languageChoice.equals("1")) {
-            buildModel(getPersonModel());
+            buildServerApp(getPersonModel());
         }
         if (modelChoice.equals("1") && languageChoice.equals("2")) {
             Model model = Model2Model.getModel("src/models/bookstore.xml", true);
-            buildModel(model);
+            buildServerApp(model);
         }
         if (modelChoice.equals("2") && languageChoice.equals("2")) {
             Model model = Model2Model.getModel("src/models/person.xml", true);
-            buildModel(model);
+            buildServerApp(model);
         }
         if (modelChoice.equals("4") && languageChoice.equals("1")) {
-            buildModel(getWhitePagesModel());
+            buildServerApp(getWhitePagesModel());
         }
         if (modelChoice.equals("4") && languageChoice.equals("2")) {
             Model model = Model2Model.getModel("src/models/whitepages.xml", true);
-            buildModel(model);
+            buildServerApp(model);
         }
         if (modelChoice.equals("5") && languageChoice.equals("1")) {
-            buildModel(getWorkerModel());
+            buildServerApp(getWorkerModel());
         }
         if (modelChoice.equals("5") && languageChoice.equals("2")) {
             Model model = Model2Model.getModel("src/models/worker.xml", true);
-            buildModel(model);
+            buildServerApp(model);
         }
     }
 
