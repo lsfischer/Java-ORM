@@ -1,3 +1,4 @@
+package endpoints;
 /*
  * Simple Spark web application
  *
@@ -12,15 +13,7 @@ import static spark.Spark.*;
 
 public class Application {
 
-    public static void main(String[] args) {
-
-
-        // Configure Spark
-        port(8000);
-        staticFiles.externalLocation("src/resources");
-
-        // Configure freemarker engine
-        FreemarkerEngine engine = new FreemarkerEngine("src/resources/templates");
+    public static void htmlEndPoints(FreemarkerEngine engine) {
 
         // Set up endpoints
         get("/", (request, response) -> {

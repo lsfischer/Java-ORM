@@ -265,9 +265,7 @@ public class ${name} {
         }
         sqLiteConn.close();
         <#list relations as rels>
-        <#if rels.regularClass.name = name>
          saveRelation();
-        </#if>
         <#if rels.regularClass.name = name && rels.secondClassRequired>
          }else{
             System.out.println("You need to add a ${rels.foreignClass.name?lower_case} to this ${name?lower_case}");
@@ -282,7 +280,6 @@ public class ${name} {
     }
 
     <#list relations as rels>
-    <#if rels.regularClass.name = name>
      /**
       * Metodo privado que adiciona na tabela relacao, as relacoes entre este Objeto e os Objetos presentes na ArrayList de {rels.foreignClass.name}
       */
@@ -319,7 +316,6 @@ public class ${name} {
         }
         </#if>
      }
-    </#if>
     </#list>
 
     /**

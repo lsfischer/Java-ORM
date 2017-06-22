@@ -223,12 +223,14 @@ public class Main {
     }
 
     public static void buildServerApp(Model model) {
+        buildMain();
         buildModelToServer(model);
         buildWebIndex(model);
         buildWebList(model);
         buildWebGet(model);
         buildWebCreate(model);
         buildApplication(model);
+        buildApplicationREST(model);
         buildWebScript(model);
     }
 
@@ -292,15 +294,29 @@ public class Main {
         Model2Text model2Text = new Model2Text("src/templates");
         String applicationJava = model2Text.render(model, "web_Application.ftl");
         System.out.println(applicationJava);
-        createFile(applicationJava, model, "src/out/GeneratedProject/src/Application.java");
+        File f = new File("src/out/GeneratedProject/src/endpoints/");
+        f.mkdirs();
+        createFile(applicationJava, model, "src/out/GeneratedProject/src/endpoints/Application.java");
+    }
+
+    public static void buildApplicationREST(Model model) {
+        Model2Text model2Text = new Model2Text("src/templates");
+        String applicationJavaREST = model2Text.render(model, "web_ApplicationREST.ftl");
+        System.out.println(applicationJavaREST);
+        createFile(applicationJavaREST, model, "src/out/GeneratedProject/src/endpoints/ApplicationREST.java");
     }
 
     public static void buildWebScript(Model model) {
         Model2Text model2Text = new Model2Text("src/templates");
+        String javaClasses = model2Text.render(model, "web_script.ftl");
+        System.out.println(javaClasses);
+        createFile(javaClasses, model, "src/out/GeneratedProject/src/resources/scripts/script.js");
 
-            String javaClasses = model2Text.render(model, "web_script.ftl");
-            System.out.println(javaClasses);
-            createFile(javaClasses, model, "src/out/GeneratedProject/src/resources/scripts/script.js");
+    }
 
+    public static void buildMain() {
+        Model2Text model2Text = new Model2Text("src/templates");
+        String javaClasses = model2Text.render(null, "web_Main.ftl");
+        createFile(javaClasses, null, "src/out/GeneratedProject/src/MainApplication.java");
     }
 }

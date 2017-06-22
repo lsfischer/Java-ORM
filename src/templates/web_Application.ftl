@@ -1,3 +1,4 @@
+package endpoints;
 /*
  * Simple Spark web application
  *
@@ -13,23 +14,15 @@ import static spark.Spark.*;
 
 public class Application {
 
-    public static void main(String[] args) {
+    public static void htmlEndPoints(FreemarkerEngine engine) {
 
-
-        // Configure Spark
-        port(8000);
-        staticFiles.externalLocation("src/resources");
-
-        // Configure freemarker engine
-        FreemarkerEngine engine = new FreemarkerEngine("src/resources/templates");
-
-        <#list classes as class>
         // Set up endpoints
         get("/", (request, response) -> {
             return engine.render(null, "index.html");
         });
+        <#list classes as class>
 
-        // Set up Person endpoints
+        // Set up ${class.name} endpoints
         get("/${class.name?lower_case}/list", (request, response) -> {
             HashMap<Object,Object> model = new HashMap<>();
             model.put("objs",${class.name}.all());

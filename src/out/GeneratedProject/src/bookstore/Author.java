@@ -146,8 +146,23 @@ public class Author {
             setId(idPerson);
         }
         sqLiteConn.close();
+         saveRelation();
     }
 
+     /**
+      * Metodo privado que adiciona na tabela relacao, as relacoes entre este Objeto e os Objetos presentes na ArrayList de {rels.foreignClass.name}
+      */
+     private void saveRelation(){
+         for(Author object : author){
+            if(object.getId() == 0){
+                object.save();
+            }
+            openSqLite();
+            String sql = String.format("INSERT INTO Book_Author (book_id, author_id) VALUES ('%s', '%s')", this.id, object.getId());
+            sqLiteConn.executeUpdate(sql);
+            sqLiteConn.close();
+         }
+     }
 
     /**
      * Metodo que elimina da base de dados o registo correspondente a esta Classe
