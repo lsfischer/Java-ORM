@@ -47,6 +47,22 @@ public class ApplicationREST {
             return null;
         });
 
+        put("/api/${class.name}/:id/", (request, response) -> {
+            String jsonStr = request.body();
+            if (jsonStr.isEmpty()) {
+                response.status(400);
+                return "";
+            } else {
+                ${class.name} fromJson = gson.fromJson(jsonStr, Person.class);
+                String id = request.params(":id");
+                ${class.name} objectToUpdate = ${class.name}.get(id);
+                objectToUpdate = fromJson;
+                objectToUpdate.save();
+                response.type("application/json");
+                return gson.toJson(objectToUpdate);
+            }
+        });
+
         </#list>
 
     }

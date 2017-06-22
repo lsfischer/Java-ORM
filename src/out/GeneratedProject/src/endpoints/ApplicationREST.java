@@ -37,6 +37,22 @@ public class ApplicationREST {
             return null;
         });
 
+        put("/api/Author/:id/", (request, response) -> {
+            String jsonStr = request.body();
+            if (jsonStr.isEmpty()) {
+                response.status(400);
+                return "";
+            } else {
+                Author fromJson = gson.fromJson(jsonStr, Person.class);
+                String id = request.params(":id");
+                Author objectToUpdate = Author.get(id);
+                objectToUpdate = fromJson;
+                objectToUpdate.save();
+                response.type("application/json");
+                return gson.toJson(objectToUpdate);
+            }
+        });
+
         get("/api/book/", (request, response) -> {
             ArrayList<Book> books = Book.all();
             for(Book obj : books){
@@ -57,6 +73,22 @@ public class ApplicationREST {
                 return jsonStr;
             }
             return null;
+        });
+
+        put("/api/Book/:id/", (request, response) -> {
+            String jsonStr = request.body();
+            if (jsonStr.isEmpty()) {
+                response.status(400);
+                return "";
+            } else {
+                Book fromJson = gson.fromJson(jsonStr, Person.class);
+                String id = request.params(":id");
+                Book objectToUpdate = Book.get(id);
+                objectToUpdate = fromJson;
+                objectToUpdate.save();
+                response.type("application/json");
+                return gson.toJson(objectToUpdate);
+            }
         });
 
 
